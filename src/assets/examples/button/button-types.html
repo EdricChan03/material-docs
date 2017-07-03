@@ -1,0 +1,28 @@
+Color:
+<md-radio-group [(ngModel)]="color">
+    <md-radio-button value="primary">Primary</md-radio-button>
+    <md-radio-button value="accent">Accent</md-radio-button>
+    <md-radio-button value="warn">Warn</md-radio-button>
+    <md-radio-button value="">None</md-radio-button>
+</md-radio-group>
+<md-checkbox [(ngModel)]="disabled">Disabled</md-checkbox>
+<hr>
+<h3>Normal Buttons</h3>
+<button md-button [color]="color" [disabled]="disabled">Button</button>
+<button md-raised-button [color]="color" [disabled]="disabled">Raised Button</button>
+<button md-button class="uppercase-btn" [color]="color" [disabled]="disabled">Custom Button</button>
+<button md-fab [color]="color" [disabled]="disabled"><md-icon>check</md-icon></button>
+<button md-mini-fab [color]="color" [disabled]="disabled"><md-icon>check</md-icon></button>
+<button md-icon-button [color]="color" [disabled]="disabled">
+    <md-icon>check</md-icon>
+</button>
+<br>
+<h3>Link Button</h3>
+<a md-button [color]="color" [disabled]="disabled" routerLink=".">Button</a>
+<a md-raised-button [color]="color" [disabled]="disabled" routerLink=".">Raised Button</a>
+<a md-button class="uppercase-btn" [disabled]="disabled" [color]="color" routerLink=".">Custom Button</a>
+<a md-fab [color]="color" [disabled]="disabled" routerLink="."><md-icon>check</md-icon></a>
+<a md-mini-fab [color]="color" [disabled]="disabled" routerLink="."><md-icon>check</md-icon></a>
+<a md-icon-button [color]="color" [disabled]="disabled" routerLink=".">
+    <md-icon>check</md-icon>
+</a>

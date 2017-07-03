@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container fullscreen>
+    <md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar">
+        <button md-icon-button (click)="docssidenav.toggle()"><md-icon>menu</md-icon></button> Material2 Docs
+        <span fxFlex></span>
+        <button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon>more_vert</md-icon></button>
+        <md-menu #moreMenu="mdMenu">
+            <button md-menu-item>View on Github</button>
+            <button md-menu-item>About</button>
+        </md-menu>
+    </md-toolbar>
+    <md-sidenav #docssidenav mode="side" class="component-sidenav">
+        <md-toolbar color="primary" class="mat-elevation-z6" style="position: sticky; top: 0; z-index: 1;">
+            Components
+            <span fxFlex></span>
+            <button md-icon-button (click)="docssidenav.close()"><md-icon>close</md-icon></button>
+        </md-toolbar>
+        <md-nav-list *ngFor="let category of categories">
+            <h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
+            <a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items">{{component.name}}</a>
+        </md-nav-list>
+    </md-sidenav>
+    <div class="docs-title">
+        <h1>Button</h1>
+    </div>
+    <div class="example-app">
+        <router-outlet></router-outlet>
+    </div>
+</md-sidenav-container>

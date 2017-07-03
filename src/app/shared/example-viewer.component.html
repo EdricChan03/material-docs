@@ -1,0 +1,9 @@
+<div class="example-viewer mat-elevation-z4" fxLayout="column">
+    <md-toolbar>{{title}}<span fxFlex></span><button md-icon-button (click)="toggleSource()" mdTooltip="{{showCode ? 'Hide': 'Show'}} source code"><md-icon>code</md-icon></button></md-toolbar>
+    <md-tab-group *ngIf="showCode" dynamicHeight>
+        <md-tab label="{{file.label}}" *ngFor="let file of files">
+            <div class="example-viewer-code hljs" [innerHTML]="file.code"></div>
+        </md-tab>
+    </md-tab-group>
+    <div #code></div>
+</div>

@@ -1,0 +1,11 @@
+<nav md-tab-nav-bar>
+    <a md-tab-link
+       *ngFor="let tabLink of [{'label': 'Overview', 'link': 'overview'}, {'label': 'API', 'link': 'api'}, {'label': 'Examples', 'link': 'examples'}]"
+       [routerLink]="tabLink.link"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive"
+       class="docs-nav-tabs">
+      {{tabLink.label}}
+    </a>
+</nav>
+<router-outlet></router-outlet>
