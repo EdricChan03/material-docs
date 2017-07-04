@@ -10,7 +10,7 @@ TODO: Customize of themes.
 .example-padding {
     padding: 5px;
 }
-.uppercase-btn, .docs-btn {
+.docs-btn {
     text-transform: uppercase;
 }
 .sidenav-subheader {
@@ -72,4 +72,8 @@ body {
 }
 .example-app {
     margin: 20px 70px 50px 70px;
+}
+.mat-icon svg {
+    width: 24px;
+    height: 24px;
 }

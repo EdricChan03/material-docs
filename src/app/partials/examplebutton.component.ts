@@ -1,3 +1,5 @@
+import { ButtonTooltipComponent } from './../../assets/examples/button/button-tooltip';
+import { Files } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsExampleBtn implements OnInit {
-
-    ngOnInit() { }
+    ngOnInit() {
+    }
 }

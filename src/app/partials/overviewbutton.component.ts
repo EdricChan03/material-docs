@@ -8,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './overviewbutton.component.html'
 })
 export class DocsOverviewBtn implements OnInit {
-    buttonTypes: Files[];
-    buttonOverview: Files[];
+    buttonTypes: Files;
+    buttonOverview: Files;
     ngOnInit() {
         document.title = "Docs > Button > Overview";
-        this.buttonOverview = [
-            {
+        this.buttonOverview = {
                 fileName: [
                     'button-overview.html',
                     'button-overview.ts',
@@ -26,9 +25,7 @@ export class DocsOverviewBtn implements OnInit {
                 ],
                 componentName: ButtonOverviewComponent
             }
-        ]
-        this.buttonTypes = [
-            {
+        this.buttonTypes = {
                 fileName: [
                     'button-types.html',
                     'button-types.ts',
@@ -42,6 +39,6 @@ export class DocsOverviewBtn implements OnInit {
                 componentName: ButtonTypesComponent
 
             }
-        ]
+
     }
 }

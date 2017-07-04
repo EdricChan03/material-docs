@@ -1,3 +1,5 @@
+import { DocsExampleTooltip } from './partials/exampletooltip.component';
+import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
 import { DocViewerComponent } from './shared/doc-viewer.component';
 import { DocsOverviewBtn } from './partials/overviewbutton.component';
 import { RouterModule } from '@angular/router';
@@ -17,7 +19,14 @@ export const AppRoutes: Routes = [
                 path: 'button', component: DocViewerComponent, children: [
                     { path: 'overview', component: DocsOverviewBtn },
                     { path: 'examples', component: DocsExampleBtn },
-                    { path: '**', redirectTo: 'overview'}
+                    { path: '**', redirectTo: 'overview' }
+                ]
+            },
+            {
+                path: 'tooltip', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewTooltip },
+                    { path: 'examples', component: DocsExampleTooltip },
+                    { path: '**', redirectTo: 'overview' }
                 ]
             }
         ]
