@@ -1,3 +1,6 @@
+import { NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
+import { SharedComponent } from './../shared/routing.shared';
 import { ButtonOverviewComponent } from './../../assets/examples/button/button-overview';
 import { ButtonTypesComponent } from './../../assets/examples/button/button-types';
 import { Files } from './../shared/example-viewer.component';
@@ -10,35 +13,41 @@ import { Component, OnInit } from '@angular/core';
 export class DocsOverviewBtn implements OnInit {
     buttonTypes: Files;
     buttonOverview: Files;
+    constructor(private router: Router, private shared: SharedComponent){}
     ngOnInit() {
         document.title = "Docs > Button > Overview";
         this.buttonOverview = {
-                fileName: [
-                    'button-overview.html',
-                    'button-overview.ts',
-                    'button-overview.css'
-                ],
-                highlightPath: [
-                    'assets/highlighted/button-overview-html.html',
-                    'assets/highlighted/button-overview-ts.html',
-                    'assets/highlighted/button-overview-css.html'
-                ],
-                componentName: ButtonOverviewComponent
-            }
+            fileName: [
+                'button-overview.html',
+                'button-overview.ts',
+                'button-overview.css'
+            ],
+            highlightPath: [
+                'assets/highlighted/button-overview-html.html',
+                'assets/highlighted/button-overview-ts.html',
+                'assets/highlighted/button-overview-css.html'
+            ],
+            componentName: ButtonOverviewComponent
+        }
         this.buttonTypes = {
-                fileName: [
-                    'button-types.html',
-                    'button-types.ts',
-                    'button-types.css'
-                ],
-                highlightPath: [
-                    'assets/highlighted/button-types-html.html',
-                    'assets/highlighted/button-types-ts.html',
-                    'assets/highlighted/button-types-css.html'
-                ],
-                componentName: ButtonTypesComponent
+            fileName: [
+                'button-types.html',
+                'button-types.ts',
+                'button-types.css'
+            ],
+            highlightPath: [
+                'assets/highlighted/button-types-html.html',
+                'assets/highlighted/button-types-ts.html',
+                'assets/highlighted/button-types-css.html'
+            ],
+            componentName: ButtonTypesComponent
 
+        }
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
             }
-
+            this.shared.doScroll();
+        });
     }
 }

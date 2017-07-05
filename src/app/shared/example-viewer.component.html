@@ -1,8 +1,8 @@
-<div class="example-viewer mat-elevation-z4" fxLayout="column">
-    <md-toolbar>{{docsTitle}}<span fxFlex></span><button md-icon-button (click)="toggleSource()" mdTooltip="{{showCode ? 'Hide': 'Show'}} source code"><md-icon svgIcon="code-tags"></md-icon></button></md-toolbar>
+<div class="example-viewer mat-elevation-z4" fxLayout="column" [id]="docsId">
+    <md-toolbar>{{docsTitle}}<span fxFlex></span><button md-icon-button (click)="fragRoute(docsId)" mdTooltip="Get link"><md-icon svgIcon="link"></md-icon></button><button md-icon-button (click)="toggleSource()" mdTooltip="{{showCode ? 'Hide': 'Show'}} source code"><md-icon svgIcon="code-tags"></md-icon></button></md-toolbar>
     <md-tab-group *ngIf="showCode" dynamicHeight>
         <md-tab label="{{file.label}}" *ngFor="let file of files">
-            <div class="example-viewer-code hljs" [innerHTML]="file.code"></div>
+            <pre class="example-viewer-code hljs" [innerHTML]="file.code"></pre>
         </md-tab>
     </md-tab-group>
     <div #code></div>

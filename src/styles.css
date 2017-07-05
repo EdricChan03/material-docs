@@ -51,10 +51,13 @@ body {
 }
 .docs-title h1 {
     font-weight: 300;
-    background-color: #ffd740;
     font-size: 30px;
     margin: 0;
     padding: 50px;
+}
+.docs-title {
+    background-color: #ffd740;
+    align-items: center;
 }
 .docs-toolbar {
     position: sticky;
@@ -72,6 +75,12 @@ body {
 }
 .example-app {
     margin: 20px 70px 50px 70px;
+}
+/* Phones */
+@media (max-width: 800px) {
+    .example-app {
+        margin: 10px;
+    }
 }
 .mat-icon svg {
     width: 24px;

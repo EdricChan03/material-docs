@@ -1,6 +1,9 @@
+import { SharedComponent } from './shared/routing.shared';
+import { TooltipPositionComponent } from './../assets/examples/tooltip/tooltip-position';
+import { DocsOverviewIcon } from './partials/overviewicon.component';
 import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
 import { DocsExampleTooltip } from './partials/exampletooltip.component';
-import { ButtonTooltipComponent } from './../assets/examples/button/button-tooltip';
+import { ButtonTooltipComponent } from './../assets/examples/tooltip/button-tooltip';
 import { DocsExampleBtn } from './partials/examplebutton.component';
 import { ButtonOverviewComponent } from './../assets/examples/button/button-overview';
 import { DocViewerComponent } from './shared/doc-viewer.component';
@@ -22,13 +25,15 @@ import 'hammerjs';
 const EXAMPLE_COMPONENTS = [
     ButtonTypesComponent,
     ButtonOverviewComponent,
-    ButtonTooltipComponent
+    ButtonTooltipComponent, // Button + Tooltip
+    TooltipPositionComponent
 ]
 const DOC_COMPONENTS = [
     DocsOverviewBtn,
     DocsExampleBtn,
     DocsOverviewTooltip,
-    DocsExampleTooltip
+    DocsExampleTooltip,
+    DocsOverviewIcon
 ]
 @NgModule({
     declarations: [
@@ -47,6 +52,9 @@ const DOC_COMPONENTS = [
         FlexLayoutModule,
         MaterialModule,
         AppRouting
+    ],
+    providers: [
+        SharedComponent
     ],
     entryComponents: [
         EXAMPLE_COMPONENTS

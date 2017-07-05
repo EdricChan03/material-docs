@@ -1,0 +1,5 @@
+<md-radio-group [(ngModel)]="tooltipPosition" class="example-radio-group">
+    <md-radio-button *ngFor="let pos of positions" [value]="pos.val" class="example-radio-button">{{pos.displayVal}}</md-radio-button>
+</md-radio-group>
+
+<span mdTooltip="{{tooltipPosition}}" [mdTooltipPosition]="tooltipPosition" class="example-tooltip-pos">Content goes here</span>

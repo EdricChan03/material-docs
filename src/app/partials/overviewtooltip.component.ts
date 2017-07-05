@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
 
 export class DocsOverviewTooltip implements OnInit {
     ngOnInit() {
-        
+        document.title = "Docs > Tooltip > Overview"
     }
 }

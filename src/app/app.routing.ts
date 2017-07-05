@@ -1,3 +1,4 @@
+import { DocsOverviewIcon } from './partials/overviewicon.component';
 import { DocsExampleTooltip } from './partials/exampletooltip.component';
 import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
 import { DocViewerComponent } from './shared/doc-viewer.component';
@@ -27,6 +28,13 @@ export const AppRoutes: Routes = [
                     { path: 'overview', component: DocsOverviewTooltip },
                     { path: 'examples', component: DocsExampleTooltip },
                     { path: '**', redirectTo: 'overview' }
+                ]
+            },
+            {
+                path: 'icon', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewIcon },
+                    { path: '**', redirectTo: 'overview' }
+
                 ]
             }
         ]

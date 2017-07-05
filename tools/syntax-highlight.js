@@ -20,21 +20,21 @@ let language = extension;
 
 // Highlight.js expects 'typescript' written out instead of 'ts'.
 if (language == 'ts') {
-  language = 'typescript';
+	language = 'typescript';
 }
 
 
 fs.readFile(inputFile, 'utf8', (error, content) => {
-  if (error) {
-    console.error(`Could not read file ${inputFile}`);
-    exit(1);
-  }
+	if (error) {
+		console.error(`Could not read file ${inputFile}`);
+		exit(1);
+	}
 
-  let highlighted = hljs.highlight(language, content);
+	let highlighted = hljs.highlight(language, content);
 
-  let filename = path.basename(inputFile);
-  filename = filename.slice(0, filename.lastIndexOf('.')) + '-' + extension + '.html';
-  let outputFile = path.join(outputPath, filename);
+	let filename = path.basename(inputFile);
+	filename = filename.slice(0, filename.lastIndexOf('.')) + '-' + extension + '.html';
+	let outputFile = path.join(outputPath, filename);
 
-  fs.writeFile(outputFile, highlighted.value, {encoding: 'utf8'});
+	fs.writeFile(outputFile, highlighted.value, { encoding: 'utf8' });
 });

@@ -1,10 +1,18 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import 'hammerjs';
+import { ObservableMedia, MediaChange } from "@angular/flex-layout";
+import { Subscription } from "rxjs/Subscription";
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
 export class AppComponent {
+    isExtDocsExist: boolean = true;
+    currentUrl: string;
+    sidenavModeWatcher: Subscription;
+    activeMediaQuery: string = "";
+    sidenavMode: string = "side";
     categories = [
         {
             id: 'forms',
@@ -69,4 +77,19 @@ export class AppComponent {
             ]
         },
     ]
+    constructor(media: ObservableMedia, private router: Router) {
+        this.sidenavModeWatcher = media.subscribe((change: MediaChange) => {
+            this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
+            if (change.mqAlias == 'xs') {
+                this.sidenavMode = "over";
+            } else {
+                this.sidenavMode = "side";
+            }
+        })
+    }
+    openInExtDocs() {
+        this.currentUrl = this.router.url;
+        alert("Please ensure that you enable popups before continuing.\nI promise that there's no popups on this website!")
+        window.open('https://material.angular.io'+this.currentUrl, '_blank');
+    }
 }

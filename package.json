@@ -3,12 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "serve": "npm run syntaxHighlight && ng serve",
     "installDeps": "npm install",
     "firebaseDeploy": "npm run syntaxHighlight && ng build && firebase deploy && rm -rf dist/",
     "syntaxHighlight": "./tools/highlight-examples.sh"

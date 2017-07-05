@@ -1,12 +1,14 @@
+import { SharedComponent } from './routing.shared';
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
+import { Router, NavigationEnd } from "@angular/router";
 @Component({
     selector: 'example-viewer',
     templateUrl: './example-viewer.component.html'
 })
 
-export class ExampleViewerComponent implements OnInit {
+export class ExampleViewerComponent implements OnInit{
     @ViewChild('code', { read: ViewContainerRef }) content;
-    constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef) { }
+    constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent) { }
     /**
      * The list of files
      */
@@ -20,11 +22,26 @@ export class ExampleViewerComponent implements OnInit {
      * @note Using `docsTitle` instead of title as it will render as a `title` attribute
      */
     @Input() docsTitle: string;
+    /**
+     * The id of the example
+     * @note This can be accessible through `document.getElementById`
+     */
+    @Input() docsId: string;
     files = [];
     /**
      * Whether to show the code
      */
     showCode: boolean = false;
+    docsIdDefaultInt: number = 0;
+    sectionScroll = "";
+    /**
+     * For id attribute
+     * @returns {string}
+     */
+    docsIdDefault(): string {
+        this.docsIdDefaultInt++;
+        return 'example' + this.docsIdDefaultInt;
+    }
     /**
      * Reads a text file
      * @param {string} file The file to read
@@ -52,6 +69,9 @@ export class ExampleViewerComponent implements OnInit {
     toggleSource() {
         this.showCode = !this.showCode;
     }
+    fragRoute(id: string) {
+        this.shared.fragRoute(id);
+    }
     ngOnInit() {
         for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
             let temp = <any>{};
@@ -70,18 +90,14 @@ export interface Files {
      * The name of the file
      * @note Order matters!
      */
-    fileName: any[] | any;
+    fileName: string[] | any;
     /**
      * The path of the syntax highlighted file
      * @note Order matters!
      */
-    highlightPath: any[] | any;
+    highlightPath: string[] | any;
     /**
      * The component name
      */
     componentName: any;
-}
-export interface FileCode {
-    code: string | any;
-    label: string;
 }
