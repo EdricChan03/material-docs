@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
 import { SharedComponent } from '../../shared/shared';
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component, AfterContentChecked } from '@angular/core';
 @Component({
     selector: 'guide-docs-nav',
     templateUrl: './guidenav.component.html'
 })
 
-export class DocsGuideNav implements AfterViewChecked{
+export class DocsGuideNav implements AfterContentChecked{
     isMain: boolean = true;
     guides: Guides[] = [
         {
@@ -17,7 +17,7 @@ export class DocsGuideNav implements AfterViewChecked{
     constructor(private shared: SharedComponent, private router: Router){
         shared.setTitle('Docs > Guides');
     }
-    ngAfterViewChecked() {
+    ngAfterContentChecked() {
         if (this.router.url == '/guides') {
             this.isMain = true;
         } else {

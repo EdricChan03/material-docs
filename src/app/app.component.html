@@ -1,6 +1,6 @@
 <md-sidenav-container fullscreen>
     <md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar">
-        <button md-icon-button (click)="componentSidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button> Material2
+        <button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon svgIcon="menu"></md-icon></button> Material2
         Docs
         <span fxFlex></span>
         <!-- Toggles the search and clears the search -->

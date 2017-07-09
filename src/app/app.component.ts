@@ -1,15 +1,18 @@
-import { AfterViewInit } from '@angular/core';
+import { AfterViewInit, ViewChild } from '@angular/core';
 import { SharedComponent } from './shared/shared';
 import { Router } from '@angular/router';
 import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
+import { MdSidenav } from "@angular/material";
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent implements AfterContentChecked{
+export class AppComponent implements AfterContentChecked {
+    @ViewChild('componentSidenav') componentSidenav: MdSidenav;
+    isComponentsPage: boolean;
     isSearchToggled: boolean = false;
     docTitle: string;
     isExtDocsExist: boolean = true;
@@ -121,5 +124,11 @@ export class AppComponent implements AfterContentChecked{
     }
     ngAfterContentChecked() {
         this.docTitle = this.shared.getTitle();
+        if (this.router.url.indexOf('components') > -1) {
+            this.isComponentsPage = true;
+        } else {
+            this.isComponentsPage = false;
+            if (this.componentSidenav._isOpened) { this.componentSidenav.close(); }
+        }
     }
 }
