@@ -2,7 +2,7 @@
 /*
 TODO: Customize of themes.
 */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 code, .docs-code, .docs-example-code {
     font-family: Inconsolata, monospace;
 }
