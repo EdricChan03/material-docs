@@ -1,4 +1,11 @@
-import { SharedComponent } from './shared/routing.shared';
+import { DocsSearch } from './partials/search.component';
+import { DocsHomePage } from './partials/homepages/docshome.component';
+import { DocsGuideNav } from './partials/guides/guidenav.component';
+import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.component';
+import { CodeDirective } from './shared/code.directive';
+import { DocsOverviewCheckbox } from './partials/overviewcheckbox.component';
+import { ButtonNoRippleComponent } from './../assets/examples/button/button-noripple';
+import { SharedComponent } from './shared/shared';
 import { TooltipPositionComponent } from './../assets/examples/tooltip/tooltip-position';
 import { DocsOverviewIcon } from './partials/overviewicon.component';
 import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
@@ -7,7 +14,6 @@ import { ButtonTooltipComponent } from './../assets/examples/tooltip/button-tool
 import { DocsExampleBtn } from './partials/examplebutton.component';
 import { ButtonOverviewComponent } from './../assets/examples/button/button-overview';
 import { DocViewerComponent } from './shared/doc-viewer.component';
-import { CodeViewerComponent } from './shared/code-viewer.component';
 import { ButtonTypesComponent } from './../assets/examples/button/button-types';
 import { ExampleViewerComponent } from './shared/example-viewer.component';
 import { DocsOverviewBtn } from './partials/overviewbutton.component';
@@ -25,7 +31,8 @@ import 'hammerjs';
 const EXAMPLE_COMPONENTS = [
     ButtonTypesComponent,
     ButtonOverviewComponent,
-    ButtonTooltipComponent, // Button + Tooltip
+    ButtonTooltipComponent,
+    ButtonNoRippleComponent,
     TooltipPositionComponent
 ]
 const DOC_COMPONENTS = [
@@ -33,16 +40,21 @@ const DOC_COMPONENTS = [
     DocsExampleBtn,
     DocsOverviewTooltip,
     DocsExampleTooltip,
-    DocsOverviewIcon
+    DocsOverviewIcon,
+    DocsOverviewCheckbox,
+    DocsGettingStartedGuide,
+    DocsGuideNav,
+    DocsHomePage,
+    DocsSearch
 ]
 @NgModule({
     declarations: [
         AppComponent,
         ExampleViewerComponent,
         DocViewerComponent,
-        CodeViewerComponent,
         EXAMPLE_COMPONENTS,
-        DOC_COMPONENTS
+        DOC_COMPONENTS,
+        CodeDirective
     ],
     imports: [
         BrowserModule,
@@ -54,7 +66,7 @@ const DOC_COMPONENTS = [
         AppRouting
     ],
     providers: [
-        SharedComponent
+        SharedComponent,
     ],
     entryComponents: [
         EXAMPLE_COMPONENTS
@@ -62,7 +74,8 @@ const DOC_COMPONENTS = [
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer){
+    constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer) {
         mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('https://chan4077.github.io/res/mdi.svg'));
+        mdIconRegistry.addSvgIcon('angular-colour', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/angular-coloured.svg'));
     }
 }

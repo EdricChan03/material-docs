@@ -1,3 +1,4 @@
+import { SharedComponent } from './../shared/shared';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsOverviewTooltip implements OnInit {
+    constructor(private shared: SharedComponent){shared.setTitle('Docs > Tooltip > Overview');}
     ngOnInit() {
-        document.title = "Docs > Tooltip > Overview"
     }
 }

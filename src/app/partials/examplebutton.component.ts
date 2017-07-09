@@ -1,4 +1,5 @@
-import { SharedComponent } from './../shared/routing.shared';
+import { ButtonNoRippleComponent } from './../../assets/examples/button/button-noripple';
+import { SharedComponent } from './../shared/shared';
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
 import { Files } from './../shared/example-viewer.component';
@@ -10,14 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsExampleBtn implements OnInit {
-    constructor(private router: Router, private shared: SharedComponent){}
+    disableRipple: Files;
+    constructor(private router: Router, private shared: SharedComponent){
+        shared.setTitle('Docs > Button > Examples');
+    }
     ngOnInit() {
-        document.title = "Docs > Button > Examples";
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;
             }
             this.shared.doScroll();
         });
+        this.disableRipple = {
+            filePath: [
+                'assets/examples/button/button-noripple.html',
+                'assets/examples/button/button-noripple.ts',
+                'assets/examples/button/button-noripple.css'
+            ],
+            fileLabel: [
+                'button-noripple.html',
+                'button-noripple.ts',
+                'button-noripple.css'
+            ],
+            highlightPath: [
+                'assets/highlighted/button-noripple-html.html',
+                'assets/highlighted/button-noripple-ts.html',
+                'assets/highlighted/button-noripple-css.html'
+            ],
+            componentName: ButtonNoRippleComponent
+        }
     }
 }

@@ -1,0 +1,114 @@
+<p>For help getting started with a new Angular app, check out the <a href="https://cli.angular.io" target="_blank" title="Visit @angular/cli website">Angular CLI</a>.</p>
+
+<p>For existing apps, follow these steps to begin using Angular Material.</p>
+
+<h3 id="step-1">Step 1: Install Angular Material and Angular CDK</h3>
+
+<code highlight class="bash">
+npm install --save @angular/material @angular/cdk
+</code>
+<h3 id="step-2">Step 2: Animations</h3>
+
+<p>Some Material components depend on the Angular animations module in order to be able to do more advanced transitions. If you want these animations to work in your app, you have to install the <code>@angular/animations</code> module and include the <code>BrowserAnimationsModule</code> in your app.</p>
+
+<code highlight class="bash">
+npm install --save @angular/animations
+</code>
+<br>
+<code highlight class="typescript">
+import &#123;BrowserAnimationsModule&#125; from '@angular/platform-browser/animations';
+
+@NgModule(&#123;
+  ...
+  imports: [BrowserAnimationsModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;
+</code>
+<p>If you don't want to add another dependency to your project, you can use the <code>NoopAnimationsModule</code>.</p>
+<code highlight class="typescript">
+import &#123;NoopAnimationsModule&#125; from '@angular/platform-browser/animations';
+
+@NgModule(&#123;
+  ...
+  imports: [NoopAnimationsModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;
+</code>
+<h3 id="step-3">Step 3: Import the component modules</h3>
+
+<p>Import the <code>NgModule</code> for each component you want to use:</p>
+<code>
+import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+
+@NgModule(&#123;
+  ...
+  imports: [MdButtonModule, MdCheckboxModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;
+</code>
+<p>Alternatively, you can create a separate <code>NgModule</code> that imports all of the Angular Material components that you will use in your application. You can then include this module wherever you'd like to use the components.</p>
+<code highlight class="typescript">
+import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+
+@NgModule(&#123;
+  imports: [MdButtonModule, MdCheckboxModule],
+  exports: [MdButtonModule, MdCheckboxModule],
+&#125;)
+export class MyOwnCustomMaterialModule &#123; &#125;
+</code>
+<p>Whichever approach you use, be sure to import the Angular Material modules after Angular's <code>BrowserModule</code>, as the import order matters for NgModules.</p>
+
+<h3 id="step-4">Step 4: Include a theme</h3>
+
+<p>Including a theme is required to apply all of the core and theme styles to your application.
+
+To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:</p>
+<code highlight class="css">
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+</code>
+<p>If you are not using the Angular CLI, you can include a prebuilt theme via a <code>&lt;link&gt;</code> element in your index.html.
+
+For more information on theming and instructions on how to create a custom theme, see the theming guide.</p>
+
+<h3 id="step-5">Step 5: Gesture Support</h3>
+
+<p>Some components (<code>md-slide-toggle</code>, <code>md-slider</code>, <code>mdTooltip</code>) rely on <a href="http://hammerjs.github.io/" target="_blank">HammerJS</a> for gestures. In order to get the full feature-set of these components, HammerJS must be loaded into the application.
+
+You can add HammerJS to your application via <a href="https://www.npmjs.com/package/hammerjs" target="_blank">npm</a>, a CDN (such as the <a href="https://developers.google.com/speed/libraries/#hammerjs" target="_blank">Google CDN</a>), or served directly from your app.
+
+To install via npm, use the following command:</p>
+<code highlight class="bash">
+npm install --save hammerjs
+</code>
+<p>After installing, import it on your app's root module.</p>
+<code highlight class="typescript">
+import 'hammerjs';
+</code>
+<h3 id="step-6">Step 6 (Optional): Add Material Icons</h3>
+
+<p>If you want to use the <code>md-icon</code> component with the official <a href="https://material.io/icons/" target="_blank">Material Design Icons</a>, load the icon font in your index.html.</p>
+<code highlight class="html">
+&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+</code>
+<p>For more information on using Material Icons, check out the <a href="https://google.github.io/material-design-icons/" target="_blank">Material Icons Guide</a>.
+
+Note that <code>md-icon</code> supports any font or svg icons; using Material Icons is one of many options.</p>
+
+<h3 id="appendix">Appendix: Configuring SystemJS</h3>
+
+<p>If your project is using SystemJS for module loading, you will need to add <code>@angular/material</code> to the SystemJS configuration:</p>
+<code highlight class="js">
+System.config(&#123;
+  // existing configuration options
+  map: &#123;
+    // ...
+    '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+    // ...
+  &#125;
+&#125;);
+</code>
+<h3 id="examples">Example Angular Material projects</h3>
+<ul><li><a href="https://material.angular.io" target="_blank">Official Material2 Docs</a></li></ul>

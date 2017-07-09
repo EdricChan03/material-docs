@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
-import { SharedComponent } from './../shared/routing.shared';
+import { SharedComponent } from './../shared/shared';
 import { Files } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsOverviewIcon implements OnInit {
-    constructor(private router: Router, private shared: SharedComponent){}
+    constructor(private router: Router, private shared: SharedComponent){shared.setTitle('Docs > Icon > Overview');}
     ngOnInit() {
-        document.title = "Docs > Icon > Overview";
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;

@@ -1,3 +1,8 @@
+import { DocsSearch } from './partials/search.component';
+import { DocsHomePage } from './partials/homepages/docshome.component';
+import { DocsGuideNav } from './partials/guides/guidenav.component';
+import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.component';
+import { DocsOverviewCheckbox } from './partials/overviewcheckbox.component';
 import { DocsOverviewIcon } from './partials/overviewicon.component';
 import { DocsExampleTooltip } from './partials/exampletooltip.component';
 import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
@@ -15,7 +20,7 @@ import { DocsExampleBtn } from "./partials/examplebutton.component";
 export const AppRoutes: Routes = [
     { path: '', component: AppComponent, pathMatch: 'full' },
     {
-        path: 'components', children: [
+        path: 'components', component: DocsHomePage, children: [
             {
                 path: 'button', component: DocViewerComponent, children: [
                     { path: 'overview', component: DocsOverviewBtn },
@@ -36,8 +41,24 @@ export const AppRoutes: Routes = [
                     { path: '**', redirectTo: 'overview' }
 
                 ]
+            },
+            {
+                path: 'checkbox', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewCheckbox },
+                    { path: '**', redirectTo: 'overview' }
+                ]
             }
         ]
+    },
+    {
+        path: 'guides', component: DocsGuideNav, children: [
+            {
+                path: 'getting-started', component: DocsGettingStartedGuide
+            }
+        ]
+    },
+    {
+        path: 'search', component: DocsSearch
     }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

@@ -1,5 +1,7 @@
+import { AfterViewInit } from '@angular/core';
+import { SharedComponent } from './shared/shared';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
@@ -7,7 +9,9 @@ import { Subscription } from "rxjs/Subscription";
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements AfterContentChecked{
+    isSearchToggled: boolean = false;
+    docTitle: string;
     isExtDocsExist: boolean = true;
     currentUrl: string;
     sidenavModeWatcher: Subscription;
@@ -76,8 +80,21 @@ export class AppComponent {
                 { id: 'snack-bar', name: 'Snackbar', examples: ['snack-bar-component'] },
             ]
         },
-    ]
-    constructor(media: ObservableMedia, private router: Router) {
+        {
+            id: 'tables',
+            name: 'Data table',
+            summary: 'Tables, sorting, and pagination',
+            items: [
+                {
+                    id: 'table', name: 'Table',
+                    examples: ['table-filtering', 'table-pagination', 'table-sorting']
+                },
+                { id: 'sort', name: 'Sort header', examples: ['sort-overview'] },
+                { id: 'paginator', name: 'Paginator', examples: ['paginator-configurable'] },
+            ]
+        }
+    ];
+    constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent) {
         this.sidenavModeWatcher = media.subscribe((change: MediaChange) => {
             this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
             if (change.mqAlias == 'xs') {
@@ -89,7 +106,20 @@ export class AppComponent {
     }
     openInExtDocs() {
         this.currentUrl = this.router.url;
-        alert("Please ensure that you enable popups before continuing.\nI promise that there's no popups on this website!")
-        window.open('https://material.angular.io'+this.currentUrl, '_blank');
+        alert("Please ensure that you enable popups before continuing.")
+        window.open('https://material.angular.io' + this.currentUrl, '_blank');
+    }
+    viewOnGithub() {
+        alert("Redirecting to Github...");
+        window.open('https://github.com/Chan4077/material2-docs')
+    };
+    toggleSearch() {
+        this.isSearchToggled = !this.isSearchToggled;
+    }
+    clearSearch() {
+        console.log('TODO');
+    }
+    ngAfterContentChecked() {
+        this.docTitle = this.shared.getTitle();
     }
 }

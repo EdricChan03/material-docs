@@ -3,7 +3,9 @@
 TODO: Customize of themes.
 */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+code, .docs-code, .docs-example-code {
+    font-family: Inconsolata, monospace;
+}
 .component-sidenav {
     width: 280px;
 }
@@ -13,9 +15,24 @@ TODO: Customize of themes.
 .docs-btn {
     text-transform: uppercase;
 }
+.sidenav-toolbar-left {
+    z-index: 2 !important;
+}
 .sidenav-subheader {
-    background-color: rgba(0,0,0,.32);
-    color: #fff;
+    background-color: #ffd740;
+    color: #000 !important;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1;
+}
+.sidenav-subheader {
+    top: 64px;
+    padding: 14px !important;
+}
+@media (max-width: 600px) {
+    .sidenav-subheader {
+        top: 56px;
+    }
 }
 .example-viewer {
     margin: 10px 0px 0px 0px;
@@ -58,6 +75,7 @@ body {
 .docs-title {
     background-color: #ffd740;
     align-items: center;
+	padding: 0px 15px 0px 15px;
 }
 .docs-toolbar {
     position: sticky;
@@ -85,4 +103,13 @@ body {
 .mat-icon svg {
     width: 24px;
     height: 24px;
+}
+.active-link {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+.docs-copy-btn {
+    position: absolute !important;
+	right: 4px;
+	top: 4px;
 }

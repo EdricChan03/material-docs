@@ -1,4 +1,4 @@
-import { SharedComponent } from './routing.shared';
+import { SharedComponent } from './shared';
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 @Component({
@@ -6,7 +6,7 @@ import { Router, NavigationEnd } from "@angular/router";
     templateUrl: './example-viewer.component.html'
 })
 
-export class ExampleViewerComponent implements OnInit{
+export class ExampleViewerComponent implements OnInit {
     @ViewChild('code', { read: ViewContainerRef }) content;
     constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent) { }
     /**
@@ -72,11 +72,33 @@ export class ExampleViewerComponent implements OnInit{
     fragRoute(id: string) {
         this.shared.fragRoute(id);
     }
+    /**
+     * Copies code
+     * @param {string} code The code to copy
+     */
+    copyToClipboard(code: string) {
+        if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+            let textarea = document.createElement("textarea");
+            textarea.textContent = code;
+            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+            } catch (e) {
+                console.warn("Copy to clipboard failed.", e);
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    }
     ngOnInit() {
         for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
             let temp = <any>{};
-            temp["code"] = this.readTextFile(this.exFiles.highlightPath[i]);
-            temp["label"] = this.exFiles.fileName[i];
+            temp["highlightedCode"] = this.readTextFile(this.exFiles.highlightPath[i]);
+            temp["code"] = this.readTextFile(this.exFiles.filePath[i]);
+            temp["label"] = this.exFiles.fileLabel[i];
             this.files.push(temp);
         }
         let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
@@ -90,7 +112,12 @@ export interface Files {
      * The name of the file
      * @note Order matters!
      */
-    fileName: string[] | any;
+    filePath: string[] | any;
+    /**
+     * The label of the files
+     * @note Order matters!
+     */
+    fileLabel: string[] | any;
     /**
      * The path of the syntax highlighted file
      * @note Order matters!

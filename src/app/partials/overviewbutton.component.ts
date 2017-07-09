@@ -1,6 +1,6 @@
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
-import { SharedComponent } from './../shared/routing.shared';
+import { SharedComponent } from './../shared/shared';
 import { ButtonOverviewComponent } from './../../assets/examples/button/button-overview';
 import { ButtonTypesComponent } from './../../assets/examples/button/button-types';
 import { Files } from './../shared/example-viewer.component';
@@ -13,11 +13,17 @@ import { Component, OnInit } from '@angular/core';
 export class DocsOverviewBtn implements OnInit {
     buttonTypes: Files;
     buttonOverview: Files;
-    constructor(private router: Router, private shared: SharedComponent){}
+    constructor(private router: Router, private shared: SharedComponent){
+        shared.setTitle('Docs > Button > Overview');
+    }
     ngOnInit() {
-        document.title = "Docs > Button > Overview";
         this.buttonOverview = {
-            fileName: [
+            filePath: [
+                'assets/examples/button/button-overview.html',
+                'assets/examples/button/button-overview.ts',
+                'assets/examples/button/button-overview.css'
+            ],
+            fileLabel: [
                 'button-overview.html',
                 'button-overview.ts',
                 'button-overview.css'
@@ -30,7 +36,12 @@ export class DocsOverviewBtn implements OnInit {
             componentName: ButtonOverviewComponent
         }
         this.buttonTypes = {
-            fileName: [
+            filePath: [
+                'assets/examples/button/button-types.html',
+                'assets/examples/button/button-types.ts',
+                'assets/examples/button/button-types.css'
+            ],
+            fileLabel: [
                 'button-types.html',
                 'button-types.ts',
                 'button-types.css'
