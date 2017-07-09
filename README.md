@@ -13,7 +13,7 @@ You can develop locally by following these steps _(and make a pull request)_:
     npm run serve # Serves the app
     ```
 
-    _(:exclamation: Did you know?)_ The script for `serve` will do a syntax highlight from the `examples/` folder, similar to how [Angular](https://github.com/angular/material.angular.io/blob/master/tools/syntax-highlight.js) does it for their docs? 🤓
+    _(:exclamation: Did you know?)_ The script for `serve` will do a syntax highlight from the `examples/` folder, similar to how [Angular](https://github.com/angular/material.angular.io/blob/master/tools/syntax-highlight.js) does it for their docs! 🤓
 2. Navigate to `localhost:4200` for the app. Done!
 
 ## Contributing
@@ -31,3 +31,5 @@ The website is available at <https://chan4077-material2-docs.firebaseapp.com>
 ## LICENSE
 
 View the [LICENSE (`MIT`)](/LICENSE)
+
+_(Did you know?)_ I thought of this idea when many people were confused over how to trobuleshoot common errors, especially on [StackOverflow](https://stackoverflow.com/tags/angular-material2)!
