@@ -1,3 +1,5 @@
+import { SimpleCheckboxComponent } from './../assets/examples/checkbox/simple-checkbox';
+import { DocsShowcase } from './partials/showcase/showcase.component';
 import { DocsSearch } from './partials/search.component';
 import { DocsHomePage } from './partials/homepages/docshome.component';
 import { DocsGuideNav } from './partials/guides/guidenav.component';
@@ -33,7 +35,8 @@ const EXAMPLE_COMPONENTS = [
     ButtonOverviewComponent,
     ButtonTooltipComponent,
     ButtonNoRippleComponent,
-    TooltipPositionComponent
+    TooltipPositionComponent,
+    SimpleCheckboxComponent
 ]
 const DOC_COMPONENTS = [
     DocsOverviewBtn,
@@ -45,7 +48,8 @@ const DOC_COMPONENTS = [
     DocsGettingStartedGuide,
     DocsGuideNav,
     DocsHomePage,
-    DocsSearch
+    DocsSearch,
+    DocsShowcase
 ]
 @NgModule({
     declarations: [

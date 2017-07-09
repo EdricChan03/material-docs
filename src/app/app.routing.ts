@@ -1,3 +1,4 @@
+import { DocsShowcase } from './partials/showcase/showcase.component';
 import { DocsSearch } from './partials/search.component';
 import { DocsHomePage } from './partials/homepages/docshome.component';
 import { DocsGuideNav } from './partials/guides/guidenav.component';
@@ -59,6 +60,9 @@ export const AppRoutes: Routes = [
     },
     {
         path: 'search', component: DocsSearch
+    },
+    {
+        path: 'showcases', component: DocsShowcase
     }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

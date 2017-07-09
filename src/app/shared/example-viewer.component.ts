@@ -1,6 +1,7 @@
 import { SharedComponent } from './shared';
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
+import { MdSnackBar } from "@angular/material";
 @Component({
     selector: 'example-viewer',
     templateUrl: './example-viewer.component.html'
@@ -8,7 +9,7 @@ import { Router, NavigationEnd } from "@angular/router";
 
 export class ExampleViewerComponent implements OnInit {
     @ViewChild('code', { read: ViewContainerRef }) content;
-    constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent) { }
+    constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
     /**
      * The list of files
      */
@@ -86,10 +87,11 @@ export class ExampleViewerComponent implements OnInit {
             try {
                 return document.execCommand("copy");  // Security exception may be thrown by some browsers.
             } catch (e) {
-                console.warn("Copy to clipboard failed.", e);
+                this.snackbar.open("Error: ", e);
                 return false;
             } finally {
                 document.body.removeChild(textarea);
+                this.snackbar.open('Code copied to clipboard', null, {duration: 5000});
             }
         }
     }
