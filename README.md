@@ -1,28 +1,33 @@
 # Material2Docs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+Welcome to `material2-docs` (unofficial)! This is basically the same as Angular's <https://material.angular.io>, but with more examples and a copy code button, along with app showcases (currently work in progress).
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You can develop locally by following these steps _(and make a pull request)_:
 
-## Code scaffolding
+1. Execute the following code in your Terminal:
+    
+    ```bash
+    npm install # Install dependencies
+    npm run serve # Serves the app
+    ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+    _(:exclamation: Did you know?)_ The script for `serve` will do a syntax highlight from the `examples/` folder, similar to how [Angular](https://github.com/angular/material.angular.io/blob/master/tools/syntax-highlight.js) does it for their docs? 🤓
+2. Navigate to `localhost:4200` for the app. Done!
 
-## Build
+## Contributing
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+As stated above (in [Development server](#development-server)), you can contribute by:
+     
+- Reporting issues
+- Submitting pull requests
 
-## Running unit tests
+And you may get a chance to contribute! :smile: :tada:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Website
 
-## Running end-to-end tests
+The website is available at <https://chan4077-material2-docs.firebaseapp.com>
+## LICENSE
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+View the [LICENSE (`MIT`)](/LICENSE)
