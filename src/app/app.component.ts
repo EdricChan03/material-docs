@@ -7,7 +7,7 @@ import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
 import { MdSidenav } from "@angular/material";
 @Component({
-    selector: 'app-root',
+    selector: 'material2-docs',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements AfterContentChecked {
