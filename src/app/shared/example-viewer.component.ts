@@ -61,12 +61,9 @@ export class ExampleViewerComponent implements OnInit {
         rawFile.send(null);
         return allText;
     }
-    getFileExtension(filename) {
-        return filename.split('.').pop();
-    }
-    getFileName(filename) {
-        return filename.replace(/^.*[\\\/]/, '');
-    }
+    /**
+     * Toggles the source code
+     */
     toggleSource() {
         this.showCode = !this.showCode;
     }
@@ -74,7 +71,7 @@ export class ExampleViewerComponent implements OnInit {
         this.shared.fragRoute(id);
     }
     /**
-     * Copies code
+     * Copies code to clipboard
      * @param {string} code The code to copy
      */
     copyToClipboard(code: string) {

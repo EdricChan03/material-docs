@@ -6,11 +6,18 @@ import { Title } from "@angular/platform-browser";
 export class SharedComponent {
     private sectionScroll: string;
     constructor(private router: Router, private title: Title){}
+    /**
+     * Routing
+     * @param {string} id The route fragment
+     */
     public fragRoute(id: string) {
         this.sectionScroll = id;
         this.router.navigate([], { fragment: id });
         this.doScroll();
     }
+    /**
+     * Does a scroll
+     */
     public doScroll() {
 
         if (!this.sectionScroll) {
@@ -36,6 +43,10 @@ export class SharedComponent {
             this.title.setTitle('Material2 Docs');
         }
     }
+    /**
+     * Gets the document's title
+     * @returns {string}
+     */
     public getTitle(): string {
         return this.title.getTitle();
     }
