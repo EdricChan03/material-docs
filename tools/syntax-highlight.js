@@ -24,7 +24,7 @@ if (language == 'ts') {
 }
 
 
-fs.readFile(inputFile, 'utf8', (error, content) => {
+fs.readFileSync(inputFile, 'utf8', (error, content) => {
 	if (error) {
 		console.error(`Could not read file ${inputFile}`);
 		exit(1);
@@ -36,5 +36,5 @@ fs.readFile(inputFile, 'utf8', (error, content) => {
 	filename = filename.slice(0, filename.lastIndexOf('.')) + '-' + extension + '.html';
 	let outputFile = path.join(outputPath, filename);
 
-	fs.writeFile(outputFile, highlighted.value, { encoding: 'utf8' });
+	fs.writeFileSync(outputFile, highlighted.value, { encoding: 'utf8' });
 });
