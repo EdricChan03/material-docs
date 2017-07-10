@@ -1,3 +1,4 @@
+import { ButtonTypesComponent } from './../../assets/examples/button/button-types';
 import { ButtonNoRippleComponent } from './../../assets/examples/button/button-noripple';
 import { SharedComponent } from './../shared/shared';
 import { NavigationEnd } from '@angular/router';
@@ -12,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class DocsExampleBtn implements OnInit {
     disableRipple: Files;
-    constructor(private router: Router, private shared: SharedComponent){
+    buttonTypes: Files;
+    constructor(private router: Router, private shared: SharedComponent) {
         shared.setTitle('Docs > Button > Examples');
     }
     ngOnInit() {
@@ -39,6 +41,25 @@ export class DocsExampleBtn implements OnInit {
                 'assets/highlighted/button-noripple-css.html'
             ],
             componentName: ButtonNoRippleComponent
+        }
+        this.buttonTypes = {
+            filePath: [
+                'assets/examples/button/button-types.html',
+                'assets/examples/button/button-types.ts',
+                'assets/examples/button/button-types.css'
+            ],
+            fileLabel: [
+                'button-types.html',
+                'button-types.ts',
+                'button-types.css'
+            ],
+            highlightPath: [
+                'assets/highlighted/button-types-html.html',
+                'assets/highlighted/button-types-ts.html',
+                'assets/highlighted/button-types-css.html'
+            ],
+            componentName: ButtonTypesComponent
+
         }
     }
 }

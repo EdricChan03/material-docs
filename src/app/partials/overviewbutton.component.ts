@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './overviewbutton.component.html'
 })
 export class DocsOverviewBtn implements OnInit {
-    buttonTypes: Files;
     buttonOverview: Files;
     constructor(private router: Router, private shared: SharedComponent){
         shared.setTitle('Docs > Button > Overview');
@@ -34,25 +33,6 @@ export class DocsOverviewBtn implements OnInit {
                 'assets/highlighted/button-overview-css.html'
             ],
             componentName: ButtonOverviewComponent
-        }
-        this.buttonTypes = {
-            filePath: [
-                'assets/examples/button/button-types.html',
-                'assets/examples/button/button-types.ts',
-                'assets/examples/button/button-types.css'
-            ],
-            fileLabel: [
-                'button-types.html',
-                'button-types.ts',
-                'button-types.css'
-            ],
-            highlightPath: [
-                'assets/highlighted/button-types-html.html',
-                'assets/highlighted/button-types-ts.html',
-                'assets/highlighted/button-types-css.html'
-            ],
-            componentName: ButtonTypesComponent
-
         }
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
