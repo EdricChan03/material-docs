@@ -7,4 +7,5 @@ import { Component } from "@angular/core";
 })
 export class ButtonTypesComponent {
     color: string = "";
+    disabled: boolean;
 }

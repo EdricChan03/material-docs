@@ -10,6 +10,7 @@ export class DocsSearch implements OnInit {
     constructor(private shared: SharedComponent) { }
     filteredItems: any;
     items = [] = ['WOW', 'test', 'loL', 'something'];
+    search: string;
     ngOnInit() {
         this.shared.setTitle('Docs > Search');
     }
