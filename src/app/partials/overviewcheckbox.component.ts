@@ -1,5 +1,5 @@
 import { SimpleCheckboxComponent } from './../../assets/examples/checkbox/simple-checkbox';
-import { Files } from './../shared/example-viewer.component';
+import { CodeFiles } from './../shared/example-viewer.component';
 import { SharedComponent } from './../shared/shared';
 import { Component, OnInit } from '@angular/core';
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './overviewcheckbox.component.html'
 })
 export class DocsOverviewCheckbox implements OnInit {
-    simpleCheckbox: Files;
+    simpleCheckbox: CodeFiles;
     constructor(private shared: SharedComponent){shared.setTitle('Docs > Checkbox > Overview');}
     ngOnInit() {
         this.simpleCheckbox = {

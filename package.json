@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "serve": "npm run syntaxHighlight && ng serve",
+    "serveProd": "npm run syntaxHighlight && ng serve -prod",
     "installDeps": "npm install",
-    "firebaseDeploy": "npm run syntaxHighlight && ng build && firebase deploy && rm -rf dist/",
+    "firebaseDeploy": "npm run syntaxHighlight && ng build -prod && firebase deploy && rm -rf dist/",
     "syntaxHighlight": "./tools/highlight-examples.sh"
   },
   "private": true,

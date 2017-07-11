@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
 import { SharedComponent } from './../shared/shared';
-import { Files } from './../shared/example-viewer.component';
+import { CodeFiles } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

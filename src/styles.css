@@ -2,12 +2,21 @@
 /*
 TODO: Customize of themes.
 */
+@import 'highlightjs/material-dark.scss';
+@import 'highlightjs/material-light.scss';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-code, .docs-code, .docs-example-code {
-    font-family: Inconsolata, monospace;
+/* Roboto Mono + Roboto font weights 300, 400, 500 */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500');
+.white-icon {
+    color: white !important;
+}
+.docs-code, .docs-example-code, code, .hljs.hljs-light, .hljs.hljs-dark {
+    font-family: "Roboto Mono", monospace;
+    white-space: pre-wrap;
+    font-size: 14px;
 }
 .component-sidenav {
-    width: 280px;
+    width: 240px;
 }
 .example-padding {
     padding: 5px;
@@ -40,14 +49,10 @@ code, .docs-code, .docs-example-code {
 body {
     font-family: Roboto, sans-serif;
 }
-.hljs {
-    font-family: Inconsolata, monospace;
-    font-size: 13px;
-    white-space: pre-wrap;
-}
 .example-viewer-code {
     min-height: 150px;
     border-bottom: 1px solid rgba(0,0,0,.12);
+    margin: 0;
 }
 .example-viewer-body {
     padding: 30px;
@@ -113,4 +118,9 @@ body {
     position: absolute !important;
 	right: 4px;
 	top: 4px;
+}
+.docs-theme-btn {
+    position: absolute !important;
+    right: 44px;
+    top: 4px;
 }

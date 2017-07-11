@@ -18,6 +18,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "highlightjs/material-light.scss",
+        "highlightjs/material-dark.scss",
         "styles.css"
       ],
       "scripts": [],

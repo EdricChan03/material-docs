@@ -2,7 +2,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { SharedComponent } from './../shared/shared';
 import { TooltipPositionComponent } from './../../assets/examples/tooltip/tooltip-position';
 import { ButtonTooltipComponent } from './../../assets/examples/tooltip/button-tooltip';
-import { Files } from './../shared/example-viewer.component';
+import { CodeFiles } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsExampleTooltip implements OnInit {
-    buttonTooltip: Files;
-    tooltipPos: Files;
+    buttonTooltip: CodeFiles;
+    tooltipPos: CodeFiles;
     constructor(private router: Router, private shared: SharedComponent){shared.setTitle('Docs > Tooltip > Examples');}
     ngOnInit() {
         this.buttonTooltip = {

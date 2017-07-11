@@ -1,3 +1,5 @@
+import { ExampleModule } from './example.module';
+import { SimpleTooltipComponent } from './../assets/examples/tooltip/simple-tooltip';
 import { SimpleCheckboxComponent } from './../assets/examples/checkbox/simple-checkbox';
 import { DocsShowcase } from './partials/showcase/showcase.component';
 import { DocsSearch } from './partials/search.component';
@@ -30,14 +32,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import 'hammerjs';
-const EXAMPLE_COMPONENTS = [
-    ButtonTypesComponent,
-    ButtonOverviewComponent,
-    ButtonTooltipComponent,
-    ButtonNoRippleComponent,
-    TooltipPositionComponent,
-    SimpleCheckboxComponent
-]
+
 const DOC_COMPONENTS = [
     DocsOverviewBtn,
     DocsExampleBtn,
@@ -56,7 +51,6 @@ const DOC_COMPONENTS = [
         AppComponent,
         ExampleViewerComponent,
         DocViewerComponent,
-        EXAMPLE_COMPONENTS,
         DOC_COMPONENTS,
         CodeDirective
     ],
@@ -67,13 +61,11 @@ const DOC_COMPONENTS = [
         HttpModule,
         FlexLayoutModule,
         MaterialModule,
+        ExampleModule,
         AppRouting
     ],
     providers: [
-        SharedComponent,
-    ],
-    entryComponents: [
-        EXAMPLE_COMPONENTS
+        SharedComponent
     ],
     bootstrap: [AppComponent]
 })

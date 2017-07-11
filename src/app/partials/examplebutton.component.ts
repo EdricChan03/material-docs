@@ -3,7 +3,7 @@ import { ButtonNoRippleComponent } from './../../assets/examples/button/button-n
 import { SharedComponent } from './../shared/shared';
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
-import { Files } from './../shared/example-viewer.component';
+import { CodeFiles } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsExampleBtn implements OnInit {
-    disableRipple: Files;
-    buttonTypes: Files;
+    disableRipple: CodeFiles;
+    buttonTypes: CodeFiles;
     constructor(private router: Router, private shared: SharedComponent) {
         shared.setTitle('Docs > Button > Examples');
     }

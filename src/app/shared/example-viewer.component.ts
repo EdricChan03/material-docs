@@ -13,7 +13,7 @@ export class ExampleViewerComponent implements OnInit {
     /**
      * The list of files
      */
-    @Input() exFiles: Files;
+    @Input() exFiles: CodeFiles;
     /**
      * Whether to change to guide viewer
      */
@@ -35,6 +35,7 @@ export class ExampleViewerComponent implements OnInit {
     showCode: boolean = false;
     docsIdDefaultInt: number = 0;
     sectionScroll = "";
+    isDark: boolean;
     /**
      * For id attribute
      * @returns {string}
@@ -88,25 +89,41 @@ export class ExampleViewerComponent implements OnInit {
                 return false;
             } finally {
                 document.body.removeChild(textarea);
-                this.snackbar.open('Code copied to clipboard', null, {duration: 5000});
+                this.snackbar.open('Code copied to clipboard', null, { duration: 5000 });
             }
         }
     }
+    /**
+     * Toggles theme
+     */
+    toggleTheme() {
+        this.isDark = !this.isDark;
+        window.localStorage.setItem('darkTheme', JSON.stringify(this.isDark));
+    }
     ngOnInit() {
-        for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
-            let temp = <any>{};
-            temp["highlightedCode"] = this.readTextFile(this.exFiles.highlightPath[i]);
-            temp["code"] = this.readTextFile(this.exFiles.filePath[i]);
-            temp["label"] = this.exFiles.fileLabel[i];
-            this.files.push(temp);
+        try {
+            for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
+                let temp = <any>{};
+                temp["highlightedCode"] = this.readTextFile(this.exFiles.highlightPath[i]);
+                temp["code"] = this.readTextFile(this.exFiles.filePath[i]);
+                temp["label"] = this.exFiles.fileLabel[i];
+                this.files.push(temp);
+            }
+            let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
+            let ref = this.content.createComponent(factory);
+            ref.changeDetectorRef.detectChanges();
+            this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
+            if (window.localStorage.getItem('darkTheme')) {
+                this.isDark = JSON.parse(window.localStorage.getItem('darkTheme'));
+            } else {
+                this.isDark = false;
+            }
+        } catch (e) {
+            throw new Error('Error: ${e}');
         }
-        let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
-        let ref = this.content.createComponent(factory);
-        ref.changeDetectorRef.detectChanges();
-        this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
     }
 }
-export interface Files {
+export interface CodeFiles {
     /**
      * The name of the file
      * @note Order matters!

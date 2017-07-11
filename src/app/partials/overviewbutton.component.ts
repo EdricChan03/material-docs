@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SharedComponent } from './../shared/shared';
 import { ButtonOverviewComponent } from './../../assets/examples/button/button-overview';
 import { ButtonTypesComponent } from './../../assets/examples/button/button-types';
-import { Files } from './../shared/example-viewer.component';
+import { CodeFiles } from './../shared/example-viewer.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './overviewbutton.component.html'
 })
 export class DocsOverviewBtn implements OnInit {
-    buttonOverview: Files;
+    buttonOverview: CodeFiles;
     constructor(private router: Router, private shared: SharedComponent){
         shared.setTitle('Docs > Button > Overview');
     }
