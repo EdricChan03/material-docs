@@ -21,7 +21,7 @@ TODO: Customize of themes.
 .example-padding {
     padding: 5px;
 }
-.docs-btn {
+.docs-btn, .mat-simple-snackbar-action {
     text-transform: uppercase;
 }
 .sidenav-toolbar-left {
@@ -132,4 +132,8 @@ body {
     bottom: 0;
     position: relative;
     min-height: 100px;
+}
+.example-code-snippet-content.hljs-light {
+    background-color: rgba(0,0,0,.01);
+	border: .5px solid rgba(0,0,0,.03);
 }

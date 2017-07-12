@@ -12,6 +12,10 @@ export class DocsGuideNav implements AfterContentChecked{
         {
             text: 'Getting Started',
             link: 'getting-started'
+        },
+        {
+            text: 'Theming Angular Material',
+            link: 'theming'
         }
     ]
     constructor(private shared: SharedComponent, private router: Router){

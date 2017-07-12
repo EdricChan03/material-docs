@@ -114,8 +114,11 @@ export class AppComponent implements AfterContentChecked {
         window.open('https://material.angular.io' + this.currentUrl, '_blank');
     }
     viewOnGithub() {
-        alert("Redirecting to Github...");
-        window.open('https://github.com/Chan4077/material2-docs')
+        if (confirm("Are you sure you want to go to the source code?")) {
+            window.open('https://github.com/Chan4077/material2-docs');
+        } else {
+            console.error('User clicked cancel.');
+        }
     };
     openPrefs() {
         this.dialog.open(PreferencesDialog);

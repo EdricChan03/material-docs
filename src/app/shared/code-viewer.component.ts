@@ -8,6 +8,7 @@ import * as hljs from 'highlight.js';
 
 export class CodeViewerComponent implements AfterViewInit, OnInit {
     @ViewChild('code') content: ElementRef;
+    @Input() language: string;
     isDark: boolean;
     originalCode: string;
     constructor(private snackbar: MdSnackBar) { }
@@ -43,6 +44,5 @@ export class CodeViewerComponent implements AfterViewInit, OnInit {
     ngAfterViewInit() {
         hljs.highlightBlock(this.content.nativeElement.childNodes[5]);
         this.originalCode = this.content.nativeElement.childNodes[5].innerText;
-        console.log(this.content.nativeElement.childNodes);
     }
 }

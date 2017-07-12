@@ -24,7 +24,7 @@
         </md-toolbar>
         <md-nav-list *ngFor="let category of categories">
             <h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
-            <a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link">{{component.name}}</a>
+            <a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link" (click)="componentSidenav.close()">{{component.name}}</a>
         </md-nav-list>
     </md-sidenav>
     <md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
@@ -33,11 +33,11 @@
             <span fxFlex></span> Navigation
         </md-toolbar>
         <md-nav-list>
-            <a md-list-item [routerLink]="['components']">Components</a>
-            <a md-list-item [routerLink]="['guides']">Guides</a>
-            <a md-list-item [routerLink]="['showcases']">Showcases</a>
-            <a md-list-item href="https://github.com/Chan4077/material2-docs/blob/master/LICENSE" target="_blank">License</a>
-            <a md-list-item [routerLink]="['search']">Search (experimental)</a>
+            <a md-list-item [routerLink]="['components']" (click)="docsSidenav.close()">Components</a>
+            <a md-list-item [routerLink]="['guides']" (click)="docsSidenav.close()">Guides</a>
+            <a md-list-item [routerLink]="['showcases']" (click)="docsSidenav.close()">Showcases</a>
+            <a md-list-item href="https://github.com/Chan4077/material2-docs/blob/master/LICENSE" target="_blank" (click)="docsSidenav.close()">License</a>
+            <a md-list-item [routerLink]="['search']" (click)="docsSidenav.close()">Search (experimental)</a>
         </md-nav-list>
     </md-sidenav>
     <div class="docs-title">

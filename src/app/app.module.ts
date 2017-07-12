@@ -1,3 +1,4 @@
+import { DocsThemingGuide } from './partials/guides/theming.component';
 import { DocsExampleCheckbox } from './partials/examplecheckbox.component';
 import { CodeViewerComponent } from './shared/code-viewer.component';
 import { PreferencesDialog } from './partials/preferences.component';
@@ -45,6 +46,7 @@ const DOC_COMPONENTS = [
     DocsOverviewCheckbox,
     DocsExampleCheckbox,
     DocsGettingStartedGuide,
+    DocsThemingGuide,
     DocsGuideNav,
     DocsHomePage,
     DocsSearch,

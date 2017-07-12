@@ -10,6 +10,7 @@ export class PreferencesDialog implements OnInit{
     constructor(private dialogRef: MdDialogRef<PreferencesDialog>, private snackbar: MdSnackBar){}
     cancel() {
         this.snackbar.open('Preferences not saved', null, {duration: 6000});
+        this.dialogRef.close();
     }
     close() {
         window.localStorage.setItem('settings', JSON.stringify(this.settings));

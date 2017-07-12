@@ -1,3 +1,4 @@
+import { DocsThemingGuide } from './partials/guides/theming.component';
 import { DocsExampleCheckbox } from './partials/examplecheckbox.component';
 import { DocsShowcase } from './partials/showcase/showcase.component';
 import { DocsSearch } from './partials/search.component';
@@ -55,9 +56,8 @@ export const AppRoutes: Routes = [
     },
     {
         path: 'guides', component: DocsGuideNav, children: [
-            {
-                path: 'getting-started', component: DocsGettingStartedGuide
-            }
+            { path: 'getting-started', component: DocsGettingStartedGuide },
+            { path: 'theming', component: DocsThemingGuide}
         ]
     },
     {
