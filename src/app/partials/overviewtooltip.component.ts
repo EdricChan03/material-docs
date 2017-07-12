@@ -15,18 +15,15 @@ export class DocsOverviewTooltip implements OnInit {
         this.simpleTooltip = {
             fileLabel: [
                 'simple-tooltip.html',
-                'simple-tooltip.ts',
-                'simple-tooltip.css'
+                'simple-tooltip.ts'
             ],
             filePath: [
-                'assets/tooltip/simple-tooltip.html',
-                'assets/tooltip/simple-tooltip.ts',
-                'assets/tooltip/simple-tooltip.css',
+                'assets/examples/tooltip/simple-tooltip.html',
+                'assets/examples/tooltip/simple-tooltip.ts'
             ],
             highlightPath: [
                 'assets/highlighted/simple-tooltip-html.html',
-                'assets/highlighted/simple-tooltip-ts.html',
-                'assets/highlighted/simple-tooltip-css.html',
+                'assets/highlighted/simple-tooltip-ts.html'
             ],
             componentName: SimpleTooltipComponent
         }

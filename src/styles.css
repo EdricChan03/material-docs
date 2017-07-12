@@ -85,6 +85,7 @@ body {
 }
 .docs-toolbar {
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     z-index: 2;
 }
@@ -123,4 +124,12 @@ body {
     position: absolute !important;
     right: 44px;
     top: 4px;
+}
+.example-code-snippet {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: relative;
+    min-height: 100px;
 }

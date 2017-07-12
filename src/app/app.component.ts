@@ -1,3 +1,4 @@
+import { PreferencesDialog } from './partials/preferences.component';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { SharedComponent } from './shared/shared';
 import { Router } from '@angular/router';
@@ -5,7 +6,7 @@ import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
-import { MdSidenav } from "@angular/material";
+import { MdSidenav, MdDialog } from "@angular/material";
 @Component({
     selector: 'material2-docs',
     templateUrl: './app.component.html'
@@ -97,7 +98,7 @@ export class AppComponent implements AfterContentChecked {
             ]
         }
     ];
-    constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent) {
+    constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog) {
         this.sidenavModeWatcher = media.subscribe((change: MediaChange) => {
             this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
             if (change.mqAlias == 'xs') {
@@ -116,11 +117,8 @@ export class AppComponent implements AfterContentChecked {
         alert("Redirecting to Github...");
         window.open('https://github.com/Chan4077/material2-docs')
     };
-    toggleSearch() {
-        this.isSearchToggled = !this.isSearchToggled;
-    }
-    clearSearch() {
-        console.log('TODO');
+    openPrefs() {
+        this.dialog.open(PreferencesDialog);
     }
     ngAfterContentChecked() {
         this.docTitle = this.shared.getTitle();

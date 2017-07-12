@@ -13,6 +13,7 @@ export class DocsSearch implements OnInit {
     search: string;
     ngOnInit() {
         this.shared.setTitle('Docs > Search');
+        
     }
     // submit(search: string) {
     //     console.log(search);

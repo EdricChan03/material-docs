@@ -19,18 +19,15 @@ export class DocsOverviewBtn implements OnInit {
         this.buttonOverview = {
             filePath: [
                 'assets/examples/button/button-overview.html',
-                'assets/examples/button/button-overview.ts',
-                'assets/examples/button/button-overview.css'
+                'assets/examples/button/button-overview.ts'
             ],
             fileLabel: [
                 'button-overview.html',
-                'button-overview.ts',
-                'button-overview.css'
+                'button-overview.ts'
             ],
             highlightPath: [
                 'assets/highlighted/button-overview-html.html',
-                'assets/highlighted/button-overview-ts.html',
-                'assets/highlighted/button-overview-css.html'
+                'assets/highlighted/button-overview-ts.html'
             ],
             componentName: ButtonOverviewComponent
         }

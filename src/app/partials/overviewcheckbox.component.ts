@@ -13,18 +13,15 @@ export class DocsOverviewCheckbox implements OnInit {
         this.simpleCheckbox = {
             filePath: [
                 'assets/examples/checkbox/simple-checkbox.html',
-                'assets/examples/checkbox/simple-checkbox.ts',
-                'assets/examples/checkbox/simple-checkbox.css'
+                'assets/examples/checkbox/simple-checkbox.ts'
             ],
             fileLabel: [
                 'simple-checkbox.html',
-                'simple-checkbox.ts',
-                'simple-checkbox.css'
+                'simple-checkbox.ts'
             ],
             highlightPath: [
                 'assets/highlighted/simple-checkbox-html.html',
-                'assets/highlighted/simple-checkbox-ts.html',
-                'assets/highlighted/simple-checkbox-css.html'
+                'assets/highlighted/simple-checkbox-ts.html'
             ],
             componentName: SimpleCheckboxComponent
         }

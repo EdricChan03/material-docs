@@ -1,3 +1,4 @@
+import { DocsExampleCheckbox } from './partials/examplecheckbox.component';
 import { DocsShowcase } from './partials/showcase/showcase.component';
 import { DocsSearch } from './partials/search.component';
 import { DocsHomePage } from './partials/homepages/docshome.component';
@@ -46,6 +47,7 @@ export const AppRoutes: Routes = [
             {
                 path: 'checkbox', component: DocViewerComponent, children: [
                     { path: 'overview', component: DocsOverviewCheckbox },
+                    { path: 'examples', component: DocsExampleCheckbox },
                     { path: '**', redirectTo: 'overview' }
                 ]
             }

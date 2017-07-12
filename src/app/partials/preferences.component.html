@@ -1,0 +1,15 @@
+<h3 md-dialog-title>Preferences</h3>
+<div fxLayout="column" md-dialog-content>
+    <md-checkbox [(ngModel)]="settings.themeToggle">Enable theme toggle</md-checkbox>
+    <md-checkbox [(ngModel)]="settings.enableTabIndent">Enable Tab Indenting (code)</md-checkbox>
+    <md-input-container *ngIf="!settings.enableTabIndent">
+        <input mdInput [(ngModel)]="settings.codeSpaceIndent" placeholder="Set Code Indent (Spaces)" type="number">
+    </md-input-container>
+    <md-input-container *ngIf="settings.enableTabIndent">
+        <input mdInput [(ngModel)]="settings.codeTabIndent" placeholder="Set Code Indent (Tabs)" type="number">
+    </md-input-container>
+</div>
+<div md-dialog-actions align="end">
+    <button md-button (click)="cancel()" color="primary" class="docs-btn">Cancel</button>
+    <button md-button (click)="close()" color="primary" class="docs-btn">Save</button>
+</div>

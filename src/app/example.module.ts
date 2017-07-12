@@ -1,3 +1,4 @@
+import { CheckboxConfigurableComponent } from './../assets/examples/checkbox/checkbox-configuration';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -36,6 +37,7 @@ import { ButtonNoRippleComponent } from './../assets/examples/button/button-nori
         TooltipPositionComponent,
         SimpleTooltipComponent,
         SimpleCheckboxComponent,
+        CheckboxConfigurableComponent,
         ButtonNoRippleComponent,
         ButtonTypesComponent,
         ButtonOverviewComponent
@@ -45,6 +47,7 @@ import { ButtonNoRippleComponent } from './../assets/examples/button/button-nori
         TooltipPositionComponent,
         SimpleTooltipComponent,
         SimpleCheckboxComponent,
+        CheckboxConfigurableComponent,
         ButtonNoRippleComponent,
         ButtonTypesComponent,
         ButtonOverviewComponent
@@ -54,6 +57,7 @@ import { ButtonNoRippleComponent } from './../assets/examples/button/button-nori
         TooltipPositionComponent,
         SimpleTooltipComponent,
         SimpleCheckboxComponent,
+        CheckboxConfigurableComponent,
         ButtonNoRippleComponent,
         ButtonTypesComponent,
         ButtonOverviewComponent

@@ -11,7 +11,6 @@
 const fs = require('fs');
 const path = require('path');
 const hljs = require('highlight.js');
-
 const inputFile = process.argv[2];
 const outputPath = process.argv[3];
 
@@ -22,9 +21,7 @@ let language = extension;
 if (language == 'ts') {
 	language = 'typescript';
 }
-
-
-fs.readFileSync(inputFile, 'utf8', (error, content) => {
+fs.readFile(inputFile, 'utf8', (error, content) => {
 	if (error) {
 		console.error(`Could not read file ${inputFile}`);
 		exit(1);
@@ -36,5 +33,9 @@ fs.readFileSync(inputFile, 'utf8', (error, content) => {
 	filename = filename.slice(0, filename.lastIndexOf('.')) + '-' + extension + '.html';
 	let outputFile = path.join(outputPath, filename);
 
-	fs.writeFileSync(outputFile, highlighted.value, { encoding: 'utf8' });
+	fs.writeFile(outputFile, highlighted.value, (error) => {
+        if (error) {
+            console.error(`Could not write file ${outputFile}`);
+        }
+    });
 });

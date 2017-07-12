@@ -1,3 +1,6 @@
+import { DocsExampleCheckbox } from './partials/examplecheckbox.component';
+import { CodeViewerComponent } from './shared/code-viewer.component';
+import { PreferencesDialog } from './partials/preferences.component';
 import { ExampleModule } from './example.module';
 import { SimpleTooltipComponent } from './../assets/examples/tooltip/simple-tooltip';
 import { SimpleCheckboxComponent } from './../assets/examples/checkbox/simple-checkbox';
@@ -40,11 +43,13 @@ const DOC_COMPONENTS = [
     DocsExampleTooltip,
     DocsOverviewIcon,
     DocsOverviewCheckbox,
+    DocsExampleCheckbox,
     DocsGettingStartedGuide,
     DocsGuideNav,
     DocsHomePage,
     DocsSearch,
-    DocsShowcase
+    DocsShowcase,
+    CodeViewerComponent
 ]
 @NgModule({
     declarations: [
@@ -52,7 +57,8 @@ const DOC_COMPONENTS = [
         ExampleViewerComponent,
         DocViewerComponent,
         DOC_COMPONENTS,
-        CodeDirective
+        CodeDirective,
+        PreferencesDialog
     ],
     imports: [
         BrowserModule,
@@ -66,6 +72,9 @@ const DOC_COMPONENTS = [
     ],
     providers: [
         SharedComponent
+    ],
+    entryComponents: [
+        PreferencesDialog
     ],
     bootstrap: [AppComponent]
 })

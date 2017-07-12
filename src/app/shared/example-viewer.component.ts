@@ -118,8 +118,8 @@ export class ExampleViewerComponent implements OnInit {
             } else {
                 this.isDark = false;
             }
-        } catch (e) {
-            throw new Error('Error: ${e}');
+        } catch (error) {
+            throw new Error(`Error: ${error}`);
         }
     }
 }

@@ -27,36 +27,30 @@ export class DocsExampleBtn implements OnInit {
         this.disableRipple = {
             filePath: [
                 'assets/examples/button/button-noripple.html',
-                'assets/examples/button/button-noripple.ts',
-                'assets/examples/button/button-noripple.css'
+                'assets/examples/button/button-noripple.ts'
             ],
             fileLabel: [
                 'button-noripple.html',
-                'button-noripple.ts',
-                'button-noripple.css'
+                'button-noripple.ts'
             ],
             highlightPath: [
                 'assets/highlighted/button-noripple-html.html',
-                'assets/highlighted/button-noripple-ts.html',
-                'assets/highlighted/button-noripple-css.html'
+                'assets/highlighted/button-noripple-ts.html'
             ],
             componentName: ButtonNoRippleComponent
         }
         this.buttonTypes = {
             filePath: [
                 'assets/examples/button/button-types.html',
-                'assets/examples/button/button-types.ts',
-                'assets/examples/button/button-types.css'
+                'assets/examples/button/button-types.ts'
             ],
             fileLabel: [
                 'button-types.html',
-                'button-types.ts',
-                'button-types.css'
+                'button-types.ts'
             ],
             highlightPath: [
                 'assets/highlighted/button-types-html.html',
-                'assets/highlighted/button-types-ts.html',
-                'assets/highlighted/button-types-css.html'
+                'assets/highlighted/button-types-ts.html'
             ],
             componentName: ButtonTypesComponent
 
