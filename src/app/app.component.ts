@@ -6,13 +6,14 @@ import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
-import { MdSidenav, MdDialog } from "@angular/material";
+import { MdSidenav, MdDialog, OverlayContainer } from "@angular/material";
 @Component({
     selector: 'material2-docs',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements AfterContentChecked {
     @ViewChild('componentSidenav') componentSidenav: MdSidenav;
+    isDark: boolean;
     isComponentsPage: boolean;
     isSearchToggled: boolean = false;
     docTitle: string;
@@ -98,7 +99,7 @@ export class AppComponent implements AfterContentChecked {
             ]
         }
     ];
-    constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog) {
+    constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer) {
         this.sidenavModeWatcher = media.subscribe((change: MediaChange) => {
             this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
             if (change.mqAlias == 'xs') {
@@ -123,13 +124,46 @@ export class AppComponent implements AfterContentChecked {
     openPrefs() {
         this.dialog.open(PreferencesDialog);
     }
+    toggleTheme() {
+        this.isDark = !this.isDark;
+        let element = document.querySelector('material2-docs');
+        if (!this.checkIsDark()) {
+            if (element.classList.contains('docs-light')) {
+                element.classList.remove('docs-light');
+            }
+            element.classList.add('docs-dark');
+            this.overlay.themeClass = 'docs-dark';
+        } else {
+                this.overlay.themeClass = 'docs-light';
+            if (element.classList.contains('docs-dark')) {
+                element.classList.remove('docs-dark');
+            }
+            element.classList.add('docs-light');
+        }
+        window.localStorage.setItem('darkTheme', JSON.stringify(this.isDark));
+    }
+    checkIsDark(): boolean {
+        let isDark: boolean;
+        if (JSON.parse(window.localStorage.getItem('darkTheme'))) {
+            isDark = JSON.parse(window.localStorage.getItem('darkTheme'));
+        } else {
+            isDark = false;
+        }
+        return isDark;
+    }
     ngAfterContentChecked() {
+        let element = document.querySelector('material2-docs');
+        element.classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
+        this.overlay.themeClass = this.checkIsDark() ? 'docs-dark' : 'docs-light';
         this.docTitle = this.shared.getTitle();
         if (this.router.url.indexOf('components') > -1) {
             this.isComponentsPage = true;
         } else {
             this.isComponentsPage = false;
             if (this.componentSidenav._isOpened) { this.componentSidenav.close(); }
+        }
+        if (this.router.url.indexOf('search') > -1 || this.router.url.indexOf('misc') > -1 || this.router.url.indexOf('showcases') > -1) {
+            this.isExtDocsExist = false;
         }
     }
 }

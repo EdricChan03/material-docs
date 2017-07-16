@@ -1,0 +1,23 @@
+<h5>Properties</h5>
+<table class="docs-table mat-elevation-z4">
+    <thead class="docs-table-header">
+        <tr>
+            <th class="docs-table-th">Name</th>
+            <th class="docs-table-th">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let property of apiFiles">
+            <td class="docs-table-td docs-api-properties">
+                    <div class="docs-api-input" *ngIf="property.isInput">@Input({{property.alias}})</div>
+                    <div class="docs-api-input" *ngIf="property.isOutput">@Output({{property.alias}})</div>
+                    <div class="docs-api-input" *ngIf="property.isDepreceated">Depreceated</div>
+                    <p class="docs-api-prop-name">{{property.name}}</p>
+            </td>
+            <td class="docs-table-td">
+                <p *ngIf="!property.isHtml">{{property.desc}}</p>
+                <p [innerHTML]="property.desc" *ngIf="property.isHtml"></p>
+            </td>
+        </tr>
+    </tbody>
+</table>

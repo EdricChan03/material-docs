@@ -1,0 +1,107 @@
+<h3 id="description">Description</h3>
+<p>The <code>MdDialog</code> service can be used to open modal dialogs with Material Design styling and animations.</p>
+
+<!-- TODO: example -->
+<example-viewer [exFiles]="dialogResult" docsTitle="Dialog with a result" docsId="dialog-with-result"></example-viewer>
+
+<p>A dialog is opened by calling the <code>open</code> method with a component to be loaded and an optional config object. The <code>open</code> method will return an instance of <code>MdDialogRef</code></p>
+
+<code-viewer language="typescript">let dialogRef = dialog.open(UserProfileComponent, &#123;
+  height: '400px',
+  width: '600px',
+&#125;);</code-viewer>
+The <code>MdDialogRef</code> provides a handle on the opened dialog. It can be used to close the dialog and to receive notification when the dialog has been closed.
+
+<code-viewer language="typescript">dialogRef.afterClosed().subscribe(result => &#123;
+  console.log(`Dialog result: $&#123;result&#125;`); // Pizza!
+&#125;);
+dialogRef.close('Pizza!');</code-viewer>
+Components created via <code>MdDialog</code> can inject <code>MdDialogRef</code> and use it to close the dialog in which they are contained. When closing, an optional result value can be provided. This result value is forwarded as the result of the <code>afterClosed</code> promise.
+
+<h3 id="sharing-data">Sharing data with the Dialog component</h3>
+
+<p>If you want to share data with your dialog, you can use the data option to pass information to the dialog component.</p>
+<code-viewer language="typescript">let dialogRef = dialog.open(YourDialog, &#123;
+  data: 'your data',
+&#125;);</code-viewer>
+<p>To access the data in your dialog component, you have to use the <code>MD_DIALOG_DATA</code> injection token:</p>
+
+<code-viewer language="typescript">import &#123;Component, Inject&#125; from '@angular/core';
+import &#123;MD_DIALOG_DATA&#125; from '@angular/material';
+
+@Component(&#123;
+  selector: 'your-dialog',
+  template: 'passed in &#123;&#123; data &#125;&#125;',
+&#125;)
+
+export class YourDialog &#123;
+  constructor(@Inject(MD_DIALOG_DATA) public data: any) &#123; &#125;
+&#125;</code-viewer>
+<h3 id="dialog-content">Dialog content</h3>
+
+<p>Several directives are available to make it easier to structure your dialog content:</p>
+<table class="docs-table mat-elevation-z4">
+    <thead class="docs-table-header">
+        <tr>
+            <th class="docs-table-th">Name</th>
+            <th class="docs-table-th">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="docs-table-td"><code>any[md-dialog-title]</code></td>
+            <td class="docs-table-td">[Attr] Dialog title, applied to a heading element (e.g., <code>&lt;h1&gt;, &lt;h2&gt;</code>)</td>
+        </tr>
+        <tr>
+            <td class="docs-table-td"><code>&lt;md-dialog-content&gt;</code> or <code>any[md-dialog-content]</code></td>
+            <td class="docs-table-td">Primary scrollable content of the dialog. Can be an attribute (ideally <code>&lt;div&gt;</code>).</td>
+        </tr>
+        <tr>
+            <td class="docs-table-td"><code>&lt;md-dialog-actions&gt;</code> or <code>any[md-dialog-actions]</code></td>
+            <td class="docs-table-td">Container for action buttons at the bottom of the dialog. Can be an attribute (ideally <code>&lt;div&gt;</code>).</td>
+        </tr>
+        <tr>
+            <td class="docs-table-td"><code>button[md-dialog-close]</code></td>
+            <td class="docs-table-td">[Attr] Makes the button close the dialog with an optional result from the bound value.</td>
+        </tr>
+    </tbody>
+</table>
+<p>For example:</p>
+<code-viewer language="html">&lt;h2 md-dialog-title&gt;Delete all&lt;/h2&gt;
+&lt;md-dialog-content&gt;Are you sure?&lt;/md-dialog-content&gt;
+&lt;md-dialog-actions&gt;
+  &lt;button md-button md-dialog-close&gt;No&lt;/button&gt;
+  <!-- Can optionally provide a result for the closing dialog. -->
+  &lt;button md-button [md-dialog-close]="true"&gt;Yes&lt;/button&gt;
+&lt;/md-dialog-actions&gt;
+</code-viewer>
+<p>Once a dialog opens, the dialog will automatically focus the first tabbable element.</p>
+
+<p>You can control which elements are tab stops with the <code>tabindex</code> attribute.</p>
+
+<code-viewer language="html">&lt;button md-button tabindex="-1"&gt;Not Tabbable&lt;/button&gt;</code-viewer>
+<h3 id="aot-compilation">AOT Compilation</h3>
+
+<p>Due to the dynamic nature of the <code>MdDialog</code>, and its usage of <code>ViewContainerRef#createComponent()</code> to create the component on the fly, the AOT compiler will not know to create the proper <code>ComponentFactory</code> for your dialog component by default.</p>
+
+<p>You must include your dialog class in the list of <code>entryComponents</code> in your module definition so that the AOT compiler knows to create the <code>ComponentFactory</code> for it.</p>
+
+<code-viewer language="typescript">@NgModule(&#123;
+  imports: [
+    // ...
+    MdDialogModule
+  ],
+
+  declarations: [
+    AppComponent,
+    ExampleDialogComponent
+  ],
+
+  entryComponents: [
+    ExampleDialogComponent
+  ]
+
+  providers: [],
+  bootstrap: [AppComponent]
+&#125;)
+export class AppModule &#123;&#125;</code-viewer>

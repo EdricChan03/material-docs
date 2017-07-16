@@ -1,0 +1,49 @@
+<md-card>
+    <md-card-title>Checkbox Configuration</md-card-title>
+    <md-card-content>
+
+        <section class="example-section">
+            <md-checkbox class="example-margin" [(ngModel)]="checked">Checked</md-checkbox>
+            <md-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</md-checkbox>
+            <md-checkbox class="example-margin" [(ngModel)]="disableRipple">Disable ripple</md-checkbox>
+        </section>
+        <section class="example-section">
+            <md-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</md-checkbox>
+        </section>
+        <section class="example-section">
+            <label class="example-margin">Color:</label>
+            <md-radio-group [(ngModel)]="color">
+                <md-radio-button class="example-margin" value="primary">Primary</md-radio-button>
+                <md-radio-button class="example-margin" value="accent">Accent</md-radio-button>
+                <md-radio-button class="example-margin" value="warn">Warn</md-radio-button>
+                <md-radio-button class="example-margin" value="">None</md-radio-button>
+            </md-radio-group>
+        </section>
+        <section class="example-section">
+            <label class="example-margin">Label Position:</label>
+            <md-radio-group [(ngModel)]="labelPos">
+                <md-radio-button class="example-margin" value="before">Before</md-radio-button>
+                <md-radio-button class="example-margin" value="after">After</md-radio-button>
+            </md-radio-group>
+        </section>
+    </md-card-content>
+</md-card>
+
+<md-card class="result">
+    <md-card-content>
+        <md-card-title>Result</md-card-title>
+
+        <section class="example-section">
+            <md-checkbox
+                class="example-margin"
+                [checked]="checked"
+                [indeterminate]="indeterminate"
+                [disableRipple]="disableRipple"
+                [disabled]="disabled"
+                [color]="color"
+                [labelPosition]="labelPos">
+                I'm a checkbox
+            </md-checkbox>
+        </section>
+    </md-card-content>
+</md-card>

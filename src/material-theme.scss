@@ -1,0 +1,215 @@
+@import 'highlightjs/material-dark.scss';
+@import 'highlightjs/material-light.scss';
+/* Roboto Mono + Roboto font weights 300, 400, 500 */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500');
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@mixin material-docs-theme($theme) {
+    $primary: map-get($theme, primary);
+    $background: map-get($theme, background);
+    // @error $background;
+    .docs-table-th {
+        background-color: mat-color($background, app-bar);
+
+    }
+}
+$docs-light-primary: mat-palette($mat-indigo);
+$docs-light-accent: mat-palette($mat-pink);
+
+$docs-light-theme: mat-light-theme($docs-light-primary, $docs-light-accent);
+.docs-light, .example-light {
+    @include angular-material-theme($docs-light-theme);
+    @include material-docs-theme($docs-light-theme);
+    .sidenav-subheader {
+        background-color: mat-color($docs-light-accent) !important;
+        color: #fff !important;
+    }
+    .docs-title {
+        background-color: mat-color($docs-light-accent);
+        color: white;
+    }
+    .active-link {
+        background-color: mat-color($docs-light-primary) !important;
+    }
+    a {
+        color: mat-color($docs-light-accent);
+    }
+    .docs-api-method-name {
+        color: mat-color($docs-light-primary);
+    }
+}
+
+$docs-dark-primary: mat-palette($mat-blue-grey);
+$docs-dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$docs-dark-warn:    mat-palette($mat-deep-orange);
+$docs-dark-theme:   mat-dark-theme($docs-dark-primary, $docs-dark-accent, $docs-dark-warn);
+
+.docs-dark, .example-dark {
+    @include angular-material-theme($docs-dark-theme);
+    @include material-docs-theme($docs-dark-theme);
+    .sidenav-subheader {
+        background-color: mat-color($docs-dark-accent) !important;
+        color: black !important;
+    }
+    .docs-title {
+        background-color: mat-color($docs-dark-accent);
+        color: black;
+    }
+    .active-link {
+        background-color: mat-color($docs-dark-primary) !important;
+    }
+    a {
+        color: mat-color($docs-dark-accent);
+    }
+    .docs-api-method-name {
+        color: mat-color($docs-dark-primary);
+    }
+}
+
+/* You can add global styles to this file, and also import other style files */
+/*
+TODO: Customize of themes.
+*/
+.white-icon {
+    color: white !important;
+}
+.docs-code, .docs-example-code, code, .hljs.hljs-light, .hljs.hljs-dark {
+    font-family: "Roboto Mono", monospace;
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+.component-sidenav {
+    width: 240px;
+}
+.example-padding {
+    padding: 5px;
+}
+.docs-btn, .mat-simple-snackbar-action {
+    text-transform: uppercase;
+}
+.sidenav-toolbar-left {
+    z-index: 2 !important;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1;
+}
+.sidenav-subheader {
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1;
+}
+.sidenav-subheader {
+    top: 64px;
+    padding: 14px !important;
+}
+@media (max-width: 600px) {
+    .sidenav-subheader {
+        top: 56px;
+    }
+}
+.example-viewer {
+    margin: 10px 0px 0px 0px;
+}
+body {
+    font-family: Roboto, sans-serif;
+}
+.example-viewer-code {
+    min-height: 150px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    margin: 0;
+}
+.example-viewer-body {
+    padding: 30px;
+}
+.docs-table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 0 32px 0;
+}
+.docs-table-th {
+    font-weight: 400;
+    padding: 13px 32px;
+    text-align: left;
+}
+.docs-table-td {
+    border: 1px solid rgba(0,0,0,.03);
+    padding: 8px 16px;
+}
+.docs-title h1 {
+    font-weight: 300;
+    font-size: 30px;
+    margin: 0;
+    padding: 50px;
+}
+.docs-title {
+    align-items: center;
+	padding: 0px 15px 0px 15px;
+}
+.docs-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
+}
+@media (max-width: 840px) {
+    .docs-title h1 {
+        padding: 24px 8px;
+        font-size: 20px;
+    }
+}
+.docs-nav-tabs {
+    text-transform: uppercase;
+}
+.example-app {
+    margin: 20px 70px 50px 70px;
+}
+/* Phones */
+@media (max-width: 800px) {
+    .example-app {
+        margin: 10px;
+    }
+}
+.mat-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.active-link {
+    color: white !important;
+}
+.docs-copy-btn {
+    position: absolute !important;
+	right: 4px;
+	top: 4px;
+}
+.example-code-snippet {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: relative;
+    min-height: 47px;
+}
+.example-code-snippet-content.hljs-light {
+    background-color: rgba(0,0,0,.01);
+	border: .5px solid rgba(0,0,0,.03);
+}
+.docs-api-prop-name {
+    margin: 0;
+}
+.docs-api-properties, .docs-api-methods {
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+}
+.docs-api-input {
+    font-size: 12px;
+}
+h1, h2 {
+    font-weight: 400;
+}
+.docs-api-method-name {
+    font-size: 18px;
+}

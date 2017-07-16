@@ -29,6 +29,12 @@ export class DocsShowcase implements OnInit{
                 desc: 'Material2 Example app. Note that this demo uses an alpha version of angular material.',
                 imgSrc: 'assets/img/showcases/material2-app demo.jpg',
                 link: 'https://material2-app.firebaseapp.com'
+            },
+            {
+                title: 'angular-material-demo - Demo',
+                desc: 'The updated example of the Material2 example app.',
+                imgSrc: 'assets/img/showcases/angular-material-demo.jpg',
+                link: 'https://angular-material-demo.firebaseapp.com'
             }
         ]
     }

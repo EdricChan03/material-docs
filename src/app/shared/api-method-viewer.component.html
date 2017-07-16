@@ -1,0 +1,14 @@
+<h5>Methods</h5>
+<table class="docs-table mat-elevation-z4" *ngFor="let method of apiFiles">
+    <thead>
+        <tr class="docs-api-methods">
+            <th class="docs-table-th docs-api-method-name" colspan="2">{{method.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2" class="docs-table-td" *ngIf="!method.isHtml">{{method.desc}}</td>
+            <td colspan="2" class="docs-table-td" *ngIf="method.isHtml" [innerHTML]="method.desc"></td>
+        </tr>
+    </tbody>
+</table>

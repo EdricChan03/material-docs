@@ -1,0 +1,9 @@
+<md-nav-list>
+    <a
+        [href]="link.url"
+        md-list-item
+        *ngFor="let link of links"
+        target="_blank">
+        {{link.desc}}
+    </a>
+</md-nav-list>

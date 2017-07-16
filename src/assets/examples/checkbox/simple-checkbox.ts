@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'simple-checkbox-example',
-    templateUrl: 'simple-checkbox.html',
-    styleUrls: ['simple-checkbox.css']
+    templateUrl: 'simple-checkbox.html'
 })
 export class SimpleCheckboxComponent {}

@@ -1,0 +1,33 @@
+<md-card>
+    <md-card-title>Tooltip configuration</md-card-title>
+    <md-card-content>
+        <section class="example-section">
+        <md-select placeholder="Tooltip Position" [(ngModel)]="tooltipPosition" class="example-margin">
+            <md-option *ngFor="let pos of positions" [value]="pos.val">{{pos.displayVal}}</md-option>
+        </md-select>
+        </section>
+        <section class="example-section">
+            <label class="example-margin">Tooltip content</label>
+            <md-input-container class="example-margin">
+                <input mdInput [(ngModel)]="tooltipContent">
+            </md-input-container>
+        </section>
+        <section class="example-section">
+            <md-checkbox [(ngModel)]="tooltipDisabled" class="example-margin">Disable Tooltip</md-checkbox>
+            <md-checkbox [(ngModel)]="tooltipCustomClass" class="example-margin">Has Custom Class</md-checkbox>
+        </section>
+    </md-card-content>
+</md-card>
+<md-card>
+    <md-card-content>
+        <section class="example-section example-result">
+            <span
+                [mdTooltip]="tooltipContent"
+                [mdTooltipPosition]="tooltipPosition"
+                [mdTooltipDisabled]="tooltipDisabled"
+                [mdTooltipClass]="{'example-custom-tooltip': tooltipCustomClass}">
+                Content
+            </span>
+        </section>
+    </md-card-content>
+</md-card>

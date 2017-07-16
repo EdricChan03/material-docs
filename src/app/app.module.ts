@@ -1,31 +1,11 @@
-import { DocsThemingGuide } from './partials/guides/theming.component';
-import { DocsExampleCheckbox } from './partials/examplecheckbox.component';
-import { CodeViewerComponent } from './shared/code-viewer.component';
-import { PreferencesDialog } from './partials/preferences.component';
+// Example module
 import { ExampleModule } from './example.module';
-import { SimpleTooltipComponent } from './../assets/examples/tooltip/simple-tooltip';
-import { SimpleCheckboxComponent } from './../assets/examples/checkbox/simple-checkbox';
-import { DocsShowcase } from './partials/showcase/showcase.component';
-import { DocsSearch } from './partials/search.component';
-import { DocsHomePage } from './partials/homepages/docshome.component';
-import { DocsGuideNav } from './partials/guides/guidenav.component';
-import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.component';
-import { CodeDirective } from './shared/code.directive';
-import { DocsOverviewCheckbox } from './partials/overviewcheckbox.component';
-import { ButtonNoRippleComponent } from './../assets/examples/button/button-noripple';
-import { SharedComponent } from './shared/shared';
-import { TooltipPositionComponent } from './../assets/examples/tooltip/tooltip-position';
-import { DocsOverviewIcon } from './partials/overviewicon.component';
-import { DocsOverviewTooltip } from './partials/overviewtooltip.component';
-import { DocsExampleTooltip } from './partials/exampletooltip.component';
-import { ButtonTooltipComponent } from './../assets/examples/tooltip/button-tooltip';
-import { DocsExampleBtn } from './partials/examplebutton.component';
-import { ButtonOverviewComponent } from './../assets/examples/button/button-overview';
-import { DocViewerComponent } from './shared/doc-viewer.component';
-import { ButtonTypesComponent } from './../assets/examples/button/button-types';
-import { ExampleViewerComponent } from './shared/example-viewer.component';
-import { DocsOverviewBtn } from './partials/overviewbutton.component';
+// Docs module
+import { DocsModule } from './docs.module';
+// App routing
 import { AppRouting } from './app.routing';
+
+// Other
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -37,30 +17,9 @@ import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import 'hammerjs';
 
-const DOC_COMPONENTS = [
-    DocsOverviewBtn,
-    DocsExampleBtn,
-    DocsOverviewTooltip,
-    DocsExampleTooltip,
-    DocsOverviewIcon,
-    DocsOverviewCheckbox,
-    DocsExampleCheckbox,
-    DocsGettingStartedGuide,
-    DocsThemingGuide,
-    DocsGuideNav,
-    DocsHomePage,
-    DocsSearch,
-    DocsShowcase,
-    CodeViewerComponent
-]
 @NgModule({
     declarations: [
-        AppComponent,
-        ExampleViewerComponent,
-        DocViewerComponent,
-        DOC_COMPONENTS,
-        CodeDirective,
-        PreferencesDialog
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -69,14 +28,9 @@ const DOC_COMPONENTS = [
         HttpModule,
         FlexLayoutModule,
         MaterialModule,
+        DocsModule,
         ExampleModule,
         AppRouting
-    ],
-    providers: [
-        SharedComponent
-    ],
-    entryComponents: [
-        PreferencesDialog
     ],
     bootstrap: [AppComponent]
 })

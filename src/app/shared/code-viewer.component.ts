@@ -1,21 +1,17 @@
 import { MdSnackBar } from '@angular/material';
-import { Component, AfterViewInit, ElementRef, ViewChild, ContentChild, Input, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Input, DoCheck } from '@angular/core';
 import * as hljs from 'highlight.js';
 @Component({
     selector: 'code-viewer',
     templateUrl: './code-viewer.component.html'
 })
 
-export class CodeViewerComponent implements AfterViewInit, OnInit {
+export class CodeViewerComponent implements AfterViewInit, DoCheck {
     @ViewChild('code') content: ElementRef;
     @Input() language: string;
     isDark: boolean;
     originalCode: string;
     constructor(private snackbar: MdSnackBar) { }
-    toggleTheme() {
-        this.isDark = !this.isDark;
-        window.localStorage.setItem('darkTheme', JSON.stringify(this.isDark));
-    }
     copyToClipboard() {
         if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
             let textarea = document.createElement("textarea");
@@ -34,15 +30,15 @@ export class CodeViewerComponent implements AfterViewInit, OnInit {
             }
         }
     }
-    ngOnInit() {
+    ngDoCheck() {
         if (window.localStorage.getItem('darkTheme')) {
-            this.isDark = true;
+            this.isDark = JSON.parse(window.localStorage.getItem('darkTheme'));
         } else {
             this.isDark = false;
         }
     }
     ngAfterViewInit() {
-        hljs.highlightBlock(this.content.nativeElement.childNodes[5]);
-        this.originalCode = this.content.nativeElement.childNodes[5].innerText;
+        hljs.highlightBlock(this.content.nativeElement.childNodes[3]);
+        this.originalCode = this.content.nativeElement.childNodes[3].innerText;
     }
 }

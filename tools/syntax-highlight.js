@@ -26,7 +26,7 @@ fs.readFile(inputFile, 'utf8', (error, content) => {
 		console.error(`Could not read file ${inputFile}`);
 		exit(1);
 	}
-
+    console.log(`Highlighting file ${inputFile}`);
 	let highlighted = hljs.highlight(language, content);
 
 	let filename = path.basename(inputFile);

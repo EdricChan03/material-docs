@@ -1,5 +1,5 @@
 import { SharedComponent } from './shared';
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef, DoCheck, Type } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 import { MdSnackBar } from "@angular/material";
 @Component({
@@ -7,7 +7,7 @@ import { MdSnackBar } from "@angular/material";
     templateUrl: './example-viewer.component.html'
 })
 
-export class ExampleViewerComponent implements OnInit {
+export class ExampleViewerComponent implements OnInit, DoCheck {
     @ViewChild('code', { read: ViewContainerRef }) content;
     constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
     /**
@@ -49,18 +49,22 @@ export class ExampleViewerComponent implements OnInit {
      * @param {string} file The file to read
      */
     readTextFile(file): any {
-        let allText;
-        let rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = () => {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status == 0) {
-                    allText = rawFile.responseText;
+        try {
+            let allText;
+            let rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = () => {
+                if (rawFile.readyState === 4) {
+                    if (rawFile.status === 200 || rawFile.status == 0) {
+                        allText = rawFile.responseText;
+                    }
                 }
             }
+            rawFile.send(null);
+            return allText;
+        } catch (e) {
+            throw new Error(`Error: ${e}`);
         }
-        rawFile.send(null);
-        return allText;
     }
     /**
      * Toggles the source code
@@ -93,13 +97,6 @@ export class ExampleViewerComponent implements OnInit {
             }
         }
     }
-    /**
-     * Toggles theme
-     */
-    toggleTheme() {
-        this.isDark = !this.isDark;
-        window.localStorage.setItem('darkTheme', JSON.stringify(this.isDark));
-    }
     ngOnInit() {
         try {
             for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
@@ -112,14 +109,17 @@ export class ExampleViewerComponent implements OnInit {
             let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
             let ref = this.content.createComponent(factory);
             ref.changeDetectorRef.detectChanges();
+            this.el.nativeElement.querySelector(factory.selector);
             this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
-            if (window.localStorage.getItem('darkTheme')) {
-                this.isDark = JSON.parse(window.localStorage.getItem('darkTheme'));
-            } else {
-                this.isDark = false;
-            }
         } catch (error) {
             throw new Error(`Error: ${error}`);
+        }
+    }
+    ngDoCheck() {
+        if (window.localStorage.getItem('darkTheme')) {
+            this.isDark = JSON.parse(window.localStorage.getItem('darkTheme'));
+        } else {
+            this.isDark = false;
         }
     }
 }
@@ -127,20 +127,24 @@ export interface CodeFiles {
     /**
      * The name of the file
      * @note Order matters!
+     * @type {string}
      */
-    filePath: string[] | any;
+    filePath: string[];
     /**
      * The label of the files
      * @note Order matters!
+     * @type {string[]}
      */
-    fileLabel: string[] | any;
+    fileLabel: string[];
     /**
      * The path of the syntax highlighted file
      * @note Order matters!
+     * @type {string[]}
      */
-    highlightPath: string[] | any;
+    highlightPath: string[];
     /**
      * The component name
+     * @type {Type<any>}
      */
-    componentName: any;
+    componentName: Type<any>;
 }

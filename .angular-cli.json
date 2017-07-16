@@ -20,7 +20,7 @@
       "styles": [
         "highlightjs/material-light.scss",
         "highlightjs/material-dark.scss",
-        "styles.css"
+        "material-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

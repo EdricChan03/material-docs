@@ -1,0 +1,36 @@
+import { SharedComponent } from './../../../shared/shared';
+import { ConfigurableDialogComponent } from './../../../../assets/examples/dialog/configurable-dialog';
+import { CodeFiles } from './../../../shared/example-viewer.component';
+import { Component, OnInit } from "@angular/core";
+
+@Component({
+    selector: 'docs-dialog-example',
+    templateUrl: './exampledialog.component.html'
+})
+export class DocsExampleDialog implements OnInit {
+    dialogConfig: CodeFiles;
+    constructor(private shared: SharedComponent){shared.setTitle('Docs > Dialog > Examples');}
+    ngOnInit(){
+        this.dialogConfig = {
+            highlightPath: [
+                'assets/highlighted/configurable-dialog-html.html',
+                'assets/highlighted/configurable-dialog-ts.html',
+                'assets/highlighted/configurable-dialog-css.html',
+                'assets/highlighted/configurable-dialog-content-html.html'
+            ],
+            fileLabel: [
+                'configurable-dialog.html',
+                'configurable-dialog.ts',
+                'configurable-dialog.css',
+                'configurable-dialog-content.html'
+            ],
+            filePath: [
+                'assets/examples/dialog/configurable-dialog.html',
+                'assets/examples/dialog/configurable-dialog.ts',
+                'assets/examples/dialog/configurable-dialog.css',
+                'assets/examples/dialog/configurable-dialog-content.html'
+            ],
+            componentName: ConfigurableDialogComponent
+        }
+    }
+}

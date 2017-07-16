@@ -1,0 +1,21 @@
+<h3 id="description">Description</h3>
+
+<p><code>&lt;md-slide-toggle&gt;</code> is an on/off control that can be toggled via clicking or dragging.</p>
+
+<example-viewer [exFiles]="simpleSlideToggle" docsTitle="Simple Slide Toggle" docsId="simple-slide-toggle"></example-viewer>
+
+<p>The slide-toggle behaves similarly to a checkbox, though it does not support an <code>indeterminate</code> state like <a [routerLink]="['/components', 'checkbox']" mdTooltip="Go to checkbox docs"><code>&lt;md-checkbox&gt;</code></a>.</p>
+<em>Note: the sliding behavior for this component requires that HammerJS is loaded on the page.</em>
+
+<h3 id="slide-toggle-label">Slide-toggle label</h3>
+
+<p>The slide-toggle label is provided as the content to the &lt;md-slide-toggle&gt; element.</p>
+<p>If you don't want the label to appear next to the slide-toggle, you can use <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-label" target="_blank" mdTooltip="More on w3.org"><code>aria-label</code></a> or <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby" target="_blank" mdTooltip="More on w3.org"><code>aria-labelledby</code></a> to specify an appropriate label.</p>
+
+<h3 id="use-with-angular-forms">Use with @angular/forms</h3>
+
+<p><code>&lt;md-slide-toggle&gt;</code> is compatible with <code>@angular/forms</code> and supports both <code>FormsModule</code> and <code>ReactiveFormsModule</code>.</p>
+
+<h3 id="theming">Theming</h3>
+
+<p>The color of a <code>&lt;md-slide-toggle&gt;</code> can be changed by using the <code>color</code> property. By default, slide-toggles use the theme's accent color. This can be changed to <code>'primary'</code> or <code>'warn'</code>.</p>

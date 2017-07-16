@@ -1,6 +1,0 @@
-<md-select placeholder="Tooltip Position" [(ngModel)]="tooltipPosition">
-    <md-option *ngFor="let pos of positions" [value]="pos.val">{{pos.displayVal}}</md-option>
-</md-select>
-<br>
-<br>
-<span mdTooltip="{{tooltipPosition}}" [mdTooltipPosition]="tooltipPosition" class="example-tooltip-pos">Content goes here</span>

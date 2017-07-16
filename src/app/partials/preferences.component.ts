@@ -1,19 +1,21 @@
-import { Component, OnInit } from "@angular/core";
+import { Observable } from 'rxjs/Observable';
+import { Settings, SharedComponent } from './../shared/shared';
+import { Component, OnInit, OnChanges } from "@angular/core";
 import { MdDialogRef, MdSnackBar } from "@angular/material";
 
 @Component({
     selector: 'preferences-dialog',
     templateUrl: './preferences.component.html'
 })
-export class PreferencesDialog implements OnInit{
+export class PreferencesDialog implements OnInit, OnChanges{
     settings: Settings;
-    constructor(private dialogRef: MdDialogRef<PreferencesDialog>, private snackbar: MdSnackBar){}
+    constructor(private dialogRef: MdDialogRef<PreferencesDialog>, private snackbar: MdSnackBar, private shared: SharedComponent){}
     cancel() {
         this.snackbar.open('Preferences not saved', null, {duration: 6000});
         this.dialogRef.close();
     }
     close() {
-        window.localStorage.setItem('settings', JSON.stringify(this.settings));
+        this.shared.setSettings(this.settings);
         this.dialogRef.close();
         let snackbarRef = this.snackbar.open('Preferences saved', 'Reload', {duration: 7000});
         snackbarRef.onAction().subscribe(()=> {
@@ -21,20 +23,11 @@ export class PreferencesDialog implements OnInit{
         })
     }
     ngOnInit(){
-        if (window.localStorage.getItem('settings')) {
-            this.settings = JSON.parse(window.localStorage.getItem('settings'));
-        } else {
-        this.settings = {
-            themeToggle: true,
-            codeSpaceIndent: 4,
-            codeTabIndent: 1
-        }
-        }
+        this.settings = this.shared.getSettings();
     }
-}
-export interface Settings {
-    themeToggle: boolean;
-    codeSpaceIndent?: number | any;
-    enableTabIndent?: boolean;
-    codeTabIndent?: number | any;
+    ngOnChanges() {
+        this.shared.getSettingsObservable().subscribe(result=> {
+            console.log(result);
+        })
+    }
 }
