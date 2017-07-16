@@ -31,7 +31,7 @@ import &#123;MD_DIALOG_DATA&#125; from '@angular/material';
 
 @Component(&#123;
   selector: 'your-dialog',
-  template: 'passed in &#123;&#123; data &#125;&#125;',
+  template: 'passed in <span ngNonBindable>{{ data }}</span>',
 &#125;)
 
 export class YourDialog &#123;
