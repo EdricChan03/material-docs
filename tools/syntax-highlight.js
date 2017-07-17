@@ -37,5 +37,6 @@ fs.readFile(inputFile, 'utf8', (error, content) => {
         if (error) {
             console.error(`Could not write file ${outputFile}`);
         }
+        console.log(`File highlighted at ${outputFile}`);
     });
 });

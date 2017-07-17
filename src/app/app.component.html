@@ -1,13 +1,13 @@
 <md-sidenav-container fullscreen>
     <md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar">
-        <button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon svgIcon="menu"></md-icon></button> Material2
+        <button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon svgIcon="mdi:menu"></md-icon></button> Material2
         Docs
         <span fxFlex></span>
         <button md-icon-button (click)="openPrefs()" mdTooltip="Preferences">
-            <md-icon svgIcon="settings"></md-icon>
+            <md-icon svgIcon="mdi:settings"></md-icon>
         </button>
-        <button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon svgIcon="dots-vertical"></md-icon></button>
-        <button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="sitemap"></md-icon></button>
+        <button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon svgIcon="mdi:dots-vertical"></md-icon></button>
+        <button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="mdi:sitemap"></md-icon></button>
         <md-menu #moreMenu="mdMenu">
             <button md-menu-item (click)="viewOnGithub()">View on Github</button>
             <button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
@@ -17,7 +17,7 @@
         <md-toolbar color="primary" class="mat-elevation-z6 sidenav-toolbar-left">
             Components
             <span fxFlex></span>
-            <button md-icon-button (click)="componentSidenav.close()"><md-icon svgIcon="arrow-collapse-left"></md-icon></button>
+            <button md-icon-button (click)="componentSidenav.close()"><md-icon svgIcon="mdi:arrow-collapse-left"></md-icon></button>
         </md-toolbar>
         <md-nav-list *ngFor="let category of categories">
             <h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
@@ -26,7 +26,7 @@
     </md-sidenav>
     <md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
         <md-toolbar color="primary" class="mat-elevation-z6">
-            <button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="arrow-collapse-right"></md-icon></button>
+            <button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="mdi:arrow-collapse-right"></md-icon></button>
             <span fxFlex></span> Navigation
         </md-toolbar>
         <md-nav-list>
@@ -45,5 +45,10 @@
     </div>
     <div class="example-app">
         <router-outlet></router-outlet>
+        <footer class="docs-footer">
+            <p>Docs originated from <a href="https://material.angular.io" mdTooltip="Visit original docs" target="_blank" class="docs-link">Material.Angular.io</a></p>
+
+            <a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link">Learn Angular</a>
+        </footer>
     </div>
 </md-sidenav-container>

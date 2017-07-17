@@ -1,3 +1,4 @@
+import { AdvancedListComponent, AdvancedListDialog } from './../assets/examples/list/advanced-list';
 import { SimpleButtonToggleComponent } from './../assets/examples/button-toggle/simple-button-toggle';
 import { ConfigurableSlideToggleComponent } from './../assets/examples/slide-toggle/configurable-slide-toggle';
 import { NavListComponent } from './../assets/examples/list/nav-list';
@@ -41,7 +42,9 @@ export const ICON_COMPONENTS = [
 ]
 export const LIST_COMPONENTS = [
     SimpleListComponent,
-    NavListComponent
+    NavListComponent,
+    AdvancedListComponent,
+    AdvancedListDialog
 ]
 export const SLIDE_TOGGLE_COMPONENTS = [
     SimpleSlideToggleComponent,

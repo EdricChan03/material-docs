@@ -14,6 +14,10 @@
         background-color: mat-color($background, app-bar);
 
     }
+    .docs-footer {
+        background-color: mat-color($primary);
+        text-align: center;
+    }
 }
 $docs-light-primary: mat-palette($mat-indigo);
 $docs-light-accent: mat-palette($mat-pink);
@@ -33,11 +37,14 @@ $docs-light-theme: mat-light-theme($docs-light-primary, $docs-light-accent);
     .active-link {
         background-color: mat-color($docs-light-primary) !important;
     }
-    a {
+    a.docs-link {
         color: mat-color($docs-light-accent);
     }
     .docs-api-method-name {
         color: mat-color($docs-light-primary);
+    }
+    .docs-footer {
+        color: white;
     }
 }
 
@@ -60,7 +67,7 @@ $docs-dark-theme:   mat-dark-theme($docs-dark-primary, $docs-dark-accent, $docs-
     .active-link {
         background-color: mat-color($docs-dark-primary) !important;
     }
-    a {
+    a.docs-link {
         color: mat-color($docs-dark-accent);
     }
     .docs-api-method-name {

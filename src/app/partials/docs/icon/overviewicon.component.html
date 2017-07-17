@@ -12,12 +12,12 @@
 <h3 id="font-icons">Font icons with ligatures</h3>
 
 <p>Some fonts are designed to show icons by using
-    <a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank">ligatures</a>, for example by rendering
+    <a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" class="docs-link">ligatures</a>, for example by rendering
     the text "home" as a home image. To use a ligature icon, put its text in the content of the <code>md-icon</code> component.
 </p>
 
 <p>By default, <code>&lt;md-icon&gt;</code> expects the
-    <a href="https://google.github.io/material-design-icons/#icon-font-for-the-web" target="_blank">Material icons font</a>.
+    <a href="https://google.github.io/material-design-icons/#icon-font-for-the-web" target="_blank" class="docs-link">Material icons font</a>.
     (You will still need to include the HTML to load the font and its CSS, as described in the link). You can specify a different
     font by setting the <code>fontSet</code> input to either the CSS class to apply to use the desired font, or to an alias
     previously registered with
@@ -27,7 +27,7 @@
 
 <p>Fonts can also display icons by defining a CSS class for each icon glyph, which typically uses a
     <code>:before</code> selector to cause the icon to appear.
-    <a href="https://fortawesome.github.io/Font-Awesome/examples" target="_blank">FontAwesome</a> uses this approach to display
+    <a href="https://fortawesome.github.io/Font-Awesome/examples" target="_blank" class="docs-link">FontAwesome</a> uses this approach to display
     its icons. To use such a font, set the <code>fontSet</code> input to the font's CSS class (either the class itself or
     an alias registered with <code>MdIconRegistry.registerFontClassAlias</code>), and set the <code>fontIcon</code> input
     to the class for the specific icon to show.</p>
@@ -40,7 +40,7 @@
 <p>When an <code>md-icon</code> component displays an SVG icon, it does so by directly inlining the SVG content into the page
     as a child of the component. (Rather than using an <code>&lt;img&gt;</code> tag or a <code>div</code> background image).
     This makes it easier to apply CSS styles to SVG icons. For example, the default color of the SVG content is the CSS
-    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword" target="_blank">currentColor</a>    value. This makes SVG icons by default have the same color as surrounding text, and allows you to change the color by
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword" target="_blank" class="docs-link">currentColor</a>    value. This makes SVG icons by default have the same color as surrounding text, and allows you to change the color by
     setting the "color" style on the <code>md-icon</code> element.</p>
 
 <p>In order to prevent XSS vulnerabilities, any SVG URLs passed to the <code>MdIconRegistry</code> must be marked as trusted

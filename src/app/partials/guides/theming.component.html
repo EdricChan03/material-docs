@@ -3,8 +3,8 @@
 <h3 id="what-is-a-theme">What is a theme?</h3>
 
 <p>A <strong>theme</strong> is the set of colors that will be applied to the Angular Material components. The library's approach
-    to theming is based on the guidance from the <a href="https://material.google.com/style/color.html#color-color-palette"
-        mdTooltip="Color specs">Material Design spec</a>.</p>
+    to theming is based on the guidance from the <a href="https://material.io/guidelines/style/color.html#color-color-palette"
+        mdTooltip="Color specs" target="_blank" class="docs-link">Material Design spec</a>.</p>
 
 <p>In Angular Material, a theme is created by composing multiple palettes. In particular, a theme consists of:</p>
 
@@ -46,15 +46,11 @@
 
 <p>If you're using Angular CLI, this is as simple as including one line in your <code>styles.css</code> file:</p>
 
-<code-viewer language="css">
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-</code-viewer>
+<code-viewer language="css">@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';</code-viewer>
 
 <p>Alternatively, you can just reference the file directly. This would look something like:</p>
 
-<code-viewer language="html">
-&lt;link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"&gt;
-</code-viewer>
+<code-viewer language="html">&lt;link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"&gt;</code-viewer>
 
 <p>The actual path will depend on your server setup.</p>
 
@@ -83,8 +79,7 @@
 
 <p>A typical theme file will look something like this:</p>
 
-<code-viewer language="scss">
-@import '~@angular/material/theming';
+<code-viewer language="scss">@import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -102,13 +97,12 @@ $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 $candy-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($candy-app-theme);
-</code-viewer>
+@include angular-material-theme($candy-app-theme);</code-viewer>
 
 <p>You only need this single Sass file; you do not need to use Sass to style the rest of your app.</p>
 
@@ -118,9 +112,8 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 <p>If you're not using the Angular CLI, you can use any existing Sass tooling to build the file (such as gulp-sass or grunt-sass).
     The simplest approach is to use the <code>node-sass</code> CLI; you simply run:</p>
 
-<code-viewer language="bash">
-node-sass src/unicorn-app-theme.scss dist/unicorn-app-theme.css
-</code-viewer>
+<code-viewer language="bash"># The first param is the scss file, the second param is the css file to write to
+node-sass src/unicorn-app-theme.scss dist/unicorn-app-theme.css</code-viewer>
 
 <p>and then include the output file in your index.html.</p>
 
@@ -135,7 +128,7 @@ node-sass src/unicorn-app-theme.scss dist/unicorn-app-theme.css
 <p>Note that if you include the generated theme file in the <code>styleUrls</code> of an Angular component, those styles will
     be subject to that component's <a href="https://angular.io/docs/ts/latest/guide/component-styles.html#!#view-encapsulation">view encapsulation</a>.</p>
 
-<h4 id="multiple-themes" class="mat-h4">Multiple themes</h4>
+<h4 id="multiple-themes">Multiple themes</h4>
 
 <p>You can create multiple themes for your application by including the <code>angular-material-theme</code> mixin multiple times,
     where each inclusion is gated by an additional CSS class.</p>
@@ -143,10 +136,9 @@ node-sass src/unicorn-app-theme.scss dist/unicorn-app-theme.css
 <p>Remember to only ever include the <code>@mat-core</code> mixin only once; it should not be included for each theme.
 </p>
 
-<h5 id="example-multiple-themes" class="mat-h5">Example of defining multiple themes:</h5>
+<h5 id="example-multiple-themes">Example of defining multiple themes:</h5>
 
-<code-viewer language="scss">
-@import '~@angular/material/theming';
+<code-viewer language="scss">@import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -174,8 +166,7 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .unicorn-dark-theme &#123;
   @include angular-material-theme($dark-theme);
-&#125;
-</code-viewer>
+&#125;</code-viewer>
 
 <p>In the above example, any component inside of a parent with the <code>unicorn-dark-theme</code> class will use the dark theme,
     while other components will fall back to the default <code>$candy-app-theme</code>.</p>
@@ -186,7 +177,7 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
 <p>It's important to remember, however, that the <code>mat-core</code> mixin should only ever be included <em>once</em>.</p>
 
-<h5 id="multiple-themes-and-overlay-based-components" class="mat-h5">Multiple themes and overlay-based components</h5>
+<h5 id="multiple-themes-and-overlay-based-components">Multiple themes and overlay-based components</h5>
 
 <p>Since certain components (e.g. menu, select, dialog, etc.) are inside of a global overlay container, an additional step is
     required for those components to be affected by the theme's css class selector (
@@ -195,8 +186,7 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 <p>To do this, you can specify a <code>themeClass</code> on the global overlay container. For the example above, this would
     look like:</p>
 
-<code-viewer language="typescript">
-import &#123;OverlayContainer&#125; from '@angular/material';
+<code-viewer language="typescript">import &#123;OverlayContainer&#125; from '@angular/material';
 
 @NgModule(&#123;
   // ...
@@ -205,21 +195,19 @@ export class UnicornCandyAppModule &#123;
   constructor(overlayContainer: OverlayContainer) &#123;
     overlayContainer.themeClass = 'unicorn-dark-theme';
   &#125;
-&#125;
-</code-viewer>
+&#125;</code-viewer>
 
 <p>The <code>themeClass</code> of the <code>OverlayContainer</code> can be changed at any time to change the active theme class.
 </p>
 
-<h4 id="theming-only-certain-components" class="mat-h4">Theming only certain components</h4>
+<h4 id="theming-only-certain-components">Theming only certain components</h4>
 
-<p>The <code>angular-material-theme</code> mixin will output styles for <a href="https://github.com/angular/material2/blob/master/src/lib/core/theming/_all-theme.scss">all components in the library</a>.
+<p>The <code>angular-material-theme</code> mixin will output styles for <a href="https://github.com/angular/material2/blob/master/src/lib/core/theming/_all-theme.scss" class="docs-link" mdTooltip="View file">all components in the library</a>.
     If you are only using a subset of the components (or if you want to change the theme for specific components), you can
     include component-specific theme mixins. You also will need to include the <code>mat-core-theme</code> mixin as well,
     which contains theme-specific styles for common behaviors (such as ripples).</p>
 
-<code-viewer language="scss">
-@import '~@angular/material/theming'; // Plus imports for other components in your app.
+<code-viewer language="scss">@import '~@angular/material/theming'; // Plus imports for other components in your app.
 // Include the common styles for Angular Material. We include this here so that you only // have to load a single css file
     for Angular Material in your app. // Be sure that you only ever include this mixin once! @include mat-core();
 
@@ -227,8 +215,7 @@ export class UnicornCandyAppModule &#123;
     A400); $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Include the theme styles for only specified components. @include mat-core-theme($candy-app-theme); @include mat-button-theme($candy-app-theme);
-    @include mat-checkbox-theme($candy-app-theme);
-</code-viewer>
+    @include mat-checkbox-theme($candy-app-theme);</code-viewer>
 
 <h3 id="theming-your-own-components">Theming your own components</h3>
 

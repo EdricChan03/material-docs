@@ -11,9 +11,26 @@ export class DocsSearch implements OnInit {
     filteredItems: any;
     items = [] = ['WOW', 'test', 'loL', 'something'];
     search: string;
+    searchOptType: string[];
+    isCaseSensitive: boolean;
     ngOnInit() {
         this.shared.setTitle('Docs > Search');
         
+    }
+    submit() {
+        console.log(`Searching for ${this.search} with params ${this.searchOptType}`);
+        if (this.isCaseSensitive) {
+            console.log("Search is case sensitive");
+        } else {
+            console.log("Search is not case sensitive");
+        }
+    }
+    reset() {
+        if (confirm("Are you sure you want to reset?")) {
+            this.search = "";
+            this.searchOptType = ["component", "guides", "showcase", "misc", "other"];
+            this.isCaseSensitive = false;
+        }
     }
     // submit(search: string) {
     //     console.log(search);

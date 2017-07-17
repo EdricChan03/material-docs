@@ -1,3 +1,6 @@
+import { DocsAPIList } from './partials/docs/list/apilist.component';
+import { DocsExampleList } from './partials/docs/list/examplelist.component';
+import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
 import { DocsAPICheckbox } from './partials/docs/checkbox/apicheckbox.component';
 import { APIPropertyViewerComponent, APIMethodViewerComponent } from './shared/api-viewer.component';
 import { DocsAPISlideToggle } from './partials/docs/slide-toggle/apislidetoggle.component';
@@ -56,6 +59,11 @@ export const DOC_DIALOG_COMPONENTS = [
 export const DOC_ICON_COMPONENTS = [
     DocsOverviewIcon,
 ]
+export const DOC_LIST_COMPONENTS = [
+    DocsOverviewList,
+    DocsExampleList,
+    DocsAPIList
+]
 export const DOC_SLIDE_TOGGLE_COMPONENTS = [
     DocsOverviewSlideToggle,
     DocsExampleSlideToggle,
@@ -88,6 +96,7 @@ export const DOC_COMPONENTS = [
     DOC_CHECKBOX_COMPONENTS,
     DOC_DIALOG_COMPONENTS,
     DOC_ICON_COMPONENTS,
+    DOC_LIST_COMPONENTS,
     DOC_SLIDE_TOGGLE_COMPONENTS,
     DOC_TOOLTIP_COMPONENTS,
     DOC_GUIDES,

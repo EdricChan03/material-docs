@@ -1,3 +1,6 @@
+import { DocsAPIList } from './partials/docs/list/apilist.component';
+import { DocsExampleList } from './partials/docs/list/examplelist.component';
+import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
 import { DocsAPICheckbox } from './partials/docs/checkbox/apicheckbox.component';
 import { DocsAPISlideToggle } from './partials/docs/slide-toggle/apislidetoggle.component';
 import { DocsOverviewButtonToggle } from './partials/docs/button-toggle/overviewbuttontoggle.component';
@@ -95,6 +98,14 @@ export const AppRoutes: Routes = [
                     { path: 'overview', component: DocsOverviewButtonToggle },
                     { path: '**', redirectTo: 'overview' }
                 ]
+            },
+            {
+                path: 'list', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewList },
+                    { path: 'examples', component: DocsExampleList },
+                    { path: 'api', component: DocsAPIList },
+                    { path: '**', redirectTo: 'overview' }
+                ]
             }
         ]
     },
@@ -106,6 +117,6 @@ export const AppRoutes: Routes = [
     },
     { path: 'search', component: DocsSearch },
     { path: 'showcases', component: DocsShowcase },
-    { path: '**', redirectTo: '/'}
+    { path: '**', redirectTo: '/' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

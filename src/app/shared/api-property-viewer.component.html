@@ -9,8 +9,8 @@
     <tbody>
         <tr *ngFor="let property of apiFiles">
             <td class="docs-table-td docs-api-properties">
-                    <div class="docs-api-input" *ngIf="property.isInput">@Input({{property.alias}})</div>
-                    <div class="docs-api-input" *ngIf="property.isOutput">@Output({{property.alias}})</div>
+                    <div class="docs-api-input" *ngIf="property.isInput">@Input(<span *ngIf="property.alias">{{"'"+property.alias+"'"}}</span>)</div>
+                    <div class="docs-api-input" *ngIf="property.isOutput">@Output(<span *ngIf="property.alias">{{"'"+property.alias+"'"}}</span>)</div>
                     <div class="docs-api-input" *ngIf="property.isDepreceated">Depreceated</div>
                     <p class="docs-api-prop-name">{{property.name}}</p>
             </td>

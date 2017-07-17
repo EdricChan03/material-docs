@@ -36,7 +36,8 @@ import 'hammerjs';
 })
 export class AppModule {
     constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer) {
-        mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('https://chan4077.github.io/res/mdi.svg'));
+        mdIconRegistry.addSvgIconSetInNamespace('mdi', domSanitizer.bypassSecurityTrustResourceUrl('https://chan4077.github.io/res/mdi.svg'));
         mdIconRegistry.addSvgIcon('angular-colour', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/angular-coloured.svg'));
     }
+    
 }
