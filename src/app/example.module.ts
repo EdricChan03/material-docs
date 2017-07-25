@@ -1,3 +1,4 @@
+import { MultipleButtonToggleComponent } from './../assets/examples/button-toggle/multiple-button-toggle';
 import { IconMenuComponent, IconMenuDialog } from './../assets/examples/menu/icon-menu';
 import { NestedMenuComponent } from './../assets/examples/menu/nested-menu';
 import { SimpleMenuComponent } from './../assets/examples/menu/simple-menu';
@@ -28,7 +29,8 @@ export const BUTTON_COMPONENTS = [
     ButtonOverviewComponent
 ]
 export const BUTTON_TOGGLE_COMPONENTS = [
-    SimpleButtonToggleComponent
+	SimpleButtonToggleComponent,
+	MultipleButtonToggleComponent
 ]
 export const CHECKBOX_COMPONENTS = [
     SimpleCheckboxComponent,

@@ -1,0 +1,5 @@
+<md-button-toggle-group #group="mdButtonToggleGroup">
+	<md-button-toggle *ngFor="let toggle of toggles" [value]="toggle.value"><md-icon>{{toggle.icon}}</md-icon></md-button-toggle>
+</md-button-toggle-group>
+
+<p>You selected: {{group.value}}</p>

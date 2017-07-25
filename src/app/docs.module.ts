@@ -1,3 +1,4 @@
+import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
 import { AboutDialog } from './app.component';
 import { DocsExamples } from './partials/docs/example.component';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
@@ -50,7 +51,8 @@ export const DOC_BUTTON_COMPONENTS = [
     DocsExampleBtn
 ]
 export const DOC_BUTTON_TOGGLE_COMPONENTS = [
-    DocsOverviewButtonToggle,
+	DocsOverviewButtonToggle,
+	DocsExampleButtonToggle
 ]
 export const DOC_CHECKBOX_COMPONENTS = [
     DocsOverviewCheckbox,

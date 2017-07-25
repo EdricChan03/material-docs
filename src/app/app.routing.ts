@@ -1,3 +1,4 @@
+import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
 import { DocsExamples } from './partials/docs/example.component';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
 import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
@@ -99,7 +100,8 @@ export const AppRoutes: Routes = [
             },
             {
                 path: 'button-toggle', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewButtonToggle },
+					{ path: 'overview', component: DocsOverviewButtonToggle },
+					{ path: 'examples', component: DocsExampleButtonToggle },
                     { path: '**', redirectTo: 'overview' }
                 ]
             },
