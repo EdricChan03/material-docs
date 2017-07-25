@@ -19,12 +19,6 @@ export class DocsOverviewDialog implements OnInit {
                 'assets/highlighted/dialog-result-content-html.html',
                 'assets/highlighted/dialog-result-content-css.html'
             ],
-            fileLabel: [
-                'dialog-result.html',
-                'dialog-result.ts',
-                'dialog-result-content.html',
-                'dialog-result-content.css'
-            ],
             filePath: [
                 'assets/examples/dialog/dialog-result.html',
                 'assets/examples/dialog/dialog-result.ts',

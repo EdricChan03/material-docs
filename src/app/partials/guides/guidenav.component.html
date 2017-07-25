@@ -1,4 +1,4 @@
 <md-nav-list *ngIf="isMain">
-    <a md-list-item [routerLink]="guide.link" *ngFor="let guide of guides">{{guide.text}}</a>
+    <a md-list-item [routerLink]="guide.link" *ngFor="let guide of guides"><md-icon md-list-icon>{{guide.icon}}</md-icon><p md-line>{{guide.text}}</p></a>
 </md-nav-list>
 <router-outlet></router-outlet>

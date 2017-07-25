@@ -16,11 +16,6 @@ export class DocsExampleCheckbox implements OnInit {
                 'assets/examples/checkbox/configurable-checkbox.ts',
                 'assets/examples/checkbox/configurable-checkbox.css'
             ],
-            fileLabel: [
-                'configurable-checkbox.html',
-                'configurable-checkbox.ts',
-                'configurable-checkbox.css'
-            ],
             highlightPath: [
                 'assets/highlighted/configurable-checkbox-html.html',
                 'assets/highlighted/configurable-checkbox-ts.html',

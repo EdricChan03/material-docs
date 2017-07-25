@@ -1,54 +1,80 @@
 <md-sidenav-container fullscreen>
-    <md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar">
-        <button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon svgIcon="mdi:menu"></md-icon></button> Material2
-        Docs
-        <span fxFlex></span>
-        <button md-icon-button (click)="openPrefs()" mdTooltip="Preferences">
-            <md-icon svgIcon="mdi:settings"></md-icon>
-        </button>
-        <button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon svgIcon="mdi:dots-vertical"></md-icon></button>
-        <button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="mdi:sitemap"></md-icon></button>
-        <md-menu #moreMenu="mdMenu">
-            <button md-menu-item (click)="viewOnGithub()">View on Github</button>
-            <button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
-        </md-menu>
-    </md-toolbar>
-    <md-sidenav #componentSidenav [mode]="sidenavMode" class="component-sidenav mat-elevation-z4" align="start">
-        <md-toolbar color="primary" class="mat-elevation-z6 sidenav-toolbar-left">
-            Components
-            <span fxFlex></span>
-            <button md-icon-button (click)="componentSidenav.close()"><md-icon svgIcon="mdi:arrow-collapse-left"></md-icon></button>
-        </md-toolbar>
-        <md-nav-list *ngFor="let category of categories">
-            <h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
-            <a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link" (click)="componentSidenav.close()">{{component.name}}</a>
-        </md-nav-list>
-    </md-sidenav>
-    <md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
-        <md-toolbar color="primary" class="mat-elevation-z6">
-            <button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="mdi:arrow-collapse-right"></md-icon></button>
-            <span fxFlex></span> Navigation
-        </md-toolbar>
-        <md-nav-list>
-            <a md-list-item [routerLink]="['components']" (click)="docsSidenav.close()">Components</a>
-            <a md-list-item [routerLink]="['guides']" (click)="docsSidenav.close()">Guides</a>
-            <a md-list-item [routerLink]="['showcases']" (click)="docsSidenav.close()">Showcases</a>
-            <a md-list-item href="https://github.com/Chan4077/material2-docs/blob/master/LICENSE" target="_blank" (click)="docsSidenav.close()">License</a>
-            <a md-list-item [routerLink]="['search']" (click)="docsSidenav.close()">Search (experimental)</a>
-        </md-nav-list>
-    </md-sidenav>
-    <div class="docs-title" fxLayout="row">
-        <h1>{{docTitle}}</h1>
-        <span fxFlex></span>
-        <button md-icon-button (click)="openInExtDocs()" *ngIf="isExtDocsExist" mdTooltip="Open in Official Docs" mdTooltipPosition="left"
-            style="background-color: white;"><md-icon svgIcon="angular-colour"></md-icon></button>
-    </div>
-    <div class="example-app">
-        <router-outlet></router-outlet>
-        <footer class="docs-footer">
-            <p>Docs originated from <a href="https://material.angular.io" mdTooltip="Visit original docs" target="_blank" class="docs-link">Material.Angular.io</a></p>
+	<md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar">
+		<button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon>menu</md-icon></button> Material2
+		Docs
+		<span fxFlex></span>
+		<button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon>more_vert</md-icon></button>
+		<button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="icons:sitemap"></md-icon></button>
+		<md-menu #moreMenu="mdMenu">
+			<button md-menu-item (click)="viewOnGithub()"><md-icon>code</md-icon>View on Github</button>
+			<button md-menu-item (click)="openPrefs()"><md-icon>settings</md-icon>Settings</button>
+			<button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
+		</md-menu>
+	</md-toolbar>
+	<md-sidenav #componentSidenav [mode]="sidenavMode" class="component-sidenav mat-elevation-z4" align="start">
+		<md-toolbar color="primary" class="mat-elevation-z6 sidenav-toolbar-left">
+			Components
+			<span fxFlex></span>
+			<button md-icon-button (click)="componentSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-left"></md-icon></button>
+		</md-toolbar>
+		<md-nav-list *ngFor="let category of categories">
+			<h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
+			<a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link"
+			 (click)="componentSidenav.close()">{{component.name}}</a>
+		</md-nav-list>
+	</md-sidenav>
+	<md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
+		<md-toolbar color="primary" class="mat-elevation-z6">
+			<button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-right"></md-icon></button> Navigation
+			<span fxFlex></span>
+		</md-toolbar>
+		<md-nav-list>
+			<a md-list-item [routerLink]="['home']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>home</md-icon>
+				<p md-line>Home</p>
+			</a>
+			<a md-list-item [routerLink]="['components']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>extension</md-icon>
+				<p md-line>Components</p>
+			</a>
+			<a md-list-item [routerLink]="['guides']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>book</md-icon>
+				<p md-line>Guides</a>
+			<a md-list-item [routerLink]="['showcases']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>view_carousel</md-icon>
+				<p md-line>Showcases</p>
+			</a>
+			<a md-list-item [routerLink]="['search']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>search</md-icon>
+				<p md-line>Search (experimental)</p>
+			</a>
+			<a md-list-item [routerLink]="['examples']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>code</md-icon>
+				<p md-line>Examples</p>
+			</a>
+			<h3 md-subheader>Other</h3>
+			<a md-list-item href="https://github.com/Chan4077/material2-docs/blob/master/LICENSE" target="_blank" (click)="docsSidenav.close()">
+				<md-icon md-list-icon>copyright</md-icon>
+				<p md-line>License</p>
+			</a>
+			<a md-list-item (click)="openAbout(); docsSidenav.close()">
+				<md-icon md-list-icon>info</md-icon>
+				<p md-line>About</p>
+			</a>
+		</md-nav-list>
+	</md-sidenav>
+	<div class="docs-title" fxLayout="row">
+		<h1>{{docTitle}}</h1>
+		<span fxFlex></span>
+		<button md-icon-button (click)="openInExtDocs()" *ngIf="isExtDocsExist" mdTooltip="Open in Official Docs" mdTooltipPosition="left"
+		 style="background-color: white;"><md-icon svgIcon="icons:angular-colour"></md-icon></button>
+	</div>
+	<div class="example-app">
+		<router-outlet></router-outlet>
+	</div>
+	<footer class="docs-footer">
+		<p>Docs originated from <a href="https://material.angular.io" mdTooltip="Visit original docs" target="_blank" class="docs-link">Material.Angular.io</a></p>
 
-            <a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link">Learn Angular</a>
-        </footer>
-    </div>
+		<a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link" mdTooltipPosition="above">Learn Angular</a>
+	</footer>
 </md-sidenav-container>

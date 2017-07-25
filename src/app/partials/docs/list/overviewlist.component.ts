@@ -16,10 +16,6 @@ export class DocsOverviewList implements OnInit {
                 'assets/examples/list/simple-list.html',
                 'assets/examples/list/simple-list.ts'
             ],
-            fileLabel: [
-                'simple-list.html',
-                'simple-list.ts'
-            ],
             highlightPath: [
                 'assets/highlighted/simple-list-html.html',
                 'assets/highlighted/simple-list-ts.html'

@@ -1,3 +1,8 @@
+import { AboutDialog } from './app.component';
+import { DocsExamples } from './partials/docs/example.component';
+import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
+import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
+import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
 import { DocsAPIList } from './partials/docs/list/apilist.component';
 import { DocsExampleList } from './partials/docs/list/examplelist.component';
 import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
@@ -52,6 +57,9 @@ export const DOC_CHECKBOX_COMPONENTS = [
     DocsExampleCheckbox,
     DocsAPICheckbox
 ]
+export const DOC_DATEPICKER_COMPONENTS = [
+    DocsOverviewDatepicker
+]
 export const DOC_DIALOG_COMPONENTS = [
     DocsOverviewDialog,
     DocsExampleDialog,
@@ -63,6 +71,10 @@ export const DOC_LIST_COMPONENTS = [
     DocsOverviewList,
     DocsExampleList,
     DocsAPIList
+]
+export const DOC_MENU_COMPONENTS = [
+    DocsOverviewMenu,
+    DocsExampleMenu
 ]
 export const DOC_SLIDE_TOGGLE_COMPONENTS = [
     DocsOverviewSlideToggle,
@@ -83,27 +95,31 @@ export const DOC_MISC = [
     DocsHomePage,
     DocsSearch,
     DocsShowcase,
+	DocsExamples,
     CodeViewerComponent,
     ExampleViewerComponent,
     DocViewerComponent,
     CodeDirective,
     APIPropertyViewerComponent,
-    APIMethodViewerComponent
+	APIMethodViewerComponent
 ]
 export const DOC_COMPONENTS = [
     DOC_BUTTON_COMPONENTS,
     DOC_BUTTON_TOGGLE_COMPONENTS,
     DOC_CHECKBOX_COMPONENTS,
+    DOC_DATEPICKER_COMPONENTS,
     DOC_DIALOG_COMPONENTS,
     DOC_ICON_COMPONENTS,
     DOC_LIST_COMPONENTS,
+    DOC_MENU_COMPONENTS,
     DOC_SLIDE_TOGGLE_COMPONENTS,
     DOC_TOOLTIP_COMPONENTS,
     DOC_GUIDES,
     DOC_MISC
 ]
 export const DOC_DIALOGS = [
-    PreferencesDialog
+	PreferencesDialog,
+	AboutDialog
 ]
 @NgModule({
     imports: [

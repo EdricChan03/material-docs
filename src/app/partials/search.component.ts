@@ -11,7 +11,7 @@ export class DocsSearch implements OnInit {
     filteredItems: any;
     items = [] = ['WOW', 'test', 'loL', 'something'];
     search: string;
-    searchOptType: string[];
+    searchOptType: string[] = ["component", "guides", "showcase", "misc", "other"];
     isCaseSensitive: boolean;
     ngOnInit() {
         this.shared.setTitle('Docs > Search');

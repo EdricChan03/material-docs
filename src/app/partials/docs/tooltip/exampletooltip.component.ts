@@ -19,11 +19,6 @@ export class DocsExampleTooltip implements OnInit {
                 'assets/examples/tooltip/configurable-tooltip.ts',
                 'assets/examples/tooltip/configurable-tooltip.css',
             ],
-            fileLabel: [
-                'configurable-tooltip.html',
-                'configurable-tooltip.ts',
-                'configurable-tooltip.css'
-            ],
             highlightPath: [
                 'assets/highlighted/configurable-tooltip-html.html',
                 'assets/highlighted/configurable-tooltip-ts.html',

@@ -1,0 +1,22 @@
+<p><strong>Note:</strong> This feature is only available in <code>master</code>. To access this feature, install from <code>master</code>.</p>
+<p>More info: <a routerLink="/guides/getting-started" fragment="master-builds">Getting Started</a></p>
+
+<button md-icon-button [mdMenuTriggerFor]="firstMenu"><md-icon>more_vert</md-icon></button>
+
+<md-menu #firstMenu="mdMenu">
+	<button md-menu-item [mdMenuTriggerFor]="nestedMenu1">Item 1</button>
+	<button md-menu-item [mdMenuTriggerFor]="nestedMenu2">Item 2</button>
+</md-menu>
+<md-menu #nestedMenu1="mdMenu">
+	<button md-menu-item>Item 1</button>
+	<button md-menu-item>Item 2</button>
+</md-menu>
+<md-menu #nestedMenu2="mdMenu">
+	<button md-menu-item>Item 1</button>
+	<button md-menu-item [mdMenuTriggerFor]="nestedMenu3">Item 2</button>
+</md-menu>
+<md-menu #nestedMenu3="mdMenu">
+	<button md-menu-item>Item 1</button>
+	<button md-menu-item>Item 2</button>
+	<button md-menu-item>Item 3</button>
+</md-menu>

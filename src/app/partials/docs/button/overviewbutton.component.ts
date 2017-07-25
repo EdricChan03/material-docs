@@ -21,10 +21,6 @@ export class DocsOverviewBtn implements OnInit {
                 'assets/examples/button/button-overview.html',
                 'assets/examples/button/button-overview.ts'
             ],
-            fileLabel: [
-                'button-overview.html',
-                'button-overview.ts'
-            ],
             highlightPath: [
                 'assets/highlighted/button-overview-html.html',
                 'assets/highlighted/button-overview-ts.html'

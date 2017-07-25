@@ -18,12 +18,6 @@ export class DocsExampleDialog implements OnInit {
                 'assets/highlighted/configurable-dialog-css.html',
                 'assets/highlighted/configurable-dialog-content-html.html'
             ],
-            fileLabel: [
-                'configurable-dialog.html',
-                'configurable-dialog.ts',
-                'configurable-dialog.css',
-                'configurable-dialog-content.html'
-            ],
             filePath: [
                 'assets/examples/dialog/configurable-dialog.html',
                 'assets/examples/dialog/configurable-dialog.ts',

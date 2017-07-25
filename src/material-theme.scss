@@ -1,7 +1,7 @@
 @import 'highlightjs/material-dark.scss';
 @import 'highlightjs/material-light.scss';
 /* Roboto Mono + Roboto font weights 300, 400, 500 */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500|Material+Icons');
 @import '~@angular/material/theming';
 
 @include mat-core();
@@ -44,7 +44,7 @@ $docs-light-theme: mat-light-theme($docs-light-primary, $docs-light-accent);
         color: mat-color($docs-light-primary);
     }
     .docs-footer {
-        color: white;
+		color: white;
     }
 }
 
@@ -86,6 +86,9 @@ TODO: Customize of themes.
     font-family: "Roboto Mono", monospace;
     white-space: pre-wrap;
     font-size: 14px;
+    tab-size: 4;
+    -o-tab-size: 4;
+    -moz-tab-size: 4;
 }
 .component-sidenav {
     width: 240px;
@@ -106,7 +109,8 @@ TODO: Customize of themes.
 .sidenav-subheader {
     position: sticky;
     position: -webkit-sticky;
-    z-index: 1;
+	z-index: 1;
+	margin-bottom: 0;
 }
 .sidenav-subheader {
     top: 64px;
@@ -219,4 +223,11 @@ h1, h2 {
 }
 .docs-api-method-name {
     font-size: 18px;
+}
+.example-component-icon {
+	width: 33px !important;
+	height: 33px !important;
+	font-size: 33px;
+	vertical-align: bottom;
+	padding-right: 4px;
 }

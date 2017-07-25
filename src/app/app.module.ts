@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule, MdIconRegistry } from "@angular/material";
+import { MaterialModule, MdIconRegistry, MdNativeDateModule } from "@angular/material";
 import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -27,7 +27,8 @@ import 'hammerjs';
         FormsModule,
         HttpModule,
         FlexLayoutModule,
-        MaterialModule,
+		MaterialModule,
+		MdNativeDateModule,
         DocsModule,
         ExampleModule,
         AppRouting
@@ -36,8 +37,7 @@ import 'hammerjs';
 })
 export class AppModule {
     constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer) {
-        mdIconRegistry.addSvgIconSetInNamespace('mdi', domSanitizer.bypassSecurityTrustResourceUrl('https://chan4077.github.io/res/mdi.svg'));
-        mdIconRegistry.addSvgIcon('angular-colour', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/angular-coloured.svg'));
+        mdIconRegistry.addSvgIconSetInNamespace('icons', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/icons.svg'));
     }
     
 }

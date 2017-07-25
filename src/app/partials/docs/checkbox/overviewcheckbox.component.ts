@@ -15,10 +15,6 @@ export class DocsOverviewCheckbox implements OnInit {
                 'assets/examples/checkbox/simple-checkbox.html',
                 'assets/examples/checkbox/simple-checkbox.ts'
             ],
-            fileLabel: [
-                'simple-checkbox.html',
-                'simple-checkbox.ts'
-            ],
             highlightPath: [
                 'assets/highlighted/simple-checkbox-html.html',
                 'assets/highlighted/simple-checkbox-ts.html'

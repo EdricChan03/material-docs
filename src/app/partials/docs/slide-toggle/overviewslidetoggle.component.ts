@@ -15,10 +15,6 @@ export class DocsOverviewSlideToggle implements OnInit {
                 'assets/highlighted/simple-slide-toggle-html.html',
                 'assets/highlighted/simple-slide-toggle-ts.html',
             ],
-            fileLabel: [
-                'simple-slide-toggle.html',
-                'simple-slide-toggle.ts'
-            ],
             filePath: [
                 'assets/examples/slide-toggle/simple-slide-toggle.html',
                 'assets/examples/slide-toggle/simple-slide-toggle.ts'

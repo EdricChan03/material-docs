@@ -11,11 +11,13 @@ export class DocsGuideNav implements AfterContentChecked{
     guides: Guides[] = [
         {
             text: 'Getting Started',
-            link: 'getting-started'
+			link: 'getting-started',
+			icon: 'help'
         },
         {
             text: 'Theming Angular Material',
-            link: 'theming'
+			link: 'theming',
+			icon: 'palette'
         }
     ]
     constructor(private shared: SharedComponent, private router: Router){
@@ -31,5 +33,6 @@ export class DocsGuideNav implements AfterContentChecked{
 }
 interface Guides {
     text: string;
-    link: string;
+	link: string;
+	icon: string;
 }

@@ -6,22 +6,56 @@ import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Subscription } from "rxjs/Subscription";
-import { MdSidenav, MdDialog, OverlayContainer } from "@angular/material";
+import { MdSidenav, MdDialog, OverlayContainer, MdDialogRef } from "@angular/material";
 @Component({
     selector: 'material2-docs',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements AfterContentChecked {
-    @ViewChild('componentSidenav') componentSidenav: MdSidenav;
-    isDark: boolean;
-    isComponentsPage: boolean;
-    isSearchToggled: boolean = false;
-    docTitle: string;
-    isExtDocsExist: boolean = true;
-    currentUrl: string;
-    sidenavModeWatcher: Subscription;
-    activeMediaQuery: string = "";
-    sidenavMode: string = "side";
+	/**
+	 * The component sidenav
+	 * @type {MdSidenav}
+	 */
+	@ViewChild('componentSidenav') componentSidenav: MdSidenav;
+	/**
+	 * Whether the theme is dark
+	 * @type {boolean}
+	 */
+	isDark: boolean;
+	/**
+	 * Whether the user is at a components page (aka `/components`)
+	 * @type {boolean}
+	 */
+	isComponentsPage: boolean;
+	/**
+	 * The docs title
+	 * @type {string}
+	 */
+	docTitle: string;
+	/**
+	 * Whether the external docs exist for the page
+	 * @type {boolean}
+	 */
+	isExtDocsExist: boolean = true;
+	/**
+	 * The watcher for the sidenav mode
+	 * @type {Subscription}
+	 */
+	sidenavModeWatcher: Subscription;
+	/**
+	 * The media query
+	 * @type {string}
+	 */
+	activeMediaQuery: string = "";
+	/**
+	 * The sidenav mode
+	 * @type {string}
+	 */
+	sidenavMode: string = "side";
+	/**
+	 * The categories for components
+	 * @type {Array}
+	 */
     categories = [
         {
             id: 'forms',
@@ -100,30 +134,44 @@ export class AppComponent implements AfterContentChecked {
         }
     ];
     constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer) {
+		/**
+		 * The watcher for the sidenav `mode`
+		 */
         this.sidenavModeWatcher = media.subscribe((change: MediaChange) => {
             this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
             if (change.mqAlias == 'xs') {
                 this.sidenavMode = "over";
             } else {
                 this.sidenavMode = "side";
-            }
+			}
         })
-    }
+	}
+	/**
+	 * Open the docs in the real docs
+	 */
     openInExtDocs() {
-        this.currentUrl = this.router.url;
         alert("Please ensure that you enable popups before continuing.")
-        window.open('https://material.angular.io' + this.currentUrl, '_blank');
-    }
+        window.open('https://material.angular.io' + this.router.url, '_blank');
+	}
+	/**
+	 * Views the project on Github
+	 */
     viewOnGithub() {
         if (confirm("Are you sure you want to go to the source code?")) {
             window.open('https://github.com/Chan4077/material2-docs');
         } else {
             console.error('User clicked cancel.');
         }
-    };
+	};
+	/**
+	 * Opens the @link{PreferencesDialog}
+	 */
     openPrefs() {
         this.dialog.open(PreferencesDialog);
-    }
+	}
+	/**
+	 * Toggles the theme
+	 */
     toggleTheme() {
         this.isDark = !this.isDark;
         let element = document.querySelector('material2-docs');
@@ -141,7 +189,11 @@ export class AppComponent implements AfterContentChecked {
             element.classList.add('docs-light');
         }
         window.localStorage.setItem('darkTheme', JSON.stringify(this.isDark));
-    }
+	}
+	/**
+	 * Checks whether the theme is toggled to dark
+	 * @returns {boolean}
+	 */
     checkIsDark(): boolean {
         let isDark: boolean;
         if (JSON.parse(window.localStorage.getItem('darkTheme'))) {
@@ -150,7 +202,13 @@ export class AppComponent implements AfterContentChecked {
             isDark = false;
         }
         return isDark;
-    }
+	}
+	/**
+	 * Opens the about dialog
+	 */
+	openAbout() {
+		this.dialog.open(AboutDialog);
+	}
     ngAfterContentChecked() {
         let element = document.querySelector('material2-docs');
         element.classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
@@ -162,8 +220,36 @@ export class AppComponent implements AfterContentChecked {
             this.isComponentsPage = false;
             if (this.componentSidenav._isOpened) { this.componentSidenav.close(); }
         }
-        if (this.router.url.indexOf('search') > -1 || this.router.url.indexOf('misc') > -1 || this.router.url.indexOf('showcases') > -1) {
+        if (this.router.url.indexOf('search') > -1 || this.router.url.indexOf('misc') > -1 || this.router.url.indexOf('showcases') > -1 || this.router.url.indexOf('examples') > -1) {
             this.isExtDocsExist = false;
         }
     }
+}
+
+@Component({
+	selector: 'docs-about',
+	template: `<h3 md-dialog-title>About</h3>
+				 <md-dialog-content fxLayout="column">
+				  	<p>Have you always wondered how to actually setup Angular Material? Find that the docs are not clear? Then read this documentation!</p>
+					<p>This docs was meant to help those who either don't understand about this or need more examples.</p>
+					<p><em>Note:</em> I'm now inviting contributors to contribute to this document. Simply click on view source code below and go to issues and ask!</p>
+					<p>Alternatively, you may want to do a pull request with your changes.</p>
+				</md-dialog-content>
+				<md-dialog-actions align="end">
+					<a md-button color="accent" class="docs-btn" href="https://github.com/Chan4077" target="_blank" md-dialog-close>View Author</a>
+					<a md-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material2-docs" target="_blank" md-dialog-close>View Source Code</a>
+					<button md-button md-dialog-close class="docs-btn">Close</button>
+				</md-dialog-actions>
+			  `	
+})
+export class AboutDialog {
+	constructor(private dialogRef: MdDialogRef<AboutDialog>){}
+	viewSourceCode() {
+		if (confirm("Are you sure you want to go to the source code?")) {
+			window.open('');
+			this.dialogRef.close();
+        } else {
+            console.error('User clicked cancel.');
+        }
+	}
 }

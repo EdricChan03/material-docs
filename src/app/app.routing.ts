@@ -1,3 +1,7 @@
+import { DocsExamples } from './partials/docs/example.component';
+import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
+import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
+import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
 import { DocsAPIList } from './partials/docs/list/apilist.component';
 import { DocsExampleList } from './partials/docs/list/examplelist.component';
 import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
@@ -46,7 +50,7 @@ import { Routes } from '@angular/router';
  * @type {Routes}
  */
 export const AppRoutes: Routes = [
-    { path: '', component: AppComponent, pathMatch: 'full' },
+    { path: 'home', component: AppComponent, pathMatch: 'full' },
     {
         path: 'components', component: DocsHomePage, children: [
             {
@@ -106,6 +110,19 @@ export const AppRoutes: Routes = [
                     { path: 'api', component: DocsAPIList },
                     { path: '**', redirectTo: 'overview' }
                 ]
+            },
+            {
+                path: 'datepicker', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewDatepicker },
+                    { path: '**', redirectTo: 'overview' }
+                ]
+            },
+            {
+                path: 'menu', component: DocViewerComponent, children: [
+                    { path: 'overview', component: DocsOverviewMenu },
+                    { path: 'examples', component: DocsExampleMenu },
+                    { path: '**', redirectTo: 'overview' }
+                ]
             }
         ]
     },
@@ -116,7 +133,8 @@ export const AppRoutes: Routes = [
         ]
     },
     { path: 'search', component: DocsSearch },
-    { path: 'showcases', component: DocsShowcase },
-    { path: '**', redirectTo: '/' }
+	{ path: 'showcases', component: DocsShowcase },
+	{ path: 'examples', component: DocsExamples },
+    { path: '**', redirectTo: 'home' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

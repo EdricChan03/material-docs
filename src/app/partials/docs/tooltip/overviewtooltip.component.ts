@@ -13,10 +13,6 @@ export class DocsOverviewTooltip implements OnInit {
     constructor(private shared: SharedComponent){shared.setTitle('Docs > Tooltip > Overview');}
     ngOnInit() {
         this.simpleTooltip = {
-            fileLabel: [
-                'simple-tooltip.html',
-                'simple-tooltip.ts'
-            ],
             filePath: [
                 'assets/examples/tooltip/simple-tooltip.html',
                 'assets/examples/tooltip/simple-tooltip.ts'

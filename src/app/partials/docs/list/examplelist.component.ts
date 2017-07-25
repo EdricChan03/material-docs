@@ -18,10 +18,6 @@ export class DocsExampleList implements OnInit {
                 'assets/examples/list/nav-list.html',
                 'assets/examples/list/nav-list.ts'
             ],
-            fileLabel: [
-                'nav-list.html',
-                'nav-list.ts'
-            ],
             highlightPath: [
                 'assets/highlighted/nav-list-html.html',
                 'assets/highlighted/nav-list-ts.html'
@@ -33,11 +29,6 @@ export class DocsExampleList implements OnInit {
                 'assets/examples/list/advanced-list.html',
                 'assets/examples/list/advanced-list.ts',
                 'assets/examples/list/advanced-list-dialog.html'
-            ],
-            fileLabel: [
-                'advanced-list.html',
-                'advanced-list.ts',
-                'advanced-list-dialog.html'
             ],
             highlightPath: [
                 'assets/highlighted/advanced-list-html.html',

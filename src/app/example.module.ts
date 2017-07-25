@@ -1,3 +1,6 @@
+import { IconMenuComponent, IconMenuDialog } from './../assets/examples/menu/icon-menu';
+import { NestedMenuComponent } from './../assets/examples/menu/nested-menu';
+import { SimpleMenuComponent } from './../assets/examples/menu/simple-menu';
 import { AdvancedListComponent, AdvancedListDialog } from './../assets/examples/list/advanced-list';
 import { SimpleButtonToggleComponent } from './../assets/examples/button-toggle/simple-button-toggle';
 import { ConfigurableSlideToggleComponent } from './../assets/examples/slide-toggle/configurable-slide-toggle';
@@ -46,6 +49,12 @@ export const LIST_COMPONENTS = [
     AdvancedListComponent,
     AdvancedListDialog
 ]
+export const MENU_COMPONENTS = [
+    SimpleMenuComponent,
+	NestedMenuComponent,
+	IconMenuComponent,
+	IconMenuDialog
+]
 export const SLIDE_TOGGLE_COMPONENTS = [
     SimpleSlideToggleComponent,
     ConfigurableSlideToggleComponent
@@ -60,6 +69,7 @@ export const EXAMPLE_COMPONENTS = [
     CHECKBOX_COMPONENTS,
     DIALOG_COMPONENTS,
     LIST_COMPONENTS,
+    MENU_COMPONENTS,
     SLIDE_TOGGLE_COMPONENTS,
     TOOLTIP_COMPONENTS
 ]

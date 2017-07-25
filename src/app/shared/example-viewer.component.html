@@ -1,21 +1,27 @@
 <div class="example-viewer mat-elevation-z4" fxLayout="column" [id]="docsId" style="border-radius: 0px 0px 5px 5px;">
-    <md-toolbar color="primary" style="border-radius: 5px 5px 0px 0px;">{{docsTitle}}<span fxFlex></span>
+	<md-toolbar style="border-radius: 5px 5px 0px 0px; font-weight: 400;">{{docsTitle}}<span fxFlex></span>
+		<md-chip-list>
+			<md-chip *ngIf="masterBuild" color="accent" selected="true" mdTooltip="This means that this example can be done if you're running on the latest master build."><md-icon>warning</md-icon> Master</md-chip>
+			<span *ngIf="externalComponent">
+				<md-chip color="warn" selected="true" mdTooltip="This example contains a component not from here. Clicking this chip will navigate you to the docs for {{ext.name}}" [routerLink]="[ext.link]" *ngFor="let ext of externalComponent"><md-icon>book</md-icon> {{ext.name}} Docs</md-chip>
+			</span>
+		</md-chip-list>
         <button
             md-icon-button
             (click)="fragRoute(docsId)"
             mdTooltip="Get link">
-                <md-icon svgIcon="mdi:link"></md-icon>
+                <md-icon>link</md-icon>
         </button>
         <button
             md-icon-button
             (click)="toggleSource()"
             mdTooltip="{{showCode ? 'Hide': 'Show'}} source code">
-                <md-icon svgIcon="mdi:code-tags"></md-icon>
+                <md-icon>code</md-icon>
         </button>
     </md-toolbar>
-    <md-tab-group *ngIf="showCode" dynamicHeight>
-        <md-tab label="{{file.label}}" *ngFor="let file of files">
-            <button md-icon-button (click)="copyToClipboard(file.code)" class="docs-copy-btn" mdTooltip="Copy code" [ngClass]="{'white-icon': isDark}"><md-icon svgIcon="mdi:content-copy"></md-icon></button>
+    <md-tab-group *ngIf="showCode">
+        <md-tab [label]="file.label" *ngFor="let file of files">
+            <button md-icon-button (click)="copyToClipboard(file.code)" class="docs-copy-btn" mdTooltip="Copy code" [ngClass]="{'white-icon': isDark}"><md-icon>content_copy</md-icon></button>
             <pre class="example-viewer-code hljs" [innerHTML]="file.highlightedCode" [ngClass]="{'hljs-dark': isDark, 'hljs-light': !isDark}"></pre>
         </md-tab>
     </md-tab-group>

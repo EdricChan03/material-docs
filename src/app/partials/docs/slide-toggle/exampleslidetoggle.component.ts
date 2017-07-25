@@ -19,10 +19,6 @@ export class DocsExampleSlideToggle implements OnInit {
                 'assets/examples/slide-toggle/configurable-slide-toggle.html',
                 'assets/examples/slide-toggle/configurable-slide-toggle.ts'
             ],
-            fileLabel: [
-                'configurable-slide-toggle.html',
-                'configurable-slide-toggle.ts'
-            ],
             componentName: ConfigurableSlideToggleComponent
         }
     }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" width="24px" height="24px">
+    <symbol id="sitemap" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/> 
+        <path d="M9,2V8H11V11H5C3.89,11 3,11.89 3,13V16H1V22H7V16H5V13H11V16H9V22H15V16H13V13H19V16H17V22H23V16H21V13C21,11.89 20.11,11 19,11H13V8H15V2H9Z"/>
+    </symbol>
+    <symbol id="arrow-collapse-left" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/> 
+        <path d="M11.92,19.92L4,12L11.92,4.08L13.33,5.5L7.83,11H22V13H7.83L13.34,18.5L11.92,19.92M4,12V2H2V22H4V12Z"/>
+    </symbol>
+    <symbol id="arrow-collapse-right" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/> 
+        <path d="M12.08,4.08L20,12L12.08,19.92L10.67,18.5L16.17,13H2V11H16.17L10.67,5.5L12.08,4.08M20,12V22H22V2H20V12Z"/>
+    </symbol>
+	<symbol id="angular-colour" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/> 
+		<path d="M12,2.5L20.84,5.65L19.5,17.35L12,21.5L4.5,17.35L3.16,5.65L12,2.5M12,4.6L6.47,17H8.53L9.64,14.22H14.34L15.45,17H17.5L12,4.6M13.62,12.5H10.39L12,8.63L13.62,12.5Z" fill="red"/>
+	</symbol>
+</svg>

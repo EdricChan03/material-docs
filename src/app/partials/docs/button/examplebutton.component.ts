@@ -29,10 +29,6 @@ export class DocsExampleBtn implements OnInit {
                 'assets/examples/button/button-noripple.html',
                 'assets/examples/button/button-noripple.ts'
             ],
-            fileLabel: [
-                'button-noripple.html',
-                'button-noripple.ts'
-            ],
             highlightPath: [
                 'assets/highlighted/button-noripple-html.html',
                 'assets/highlighted/button-noripple-ts.html'
@@ -44,11 +40,6 @@ export class DocsExampleBtn implements OnInit {
                 'assets/examples/button/button-types.html',
                 'assets/examples/button/button-types.ts',
                 'assets/examples/button/button-types.css'
-            ],
-            fileLabel: [
-                'button-types.html',
-                'button-types.ts',
-                'button-types.css'
             ],
             highlightPath: [
                 'assets/highlighted/button-types-html.html',

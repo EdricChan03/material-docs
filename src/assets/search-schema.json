@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"title": "Search Schema",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"content": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"description": "The type for searching.",
+						"oneOf": [
+							{
+								"type": "array",
+								"items": [
+									"component",
+									"guide",
+									"showcase",
+									"misc",
+									"other"
+								]
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"name": {
+						"description": "The name.",
+						"type": "string"
+					},
+					"id": {
+						"description": "The ID.",
+						"type": "number"
+					}
+				}
+			}
+		}
+	}
+}
