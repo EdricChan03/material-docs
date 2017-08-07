@@ -5,6 +5,7 @@ import { Component } from "@angular/core";
     templateUrl: 'multiple-button-toggle.html'
 })
 export class MultipleButtonToggleComponent {
+	multipleOpt: boolean = false;
 	toggles = [
 		{
 			value: "left",

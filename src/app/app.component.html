@@ -3,10 +3,11 @@
 		<button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon>menu</md-icon></button> Material2
 		Docs
 		<span fxFlex></span>
+		<a md-icon-button mdTooltip="Visit Original Docs" href="https://material.angular.io" target="_blank"><md-icon svgIcon="angularblack"></md-icon></a>
 		<button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon>more_vert</md-icon></button>
 		<button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="icons:sitemap"></md-icon></button>
 		<md-menu #moreMenu="mdMenu">
-			<button md-menu-item (click)="viewOnGithub()"><md-icon>code</md-icon>View on Github</button>
+			<button md-menu-item (click)="viewOnGithub()"><md-icon>code</md-icon>Source on Github</button>
 			<button md-menu-item (click)="openPrefs()"><md-icon>settings</md-icon>Settings</button>
 			<button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
 		</md-menu>
@@ -66,15 +67,24 @@
 	<div class="docs-title" fxLayout="row">
 		<h1>{{docTitle}}</h1>
 		<span fxFlex></span>
-		<button md-icon-button (click)="openInExtDocs()" *ngIf="isExtDocsExist" mdTooltip="Open in Official Docs" mdTooltipPosition="left"
-		 style="background-color: white;"><md-icon svgIcon="icons:angular-colour"></md-icon></button>
 	</div>
 	<div class="example-app">
+		<md-card *ngIf="showLatestCommit" id="latestCommit">
+			<md-card-title>Latest commit</md-card-title>
+			<md-card-content>
+				<p><strong>Message:</strong> {{latestCommitCommit?.message}}</p>
+				<p><strong>Committer:</strong> {{latestCommitCommitAuthor?.name}}</p>
+				<p><strong>SHA:</strong> <code class="docs-code">{{latestCommit?.sha}}</code></p>
+				<p><strong>Date:</strong> {{latestCommitCommitAuthor?.date | date:'medium'}}</p>
+			</md-card-content>
+			<md-card-actions align="end">
+				<a md-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">Go to commit</a>
+			</md-card-actions>
+		</md-card>
 		<router-outlet></router-outlet>
 	</div>
 	<footer class="docs-footer">
-		<p>Docs originated from <a href="https://material.angular.io" mdTooltip="Visit original docs" target="_blank" class="docs-link">Material.Angular.io</a></p>
-
+		<p>The Angular logo is licensed as <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="docs-link">CC BY 4.0</a>. To download angular icons, go <a href="https://angular.io/presskit" mdTooltip="Visit Angular.io" target="_blank" class="docs-link">Presskit</a>.</p>
 		<a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link" mdTooltipPosition="above">Learn Angular</a>
 	</footer>
 </md-sidenav-container>

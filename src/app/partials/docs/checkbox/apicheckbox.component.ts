@@ -24,7 +24,7 @@ export class DocsAPICheckbox implements OnInit {
                 name: "ariaLabelledby",
                 alias: "aria-labelledby",
                 isHtml: true,
-                desc: "Users can specify the <code>aria-labelledby</code> attribute which will be forwarded to the input element."
+                desc: "Users can specify the <code class=\"docs-code\">aria-labelledby</code> attribute which will be forwarded to the input element."
             },
             {
                 isInput: true,
@@ -39,7 +39,7 @@ export class DocsAPICheckbox implements OnInit {
             {
                 name: "inputId",
                 isHtml: true,
-                desc: "ID of the native input element inside <code>&lt;md-checkbox&gt;</code>."
+                desc: "ID of the native input element inside <code class=\"docs-code\">&lt;md-checkbox&gt;</code>."
             },
             {
                 isInput: true,
@@ -51,7 +51,7 @@ export class DocsAPICheckbox implements OnInit {
                 isDepreceated: true,
                 name: "align",
                 isHtml: true,
-                desc: "Whether or not the checkbox should appear before or after the label.<br>Note that this attribute is depreceated and that you should use <code>labelPosition</code> instead."
+                desc: "Whether or not the checkbox should appear before or after the label.<br>Note that this attribute is depreceated and that you should use <code class=\"docs-code\">labelPosition</code> instead."
             },
             {
                 isInput: true,
@@ -67,13 +67,13 @@ export class DocsAPICheckbox implements OnInit {
                 isOutput: true,
                 name: "change",
                 isHtml: true,
-                desc: "Event emitted when the checkbox's <code>checked</code> value changes."
+                desc: "Event emitted when the checkbox's <code class=\"docs-code\">checked</code> value changes."
             },
             {
                 isOutput: true,
                 name: "indeterminateChange",
                 isHtml: true,
-                desc: "Event emitted when the checkbox's <code>indeterminate</code> value changes."
+                desc: "Event emitted when the checkbox's <code class=\"docs-code\">indeterminate</code> value changes."
             },
             {
                 isInput: true,
@@ -95,7 +95,7 @@ export class DocsAPICheckbox implements OnInit {
             {
                 name: "toggle",
                 isHtml: true,
-                desc: "Toggles the <code>checked</code> state of the checkbox."
+                desc: "Toggles the <code class=\"docs-code\">checked</code> state of the checkbox."
             },
             {
                 name: "focus",
@@ -106,12 +106,12 @@ export class DocsAPICheckbox implements OnInit {
             {
                 name: "source",
                 isHtml: true,
-                desc: "The source <code>MdCheckbox</code> of the event."
+                desc: "The source <code class=\"docs-code\">MdCheckbox</code> of the event."
             },
             {
                 name: "checked",
                 isHtml: true,
-                desc: "The new <code>checked</code> value of the checkbox."
+                desc: "The new <code class=\"docs-code\">checked</code> value of the checkbox."
             }
         ]
     }

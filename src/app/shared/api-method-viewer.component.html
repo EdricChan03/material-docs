@@ -10,5 +10,28 @@
             <td colspan="2" class="docs-table-td" *ngIf="!method.isHtml">{{method.desc}}</td>
             <td colspan="2" class="docs-table-td" *ngIf="method.isHtml" [innerHTML]="method.desc"></td>
         </tr>
-    </tbody>
+	</tbody>
+	<thead *ngIf="method.params">
+		<tr class="docs-api-params">
+			<th class="docs-table-th" colspan="2">Parameters
+		</tr>
+	</thead>
+    <tbody *ngIf="method.params">
+        <tr *ngFor="let param of method.params">
+            <td colspan="2" class="docs-table-td" *ngIf="!param.isHtml">{{param.desc}}</td>
+            <td colspan="2" class="docs-table-td" *ngIf="param.isHtml" [innerHTML]="param.desc"></td>
+        </tr>
+	</tbody>
+	<thead *ngIf="method.returns">
+		<tr class="docs-api-returns">
+			<th class="docs-table-th" colspan="2">Returns
+		</tr>
+	</thead>
+    <tbody *ngIf="method.returns">
+        <tr *ngFor="let return of method.returns">
+			<td class="docs-table-td"><code class="docs-api-return-name docs-api-returns">{{return.name}}</code></td>
+            <td class="docs-table-td" *ngIf="!return.isHtml">{{return.desc}}</td>
+			<td class="docs-table-td" *ngIf="return.isHtml" [innerHTML]="return.desc"></td>
+        </tr>
+	</tbody>
 </table>

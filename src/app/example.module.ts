@@ -1,3 +1,10 @@
+import { SimpleExpansionComponent } from './../assets/examples/expansion/simple-expansion';
+import { TouchDatepickerComponent } from './../assets/examples/datepicker/touch-ui-datepicker';
+import { StartViewDatepickerComponent } from './../assets/examples/datepicker/startat-datepicker';
+import { MinMaxDatepickerComponent } from './../assets/examples/datepicker/min-max-validation-datepicker';
+import { FilterDatepickerComponent } from './../assets/examples/datepicker/filter-validation-datepicker';
+import { ApiDatepickerComponent } from './../assets/examples/datepicker/api-datepicker';
+import { SimpleDatepickerComponent } from './../assets/examples/datepicker/simple-datepicker';
 import { MultipleButtonToggleComponent } from './../assets/examples/button-toggle/multiple-button-toggle';
 import { IconMenuComponent, IconMenuDialog } from './../assets/examples/menu/icon-menu';
 import { NestedMenuComponent } from './../assets/examples/menu/nested-menu';
@@ -36,11 +43,22 @@ export const CHECKBOX_COMPONENTS = [
     SimpleCheckboxComponent,
     CheckboxConfigurableComponent
 ]
+export const DATEPICKER_COMPONENTS = [
+	ApiDatepickerComponent,
+	FilterDatepickerComponent,
+	MinMaxDatepickerComponent,
+	SimpleDatepickerComponent,
+	StartViewDatepickerComponent,
+	TouchDatepickerComponent
+]
 export const DIALOG_COMPONENTS = [
     DialogResultComponent,
     DialogResult,
     ConfigurableDialogComponent,
     ConfigurableDialog
+]
+export const EXPANSION_COMPONENTS = [
+	SimpleExpansionComponent
 ]
 export const ICON_COMPONENTS = [
 
@@ -68,8 +86,10 @@ export const TOOLTIP_COMPONENTS = [
 export const EXAMPLE_COMPONENTS = [
     BUTTON_COMPONENTS,
     BUTTON_TOGGLE_COMPONENTS,
-    CHECKBOX_COMPONENTS,
-    DIALOG_COMPONENTS,
+	CHECKBOX_COMPONENTS,
+	DATEPICKER_COMPONENTS,
+	DIALOG_COMPONENTS,
+	EXPANSION_COMPONENTS,
     LIST_COMPONENTS,
     MENU_COMPONENTS,
     SLIDE_TOGGLE_COMPONENTS,

@@ -16,7 +16,7 @@ export class DocsAPIList implements OnInit {
                 isInput: true,
                 name: "disableRipple",
                 isHtml: true,
-                desc: "Whether the ripple effect should be disabled on the list-items or not. This flag only has an effect for <code>md-nav-list</code> components."
+                desc: "Whether the ripple effect should be disabled on the list-items or not. This flag only has an effect for <code class=\"docs-code\">md-nav-list</code> components."
             }
         ]
         this.listItemProperties = [
@@ -24,7 +24,7 @@ export class DocsAPIList implements OnInit {
                 isInput: true,
                 name: "disableRipple",
                 isHtml: true,
-                desc: "Whether the ripple effect on click should be disabled. This applies only to list items that are part of a nav list. The value of <code>disableRipple</code> on the <code>md-nav-list</code> overrides this flag."
+                desc: "Whether the ripple effect on click should be disabled. This applies only to list items that are part of a nav list. The value of <code class=\"docs-code\">disableRipple</code> on the <code class=\"docs-code\">md-nav-list</code> overrides this flag."
             }
         ]
         this.listItemMethods = [

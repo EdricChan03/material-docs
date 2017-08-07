@@ -41,6 +41,21 @@
 </md-card>
 <br>
 <md-card>
+	<md-card-title>Card</md-card-title>
+	<md-card-content>
+		<md-card>
+			<md-card-title>Title</md-card-title>
+			<md-card-header>
+				Header
+			</md-card-header>
+			<md-card-content>
+				Content
+			</md-card-content>
+		</md-card>
+	</md-card-content>
+</md-card>
+<br>
+<md-card>
 	<md-card-title><md-icon class="example-component-icon">check_box</md-icon>Checkbox</md-card-title>
 	<md-card-content>
 		<md-checkbox color="primary">Checkbox</md-checkbox>
@@ -55,7 +70,7 @@
 		<br>
 		<md-input-container>
 			<input mdInput placeholder="Birthday" [mdDatepicker]="birthdayPicker">
-			<button mdSuffix [mdDatepickerToggle]="birthdayPicker"></button>
+			<md-datepicker-toggle [for]="birthdayPicker" mdSuffix></md-datepicker-toggle>
 		</md-input-container>
 		<md-datepicker #birthdayPicker [touchUi]="touchUi"></md-datepicker>
 		<br>
@@ -63,7 +78,7 @@
 		<br>
 		<md-input-container>
 			<input mdInput placeholder="Start At" [mdDatepicker]="startAtPicker">
-			<button mdSuffix [mdDatepickerToggle]="startAtPicker"></button>
+			<md-datepicker-toggle [for]="startAtPicker" mdSuffix></md-datepicker-toggle>
 		</md-input-container>
 		<md-datepicker #startAtPicker [startAt]="startDate"></md-datepicker>
 	</md-card-content>
@@ -87,7 +102,7 @@
 		</md-input-container>
 		<h4>Input Prefixes/Suffixes</h4>
 		<md-input-container>
-			<span mdPrefix>$</span>
+			<span mdPrefix>$&nbsp;</span>
 			<input mdInput type="number" placeholder="Cash">
 			<md-icon mdSuffix>mode_edit</md-icon>
 		</md-input-container>
@@ -145,7 +160,7 @@
 <md-card>
 	<md-card-title><md-icon class="example-component-icon">radio_button_checked</md-icon>Radio buttons</md-card-title>
 	<md-card-content>
-		<h4>Radio with <code>ngModel</code></h4>
+		<h4>Radio with <code class="docs-code">ngModel</code></h4>
 		<md-radio-group [(ngModel)]="gender" labelPosition="before">
 			<md-radio-button value="male">Male</md-radio-button>
 			<md-radio-button value="female" color="primary">Female</md-radio-button>
@@ -158,7 +173,7 @@
 <md-card>
 	<md-card-title><md-icon class="example-component-icon">sort</md-icon>Select</md-card-title>
 	<md-card-content>
-		<h4>Select with <code>ngModel</code></h4>
+		<h4>Select with <code class="docs-code">ngModel</code></h4>
 		<md-select placeholder="Favourite Food" [(ngModel)]="favouriteFood">
 			<md-option value="steak">Steak</md-option>
 			<md-option value="pizza">Pizza</md-option>
@@ -178,7 +193,7 @@
 			</md-optgroup>
 		</md-select>
 		<h5>Output:</h5>
-		<pre><code>{{favouriteHobbies | json}}</code></pre>
+		<pre id="select-output"><code>{{favouriteHobbies | json}}</code></pre>
 	</md-card-content>
 </md-card>
 <br>

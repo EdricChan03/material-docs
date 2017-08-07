@@ -16,8 +16,8 @@ export class DocsOverviewButtonToggle implements OnInit {
                 'assets/highlighted/simple-button-toggle-ts.html'
             ],
             filePath: [
-                'assets/examples/slide-toggle/simple-button-toggle.html',
-                'assets/examples/slide-toggle/simple-button-toggle.ts'
+                'assets/examples/button-toggle/simple-button-toggle.html',
+                'assets/examples/button-toggle/simple-button-toggle.ts'
             ],
             componentName: SimpleButtonToggleComponent
         }

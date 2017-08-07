@@ -1,15 +1,15 @@
 <md-nav-list>
     <h3 md-subheader>Recent</h3>
     <a md-list-item *ngFor="let recent of recentFiles" routerLink=".">
-        <md-icon md-list-icon svgIcon="icons:{{recent.icon}}"></md-icon>
+        <md-icon md-list-icon svgIcon="icons:{{recent.icon}}" [style.color]="recent.color"></md-icon>
         <h4 md-line>{{recent.name}}</h4>
         <p md-line>{{recent.updated | date}}</p>
-        <button md-icon-button (click)="openInfoDialog(recent)"><md-icon svgIcon="icons:information"></md-icon></button>
+        <button md-icon-button (click)="openInfoDialog(recent)"><md-icon>information</md-icon></button>
     </a>
     <h3 md-subheader>Folders</h3>
     <a md-list-item *ngFor="let folder of folders" routerLink=".">
-        <md-icon md-list-icon svgIcon="icons:folder" [style.color]="folder.color"></md-icon>
+        <md-icon md-list-icon [style.color]="folder.color">folder</md-icon>
         <h4 md-line>{{folder.name}}</h4>
-        <button md-icon-button (click)="openInfoDialog(folder)"><md-icon svgIcon="icons:information"></md-icon></button>
+        <button md-icon-button (click)="openInfoDialog(folder)"><md-icon>information</md-icon></button>
     </a>
 </md-nav-list>

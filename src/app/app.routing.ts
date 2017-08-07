@@ -1,3 +1,5 @@
+import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
+import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
 import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
 import { DocsExamples } from './partials/docs/example.component';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
@@ -51,92 +53,99 @@ import { Routes } from '@angular/router';
  * @type {Routes}
  */
 export const AppRoutes: Routes = [
-    { path: 'home', component: AppComponent, pathMatch: 'full' },
-    {
-        path: 'components', component: DocsHomePage, children: [
-            {
-                path: 'button', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewBtn },
-                    { path: 'examples', component: DocsExampleBtn },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'tooltip', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewTooltip },
-                    { path: 'examples', component: DocsExampleTooltip },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'icon', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewIcon },
-                    { path: '**', redirectTo: 'overview' }
+	{ path: 'home', component: AppComponent, pathMatch: 'full' },
+	{
+		path: 'components', component: DocsHomePage, children: [
+			{
+				path: 'button', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewBtn },
+					{ path: 'examples', component: DocsExampleBtn },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'tooltip', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewTooltip },
+					{ path: 'examples', component: DocsExampleTooltip },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'icon', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewIcon },
+					{ path: '**', redirectTo: 'overview' }
 
-                ]
-            },
-            {
-                path: 'checkbox', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewCheckbox },
-                    { path: 'examples', component: DocsExampleCheckbox },
-                    { path: 'api', component: DocsAPICheckbox },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'dialog', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewDialog },
-                    { path: 'examples', component: DocsExampleDialog },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'slide-toggle', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewSlideToggle },
-                    { path: 'examples', component: DocsExampleSlideToggle },
-                    { path: 'api', component: DocsAPISlideToggle },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'button-toggle', component: DocViewerComponent, children: [
+				]
+			},
+			{
+				path: 'checkbox', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewCheckbox },
+					{ path: 'examples', component: DocsExampleCheckbox },
+					{ path: 'api', component: DocsAPICheckbox },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'dialog', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewDialog },
+					{ path: 'examples', component: DocsExampleDialog },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'slide-toggle', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewSlideToggle },
+					{ path: 'examples', component: DocsExampleSlideToggle },
+					{ path: 'api', component: DocsAPISlideToggle },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'button-toggle', component: DocViewerComponent, children: [
 					{ path: 'overview', component: DocsOverviewButtonToggle },
 					{ path: 'examples', component: DocsExampleButtonToggle },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'list', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewList },
-                    { path: 'examples', component: DocsExampleList },
-                    { path: 'api', component: DocsAPIList },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'datepicker', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewDatepicker },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            },
-            {
-                path: 'menu', component: DocViewerComponent, children: [
-                    { path: 'overview', component: DocsOverviewMenu },
-                    { path: 'examples', component: DocsExampleMenu },
-                    { path: '**', redirectTo: 'overview' }
-                ]
-            }
-        ]
-    },
-    {
-        path: 'guides', component: DocsGuideNav, children: [
-            { path: 'getting-started', component: DocsGettingStartedGuide },
-            { path: 'theming', component: DocsThemingGuide }
-        ]
-    },
-    { path: 'search', component: DocsSearch },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'list', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewList },
+					{ path: 'examples', component: DocsExampleList },
+					{ path: 'api', component: DocsAPIList },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'datepicker', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewDatepicker },
+					{ path: 'api', component: DocsAPIDatepicker },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'menu', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewMenu },
+					{ path: 'examples', component: DocsExampleMenu },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'expansion', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewExpansion },
+					{ path: '**', redirectTo: 'overview' }
+				]
+			}
+		]
+	},
+	{
+		path: 'guides', component: DocsGuideNav, children: [
+			{ path: 'getting-started', component: DocsGettingStartedGuide },
+			{ path: 'theming', component: DocsThemingGuide }
+		]
+	},
+	{ path: 'search', component: DocsSearch },
 	{ path: 'showcases', component: DocsShowcase },
 	{ path: 'examples', component: DocsExamples },
-    { path: '**', redirectTo: 'home' }
+	{ path: '**', redirectTo: 'home' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

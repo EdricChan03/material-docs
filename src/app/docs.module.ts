@@ -1,3 +1,5 @@
+import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
+import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
 import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
 import { AboutDialog } from './app.component';
 import { DocsExamples } from './partials/docs/example.component';
@@ -60,11 +62,15 @@ export const DOC_CHECKBOX_COMPONENTS = [
     DocsAPICheckbox
 ]
 export const DOC_DATEPICKER_COMPONENTS = [
-    DocsOverviewDatepicker
+	DocsOverviewDatepicker,
+	DocsAPIDatepicker
 ]
 export const DOC_DIALOG_COMPONENTS = [
     DocsOverviewDialog,
-    DocsExampleDialog,
+    DocsExampleDialog
+]
+export const DOC_EXPANSION_COMPONENTS = [
+	DocsOverviewExpansion
 ]
 export const DOC_ICON_COMPONENTS = [
     DocsOverviewIcon,
@@ -110,7 +116,8 @@ export const DOC_COMPONENTS = [
     DOC_BUTTON_TOGGLE_COMPONENTS,
     DOC_CHECKBOX_COMPONENTS,
     DOC_DATEPICKER_COMPONENTS,
-    DOC_DIALOG_COMPONENTS,
+	DOC_DIALOG_COMPONENTS,
+	DOC_EXPANSION_COMPONENTS,
     DOC_ICON_COMPONENTS,
     DOC_LIST_COMPONENTS,
     DOC_MENU_COMPONENTS,

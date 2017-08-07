@@ -1,4 +1,4 @@
-<p><code>&lt;md-menu&gt;</code> is a floating panel containing list of options.</p>
+<p><code class="docs-code">&lt;md-menu&gt;</code> is a floating panel containing list of options.</p>
 
 <example-viewer [exFiles]="simpleMenu" docsTitle="Simple Menu" docsId="simple-menu"></example-viewer>
 <p>By itself, the &lt;md-menu&gt; element does not render anything. The menu is attached to and opened via application of the mdMenuTriggerFor directive:</p>
@@ -14,7 +14,7 @@
 
 <h3 id="toggling-the-menu-via-code">Toggling the menu programmatically</h3>
 
-<p>The menu exposes an API to open/close programmatically. Please note that in this case, an <code>mdMenuTriggerFor</code> directive is still necessary to attach the menu to a trigger element in the DOM.</p>
+<p>The menu exposes an API to open/close programmatically. Please note that in this case, an <code class="docs-code">mdMenuTriggerFor</code> directive is still necessary to attach the menu to a trigger element in the DOM.</p>
 
 <code-viewer language="typescript">class MyComponent &#123;
     @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
@@ -26,7 +26,7 @@
 
 <h3 id="icons">Icons</h3>
 
-<p>Menus support displaying <code>md-icon</code> elements before the menu item text.</p>
+<p>Menus support displaying <code class="docs-code">md-icon</code> elements before the menu item text.</p>
 
 <em>my-comp.html</em>
 
@@ -47,7 +47,7 @@
 
 <h3 id="customizing-menu-pos">Customizing menu position</h3>
 
-<p>By default, the menu will display below (y-axis), after (x-axis), and overlapping its trigger. The position can be changed using the <code>xPosition (before | after)</code> and yPosition <code>(above | below)</code> attributes. The menu can be be forced to not overlap the trigger using <code>[overlapTrigger]="false"</code> attribute.
+<p>By default, the menu will display below (y-axis), after (x-axis), and overlapping its trigger. The position can be changed using the <code class="docs-code">xPosition (before | after)</code> and yPosition <code class="docs-code">(above | below)</code> attributes. The menu can be be forced to not overlap the trigger using <code class="docs-code">[overlapTrigger]="false"</code> attribute.
 
 <code-viewer language="html">&lt;md-menu #appMenu="mdMenu" yPosition="above"&gt;
     &lt;button md-menu-item&gt; Settings &lt;/button&gt;

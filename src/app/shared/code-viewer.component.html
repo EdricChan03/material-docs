@@ -1,4 +1,4 @@
 <div #code class="example-code-snippet">
     <button md-icon-button (click)="copyToClipboard()" class="docs-copy-btn" mdTooltip="Copy code" [ngClass]="{'white-icon': isDark}"><md-icon>content_copy</md-icon></button>
-    <pre class="hljs {{language}} example-code-snippet-content" [ngClass]="{'hljs-light': !isDark, 'hljs-dark': isDark}"><code><ng-content></ng-content></code></pre>
+    <pre class="hljs {{language}} example-code-snippet-content"><code><ng-content></ng-content></code></pre>
 </div>

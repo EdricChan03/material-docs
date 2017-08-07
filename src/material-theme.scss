@@ -1,14 +1,14 @@
-@import 'highlightjs/material-dark.scss';
-@import 'highlightjs/material-light.scss';
 /* Roboto Mono + Roboto font weights 300, 400, 500 */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons');
 @import '~@angular/material/theming';
+@import '~firacode/fira_code.css';
 
 @include mat-core();
 
 @mixin material-docs-theme($theme) {
     $primary: map-get($theme, primary);
-    $background: map-get($theme, background);
+	$background: map-get($theme, background);
+	$foreground: map-get($theme, foreground);
     // @error $background;
     .docs-table-th {
         background-color: mat-color($background, app-bar);
@@ -17,7 +17,11 @@
     .docs-footer {
         background-color: mat-color($primary);
         text-align: center;
-    }
+	}
+	.docs-code {
+		background-color: rgba(mat-color($foreground, secondary-text), .06);
+		padding: 3px;
+	}
 }
 $docs-light-primary: mat-palette($mat-indigo);
 $docs-light-accent: mat-palette($mat-pink);
@@ -25,7 +29,8 @@ $docs-light-accent: mat-palette($mat-pink);
 $docs-light-theme: mat-light-theme($docs-light-primary, $docs-light-accent);
 .docs-light, .example-light {
     @include angular-material-theme($docs-light-theme);
-    @include material-docs-theme($docs-light-theme);
+	@include material-docs-theme($docs-light-theme);
+	@import 'highlightjs/material-light.scss';
     .sidenav-subheader {
         background-color: mat-color($docs-light-accent) !important;
         color: #fff !important;
@@ -55,7 +60,8 @@ $docs-dark-theme:   mat-dark-theme($docs-dark-primary, $docs-dark-accent, $docs-
 
 .docs-dark, .example-dark {
     @include angular-material-theme($docs-dark-theme);
-    @include material-docs-theme($docs-dark-theme);
+	@include material-docs-theme($docs-dark-theme);
+	@import 'highlightjs/material-dark.scss';
     .sidenav-subheader {
         background-color: mat-color($docs-dark-accent) !important;
         color: black !important;
@@ -82,13 +88,13 @@ TODO: Customize of themes.
 .white-icon {
     color: white !important;
 }
-.docs-code, .docs-example-code, code, .hljs.hljs-light, .hljs.hljs-dark {
-    font-family: "Roboto Mono", monospace;
+.docs-code, .docs-example-code, code, .hljs {
+    font-family: "Fira Code", monospace;
     white-space: pre-wrap;
     font-size: 14px;
     tab-size: 4;
     -o-tab-size: 4;
-    -moz-tab-size: 4;
+	-moz-tab-size: 4;
 }
 .component-sidenav {
     width: 240px;
@@ -211,8 +217,8 @@ body {
 .docs-api-prop-name {
     margin: 0;
 }
-.docs-api-properties, .docs-api-methods {
-    font-family: "Roboto Mono", monospace;
+.docs-api-properties, .docs-api-methods, .docs-api-returns {
+    font-family: "Fira Code", monospace;
     font-size: 14px;
 }
 .docs-api-input {

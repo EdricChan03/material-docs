@@ -16,7 +16,6 @@
                 <md-radio-button class="example-margin" value="primary">Primary</md-radio-button>
                 <md-radio-button class="example-margin" value="accent">Accent</md-radio-button>
                 <md-radio-button class="example-margin" value="warn">Warn</md-radio-button>
-                <md-radio-button class="example-margin" value="">None</md-radio-button>
             </md-radio-group>
         </section>
         <section class="example-section">
@@ -36,8 +35,8 @@
         <section class="example-section">
             <md-checkbox
                 class="example-margin"
-                [checked]="checked"
-                [indeterminate]="indeterminate"
+                [(ngModel)]="checked"
+                [(indeterminate)]="indeterminate"
                 [disableRipple]="disableRipple"
                 [disabled]="disabled"
                 [color]="color"
