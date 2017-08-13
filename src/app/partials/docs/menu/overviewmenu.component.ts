@@ -1,6 +1,6 @@
 import { SimpleMenuComponent } from './../../../../assets/examples/menu/simple-menu';
-import { CodeFiles } from './../../../shared/example-viewer.component';
-import { SharedComponent } from './../../../shared/shared';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
+import { SharedComponent } from './../../../shared/shared.docs';
 import {Component, OnInit} from "@angular/core";
 
 @Component({

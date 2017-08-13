@@ -1,43 +1,61 @@
-import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
-import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
-import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
-import { AboutDialog } from './app.component';
-import { DocsExamples } from './partials/docs/example.component';
-import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
-import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
-import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
-import { DocsAPIList } from './partials/docs/list/apilist.component';
-import { DocsExampleList } from './partials/docs/list/examplelist.component';
-import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
-import { DocsAPICheckbox } from './partials/docs/checkbox/apicheckbox.component';
-import { APIPropertyViewerComponent, APIMethodViewerComponent } from './shared/api-viewer.component';
-import { DocsAPISlideToggle } from './partials/docs/slide-toggle/apislidetoggle.component';
-import { DocsOverviewButtonToggle } from './partials/docs/button-toggle/overviewbuttontoggle.component';
-import { DocsExampleSlideToggle } from './partials/docs/slide-toggle/exampleslidetoggle.component';
-import { DocsOverviewSlideToggle } from './partials/docs/slide-toggle/overviewslidetoggle.component';
-import { DocsExampleDialog } from './partials/docs/dialog/exampledialog.component';
-import { DocsOverviewDialog } from './partials/docs/dialog/overviewdialog.component';
+// Doc guides
+import { DocsThemingGuide } from './partials/guides/theming.docs';
+import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
+
+// Other modules
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SharedComponent } from './shared/shared';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { CodeDirective } from './shared/code.directive';
-import { PreferencesDialog } from './partials/preferences.component';
-import { DocViewerComponent } from './shared/doc-viewer.component';
-import { ExampleViewerComponent } from './shared/example-viewer.component';
-import { CodeViewerComponent } from './shared/code-viewer.component';
-import { DocsShowcase } from './partials/showcase/showcase.component';
-import { DocsSearch } from './partials/search.component';
-import { DocsHomePage } from './partials/homepages/docshome.component';
-import { DocsGuideNav } from './partials/guides/guidenav.component';
-import { DocsThemingGuide } from './partials/guides/theming.component';
-import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.component';
+
+// Docs misc
+import { DocsMiscOnboarding, DocsMiscSvgicons, DocsMiscCustomization } from './partials/misc/docs/misc';
+import { DocsHeader } from './shared/header.docs';
+import { DocsTOC } from './shared/table-of-contents.docs';
+import { DocsExamples } from './partials/docs/example.docs';
+import { APIPropertyViewerComponent, APIMethodViewerComponent } from './shared/api-viewer.docs';
+import { DocsMisc, DocsMiscList, DocsMiscMoreDialog } from './partials/misc/misc.docs';
+import { SharedComponent } from './shared/shared.docs';
+import { CodeDirective } from './shared/code.docsdirective';
+import { PreferencesDialog } from './partials/preferences.docs';
+import { DocViewerComponent } from './shared/doc-viewer.docs';
+import { ExampleViewerComponent } from './shared/example-viewer.docs';
+import { CodeViewerComponent } from './shared/code-viewer.docs';
+import { DocsShowcase } from './partials/showcase/showcase.docs';
+import { DocsSearch } from './partials/search.docs';
+import { DocsHomePage } from './partials/homepages/docshome.docs';
+import { DocsGuideNav } from './partials/guides/guidenav.docs';
+import { AboutDialog } from './app.component';
+// Docs
+// Datepicker
+import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
+import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
+// Expansion
+import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
+// Dialog
+import { DocsExampleDialog } from './partials/docs/dialog/exampledialog.component';
+import { DocsOverviewDialog } from './partials/docs/dialog/overviewdialog.component';
+// Slide toggle
+import { DocsAPISlideToggle } from './partials/docs/slide-toggle/apislidetoggle.component';
+import { DocsExampleSlideToggle } from './partials/docs/slide-toggle/exampleslidetoggle.component';
+import { DocsOverviewSlideToggle } from './partials/docs/slide-toggle/overviewslidetoggle.component';
+// List
+import { DocsAPIList } from './partials/docs/list/apilist.component';
+import { DocsExampleList } from './partials/docs/list/examplelist.component';
+import { DocsOverviewList } from './partials/docs/list/overviewlist.component';
+// Button toggle
+import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
+import { DocsOverviewButtonToggle } from './partials/docs/button-toggle/overviewbuttontoggle.component';
+// Menu
+import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
+import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
+// Icons
+import { DocsOverviewIcon } from './partials/docs/icon/overviewicon.component';
+// Checkbox
 import { DocsExampleCheckbox } from './partials/docs/checkbox/examplecheckbox.component';
 import { DocsOverviewCheckbox } from './partials/docs/checkbox/overviewcheckbox.component';
-import { DocsOverviewIcon } from './partials/docs/icon/overviewicon.component';
-// Docs
+import { DocsAPICheckbox } from './partials/docs/checkbox/apicheckbox.component';
 // Tooltip
 import { DocsExampleTooltip } from './partials/docs/tooltip/exampletooltip.component';
 import { DocsOverviewTooltip } from './partials/docs/tooltip/overviewtooltip.component';
@@ -73,7 +91,7 @@ export const DOC_EXPANSION_COMPONENTS = [
 	DocsOverviewExpansion
 ]
 export const DOC_ICON_COMPONENTS = [
-    DocsOverviewIcon,
+    DocsOverviewIcon
 ]
 export const DOC_LIST_COMPONENTS = [
     DocsOverviewList,
@@ -109,7 +127,16 @@ export const DOC_MISC = [
     DocViewerComponent,
     CodeDirective,
     APIPropertyViewerComponent,
-	APIMethodViewerComponent
+	APIMethodViewerComponent,
+	DocsMisc,
+	DocsMiscList,
+	DocsTOC,
+	DocsHeader
+]
+export const DOC_MISC_DOCS = [
+	DocsMiscOnboarding,
+	DocsMiscSvgicons,
+	DocsMiscCustomization
 ]
 export const DOC_COMPONENTS = [
     DOC_BUTTON_COMPONENTS,
@@ -128,7 +155,8 @@ export const DOC_COMPONENTS = [
 ]
 export const DOC_DIALOGS = [
 	PreferencesDialog,
-	AboutDialog
+	AboutDialog,
+	DocsMiscMoreDialog
 ]
 @NgModule({
     imports: [
@@ -144,13 +172,15 @@ export const DOC_DIALOGS = [
     ],
     declarations: [
         DOC_COMPONENTS,
-        DOC_DIALOGS
+		DOC_DIALOGS,
+		DOC_MISC_DOCS
     ],
     providers: [
-        SharedComponent
+		SharedComponent
     ],
     entryComponents: [
-        DOC_DIALOGS
+		DOC_DIALOGS,
+		DOC_MISC_DOCS
     ]
 })
 export class DocsModule { }

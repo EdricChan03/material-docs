@@ -1,9 +1,9 @@
-import { SharedComponent } from './../shared/shared';
+import { SharedComponent } from './../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'search-docs',
-    templateUrl: './search.component.html'
+    templateUrl: './search.docs.html'
 })
 
 export class DocsSearch implements OnInit {

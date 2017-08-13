@@ -1,9 +1,9 @@
-import { SharedComponent } from './../../shared/shared';
+import { SharedComponent } from './../../shared/shared.docs';
 import { Component } from '@angular/core';
 
 @Component({
     selector: 'guide-docs-theming',
-    templateUrl: './theming.component.html'
+    templateUrl: './theming.docs.html'
 })
 
 export class DocsThemingGuide {

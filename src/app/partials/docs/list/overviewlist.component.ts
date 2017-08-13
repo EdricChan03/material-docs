@@ -1,6 +1,6 @@
 import { SimpleListComponent } from './../../../../assets/examples/list/simple-list';
-import { SharedComponent } from './../../../shared/shared';
-import { CodeFiles } from "./../../../shared/example-viewer.component";
+import { SharedComponent } from './../../../shared/shared.docs';
+import { CodeFiles } from "./../../../shared/example-viewer.docs";
 import { Component, OnInit } from "@angular/core";
 
 @Component({

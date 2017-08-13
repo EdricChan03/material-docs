@@ -1,3 +1,4 @@
+import { MiscOnboardingExample, MiscOnboardingExampleDialog } from './../assets/examples/misc/onboarding/onboarding-example';
 import { SimpleExpansionComponent } from './../assets/examples/expansion/simple-expansion';
 import { TouchDatepickerComponent } from './../assets/examples/datepicker/touch-ui-datepicker';
 import { StartViewDatepickerComponent } from './../assets/examples/datepicker/startat-datepicker';
@@ -60,9 +61,6 @@ export const DIALOG_COMPONENTS = [
 export const EXPANSION_COMPONENTS = [
 	SimpleExpansionComponent
 ]
-export const ICON_COMPONENTS = [
-
-]
 export const LIST_COMPONENTS = [
     SimpleListComponent,
     NavListComponent,
@@ -83,6 +81,10 @@ export const TOOLTIP_COMPONENTS = [
     ConfigurableTooltipComponent,
     SimpleTooltipComponent
 ]
+export const MISC_COMPONENTS = [
+	MiscOnboardingExample,
+	MiscOnboardingExampleDialog
+]
 export const EXAMPLE_COMPONENTS = [
     BUTTON_COMPONENTS,
     BUTTON_TOGGLE_COMPONENTS,
@@ -93,7 +95,8 @@ export const EXAMPLE_COMPONENTS = [
     LIST_COMPONENTS,
     MENU_COMPONENTS,
     SLIDE_TOGGLE_COMPONENTS,
-    TOOLTIP_COMPONENTS
+	TOOLTIP_COMPONENTS,
+	MISC_COMPONENTS
 ]
 @NgModule({
     imports: [

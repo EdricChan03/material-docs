@@ -1,7 +1,7 @@
 import { AdvancedListComponent } from './../../../../assets/examples/list/advanced-list';
 import { NavListComponent } from './../../../../assets/examples/list/nav-list';
-import { SharedComponent } from './../../../shared/shared';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { SharedComponent } from './../../../shared/shared.docs';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({

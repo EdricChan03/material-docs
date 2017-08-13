@@ -1,9 +1,9 @@
-import { SharedComponent } from './../../shared/shared';
+import { SharedComponent } from './../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'docs-showcase',
-    templateUrl: './showcase.component.html'
+    templateUrl: './showcase.docs.html'
 })
 export class DocsShowcase implements OnInit{
     showcases: Showcase[];

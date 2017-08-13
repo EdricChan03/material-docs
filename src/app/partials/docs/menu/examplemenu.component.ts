@@ -1,7 +1,7 @@
 import { IconMenuComponent } from './../../../../assets/examples/menu/icon-menu';
 import { NestedMenuComponent } from './../../../../assets/examples/menu/nested-menu';
-import { SharedComponent } from './../../../shared/shared';
-import { CodeFiles, CodeExternalComponent } from './../../../shared/example-viewer.component';
+import { SharedComponent } from './../../../shared/shared.docs';
+import { CodeFiles, CodeExternalComponent } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({

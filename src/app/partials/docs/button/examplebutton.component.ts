@@ -1,7 +1,7 @@
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { ButtonTypesComponent } from './../../../../assets/examples/button/button-types';
 import { ButtonNoRippleComponent } from './../../../../assets/examples/button/button-noripple';
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';

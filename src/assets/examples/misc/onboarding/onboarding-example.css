@@ -1,0 +1,9 @@
+.onboarding-dialog-content {
+	border-radius: 50%;
+}
+.onboarding-dot {
+	padding-left: 2px;
+	padding-right: 2px;
+	display: block;
+	margin: auto;
+}

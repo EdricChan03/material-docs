@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { SharedComponent } from '../../shared/shared';
+import { SharedComponent } from '../../shared/shared.docs';
 import { Component, AfterContentChecked } from '@angular/core';
 @Component({
     selector: 'guide-docs-nav',
-    templateUrl: './guidenav.component.html'
+    templateUrl: './guidenav.docs.html'
 })
 
 export class DocsGuideNav implements AfterContentChecked{

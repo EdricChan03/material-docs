@@ -1,13 +1,14 @@
-import { PreferencesDialog } from './partials/preferences.component';
+import { PreferencesDialog } from './partials/preferences.docs';
 import { AfterViewInit, ViewChild, OnInit } from '@angular/core';
-import { SharedComponent } from './shared/shared';
+import { SharedComponent } from './shared/shared.docs';
 import { Router } from '@angular/router';
-import { Component, AfterContentChecked } from '@angular/core';
+import { Component, AfterContentChecked, HostListener } from '@angular/core';
 import 'hammerjs';
-import { ObservableMedia, MediaChange } from "@angular/flex-layout";
-import { Subscription } from "rxjs/Subscription";
-import { MdSidenav, MdDialog, OverlayContainer, MdDialogRef } from "@angular/material";
-import { Http } from "@angular/http";
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs/Subscription';
+import { MdSidenav, MdDialog, OverlayContainer, MdDialogRef } from '@angular/material';
+import { Http } from '@angular/http';
+import { Meta } from '@angular/platform-browser';
 @Component({
 	selector: 'material2-docs',
 	templateUrl: './app.component.html'
@@ -18,6 +19,10 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 * @type {MdSidenav}
 	 */
 	@ViewChild('componentSidenav') componentSidenav: MdSidenav;
+	@HostListener('window:scroll', ['$event'])
+	onWindowScroll(ev: any) {
+		console.log(ev);
+	}
 	/**
 	 * Whether the theme is dark
 	 * @type {boolean}
@@ -130,11 +135,23 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	showLatestCommit: boolean;
 	/**
 	 * The latest commit json
+	 * @todo Remove the following after
 	 */
 	latestCommit: any;
+	/**
+	 * @todo Remove
+	 */
 	latestCommitCommit: any;
+	/**
+	 * @todo Remove
+	 */
 	latestCommitCommitAuthor: any;
-	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http) {
+	/**
+	 * Whether to show the scroll
+	 * @type {boolean}
+	 */
+	showScroll: boolean;
+	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta) {
 		/**
 		 * The watcher for the sidenav `mode`
 		 */
@@ -146,6 +163,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 				this.sidenavMode = "side";
 			}
 		})
+		meta.addTag({})
 	}
 	/**
 	 * Views the project on Github
@@ -203,6 +221,16 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	openAbout() {
 		this.dialog.open(AboutDialog);
 	}
+	scrollFunc() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			this.showScroll = true;
+		} else {
+			this.showScroll = false;
+		}
+	}
+	onScroll(ev: any) {
+		console.log(ev);
+	}
 	ngOnInit() {
 		if (this.shared.getSettings().latestCommit) {
 			this.showLatestCommit = true;
@@ -216,10 +244,10 @@ export class AppComponent implements AfterContentChecked, OnInit {
 			/*
 			Required params
 			commit:
-			  	committer: Author
-					> name
-			 		> date
-				message
+			committer: Author
+			> name
+			> date
+			message
 			html_url
 			sha
 			*/
@@ -232,6 +260,11 @@ export class AppComponent implements AfterContentChecked, OnInit {
 		element.classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
 		this.overlay.themeClass = this.checkIsDark() ? 'docs-dark' : 'docs-light';
 		this.docTitle = this.shared.getTitle();
+		window.onscroll = ((ev) => {
+			console.log(ev);
+			this.scrollFunc();
+			console.log("TEST");
+		})
 		if (this.router.url.indexOf('components') > -1) {
 			this.isComponentsPage = true;
 		} else {

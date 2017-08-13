@@ -1,7 +1,8 @@
+import { DocsMisc, DocsMiscList } from './partials/misc/misc.docs';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
 import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
-import { DocsExamples } from './partials/docs/example.component';
+import { DocsExamples } from './partials/docs/example.docs';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
 import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
 import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
@@ -16,9 +17,9 @@ import { DocsOverviewSlideToggle } from './partials/docs/slide-toggle/overviewsl
 import { DocsExampleDialog } from './partials/docs/dialog/exampledialog.component';
 import { DocsOverviewDialog } from './partials/docs/dialog/overviewdialog.component';
 // Guides
-import { DocsThemingGuide } from './partials/guides/theming.component';
-import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.component';
-import { DocsGuideNav } from './partials/guides/guidenav.component';
+import { DocsThemingGuide } from './partials/guides/theming.docs';
+import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
+import { DocsGuideNav } from './partials/guides/guidenav.docs';
 
 // Examples
 // Autocomplete
@@ -38,10 +39,10 @@ import { DocsOverviewTooltip } from './partials/docs/tooltip/overviewtooltip.com
 import { DocsExampleTooltip } from './partials/docs/tooltip/exampletooltip.component';
 
 // Docs components
-import { DocsShowcase } from './partials/showcase/showcase.component';
-import { DocsSearch } from './partials/search.component';
-import { DocsHomePage } from './partials/homepages/docshome.component';
-import { DocViewerComponent } from './shared/doc-viewer.component';
+import { DocsShowcase } from './partials/showcase/showcase.docs';
+import { DocsSearch } from './partials/search.docs';
+import { DocsHomePage } from './partials/homepages/docshome.docs';
+import { DocViewerComponent } from './shared/doc-viewer.docs';
 import { AppComponent } from './app.component';
 
 // Modules
@@ -146,6 +147,8 @@ export const AppRoutes: Routes = [
 	{ path: 'search', component: DocsSearch },
 	{ path: 'showcases', component: DocsShowcase },
 	{ path: 'examples', component: DocsExamples },
+	{ path: 'misc', component: DocsMiscList },
+	{ path: 'misc/:id', component: DocsMisc },
 	{ path: '**', redirectTo: 'home' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'doc-viewer',
-    templateUrl: './doc-viewer.component.html'
+    templateUrl: './doc-viewer.docs.html'
 })
 
-export class DocViewerComponent {
-}
+export class DocViewerComponent {}

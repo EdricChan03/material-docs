@@ -1,0 +1,131 @@
+<table-of-contents></table-of-contents>
+
+<p>For help getting started with a new Angular app, check out the <a href="https://cli.angular.io" target="_blank" mdTooltip="Visit @angular/cli website" class="docs-link">Angular CLI</a>.</p>
+
+<p>For existing apps, follow these steps to begin using Angular Material.</p>
+
+<div id="step-1" class="docs-heading">
+	<h3>Step 1: Install Angular Material and Angular CDK</h3>
+
+	<code-viewer language="bash">npm install --save @angular/material @angular/cdk</code-viewer>
+	
+	<div id="master-builds" class="docs-heading">
+		<h4>Master builds</h4>
+		<p>A snapshot build with the latest changes from master is also available. Note that this snapshot build should not be considered stable and may break between releases.</p>
+		<p>Also note that you have to have <code class="docs-code">git</code> installed in order for this to work.</p>
+		<code-viewer language="bash">npm install --save angular/material2-builds angular/cdk-builds</code-viewer>
+	</div>
+</div>
+<div id="step-2" class="docs-heading">
+<h3>Step 2: Animations</h3>
+
+	<p>Some Material components depend on the Angular animations module in order to be able to do more advanced transitions. If you want these animations to work in your app, you have to install the <code class="docs-code">@angular/animations</code> module and include the <code class="docs-code">BrowserAnimationsModule</code> in your app.</p>
+
+	<code-viewer language="bash">npm install --save @angular/animations</code-viewer>
+	<br>
+	<code-viewer language="typescript">import &#123;BrowserAnimationsModule&#125; from '@angular/platform-browser/animations';
+
+@NgModule(&#123;
+  ...
+  imports: [BrowserAnimationsModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;</code-viewer>
+	<p>If you don't want to add another dependency to your project, you can use the <code class="docs-code">NoopAnimationsModule</code>.</p>
+	<code-viewer language="typescript">import &#123;NoopAnimationsModule&#125; from '@angular/platform-browser/animations';
+
+@NgModule(&#123;
+  ...
+  imports: [NoopAnimationsModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;</code-viewer>
+</div>
+<div id="step-3" class="docs-heading">
+	<h3>Step 3: Import the component modules</h3>
+
+	<p>Import the <code class="docs-code">NgModule</code> for each component you want to use:</p>
+	<code-viewer language="typescript">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+
+@NgModule(&#123;
+  ...
+  imports: [MdButtonModule, MdCheckboxModule],
+  ...
+&#125;)
+export class PizzaPartyAppModule &#123; &#125;</code-viewer>
+	<p>Alternatively, you can create a separate <code class="docs-code">NgModule</code> that imports all of the Angular Material components that you will use in your application. You can then include this module wherever you'd like to use the components.</p>
+	<code-viewer language="typescript">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+
+@NgModule(&#123;
+  imports: [MdButtonModule, MdCheckboxModule],
+  exports: [MdButtonModule, MdCheckboxModule],
+&#125;)
+export class MyOwnCustomMaterialModule &#123; &#125;</code-viewer>
+	<p>Whichever approach you use, be sure to import the Angular Material modules after Angular's <code class="docs-code">BrowserModule</code>, as the import order matters for NgModules.</p>
+<div id="step-4" class="docs-heading">
+	<h3>Step 4: Include a theme</h3>
+
+	<p>Including a theme is required to apply all of the core and theme styles to your application.</p>
+	<p>To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:</p>
+	<code-viewer language="css">@import "~@angular/material/prebuilt-themes/indigo-pink.css";</code-viewer>
+	<p>If you are not using the Angular CLI, you can include a prebuilt theme via a <code class="docs-code">&lt;link&gt;</code> element in your index.html.</p>
+	<p>For more information on theming and instructions on how to create a custom theme, see the theming guide.</p>
+</div>
+<div id="step-5" class="docs-heading">
+	<h3>Step 5: Gesture Support</h3>
+	<p>Some components (<code class="docs-code">md-slide-toggle</code>, <code class="docs-code">md-slider</code>, <code class="docs-code">mdTooltip</code>) rely on <a href="http://hammerjs.github.io/" target="_blank" class="docs-link" mdTooltip="Visit HammerJS">HammerJS</a> for gestures. In order to get the full feature-set of these components, HammerJS must be loaded into the application.</p>
+	<p>You can add HammerJS to your application via <a href="https://www.npmjs.com/package/hammerjs" target="_blank" class="docs-link" mdTooltip="View hammerjs package">npm</a>, a CDN (such as the <a href="https://developers.google.com/speed/libraries/#hammerjs" target="_blank">Google CDN</a>), or served directly from your app.</p>
+	<p>To install via npm, use the following command:</p>
+	<code-viewer language="bash">npm install --save hammerjs</code-viewer>
+	<p>After installing, import it on your app's root module.</p>
+	<code-viewer language="typescript">import 'hammerjs';</code-viewer>
+</div>
+<div id="step-6" class="docs-heading">
+	<h3>Step 6 (Optional): Add Material Icons</h3>
+
+	<p>If you want to use the <code class="docs-code">md-icon</code> component with the official <a href="https://material.io/icons/" target="_blank" class="docs-link">Material Design Icons</a>, load the icon font in your index.html.</p>
+	<code-viewer language="html">&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;</code-viewer>
+	<p>For more information on using Material Icons, check out the <a href="https://google.github.io/material-design-icons/" target="_blank" class="docs-link">Material Icons Guide</a>.</p>
+
+	<p>Note that <code class="docs-code">md-icon</code> supports any font or svg icons; using Material Icons is one of many options.</p>
+</div>
+<div id="appendix" class="docs-heading">
+	<h3>Appendix: Configuring SystemJS</h3>
+	<p>If your project is using SystemJS for module loading, you will need to add <code class="docs-code">@angular/material</code> and <code class="docs-code">@angular/cdk</code> to the SystemJS configuration.</p>
+	<p>The <code class="docs-code">@angular/cdk</code> package is organized of multiple entry-points. Each of these entry-points must be registered individually with SystemJS.</p>
+	<p>Here is a example configuration where <code class="docs-code">@angular/material</code>, <code class="docs-code">@angular/cdk/platform</code> and <code class="docs-code">@angular/cdk/a11y</code> are used:</p>
+
+	<code-viewer language="js">System.config(&#123;
+  	// Existing configuration options
+  	map: &#123;
+    	// ...
+    	'@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+    
+    	// CDK individual packages
+    	'@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+    	'@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+    	// ...
+  	&#125;
+&#125;);
+</code-viewer>
+	<p>Here's the full list of <code class="docs-code">@angular/cdk</code> packages:</p>
+	<code-viewer language="js">'@angular/material': 'npm:@angular/cdk/bundles/material.umd.js',
+'@angular/cdk': 'npm:@angular/cdk/bundles/cdk.umd.js',
+'@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+'@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
+'@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk-coercion.umd.js',
+'@angular/cdk/keyboard': 'npm:@angular/cdk/bundles/cdk-keyboard.umd.js',
+'@angular/cdk/observe-content': 'npm:@angular/cdk/bundles/cdk-observe-content.umd.js',
+'@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+'@angular/cdk/portal': 'npm:@angular/cdk/bundles/cdk-portal.umd.js',
+'@angular/cdk/rxjs': 'npm:@angular/cdk/bundles/cdk-rxjs.umd.js',
+'@angular/cdk/table': 'npm:@angular/cdk/bundles/cdk-table.umd.js',
+'@angular/cdk/testing': 'npm:@angular/cdk/bundles/cdk-testing.umd.js',</code-viewer>
+</div>
+<div id="examples" class="docs-heading">
+	<h3>Example Angular Material projects</h3>
+	<ul>
+		<li><a href="https://material.angular.io" target="_blank" class="docs-link">Official Material2 Docs</a></li>
+		<li><a href="https://goo.gl/DlHd6U" target="_blank" class="docs-link">Example Plunker</a></li>
+	</ul>
+</div>

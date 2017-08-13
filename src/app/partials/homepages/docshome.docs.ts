@@ -1,10 +1,10 @@
 import { Router } from '@angular/router';
-import { SharedComponent } from './../../shared/shared';
+import { SharedComponent } from './../../shared/shared.docs';
 import { Component, AfterContentChecked } from '@angular/core';
 
 @Component({
     selector: 'docshome-component',
-    templateUrl: './docshome.component.html'
+    templateUrl: './docshome.docs.html'
 })
 
 export class DocsHomePage implements AfterContentChecked {

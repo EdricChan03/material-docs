@@ -43,7 +43,7 @@ export class AdvancedListComponent {
         }
     ]
     constructor(private dialog: MdDialog){}
-    openInfoDialog(file) {
+    openInfoDialog(file: any) {
         let dialogRef = this.dialog.open(AdvancedListDialog);
         dialogRef.componentInstance.file = file;
     }

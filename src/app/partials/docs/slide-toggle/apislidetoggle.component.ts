@@ -1,4 +1,4 @@
-import { SharedComponent, APIProperties, APIMethods } from './../../../shared/shared';
+import { SharedComponent, APIProperties, APIMethods } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'slide-toggle-docs-api',

@@ -1,6 +1,6 @@
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { SimpleSlideToggleComponent } from './../../../../assets/examples/slide-toggle/simple-slide-toggle';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'slide-toggle-docs-overview',

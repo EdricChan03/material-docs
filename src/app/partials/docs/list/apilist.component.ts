@@ -1,4 +1,4 @@
-import { APIProperties, SharedComponent, APIMethods } from './../../../shared/shared';
+import { APIProperties, SharedComponent, APIMethods } from './../../../shared/shared.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({

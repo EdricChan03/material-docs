@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs/Observable';
-import { Settings, SharedComponent } from './../shared/shared';
+import { Settings, SharedComponent } from './../shared/shared.docs';
 import { Component, OnInit, OnChanges } from "@angular/core";
 import { MdDialogRef, MdSnackBar } from "@angular/material";
 
 @Component({
     selector: 'preferences-dialog',
-    templateUrl: './preferences.component.html'
+    templateUrl: './preferences.docs.html'
 })
 export class PreferencesDialog implements OnInit, OnChanges{
     settings: Settings;

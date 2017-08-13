@@ -1,6 +1,6 @@
 import { ConfigurableSlideToggleComponent } from './../../../../assets/examples/slide-toggle/configurable-slide-toggle';
-import { SharedComponent } from './../../../shared/shared';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { SharedComponent } from './../../../shared/shared.docs';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'slide-toggle-docs-examples',

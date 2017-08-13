@@ -1,0 +1,49 @@
+<md-dialog-content>
+	<div *ngIf="isSelected(1)">
+		<img src="https://angular.io/generated/images/marketing/home/responsive-framework.svg" class="docs-img">
+		<h2>DEVELOP ACROSS ALL PLATFORMS</h2>
+		<p>Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target.
+			For web, mobile web, native mobile and native desktop.</p>
+	</div>
+	<div *ngIf="isSelected(2)">
+		<img src="https://angular.io/generated/images/marketing/home/speed-performance.svg" class="docs-img">
+		<h2>SPEED &amp; PERFORMANCE</h2>
+		<p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side rendering.</p>
+		<p>Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js
+			or another push-model.</p>
+	</div>
+	<div *ngIf="isSelected(3)">
+		<img src="https://angular.io/generated/images/marketing/home/joyful-development.svg" class="docs-img">
+		<h2>INCREDIBLE TOOLING</h2>
+		<p>Build features quickly with simple, declarative templates. Extend the template language with your own components and use
+			a wide array of existing components. Get immediate Angular-specific help and feedback with nearly every IDE and editor.
+			All this comes together so you can focus on building amazing apps rather than trying to make the code work.</p>
+	</div>
+	<div *ngIf="isSelected(4)">
+		<img src="https://angular.io/generated/images/marketing/home/loved-by-millions.svg" class="docs-img">
+		<h2>LOVED BY MILLIONS</h2>
+		<p>From prototype through global deployment, Angular delivers the productivity and scalable infrastructure that supports Google's
+			largest applications.</p>
+	</div>
+
+</md-dialog-content>
+<md-dialog-actions>
+	<button md-icon-button [disabled]="isPrevDisabled" (click)="previous()"><md-icon>arrow_back</md-icon></button>
+	<button md-icon-button [disabled]="isNextDisabled" (click)="next()"><md-icon>arrow_forward</md-icon></button>
+	<span style="flex: 1"></span>
+	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
+		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(1) ? 'black' : 'white'" stroke="black"/>
+	</svg>
+	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
+		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(2) ? 'black' : 'white'" stroke="black"/>
+	</svg>
+	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
+		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(3) ? 'black' : 'white'" stroke="black"/>
+	</svg>
+	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
+		<circle r="4" cx="4" cy="4" [attr.fill]="isSelected(4) ? 'black' : 'white'" stroke="black"/>
+	</svg>
+	<span style="flex: 1"></span>
+	<button md-button color="primary" md-dialog-close="skip" class="docs-btn">Skip</button>
+	<button md-button color="primary" md-dialog-close="done" class="docs-btn" *ngIf="pageIndex == 4">Get Started</button>
+</md-dialog-actions>

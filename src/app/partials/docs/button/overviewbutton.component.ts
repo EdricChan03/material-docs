@@ -1,9 +1,9 @@
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { ButtonOverviewComponent } from './../../../../assets/examples/button/button-overview';
 import { ButtonTypesComponent } from './../../../../assets/examples/button/button-types';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

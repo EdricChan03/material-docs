@@ -1,0 +1,48 @@
+<div id="docs-misc-content">
+	<div id="getting-started" class="docs-heading">
+		<h3>Getting Started with SVG Icons</h3>
+		<ol>
+			<li>Add <code class="docs-code">MdIconModule</code> in your app's <code class="docs-code">app.module.ts</code>:</li>
+			<code-viewer language="typescript">import &#123; MdIconModule &#125; from '@angular/material';
+// Your other app's modules
+// ...
+@NgModule([
+	imports: [
+		MdIconModule
+	]
+]);
+export class AppModule &#123; &#125;</code-viewer>
+		</ol>
+	</div>
+	<div id="how-to-load-svg-iconsets" class="docs-heading">
+		<h3>How do I load SVG iconsets in my app?</h3>
+		<p>Follow these steps:</p>
+		<ol>
+			<li>Download an svg icon or svg iconset from another source (such as <a href="https://materialdesignicons.com" class="docs-link">MaterialDesignIcons</a>).</li>
+			<li>Place it somewhere in your <code class="docs-code">assets</code> folder.</li>
+			<li>In your app's <code class="docs-code">AppModule</code>, add the following code:</li>
+			<code-viewer language="typescript">import &#123; MdIconRegistry &#125; from '@angular/material';
+import &#123; DomSanitizer &#125; from '@angular/platform-browser';
+export class AppModule &#123;
+	constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer)&#123;
+		// Replace with the path to your icons
+		mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityResourceUrl('assets/icons.svg'));
+	&#125;
+&#125;</code-viewer>
+			<li>To use your icon, add the following line:</li>
+			<code-viewer language="html">&lt;md-icon svgIcon="icon"&gt;&lt;/md-icon&gt;</code-viewer>
+		</ol>
+	</div>
+	<div id="how-to-load-svg-icons" class="docs-heading">
+		<h3>How do I load a single SVG icon then?</h3>
+		<p>It's the same as the above section <a (click)="goToFrag('how-to-load-svg-icons')" class="docs-link">How do I load SVG icon sets in my app?</a>		except the third step:</p>
+		<code-viewer language="typescript">import &#123; MdIconRegistry &#125; from '@angular/material';
+import &#123; DomSanitizer &#125; from '@angular/platform-browser';
+export class AppModule &#123;
+	constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer)&#123;
+		// Replace with the path to your icons
+		mdIconRegistry.addSvgIcon(domSanitizer.bypassSecurityResourceUrl('assets/icon.svg'));
+	&#125;
+&#125;</code-viewer>
+	</div>
+</div>

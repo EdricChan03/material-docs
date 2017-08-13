@@ -1,5 +1,5 @@
-import { CodeFiles } from './../../../shared/example-viewer.component';
-import { SharedComponent, APIProperties, APIMethods } from './../../../shared/shared';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
+import { SharedComponent, APIProperties, APIMethods } from './../../../shared/shared.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({

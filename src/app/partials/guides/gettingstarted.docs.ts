@@ -1,8 +1,8 @@
-import { SharedComponent } from '../../shared/shared';
+import { SharedComponent } from '../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'guide-docs-gettingstarted',
-    templateUrl: './gettingstarted.component.html'
+    templateUrl: './gettingstarted.docs.html'
 })
 
 export class DocsGettingStartedGuide {

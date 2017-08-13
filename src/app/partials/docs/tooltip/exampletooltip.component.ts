@@ -1,7 +1,7 @@
 import { Router, NavigationEnd } from '@angular/router';
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { ConfigurableTooltipComponent } from './../../../../assets/examples/tooltip/configurable-tooltip';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

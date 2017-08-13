@@ -1,14 +1,14 @@
-import { SharedComponent } from './shared';
+import { SharedComponent } from './shared.docs';
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef, DoCheck, Type } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 import { MdSnackBar } from "@angular/material";
 @Component({
 	selector: 'example-viewer',
-	templateUrl: './example-viewer.component.html'
+	templateUrl: './example-viewer.docs.html'
 })
 
 export class ExampleViewerComponent implements OnInit, DoCheck {
-	@ViewChild('code', { read: ViewContainerRef }) content;
+	@ViewChild('code', { read: ViewContainerRef }) content: ViewContainerRef;
 	constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
 	/**
 	 * The list of files
@@ -37,7 +37,7 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	 * The external component
 	 */
 	@Input() externalComponent?: CodeExternalComponent[];
-	files = [];
+	files = [] as CodeFiles[];
 	/**
 	 * Whether to show the code
 	 */
@@ -58,7 +58,7 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	 * Reads a text file
 	 * @param {string} file The file to read
 	 */
-	readTextFile(file): any {
+	readTextFile(file: string): any {
 		try {
 			let allText;
 			let rawFile = new XMLHttpRequest();
@@ -108,23 +108,19 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 		}
 	}
 	ngOnInit() {
-		try {
-			// More info: https://stackoverflow.com/questions/14473180/regex-to-get-a-filename-from-a-url#26253039
-			for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
-				let temp = <any>{};
-				temp["highlightedCode"] = this.readTextFile(this.exFiles.highlightPath[i]);
-				temp["code"] = this.readTextFile(this.exFiles.filePath[i]);
-				temp["label"] = "" + this.exFiles.filePath[i].match(this.fileLabelReg);
-				this.files.push(temp);
-			}
-			let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
-			let ref = this.content.createComponent(factory);
-			ref.changeDetectorRef.detectChanges();
-			this.el.nativeElement.querySelector(factory.selector);
-			this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
-		} catch (error) {
-			throw new Error(`Error: ${error}`);
+		// More info: https://stackoverflow.com/questions/14473180/regex-to-get-a-filename-from-a-url#26253039
+		for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
+			let temp = <any>{};
+			temp["highlightedCode"] = this.readTextFile(this.exFiles.highlightPath[i]);
+			temp["code"] = this.readTextFile(this.exFiles.filePath[i]);
+			temp["label"] = "" + this.exFiles.filePath[i].match(this.fileLabelReg);
+			this.files.push(temp);
 		}
+		let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
+		let ref = this.content.createComponent(factory);
+		ref.changeDetectorRef.detectChanges();
+		this.el.nativeElement.querySelector(factory.selector);
+		this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
 	}
 	ngDoCheck() {
 		if (window.localStorage.getItem('darkTheme')) {

@@ -22,7 +22,7 @@ import 'hammerjs';
         AppComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({appId: 'material2-docs'}),
         BrowserAnimationsModule,
         FormsModule,
         HttpModule,

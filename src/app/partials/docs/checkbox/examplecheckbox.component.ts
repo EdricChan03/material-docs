@@ -1,6 +1,6 @@
 import { CheckboxConfigurableComponent } from './../../../../assets/examples/checkbox/configurable-checkbox';
-import { CodeFiles } from './../../../shared/example-viewer.component';
-import { SharedComponent } from './../../../shared/shared';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'checkbox-docs-examples',

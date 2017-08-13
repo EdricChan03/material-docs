@@ -53,6 +53,10 @@
 				<md-icon md-list-icon>code</md-icon>
 				<p md-line>Examples</p>
 			</a>
+			<a md-list-item [routerLink]="['misc']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<md-icon md-list-icon>star</md-icon>
+				<p md-line>Miscellaneous</p>
+			</a>
 			<h3 md-subheader>Other</h3>
 			<a md-list-item href="https://github.com/Chan4077/material2-docs/blob/master/LICENSE" target="_blank" (click)="docsSidenav.close()">
 				<md-icon md-list-icon>copyright</md-icon>
@@ -68,11 +72,13 @@
 		<h1>{{docTitle}}</h1>
 		<span fxFlex></span>
 	</div>
-	<div class="example-app">
+	<div class="example-app" (window:scroll)="onScroll($event)">
+		<span id="top"></span>
 		<md-card *ngIf="showLatestCommit" id="latestCommit">
 			<md-card-title>Latest commit</md-card-title>
 			<md-card-content>
-				<p><strong>Message:</strong> {{latestCommitCommit?.message}}</p>
+				<p><strong>Message:</strong>
+					<span [innerText]="latestCommitCommit?.message"></span></p>
 				<p><strong>Committer:</strong> {{latestCommitCommitAuthor?.name}}</p>
 				<p><strong>SHA:</strong> <code class="docs-code">{{latestCommit?.sha}}</code></p>
 				<p><strong>Date:</strong> {{latestCommitCommitAuthor?.date | date:'medium'}}</p>
@@ -81,6 +87,7 @@
 				<a md-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">Go to commit</a>
 			</md-card-actions>
 		</md-card>
+		<br *ngIf="showLatestCommit">
 		<router-outlet></router-outlet>
 	</div>
 	<footer class="docs-footer">
@@ -88,3 +95,4 @@
 		<a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link" mdTooltipPosition="above">Learn Angular</a>
 	</footer>
 </md-sidenav-container>
+<button md-fab (click)="scrollToTop()" *ngIf="showScroll"><md-icon>arrow_upward</md-icon></button>

@@ -1,6 +1,6 @@
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { ConfigurableDialogComponent } from './../../../../assets/examples/dialog/configurable-dialog';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({

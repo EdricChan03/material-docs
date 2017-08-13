@@ -1,7 +1,7 @@
-import { SharedComponent } from './../../../shared/shared';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { Router } from '@angular/router';
 import { DialogResultComponent } from './../../../../assets/examples/dialog/dialog-result';
-import { CodeFiles } from './../../../shared/example-viewer.component';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

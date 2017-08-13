@@ -3,7 +3,7 @@ import { Component, AfterViewInit, ElementRef, ViewChild, Input, DoCheck } from 
 import * as hljs from 'highlight.js';
 @Component({
     selector: 'code-viewer',
-    templateUrl: './code-viewer.component.html'
+    templateUrl: './code-viewer.docs.html'
 })
 
 export class CodeViewerComponent implements AfterViewInit, DoCheck {

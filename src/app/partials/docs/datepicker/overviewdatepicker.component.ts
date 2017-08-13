@@ -4,8 +4,8 @@ import { TouchDatepickerComponent } from './../../../../assets/examples/datepick
 import { ApiDatepickerComponent } from './../../../../assets/examples/datepicker/api-datepicker';
 import { StartViewDatepickerComponent } from './../../../../assets/examples/datepicker/startat-datepicker';
 import { SimpleDatepickerComponent } from './../../../../assets/examples/datepicker/simple-datepicker';
-import { CodeFiles } from './../../../shared/example-viewer.component';
-import { SharedComponent } from './../../../shared/shared';
+import { CodeFiles } from './../../../shared/example-viewer.docs';
+import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
