@@ -1,3 +1,5 @@
+import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
+import { DocsThemingComponentGuide } from './partials/guides/themingcomponent.docs';
 import { DocsMisc, DocsMiscList } from './partials/misc/misc.docs';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
@@ -61,6 +63,7 @@ export const AppRoutes: Routes = [
 				path: 'button', component: DocViewerComponent, children: [
 					{ path: 'overview', component: DocsOverviewBtn },
 					{ path: 'examples', component: DocsExampleBtn },
+					{ path: 'api', component: DocsAPIBtn },
 					{ path: '**', redirectTo: 'overview' }
 				]
 			},
@@ -141,7 +144,9 @@ export const AppRoutes: Routes = [
 	{
 		path: 'guides', component: DocsGuideNav, children: [
 			{ path: 'getting-started', component: DocsGettingStartedGuide },
-			{ path: 'theming', component: DocsThemingGuide }
+			{ path: 'theming', component: DocsThemingGuide },
+			{ path: 'theming-your-components', component: DocsThemingComponentGuide },
+			{ path: '**', redirectTo: 'guides' }
 		]
 	},
 	{ path: 'search', component: DocsSearch },

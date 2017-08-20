@@ -18,7 +18,12 @@ export class DocsGuideNav implements AfterContentChecked{
             text: 'Theming Angular Material',
 			link: 'theming',
 			icon: 'palette'
-        }
+		},
+		{
+			text: "Theming your components",
+			link: 'theming-your-components',
+			icon: 'palette'
+		}
     ]
     constructor(private shared: SharedComponent, private router: Router){
         shared.setTitle('Docs > Guides');

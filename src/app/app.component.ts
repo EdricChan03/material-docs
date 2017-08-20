@@ -2,13 +2,15 @@ import { PreferencesDialog } from './partials/preferences.docs';
 import { AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import { SharedComponent } from './shared/shared.docs';
 import { Router } from '@angular/router';
-import { Component, AfterContentChecked, HostListener } from '@angular/core';
+import { Component, AfterContentChecked } from '@angular/core';
 import 'hammerjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs/Subscription';
-import { MdSidenav, MdDialog, OverlayContainer, MdDialogRef } from '@angular/material';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { MdSidenav, MdDialog, MdDialogRef } from '@angular/material';
 import { Http } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
+import 'rxjs/add/operator/delay';
 @Component({
 	selector: 'material2-docs',
 	templateUrl: './app.component.html'
@@ -19,10 +21,6 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 * @type {MdSidenav}
 	 */
 	@ViewChild('componentSidenav') componentSidenav: MdSidenav;
-	@HostListener('window:scroll', ['$event'])
-	onWindowScroll(ev: any) {
-		console.log(ev);
-	}
 	/**
 	 * Whether the theme is dark
 	 * @type {boolean}
@@ -151,6 +149,10 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 * @type {boolean}
 	 */
 	showScroll: boolean;
+	/**
+	 * Whether the commit is refreshing
+	 */
+	isRefreshing: boolean;
 	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta) {
 		/**
 		 * The watcher for the sidenav `mode`
@@ -163,7 +165,21 @@ export class AppComponent implements AfterContentChecked, OnInit {
 				this.sidenavMode = "side";
 			}
 		})
-		meta.addTag({})
+	}
+	/**
+	 * Refreshes the commit
+	 */
+	refresh() {
+		this.isRefreshing = true;
+		this.http.get("https://api.github.com/repos/Chan4077/material2-docs/commits")
+			.delay(1000)
+			.map(res => res.json())
+			.subscribe(res => {
+				this.latestCommit = res[0];
+				this.latestCommitCommit = res[0].commit;
+				this.latestCommitCommitAuthor = res[0].commit.committer;
+				this.isRefreshing = false;
+			});
 	}
 	/**
 	 * Views the project on Github
@@ -176,7 +192,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 		}
 	};
 	/**
-	 * Opens the @link{PreferencesDialog}
+	 * Opens the {@link PreferencesDialog}
 	 */
 	openPrefs() {
 		this.dialog.open(PreferencesDialog);
@@ -193,6 +209,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 			}
 			element.classList.add('docs-dark');
 			this.overlay.themeClass = 'docs-dark';
+			this.meta.addTag({ name: "theme-color", content: "" })
 		} else {
 			this.overlay.themeClass = 'docs-light';
 			if (element.classList.contains('docs-dark')) {
@@ -234,13 +251,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	ngOnInit() {
 		if (this.shared.getSettings().latestCommit) {
 			this.showLatestCommit = true;
-			this.http.get("https://api.github.com/repos/Chan4077/material2-docs/commits")
-				.map(res => res.json())
-				.subscribe(res => {
-					this.latestCommit = res[0];
-					this.latestCommitCommit = res[0].commit;
-					this.latestCommitCommitAuthor = res[0].commit.committer;
-				});
+			this.refresh();
 			/*
 			Required params
 			commit:

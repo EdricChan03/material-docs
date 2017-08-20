@@ -27,7 +27,11 @@
 </md-card>
 <hr>
 <md-card>
-	<md-card-title>Button</md-card-title>
+	<md-card-title>
+		Button
+		<span fxFlex></span>
+		<button md-icon-button (click)="viewDocs('button')" mdTooltip="View docs"><md-icon>book</md-icon></button>
+	</md-card-title>
 	<md-card-content>
 		<button md-button color="primary" disableRipple>Button</button>
 		<button md-raised-button color="accent">Raised Button</button>
@@ -49,7 +53,7 @@
 				Header
 			</md-card-header>
 			<md-card-content>
-				Content
+				<p>{{loremipsum}}</p>
 			</md-card-content>
 		</md-card>
 	</md-card-content>
@@ -71,16 +75,16 @@
 		<md-input-container>
 			<input mdInput placeholder="Birthday" [mdDatepicker]="birthdayPicker">
 			<md-datepicker-toggle [for]="birthdayPicker" mdSuffix></md-datepicker-toggle>
+			<md-datepicker #birthdayPicker [touchUi]="touchUi"></md-datepicker>
 		</md-input-container>
-		<md-datepicker #birthdayPicker [touchUi]="touchUi"></md-datepicker>
 		<br>
 		<button md-raised-button color="primary" (click)="birthdayPicker.open()">Open Picker</button>
 		<br>
 		<md-input-container>
 			<input mdInput placeholder="Start At" [mdDatepicker]="startAtPicker">
 			<md-datepicker-toggle [for]="startAtPicker" mdSuffix></md-datepicker-toggle>
+			<md-datepicker #startAtPicker [startAt]="startDate"></md-datepicker>
 		</md-input-container>
-		<md-datepicker #startAtPicker [startAt]="startDate"></md-datepicker>
 	</md-card-content>
 </md-card>
 <br>

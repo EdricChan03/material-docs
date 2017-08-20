@@ -4,8 +4,8 @@
 			<p md-line>{{doc.name}}</p>
 			<span fxFlex></span>
 		</div>
-		<md-icon md-list-icon *ngIf="isSvgIcon">{{doc.icon}}</md-icon>
-		<md-icon md-list-icon svgIcon="{{doc.icon}}" *ngIf="!isSvgIcon"></md-icon>
+		<md-icon md-list-icon *ngIf="!doc.isSvgIcon">{{doc.icon}}</md-icon>
+		<md-icon md-list-icon svgIcon="{{doc.icon}}" *ngIf="doc.isSvgIcon"></md-icon>
 		<button md-icon-button (click)="viewMore(doc.moreinfo)" *ngIf="doc.moreinfo" class="docs-btn"><md-icon>information</md-icon></button>
 	</md-list-item>
 </md-nav-list>

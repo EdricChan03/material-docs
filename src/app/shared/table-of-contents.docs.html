@@ -4,8 +4,8 @@
 		<a
 			[href]="_rootUrl + '#' + link.link"
 			*ngFor="let link of links; let i = index"
-			class="docs-level-{{link.type}}">
-			{{link.name}}
+			class="docs-level-{{link.type}}"
+			[innerHTML]="link.name">
 		</a>
 		<a 
 			[href]="_rootUrl + '#top'"

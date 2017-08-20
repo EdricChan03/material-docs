@@ -3,7 +3,9 @@
 		<button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage"><md-icon>menu</md-icon></button> Material2
 		Docs
 		<span fxFlex></span>
-		<a md-icon-button mdTooltip="Visit Original Docs" href="https://material.angular.io" target="_blank"><md-icon svgIcon="angularblack"></md-icon></a>
+		<a md-icon-button mdTooltip="Visit Original Docs" href="https://material.angular.io" target="_blank">
+			<md-icon svgIcon="angularblack"></md-icon>
+		</a>
 		<button md-icon-button [mdMenuTriggerFor]="moreMenu"><md-icon>more_vert</md-icon></button>
 		<button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="icons:sitemap"></md-icon></button>
 		<md-menu #moreMenu="mdMenu">
@@ -26,7 +28,7 @@
 	</md-sidenav>
 	<md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
 		<md-toolbar color="primary" class="mat-elevation-z6">
-			<button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-right"></md-icon></button> Navigation
+			<button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-right"></md-icon></button>			Navigation
 			<span fxFlex></span>
 		</md-toolbar>
 		<md-nav-list>
@@ -74,24 +76,34 @@
 	</div>
 	<div class="example-app" (window:scroll)="onScroll($event)">
 		<span id="top"></span>
-		<md-card *ngIf="showLatestCommit" id="latestCommit">
-			<md-card-title>Latest commit</md-card-title>
-			<md-card-content>
-				<p><strong>Message:</strong>
-					<span [innerText]="latestCommitCommit?.message"></span></p>
-				<p><strong>Committer:</strong> {{latestCommitCommitAuthor?.name}}</p>
-				<p><strong>SHA:</strong> <code class="docs-code">{{latestCommit?.sha}}</code></p>
-				<p><strong>Date:</strong> {{latestCommitCommitAuthor?.date | date:'medium'}}</p>
-			</md-card-content>
-			<md-card-actions align="end">
-				<a md-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">Go to commit</a>
-			</md-card-actions>
-		</md-card>
-		<br *ngIf="showLatestCommit">
+		<div class="latest-commit-container">
+			<md-card *ngIf="showLatestCommit" id="latestCommit">
+				<md-card-title>Latest commit</md-card-title>
+				<md-card-content>
+					<p><strong>Message:</strong>
+						<span [innerText]="latestCommitCommit?.message"></span></p>
+					<p><strong>Committer:</strong> {{latestCommitCommitAuthor?.name}}</p>
+					<p><strong>SHA:</strong> <code class="docs-code">{{latestCommit?.sha}}</code></p>
+					<p><strong>Date:</strong> {{latestCommitCommitAuthor?.date | date:'medium'}}</p>
+				</md-card-content>
+				<md-card-actions align="end">
+					<button md-button (click)="refresh()" class="docs-btn" [disabled]="isRefreshing">
+							<md-icon>refresh</md-icon>
+							Refresh Commit
+						</button>
+					<a md-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">
+						<md-icon>open_in_new</md-icon>
+						Go to commit
+					</a>
+				</md-card-actions>
+			</md-card>
+			<md-progress-bar mode="indeterminate" class="latest-commit-progress" *ngIf="isRefreshing"></md-progress-bar>
+		</div>
 		<router-outlet></router-outlet>
 	</div>
 	<footer class="docs-footer">
-		<p>The Angular logo is licensed as <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="docs-link">CC BY 4.0</a>. To download angular icons, go <a href="https://angular.io/presskit" mdTooltip="Visit Angular.io" target="_blank" class="docs-link">Presskit</a>.</p>
+		<p>The Angular logo is licensed as <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="docs-link">CC BY 4.0</a>.
+			To download angular icons, go <a href="https://angular.io/presskit" mdTooltip="Visit Angular.io" target="_blank" class="docs-link">Presskit</a>.</p>
 		<a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link" mdTooltipPosition="above">Learn Angular</a>
 	</footer>
 </md-sidenav-container>

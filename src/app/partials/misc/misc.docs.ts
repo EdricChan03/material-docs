@@ -1,4 +1,4 @@
-import { MdDialogRef, MdDialog, MD_DIALOG_DATA } from '@angular/material';
+import { MdDialogRef, MdDialog } from '@angular/material';
 import { SharedComponent } from './../../shared/shared.docs';
 import { DocsMiscOnboarding, DocsMiscSvgicons, DocsMiscCustomization } from './docs/misc';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -17,7 +17,8 @@ export class DocsMiscList implements OnInit {
 		this.router.navigate(['/misc', filename]);
 	}
 	viewMore(doc: any) {
-		this.dialog.open(DocsMiscMoreDialog, {data: doc});
+		let dialogRef = this.dialog.open(DocsMiscMoreDialog);
+		dialogRef.componentInstance.data = doc;
 	}
 	ngOnInit() {
 		this.docs = [
@@ -29,15 +30,17 @@ export class DocsMiscList implements OnInit {
 			},
 			{
 				name: "Onboarding",
-				icon: "",
+				icon: "star",
 				filename: "onboarding",
+				isSvgIcon: false,
 				moreinfo: [
 					{ url: "https://material.io/guidelines/growth-communications/onboarding.html", title: "Material.io > Guidelines" }
 				]
 			},
 			{
 				name: "Component Customization",
-				icon: "",
+				icon: "extension",
+				isSvgIcon: false,
 				filename: "component-customize"
 			}
 		]
@@ -94,7 +97,8 @@ export class DocsMisc implements OnInit {
 	`
 })
 export class DocsMiscMoreDialog {
-	constructor(private dialogRef: MdDialogRef<DocsMiscMoreDialog>, @Inject(MD_DIALOG_DATA) private data: any){}
+	public data: any;
+	constructor(private dialogRef: MdDialogRef<DocsMiscMoreDialog>){}
 }
 export interface DocumentsListMisc {
 	/**

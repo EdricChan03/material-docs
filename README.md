@@ -9,8 +9,7 @@ You can develop locally by following these steps _(and make a pull request)_:
 1. Execute the following code in your Terminal:
     
     ```bash
-    npm install # Install dependencies
-	npm install @angular/flex-layout@latest # Installs the latest version of flex-layout since npm keeps installing the depreceated version (aka 2.0.0-rc.1)
+    npm install # Install dependencies and install the latest version of @angular/flex-layout
     npm start # Serves the app
     ```
 
@@ -42,7 +41,8 @@ _(Did you know?)_ I thought of this idea when many people were confused over how
 - Get more contributors
 - Make docs simpler
 - Faster loading times on firebase
-- Miscallenous docs
+- Add hash handling
+
 ## Misc
 This section is for other commands listed in the `package.json` and what they do.
 
@@ -89,10 +89,12 @@ For more information and behind the scenes, go to [this shell file](./tools/high
 npm run updateDeps
 ```
 Updates the dependencies and installs the latest version of `@angular/flex-layout`.
+
 ## Status
 - The project is still a work in progress and should be completed by September
 - However, I may not have time in-between because of important things and others
 - Will continue by September holidays (aka 4 September)
+- The `v1.0` milestone is **FINALLY** closed! :tada:
 
 ### Screenshots
 

@@ -1,4 +1,6 @@
+import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 // Doc guides
+import { DocsThemingComponentGuide } from './partials/guides/themingcomponent.docs';
 import { DocsThemingGuide } from './partials/guides/theming.docs';
 import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
 
@@ -6,8 +8,9 @@ import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DocsMaterialModule } from './materialdocs.module';
 
 // Docs misc
 import { DocsMiscOnboarding, DocsMiscSvgicons, DocsMiscCustomization } from './partials/misc/docs/misc';
@@ -67,66 +70,68 @@ import { DocsOverviewBtn } from './partials/docs/button/overviewbutton.component
 import { NgModule } from '@angular/core';
 
 export const DOC_BUTTON_COMPONENTS = [
-    DocsOverviewBtn,
-    DocsExampleBtn
+	DocsOverviewBtn,
+	DocsExampleBtn,
+	DocsAPIBtn
 ]
 export const DOC_BUTTON_TOGGLE_COMPONENTS = [
 	DocsOverviewButtonToggle,
 	DocsExampleButtonToggle
 ]
 export const DOC_CHECKBOX_COMPONENTS = [
-    DocsOverviewCheckbox,
-    DocsExampleCheckbox,
-    DocsAPICheckbox
+	DocsOverviewCheckbox,
+	DocsExampleCheckbox,
+	DocsAPICheckbox
 ]
 export const DOC_DATEPICKER_COMPONENTS = [
 	DocsOverviewDatepicker,
 	DocsAPIDatepicker
 ]
 export const DOC_DIALOG_COMPONENTS = [
-    DocsOverviewDialog,
-    DocsExampleDialog
+	DocsOverviewDialog,
+	DocsExampleDialog
 ]
 export const DOC_EXPANSION_COMPONENTS = [
 	DocsOverviewExpansion
 ]
 export const DOC_ICON_COMPONENTS = [
-    DocsOverviewIcon
+	DocsOverviewIcon
 ]
 export const DOC_LIST_COMPONENTS = [
-    DocsOverviewList,
-    DocsExampleList,
-    DocsAPIList
+	DocsOverviewList,
+	DocsExampleList,
+	DocsAPIList
 ]
 export const DOC_MENU_COMPONENTS = [
-    DocsOverviewMenu,
-    DocsExampleMenu
+	DocsOverviewMenu,
+	DocsExampleMenu
 ]
 export const DOC_SLIDE_TOGGLE_COMPONENTS = [
-    DocsOverviewSlideToggle,
-    DocsExampleSlideToggle,
-    DocsAPISlideToggle
+	DocsOverviewSlideToggle,
+	DocsExampleSlideToggle,
+	DocsAPISlideToggle
 ]
 export const DOC_TOOLTIP_COMPONENTS = [
-    DocsOverviewTooltip,
-    DocsExampleTooltip,
+	DocsOverviewTooltip,
+	DocsExampleTooltip,
 ]
 // Others
 export const DOC_GUIDES = [
-    DocsGettingStartedGuide,
-    DocsThemingGuide,
-    DocsGuideNav
+	DocsGettingStartedGuide,
+	DocsThemingGuide,
+	DocsThemingComponentGuide,
+	DocsGuideNav
 ]
 export const DOC_MISC = [
-    DocsHomePage,
-    DocsSearch,
-    DocsShowcase,
+	DocsHomePage,
+	DocsSearch,
+	DocsShowcase,
 	DocsExamples,
-    CodeViewerComponent,
-    ExampleViewerComponent,
-    DocViewerComponent,
-    CodeDirective,
-    APIPropertyViewerComponent,
+	CodeViewerComponent,
+	ExampleViewerComponent,
+	DocViewerComponent,
+	CodeDirective,
+	APIPropertyViewerComponent,
 	APIMethodViewerComponent,
 	DocsMisc,
 	DocsMiscList,
@@ -139,48 +144,50 @@ export const DOC_MISC_DOCS = [
 	DocsMiscCustomization
 ]
 export const DOC_COMPONENTS = [
-    DOC_BUTTON_COMPONENTS,
-    DOC_BUTTON_TOGGLE_COMPONENTS,
-    DOC_CHECKBOX_COMPONENTS,
-    DOC_DATEPICKER_COMPONENTS,
+	DOC_BUTTON_COMPONENTS,
+	DOC_BUTTON_TOGGLE_COMPONENTS,
+	DOC_CHECKBOX_COMPONENTS,
+	DOC_DATEPICKER_COMPONENTS,
 	DOC_DIALOG_COMPONENTS,
 	DOC_EXPANSION_COMPONENTS,
-    DOC_ICON_COMPONENTS,
-    DOC_LIST_COMPONENTS,
-    DOC_MENU_COMPONENTS,
-    DOC_SLIDE_TOGGLE_COMPONENTS,
-    DOC_TOOLTIP_COMPONENTS,
-    DOC_GUIDES,
-    DOC_MISC
+	DOC_ICON_COMPONENTS,
+	DOC_LIST_COMPONENTS,
+	DOC_MENU_COMPONENTS,
+	DOC_SLIDE_TOGGLE_COMPONENTS,
+	DOC_TOOLTIP_COMPONENTS,
+	DOC_GUIDES,
+	DOC_MISC
 ]
 export const DOC_DIALOGS = [
 	PreferencesDialog,
 	AboutDialog,
 	DocsMiscMoreDialog
 ]
+
 @NgModule({
-    imports: [
-        BrowserModule,
-        MaterialModule,
-        RouterModule,
-        FormsModule,
-        FlexLayoutModule
-    ],
-    exports: [
-        DOC_COMPONENTS,
-        DOC_DIALOGS
-    ],
-    declarations: [
-        DOC_COMPONENTS,
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		RouterModule,
+		FormsModule,
+		FlexLayoutModule,
+		DocsMaterialModule
+	],
+	exports: [
+		DOC_COMPONENTS,
+		DOC_DIALOGS
+	],
+	declarations: [
+		DOC_COMPONENTS,
 		DOC_DIALOGS,
 		DOC_MISC_DOCS
-    ],
-    providers: [
+	],
+	providers: [
 		SharedComponent
-    ],
-    entryComponents: [
+	],
+	entryComponents: [
 		DOC_DIALOGS,
 		DOC_MISC_DOCS
-    ]
+	]
 })
 export class DocsModule { }

@@ -2,12 +2,12 @@
 <div fxLayout="column" md-dialog-content>
 	<md-checkbox [(ngModel)]="settings.latestCommit" color="primary">Show latest commit card</md-checkbox>
     <md-checkbox [(ngModel)]="settings.enableTabIndent">Enable Tab Indenting (code)</md-checkbox>
-    <md-input-container *ngIf="!settings.enableTabIndent">
+    <md-form-field *ngIf="!settings.enableTabIndent">
         <input mdInput [(ngModel)]="settings.codeSpaceIndent" placeholder="Set Code Indent (Spaces)" type="number">
-    </md-input-container>
-    <md-input-container *ngIf="settings.enableTabIndent">
+    </md-form-field>
+    <md-form-field *ngIf="settings.enableTabIndent">
         <input mdInput [(ngModel)]="settings.codeTabIndent" placeholder="Set Code Indent (Tabs)" type="number">
-    </md-input-container>
+    </md-form-field>
 </div>
 <div md-dialog-actions align="end">
     <button md-button (click)="cancel()" color="primary" class="docs-btn">Cancel</button>

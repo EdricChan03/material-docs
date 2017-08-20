@@ -45,7 +45,7 @@ $docs-light-accent);
     @import 'highlightjs/material-light.scss';
     .sidenav-subheader {
         background-color: mat-color($docs-light-accent) !important;
-        color: #fff !important;
+    	color: #fff !important;
     }
     .docs-title {
         background-color: mat-color($docs-light-accent);
@@ -309,7 +309,6 @@ h2 {
 
 p {
 	line-height: 22px;
-	margin: 0;
 }
 
 /* Table of contents styles */
@@ -334,4 +333,7 @@ table-of-contents {
     .docs-level-h4 {
         margin-left: 12px;
     }
+}
+.latest-commit-container {
+	margin-bottom: 10px;
 }

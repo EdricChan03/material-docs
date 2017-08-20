@@ -1,3 +1,6 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DocsMaterialModule } from './materialdocs.module';
+
 import { MiscOnboardingExample, MiscOnboardingExampleDialog } from './../assets/examples/misc/onboarding/onboarding-example';
 import { SimpleExpansionComponent } from './../assets/examples/expansion/simple-expansion';
 import { TouchDatepickerComponent } from './../assets/examples/datepicker/touch-ui-datepicker';
@@ -21,7 +24,6 @@ import { DialogResultComponent, DialogResult } from './../assets/examples/dialog
 import { CheckboxConfigurableComponent } from './../assets/examples/checkbox/configurable-checkbox';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
 
@@ -100,10 +102,11 @@ export const EXAMPLE_COMPONENTS = [
 ]
 @NgModule({
     imports: [
-        BrowserModule,
-        MaterialModule,
+		BrowserModule,
+		BrowserAnimationsModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        DocsMaterialModule
     ],
     declarations: [
         EXAMPLE_COMPONENTS

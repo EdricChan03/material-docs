@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SharedComponent } from './../../shared/shared.docs';
 import { Component } from "@angular/core";
 
@@ -12,5 +13,14 @@ export class DocsExamples {
 	favouriteFood: string = "steak";
 	favouriteHobbies: string[] = ["teacher", "computer"];
 	gender: string = "male";
-	constructor(private shared: SharedComponent){shared.setTitle("Docs > Examples")}
+	constructor(private shared: SharedComponent, private router: Router){shared.setTitle("Docs > Examples")}
+	/**
+	 * Shows the doc
+	 * @param {string} docs The document name
+	 */
+	viewDocs(docs: string) {
+		this.router.navigateByUrl('components/'+docs).catch(error=> {
+			throw new Error(error);
+		})
+	}
 }
