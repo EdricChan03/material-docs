@@ -120,6 +120,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	isRefreshing: boolean;
 	searchActive: string = "active";
 	showToolbar: boolean;
+	searchDoc: string;
 	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta, private docItems: DocumentationItems) {
 		/**
 		 * The watcher for the sidenav `mode`
