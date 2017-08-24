@@ -42,6 +42,8 @@ _(Did you know?)_ I thought of this idea when many people were confused over how
 - Make docs simpler
 - Faster loading times on firebase
 - Add hash handling
+- Faster syntax highlighting
+- Watch example file and syntax highlight when there are changes
 
 ## Misc
 This section is for other commands listed in the `package.json` and what they do.
@@ -49,6 +51,7 @@ This section is for other commands listed in the `package.json` and what they do
 ### Commands
 
 <a name="serve"></a>
+
 ```bash
 npm run serve 
 ```
@@ -57,18 +60,27 @@ Highlights all files in `examples/` folder, then serves the app.
 This is what `npm start` does.
 
 <a name="serveProd"></a>
+
 ```bash
 npm run serveProd
 ```
 Serves the app, similar to `npm run serve`, but the environment is set to `production` instead.
 
 <a name="firebaseDeploy"></a>
+
 ```bash
 npm run firebaseDeploy
 ```
 Deploys to firebase. Note that you can't execute this apart from the owner and those who can access the project's firebase. It basically does syntax highlighting, then builds the app in `production` mode and deploys to firebase using the [Firebase CLI](https://firebase.google.com/docs/cli/).
 
+<a name="firebaseDeploy2"></a>
+
+```bash
+npm run firebaseDeploy2
+```
+Similar to the [firebaseDeploy](#firebaseDeploy) script, but without syntax highlighting.
 <a name="syntaxHighlight"></a>
+
 ```bash
 npm run syntaxHighlight
 ```
@@ -82,9 +94,11 @@ npm run firebaseDeploy
 Alternatively, you can run this manually after you edited or added an example while you were running `npm start`.
 
 <a name="syntaxHighlightMoreInfo"></a>
+
 For more information and behind the scenes, go to [this shell file](./tools/highlight-examples.sh) and [the nodejs file](./tools/syntax-highlight.js)
 
 <a name="updateDeps"></a>
+
 ```bash
 npm run updateDeps
 ```
