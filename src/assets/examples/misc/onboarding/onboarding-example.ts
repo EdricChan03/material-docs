@@ -35,7 +35,8 @@ export class MiscOnboardingExampleDialog {
 	pageIndex: number = 1;
 	isPrevDisabled: boolean = true;
 	isNextDisabled: boolean = false;
-	constructor(private dialogRef: MdDialogRef<MiscOnboardingExampleDialog>){
+	dots: number[] = [1, 2, 3, 4];
+ 	constructor(private dialogRef: MdDialogRef<MiscOnboardingExampleDialog>){
 	}
 	/**
 	 * Goes to the previous step
@@ -74,6 +75,8 @@ export class MiscOnboardingExampleDialog {
 	isSelected(index: number): boolean {
 		if (index == this.pageIndex) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }

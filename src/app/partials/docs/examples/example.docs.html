@@ -1,0 +1,7 @@
+<p>Here are some advanced examples:</p>
+<p><em>(To view the source code, click on the code button FAB on the bottom right of the demo)</em></p>
+<md-nav-list *ngIf="isExampleMain">
+	<a md-list-item *ngFor="let example of examples" [routerLink]="['/examples', example.url]">{{example.title}}</a>
+</md-nav-list>
+
+<router-outlet></router-outlet>

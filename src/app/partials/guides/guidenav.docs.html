@@ -1,4 +1,17 @@
 <md-nav-list *ngIf="isMain">
-    <a md-list-item [routerLink]="guide.link" *ngFor="let guide of guides"><md-icon md-list-icon>{{guide.icon}}</md-icon><p md-line>{{guide.text}}</p></a>
+	<a md-list-item [routerLink]="guide.link" *ngFor="let guide of guides">
+		<md-icon md-list-icon>{{guide.icon}}</md-icon>
+		<p md-line>{{guide.text}}</p>
+	</a>
+	<h3 md-subheader>Miscallenous Docs</h3>
+
+	<md-list-item *ngFor="let misc of misc">
+		<a md-line [routerLink]="misc.link">{{misc.name}}</a>
+		<md-icon md-list-icon *ngIf="!misc.isSvgIcon">{{misc.icon}}</md-icon>
+		<md-icon md-list-icon svgIcon="{{misc.icon}}" *ngIf="misc.isSvgIcon"></md-icon>
+		<button md-icon-button (click)="viewMore(misc.moreinfo)" *ngIf="misc.moreinfo" class="docs-btn">
+			<md-icon>information</md-icon>
+		</button>
+	</md-list-item>
 </md-nav-list>
 <router-outlet></router-outlet>

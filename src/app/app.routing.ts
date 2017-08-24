@@ -1,10 +1,10 @@
+import { DocsExampleShop } from './partials/docs/examples/shop/shop.docs';
+import { DocsExampleBlog } from './partials/docs/examples/blog/blog.docs';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
-import { DocsThemingComponentGuide } from './partials/guides/themingcomponent.docs';
-import { DocsMisc, DocsMiscList } from './partials/misc/misc.docs';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
 import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
-import { DocsExamples } from './partials/docs/example.docs';
+import { DocsExamples } from './partials/docs/examples/example.docs';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
 import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
 import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
@@ -19,10 +19,8 @@ import { DocsOverviewSlideToggle } from './partials/docs/slide-toggle/overviewsl
 import { DocsExampleDialog } from './partials/docs/dialog/exampledialog.component';
 import { DocsOverviewDialog } from './partials/docs/dialog/overviewdialog.component';
 // Guides
-import { DocsThemingGuide } from './partials/guides/theming.docs';
-import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
 import { DocsGuideNav } from './partials/guides/guidenav.docs';
-
+import { DocsThemingComponentGuide, DocsThemingGuide, DocsGettingStartedGuide, DocsCustomizeComponentStyleGuide, DocsMiscOnboarding, DocsMiscSvgicons } from './partials/guides/guides.docs';
 // Examples
 // Autocomplete
 
@@ -50,7 +48,15 @@ import { AppComponent } from './app.component';
 // Modules
 import { RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { Routes } from '@angular/router';
+import { Routes, Route } from '@angular/router';
+const DocsGuideRoutes: Route[] = [
+	{ path: 'getting-started', component: DocsGettingStartedGuide },
+	{ path: 'theming', component: DocsThemingGuide },
+	{ path: 'theming-your-components', component: DocsThemingComponentGuide },
+	{ path: 'customizing-component-styles', component: DocsCustomizeComponentStyleGuide },
+	{ path: 'onboarding', component: DocsMiscOnboarding },
+	{ path: 'svg-icons', component: DocsMiscSvgicons }
+]
 /**
  * The routes for the application
  * @type {Routes}
@@ -142,18 +148,16 @@ export const AppRoutes: Routes = [
 		]
 	},
 	{
-		path: 'guides', component: DocsGuideNav, children: [
-			{ path: 'getting-started', component: DocsGettingStartedGuide },
-			{ path: 'theming', component: DocsThemingGuide },
-			{ path: 'theming-your-components', component: DocsThemingComponentGuide },
-			{ path: '**', redirectTo: 'guides' }
-		]
+		path: 'guides', component: DocsGuideNav, children: DocsGuideRoutes
 	},
 	{ path: 'search', component: DocsSearch },
 	{ path: 'showcases', component: DocsShowcase },
-	{ path: 'examples', component: DocsExamples },
-	{ path: 'misc', component: DocsMiscList },
-	{ path: 'misc/:id', component: DocsMisc },
+	{
+		path: 'examples', component: DocsExamples, children: [
+			{ path: 'blog', component: DocsExampleBlog },
+			{ path: 'shop', component: DocsExampleShop }
+		]
+	},
 	{ path: '**', redirectTo: 'home' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

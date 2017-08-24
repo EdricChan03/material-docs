@@ -1,9 +1,9 @@
+import { DocsExampleShop } from './partials/docs/examples/shop/shop.docs';
+import { DocsExampleBlog } from './partials/docs/examples/blog/blog.docs';
+import { DocumentationItems } from './partials/documentation-items';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 // Doc guides
-import { DocsThemingComponentGuide } from './partials/guides/themingcomponent.docs';
-import { DocsThemingGuide } from './partials/guides/theming.docs';
-import { DocsGettingStartedGuide } from './partials/guides/gettingstarted.docs';
-
+import { DocsThemingComponentGuide, DocsGettingStartedGuide, DocsThemingGuide, DocsMiscOnboarding, DocsMiscSvgicons, DocsCustomizeComponentStyleGuide } from './partials/guides/guides.docs';
 // Other modules
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -13,12 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocsMaterialModule } from './materialdocs.module';
 
 // Docs misc
-import { DocsMiscOnboarding, DocsMiscSvgicons, DocsMiscCustomization } from './partials/misc/docs/misc';
 import { DocsHeader } from './shared/header.docs';
 import { DocsTOC } from './shared/table-of-contents.docs';
-import { DocsExamples } from './partials/docs/example.docs';
+import { DocsExamples } from './partials/docs/examples/example.docs';
 import { APIPropertyViewerComponent, APIMethodViewerComponent } from './shared/api-viewer.docs';
-import { DocsMisc, DocsMiscList, DocsMiscMoreDialog } from './partials/misc/misc.docs';
 import { SharedComponent } from './shared/shared.docs';
 import { CodeDirective } from './shared/code.docsdirective';
 import { PreferencesDialog } from './partials/preferences.docs';
@@ -28,7 +26,7 @@ import { CodeViewerComponent } from './shared/code-viewer.docs';
 import { DocsShowcase } from './partials/showcase/showcase.docs';
 import { DocsSearch } from './partials/search.docs';
 import { DocsHomePage } from './partials/homepages/docshome.docs';
-import { DocsGuideNav } from './partials/guides/guidenav.docs';
+import { DocsGuideNav, DocsMiscMoreDialog } from './partials/guides/guidenav.docs';
 import { AboutDialog } from './app.component';
 // Docs
 // Datepicker
@@ -120,28 +118,30 @@ export const DOC_GUIDES = [
 	DocsGettingStartedGuide,
 	DocsThemingGuide,
 	DocsThemingComponentGuide,
+	DocsCustomizeComponentStyleGuide,
 	DocsGuideNav
 ]
 export const DOC_MISC = [
 	DocsHomePage,
 	DocsSearch,
 	DocsShowcase,
-	DocsExamples,
 	CodeViewerComponent,
 	ExampleViewerComponent,
 	DocViewerComponent,
 	CodeDirective,
 	APIPropertyViewerComponent,
 	APIMethodViewerComponent,
-	DocsMisc,
-	DocsMiscList,
 	DocsTOC,
 	DocsHeader
 ]
+export const DOC_EXAMPLES = [
+	DocsExamples,
+	DocsExampleBlog,
+	DocsExampleShop
+]
 export const DOC_MISC_DOCS = [
 	DocsMiscOnboarding,
-	DocsMiscSvgicons,
-	DocsMiscCustomization
+	DocsMiscSvgicons
 ]
 export const DOC_COMPONENTS = [
 	DOC_BUTTON_COMPONENTS,
@@ -156,7 +156,9 @@ export const DOC_COMPONENTS = [
 	DOC_SLIDE_TOGGLE_COMPONENTS,
 	DOC_TOOLTIP_COMPONENTS,
 	DOC_GUIDES,
-	DOC_MISC
+	DOC_MISC,
+	DOC_MISC_DOCS,
+	DOC_EXAMPLES
 ]
 export const DOC_DIALOGS = [
 	PreferencesDialog,
@@ -179,15 +181,14 @@ export const DOC_DIALOGS = [
 	],
 	declarations: [
 		DOC_COMPONENTS,
-		DOC_DIALOGS,
-		DOC_MISC_DOCS
+		DOC_DIALOGS
 	],
 	providers: [
-		SharedComponent
+		SharedComponent,
+		DocumentationItems
 	],
 	entryComponents: [
-		DOC_DIALOGS,
-		DOC_MISC_DOCS
+		DOC_DIALOGS
 	]
 })
 export class DocsModule { }

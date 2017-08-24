@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedComponent } from './../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
 
@@ -6,18 +7,26 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './search.docs.html'
 })
 
-export class DocsSearch implements OnInit {
-    constructor(private shared: SharedComponent) { }
+export class DocsSearch {
+    constructor(private shared: SharedComponent, private route: ActivatedRoute, private router: Router) {
+		this.route.params.subscribe(params=> {
+			if (params['name']) {
+				this.searchDocs(params['name']);
+			}
+		})
+		shared.setTitle("Docs > Search");
+
+	}
     filteredItems: any;
     items = [] = ['WOW', 'test', 'loL', 'something'];
     search: string;
     searchOptType: string[] = ["component", "guides", "showcase", "misc", "other"];
     isCaseSensitive: boolean;
-    ngOnInit() {
-        this.shared.setTitle('Docs > Search');
-        
-    }
-    submit() {
+	searchDocs(search?: string) {
+		this.search = search;
+		if (search) console.log(search);
+	}
+    submit(search?: string) {
         console.log(`Searching for ${this.search} with params ${this.searchOptType}`);
         if (this.isCaseSensitive) {
             console.log("Search is case sensitive");

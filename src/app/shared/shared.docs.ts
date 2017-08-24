@@ -45,7 +45,7 @@ export class SharedComponent {
 		if (title) {
 			this.title.setTitle(title);
 		} else {
-			this.title.setTitle('Material2 Docs');
+			this.title.setTitle('Angular Material Docs');
 		}
 	}
     /**

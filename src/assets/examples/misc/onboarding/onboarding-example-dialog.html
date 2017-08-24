@@ -28,21 +28,12 @@
 
 </md-dialog-content>
 <md-dialog-actions>
-	<button md-icon-button [disabled]="isPrevDisabled" (click)="previous()"><md-icon>arrow_back</md-icon></button>
-	<button md-icon-button [disabled]="isNextDisabled" (click)="next()"><md-icon>arrow_forward</md-icon></button>
+	<button md-icon-button [disabled]="isPrevDisabled" (click)="previous()" mdTooltip="Go back"><md-icon>arrow_back</md-icon></button>
+	<button md-icon-button [disabled]="isNextDisabled" (click)="next()" mdTooltip="Go forward"><md-icon>arrow_forward</md-icon></button>
 	<span style="flex: 1"></span>
 	<!-- Dots for progress -->
-	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
-		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(1) ? 'black' : 'white'" stroke="black"/>
-	</svg>
-	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
-		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(2) ? 'black' : 'white'" stroke="black"/>
-	</svg>
-	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
-		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(3) ? 'black' : 'white'" stroke="black"/>
-	</svg>
-	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8">
-		<circle r="4" cx="4" cy="4" [attr.fill]="isSelected(4) ? 'black' : 'white'" stroke="black"/>
+	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8" *ngFor="let dot of dots">
+		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(dot) ? 'black' : 'white'" stroke="black"/>
 	</svg>
 	<span style="flex: 1"></span>
 	<button md-button color="primary" md-dialog-close="skip" class="docs-btn">Skip</button>

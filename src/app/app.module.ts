@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MdIconRegistry, MdNativeDateModule, MaterialModule } from "@angular/material";
+import { MdIconRegistry } from "@angular/material";
 import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -28,9 +28,7 @@ import 'hammerjs';
         FormsModule,
         HttpModule,
         FlexLayoutModule,
-		MaterialModule,
-		MdNativeDateModule,
-
+		DocsMaterialModule,
         DocsModule,
         ExampleModule,
         AppRouting,
@@ -40,6 +38,5 @@ import 'hammerjs';
 export class AppModule {
     constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer) {
 		mdIconRegistry.addSvgIconSetInNamespace('icons', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/icons.svg'));
-		mdIconRegistry.addSvgIcon('angularblack', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/angular_solidBlack.svg'));
     }
 }

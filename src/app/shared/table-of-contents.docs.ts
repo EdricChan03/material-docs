@@ -1,6 +1,5 @@
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
-import { DocsMisc } from './../partials/misc/misc.docs';
 import { Component, OnInit, ViewChild, ViewContainerRef, AfterViewInit, ContentChild } from '@angular/core';
 
 @Component({

@@ -1,3 +1,4 @@
+import { DocumentationItems } from './partials/documentation-items';
 import { PreferencesDialog } from './partials/preferences.docs';
 import { AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import { SharedComponent } from './shared/shared.docs';
@@ -11,9 +12,44 @@ import { MdSidenav, MdDialog, MdDialogRef } from '@angular/material';
 import { Http } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/map';
+import { trigger, state, style, transition, animate } from "@angular/animations";
 @Component({
 	selector: 'material2-docs',
-	templateUrl: './app.component.html'
+	templateUrl: './app.component.html',
+	animations: [
+		trigger('searchState', [
+			state('inactive', style({
+				right: '325px'
+			})),
+			state('active', style({
+				right: '0%'
+			})),
+			transition('inactive => active', animate('250ms')),
+			transition('active => inactive', animate('250ms'))
+		]),
+		trigger('searchFieldState', [
+			state('active', style({
+				display: 'none'
+			})),
+			state('inactive', style({
+				display: 'inline-block'
+			})),
+			transition('inactive => active', animate('250ms')),
+			transition('active => inactive', animate('250ms'))
+		]),
+		trigger('searchBtnState', [
+			state('active', style({
+				display: 'none'
+			})),
+			state('inactive', style({
+				display: 'block',
+				left: '40px'
+			})),
+			transition('inactive => active', animate('250ms')),
+			transition('active => inactive', animate('250ms'))
+		])
+	]
 })
 export class AppComponent implements AfterContentChecked, OnInit {
 	/**
@@ -55,78 +91,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 * The categories for components
 	 * @type {Array}
 	 */
-	categories = [
-		{
-			id: 'forms',
-			name: 'Form Controls',
-			summary: 'Radio buttons, checkboxes, input fields, sliders, slide toggles, selects',
-			items: [
-				{ id: 'autocomplete', name: 'Autocomplete' },
-				{ id: 'checkbox', name: 'Checkbox' },
-				{ id: 'datepicker', name: 'Datepicker' },
-				{ id: 'input', name: 'Input' },
-				{ id: 'radio', name: 'Radio button' },
-				{ id: 'select', name: 'Select' },
-				{ id: 'slider', name: 'Slider' },
-				{ id: 'slide-toggle', name: 'Slide toggle' }
-			]
-		},
-		{
-			id: 'nav',
-			name: 'Navigation',
-			summary: 'Sidenavs, toolbars, menus',
-			items: [
-				{ id: 'menu', name: 'Menu' },
-				{ id: 'sidenav', name: 'Sidenav' },
-				{ id: 'toolbar', name: 'Toolbar' }
-			]
-		},
-		{
-			id: 'layout',
-			name: 'Layout',
-			summary: 'Cards, expansion panels, lists, grid-lists, tabs',
-			items: [
-				{ id: 'card', name: 'Card' },
-				{ id: 'expansion', name: 'Expansion Panel' },
-				{ id: 'grid-list', name: 'Grid list' },
-				{ id: 'list', name: 'List' },
-				{ id: 'tabs', name: 'Tabs' }
-			]
-		},
-		{
-			id: 'buttons',
-			name: 'Buttons, Indicators & Icons',
-			summary: 'Buttons, button toggles, icons, progress spinners, progress bars',
-			items: [
-				{ id: 'button', name: 'Button' },
-				{ id: 'button-toggle', name: 'Button toggle' },
-				{ id: 'chips', name: 'Chips' },
-				{ id: 'icon', name: 'Icon' },
-				{ id: 'progress-spinner', name: 'Progress spinner' },
-				{ id: 'progress-bar', name: 'Progress bar' }
-			]
-		},
-		{
-			id: 'modals',
-			name: 'Popups & Modals',
-			summary: 'Dialogs, tooltips, snackbars',
-			items: [
-				{ id: 'dialog', name: 'Dialog' },
-				{ id: 'tooltip', name: 'Tooltip' },
-				{ id: 'snack-bar', name: 'Snackbar' }
-			]
-		},
-		{
-			id: 'tables',
-			name: 'Data table',
-			summary: 'Tables, sorting, and pagination',
-			items: [
-				{ id: 'table', name: 'Table' },
-				{ id: 'sort', name: 'Sort header' },
-				{ id: 'paginator', name: 'Paginator' }
-			]
-		}
-	];
+	categories = [];
 	/**
 	 * Whether to show the latest commit card
 	 */
@@ -153,7 +118,9 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 * Whether the commit is refreshing
 	 */
 	isRefreshing: boolean;
-	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta) {
+	searchActive: string = "active";
+	showToolbar: boolean;
+	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta, private docItems: DocumentationItems) {
 		/**
 		 * The watcher for the sidenav `mode`
 		 */
@@ -165,6 +132,25 @@ export class AppComponent implements AfterContentChecked, OnInit {
 				this.sidenavMode = "side";
 			}
 		})
+		this.categories = this.docItems.getItemsInCategories();
+	}
+	/**
+	 * Searches the docs (basically just redirects to the search URL)
+	 * @param {string} term The term to search up
+	 */
+	searchDocs(term: string) {
+		if (term != undefined && term || term != null && term) {
+			this.router.navigate(['search', {name: term}])
+		} else {
+			alert("Please enter a valid search item.");	
+		};
+	}
+	toggleSearch() {
+		if (this.searchActive == "inactive") {
+			this.searchActive = "active";
+		} else {
+			this.searchActive = "inactive";
+		}
 	}
 	/**
 	 * Refreshes the commit
@@ -281,6 +267,12 @@ export class AppComponent implements AfterContentChecked, OnInit {
 		} else {
 			this.isComponentsPage = false;
 			if (this.componentSidenav.opened) { this.componentSidenav.close(); }
+		}
+		if (this.router.url.indexOf('examples') > -1) {
+			console.log("YEE");
+			this.showToolbar = false;
+		} else {
+			this.showToolbar = true;
 		}
 	}
 }
