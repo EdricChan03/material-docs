@@ -7,6 +7,7 @@
 		"serve": "npm run syntaxHighlight && ng serve",
 		"serveProd": "npm run syntaxHighlight && ng serve -prod",
 		"firebaseDeploy": "npm run syntaxHighlight && ng build -prod && firebase deploy && rm -rf dist/",
+		"firebaseDeploy2": "ng build -prod && firebase deploy && rm -rf dist/",
 		"syntaxHighlight": "./tools/highlight-examples.sh",
 		"updateDeps": "npm update && echo Installing the latest version of @angular/flex-layout. && npm i @angular/flex-layout@latest",
 		"postinstall": "npm i @angular/flex-layout@latest"
