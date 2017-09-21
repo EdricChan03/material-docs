@@ -1,15 +1,15 @@
 import { SharedComponent } from './shared.docs';
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild, ElementRef, DoCheck, Type } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, DoCheck, Type } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 import { MdSnackBar } from "@angular/material";
+import { ComponentPortal } from '@angular/cdk/portal';
 @Component({
 	selector: 'example-viewer',
 	templateUrl: './example-viewer.docs.html'
 })
 
 export class ExampleViewerComponent implements OnInit, DoCheck {
-	@ViewChild('code', { read: ViewContainerRef }) content: ViewContainerRef;
-	constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef, private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
+	constructor(private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
 	/**
 	 * The list of files
 	 */
@@ -46,6 +46,7 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	sectionScroll = "";
 	isDark: boolean;
 	fileLabelReg = /[^/\\&\?]+\.\w{2,4}(?=([\?&].*$|$))/igm;
+	exampleHost: ComponentPortal<any>;
 	/**
 	 * For id attribute
 	 * @returns {string}
@@ -82,9 +83,6 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	toggleSource() {
 		this.showCode = !this.showCode;
 	}
-	fragRoute(id: string) {
-		this.shared.fragRoute(id);
-	}
 	/**
 	 * Copies code to clipboard
 	 * @param {string} code The code to copy
@@ -116,11 +114,7 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 			temp["label"] = "" + this.exFiles.filePath[i].match(this.fileLabelReg);
 			this.files.push(temp);
 		}
-		let factory = this.componentFactoryResolver.resolveComponentFactory(this.exFiles.componentName);
-		let ref = this.content.createComponent(factory);
-		ref.changeDetectorRef.detectChanges();
-		this.el.nativeElement.querySelector(factory.selector);
-		this.el.nativeElement.querySelector(factory.selector).className += 'example-viewer-body';
+		this.exampleHost = new ComponentPortal(this.exFiles.componentName);
 	}
 	ngDoCheck() {
 		if (window.localStorage.getItem('darkTheme')) {

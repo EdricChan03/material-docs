@@ -8,7 +8,8 @@
 @mixin material-docs-theme($theme) {
     $primary: map-get($theme, primary);
     $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground); // @error $background;
+	$foreground: map-get($theme, foreground);
+	// @error $foreground;
     .docs-table-th {
         background-color: mat-color($background, app-bar);
     }
@@ -19,7 +20,10 @@
     .docs-code {
         background-color: rgba(mat-color($foreground, secondary-text), .06);
         padding: 3px;
-    }
+	}
+	.example-code-snippet {
+		background-color: rgba(mat-color($foreground, secondary-text), .01);
+	}
     table-of-contents {
         .docs-toc-container {
             border-left: solid 4px mat-color($primary);
@@ -254,6 +258,14 @@ body {
     right: 4px;
     top: 4px;
 }
+.docs-code-viewer-filename {
+	position: absolute !important;
+	right: 0;
+	bottom: 0;
+	font-family: "Fira Code";
+	font-size: 12px;
+	padding: 4px;
+}
 
 .example-code-snippet {
     top: 0;
@@ -328,7 +340,8 @@ table-of-contents {
         margin: 8px 0 0;
         position: relative;
         text-decoration: none;
-        display: block;
+		display: block;
+		font-size: 11px;
     }
     .docs-level-h4 {
         margin-left: 12px;
@@ -336,4 +349,9 @@ table-of-contents {
 }
 .latest-commit-container {
 	margin-bottom: 10px;
+}
+.docs-example-toolbar {
+	border-radius: 5px 5px 0px 0px;
+	font-weight: 400;
+	font-size: large;
 }

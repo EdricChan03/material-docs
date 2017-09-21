@@ -22,23 +22,17 @@ property on the text input.
 &lt;md-datepicker #myDatepicker&gt;&lt;/md-datepicker&gt;</code-viewer>
 
 <p>An optional datepicker toggle button is available. A toggle can be added to the example above:</p>
-
-<code-viewer language="html">&lt;input [mdDatepicker]="myDatepicker"&gt;
-&lt;button [mdDatepickerToggle]="myDatepicker"&gt;&lt;/button&gt;
-&lt;md-datepicker #myDatepicker&gt;&lt;/md-datepicker&gt;</code-viewer>
-
-<p><strong>Note:</strong> For master builds, the directive has changed to <code class="docs-code">&lt;md-datepicker-toggle&gt;</code>:</p>
 <code-viewer language="html">&lt;input [mdDatepicker]="myDatepicker"&gt;
 &lt;md-datepicker-toggle [for]="myDatepicker"&gt;&lt;/md-datepicker-toggle&gt;
 &lt;md-datepicker #myDatepicker&gt;&lt;/md-datepicker&gt;</code-viewer>
 
-<p>This works exactly the same with an input that is part of an <code class="docs-code">&lt;md-input-container&gt;</code> and the toggle
+<p>This works exactly the same with an input that is part of an <code class="docs-code">&lt;md-form-field&gt;</code> and the toggle
 can easily be used as a prefix or suffix on the material input:</p>
 
-<code-viewer language="html">&lt;md-input-container&gt;
+<code-viewer language="html">&lt;md-form-field&gt;
 	&lt;input mdInput [mdDatepicker]="myDatepicker"&gt;
 	&lt;md-datepicker-toggle mdSuffix [for]="myDatepicker"&gt;&lt;/md-datepicker-toggle&gt;
-&lt;/md-input-container&gt;
+&lt;/md-form-field&gt;
 &lt;md-datepicker #myDatepicker>&lt;/md-datepicker&gt;</code-viewer>
 
 <h3 id="setting-start-view">Setting the calendar starting view</h3>

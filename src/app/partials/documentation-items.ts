@@ -12,10 +12,6 @@ export interface DocItem {
 	 * The name of the item
 	 */
 	name: string;
-	/**
-	 * All examples from the item
-	 */
-	examples?: string[];
 }
 /**
  * The array for a doc category such as `modals` etc.
@@ -42,76 +38,66 @@ const DOCS = [
 	{
 		id: 'forms',
 		name: 'Form Controls',
-		summary: 'Radio buttons, checkboxes, input fields, sliders, slide toggles, selects',
 		items: [
-			{ id: 'autocomplete', name: 'Autocomplete', examples: ['autocomplete-overview'] },
-			{ id: 'checkbox', name: 'Checkbox', examples: ['checkbox-configurable'] },
-			{ id: 'datepicker', name: 'Datepicker', examples: ['datepicker-overview'] },
-			{ id: 'input', name: 'Input', examples: ['input-form'] },
-			{ id: 'radio', name: 'Radio button', examples: ['radio-ng-model'] },
-			{ id: 'select', name: 'Select', examples: ['select-form'] },
-			{ id: 'slider', name: 'Slider', examples: ['slider-configurable'] },
-			{ id: 'slide-toggle', name: 'Slide toggle', examples: ['slide-toggle-configurable'] },
+			{ id: 'autocomplete', name: 'Autocomplete' },
+			{ id: 'checkbox', name: 'Checkbox' },
+			{ id: 'datepicker', name: 'Datepicker' },
+			{ id: 'input', name: 'Input' },
+			{ id: 'radio', name: 'Radio button' },
+			{ id: 'select', name: 'Select' },
+			{ id: 'slider', name: 'Slider' },
+			{ id: 'slide-toggle', name: 'Slide toggle' },
 		]
 	},
 	{
 		id: 'nav',
 		name: 'Navigation',
-		summary: 'Sidenavs, toolbars, menus',
 		items: [
-			{ id: 'menu', name: 'Menu', examples: ['menu-icons'] },
-			{ id: 'sidenav', name: 'Sidenav', examples: ['sidenav-fab'] },
-			{ id: 'toolbar', name: 'Toolbar', examples: ['toolbar-multirow'] },
+			{ id: 'menu', name: 'Menu' },
+			{ id: 'sidenav', name: 'Sidenav' },
+			{ id: 'toolbar', name: 'Toolbar' },
 		]
 	},
 	{
 		id: 'layout',
 		name: 'Layout',
-		summary: 'Lists, grid-lists, cards',
 		items: [
-			{ id: 'list', name: 'List', examples: ['list-sections'] },
-			{ id: 'grid-list', name: 'Grid list', examples: ['grid-list-dynamic'] },
-			{ id: 'card', name: 'Card', examples: ['card-fancy'] },
-			{ id: 'tabs', name: 'Tabs', examples: ['tabs-template-label'] },
+			{ id: 'list', name: 'List' },
+			{ id: 'grid-list', name: 'Grid list' },
+			{ id: 'card', name: 'Card' },
+			{ id: 'tabs', name: 'Tabs' },
+			{ id: 'expansion-panel', name: 'Expansion Panel' },
+			{ id: 'stepper', name: 'Stepper' }
 		]
 	},
 	{
 		id: 'buttons',
 		name: 'Buttons, Indicators & Icons',
-		summary: 'Buttons, button toggles, icons, progress spinners, progress bars',
 		items: [
-			{ id: 'button', name: 'Button', examples: ['button-types'] },
-			{ id: 'button-toggle', name: 'Button toggle', examples: ['button-toggle-exclusive'] },
-			{ id: 'chips', name: 'Chips', examples: ['chips-stacked'] },
-			{ id: 'icon', name: 'Icon', examples: ['icon-svg'] },
-			{
-				id: 'progress-spinner', name: 'Progress spinner',
-				examples: ['progress-spinner-configurable']
-			},
-			{ id: 'progress-bar', name: 'Progress bar', examples: ['progress-bar-configurable'] },
+			{ id: 'button', name: 'Button' },
+			{ id: 'button-toggle', name: 'Button toggle' },
+			{ id: 'chips', name: 'Chips' },
+			{ id: 'icon', name: 'Icon' },
+			{ id: 'progress-spinner', name: 'Progress spinner' },
+			{ id: 'progress-bar', name: 'Progress bar' },
 		]
 	},
 	{
 		id: 'modals',
 		name: 'Popups & Modals',
-		summary: 'Dialogs, tooltips, snackbars',
 		items: [
-			{ id: 'dialog', name: 'Dialog', examples: ['dialog-result'] },
-			{ id: 'tooltip', name: 'Tooltip', examples: ['tooltip-position'] },
-			{ id: 'snack-bar', name: 'Snackbar', examples: ['snack-bar-component'] },
+			{ id: 'dialog', name: 'Dialog' },
+			{ id: 'tooltip', name: 'Tooltip' },
+			{ id: 'snack-bar', name: 'Snackbar' }
 		]
 	},
 	{
 		id: 'tables',
 		name: 'Data table',
-		summary: 'Tables, sorting, and pagination',
 		items: [
-			{
-				id: 'table', name: 'Table',
-				examples: ['table-filtering', 'table-pagination', 'table-sorting']
-			},
-			{ id: 'sort', name: 'Sort header', examples: ['sort-overview'] },
-			{ id: 'paginator', name: 'Paginator', examples: ['paginator-configurable'] },
+			{ id: 'table', name: 'Table' },
+			{ id: 'sort', name: 'Sort header' },
+			{ id: 'paginator', name: 'Paginator' }
 		]
 	}
 ];

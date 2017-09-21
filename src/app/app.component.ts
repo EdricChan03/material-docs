@@ -8,7 +8,7 @@ import 'hammerjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs/Subscription';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { MdSidenav, MdDialog, MdDialogRef } from '@angular/material';
+import { MdSidenav, MdDialog, MdDialogRef, VERSION } from '@angular/material';
 import { Http } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
 import 'rxjs/add/operator/delay';
@@ -141,9 +141,9 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 */
 	searchDocs(term: string) {
 		if (term != undefined && term || term != null && term) {
-			this.router.navigate(['search', {name: term}])
+			this.router.navigate(['search', { name: term }])
 		} else {
-			alert("Please enter a valid search item.");	
+			alert("Please enter a valid search item.");
 		};
 	}
 	toggleSearch() {
@@ -195,10 +195,10 @@ export class AppComponent implements AfterContentChecked, OnInit {
 				element.classList.remove('docs-light');
 			}
 			element.classList.add('docs-dark');
-			this.overlay.themeClass = 'docs-dark';
+			this.overlay.getContainerElement().classList.add('docs-dark');
 			this.meta.addTag({ name: "theme-color", content: "" })
 		} else {
-			this.overlay.themeClass = 'docs-light';
+			this.overlay.getContainerElement().classList.add('docs-light');
 			if (element.classList.contains('docs-dark')) {
 				element.classList.remove('docs-dark');
 			}
@@ -225,15 +225,15 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	openAbout() {
 		this.dialog.open(AboutDialog);
 	}
+	openLicense() {
+		this.dialog.open(LicenseDialog);
+	}
 	scrollFunc() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			this.showScroll = true;
 		} else {
 			this.showScroll = false;
 		}
-	}
-	onScroll(ev: any) {
-		console.log(ev);
 	}
 	ngOnInit() {
 		if (this.shared.getSettings().latestCommit) {
@@ -256,13 +256,8 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	ngAfterContentChecked() {
 		let element = document.querySelector('material2-docs');
 		element.classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
-		this.overlay.themeClass = this.checkIsDark() ? 'docs-dark' : 'docs-light';
+		this.overlay.getContainerElement().classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
 		this.docTitle = this.shared.getTitle();
-		window.onscroll = ((ev) => {
-			console.log(ev);
-			this.scrollFunc();
-			console.log("TEST");
-		})
 		if (this.router.url.indexOf('components') > -1) {
 			this.isComponentsPage = true;
 		} else {
@@ -270,7 +265,6 @@ export class AppComponent implements AfterContentChecked, OnInit {
 			if (this.componentSidenav.opened) { this.componentSidenav.close(); }
 		}
 		if (this.router.url.indexOf('examples') > -1) {
-			console.log("YEE");
 			this.showToolbar = false;
 		} else {
 			this.showToolbar = true;
@@ -285,9 +279,9 @@ export class AppComponent implements AfterContentChecked, OnInit {
 				  	<p>Have you always wondered how to actually setup Angular Material? Find that the docs are not clear? Then read this documentation!</p>
 					<p>This docs was meant to help those who either don't understand about this or need more examples.</p>
 					<p><em>Note:</em> I'm now inviting contributors to contribute to this document. Simply click on view source code below and go to issues and ask! Alternatively, you may want to do a pull request with your changes.</p>
+					<small>This docs site is currently running version <code class="docs-code">{{version.full}}</code> (master)</small>
 				</md-dialog-content>
 				<md-dialog-actions align="end">
-					<a md-button color="accent" class="docs-btn" href="https://github.com/Chan4077" target="_blank" md-dialog-close>View Author</a>
 					<a md-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material2-docs" target="_blank" md-dialog-close>View Source Code</a>
 					<button md-button md-dialog-close class="docs-btn" color="primary">Close</button>
 				</md-dialog-actions>
@@ -295,6 +289,9 @@ export class AppComponent implements AfterContentChecked, OnInit {
 })
 export class AboutDialog {
 	constructor(private dialogRef: MdDialogRef<AboutDialog>) { }
+	get version() {
+		return VERSION;
+	}
 	viewSourceCode() {
 		if (confirm("Are you sure you want to go to the source code?")) {
 			window.open('');
@@ -302,5 +299,27 @@ export class AboutDialog {
 		} else {
 			console.error('User clicked cancel.');
 		}
+	}
+}
+
+@Component({
+	selector: 'docs-license',
+	template: `<h3 md-dialog-title>License</h3>
+				<md-dialog-content fxLayout="row">
+					<code>{{license}}</code>
+				</md-dialog-content>
+				<md-dialog-actions align="end">
+				<button md-dialog-close md-button class="docs-btn" color="primary">Close</button>
+				</md-dialog-actions>
+				`
+})
+export class LicenseDialog implements OnInit {
+	license: string;
+	constructor(private http: Http, private dialogRef: MdDialogRef<LicenseDialog>) { }
+
+	ngOnInit() {
+		this.http.get('/assets/LICENSE').map(res => res.text()).subscribe(res => {
+			this.license = res;
+		})
 	}
 }

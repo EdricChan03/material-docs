@@ -8,7 +8,8 @@ import * as hljs from 'highlight.js';
 
 export class CodeViewerComponent implements AfterViewInit, DoCheck {
     @ViewChild('code') content: ElementRef;
-    @Input() language: string;
+	@Input() language: string;
+	@Input() fileName?: string;
     isDark: boolean;
     originalCode: string;
     constructor(private snackbar: MdSnackBar) { }
@@ -38,7 +39,15 @@ export class CodeViewerComponent implements AfterViewInit, DoCheck {
         }
     }
     ngAfterViewInit() {
-        hljs.highlightBlock(this.content.nativeElement.childNodes[3]);
-        this.originalCode = this.content.nativeElement.childNodes[3].innerText;
+		// Checks if the file name input is stated
+		if (this.fileName) {
+			// Yes, the file input is stated
+			hljs.highlightBlock(this.content.nativeElement.childNodes[6]);
+			this.originalCode = this.content.nativeElement.childNodes[6].innerText;
+		} else {
+			// No, the file input is not stated or is invalid
+			hljs.highlightBlock(this.content.nativeElement.childNodes[5]);
+			this.originalCode = this.content.nativeElement.childNodes[5].innerText;
+		}
     }
 }

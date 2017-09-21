@@ -1,5 +1,3 @@
-import { DocsExampleShop } from './partials/docs/examples/shop/shop.docs';
-import { DocsExampleBlog } from './partials/docs/examples/blog/blog.docs';
 import { DocumentationItems } from './partials/documentation-items';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 // Doc guides
@@ -15,7 +13,6 @@ import { DocsMaterialModule } from './materialdocs.module';
 // Docs misc
 import { DocsHeader } from './shared/header.docs';
 import { DocsTOC } from './shared/table-of-contents.docs';
-import { DocsExamples } from './partials/docs/examples/example.docs';
 import { APIPropertyViewerComponent, APIMethodViewerComponent } from './shared/api-viewer.docs';
 import { SharedComponent } from './shared/shared.docs';
 import { CodeDirective } from './shared/code.docsdirective';
@@ -27,7 +24,7 @@ import { DocsShowcase } from './partials/showcase/showcase.docs';
 import { DocsSearch } from './partials/search.docs';
 import { DocsHomePage } from './partials/homepages/docshome.docs';
 import { DocsGuideNav, DocsMiscMoreDialog } from './partials/guides/guidenav.docs';
-import { AboutDialog } from './app.component';
+import { AboutDialog, LicenseDialog } from './app.component';
 // Docs
 // Datepicker
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
@@ -134,11 +131,6 @@ export const DOC_MISC = [
 	DocsTOC,
 	DocsHeader
 ]
-export const DOC_EXAMPLES = [
-	DocsExamples,
-	DocsExampleBlog,
-	DocsExampleShop
-]
 export const DOC_MISC_DOCS = [
 	DocsMiscOnboarding,
 	DocsMiscSvgicons
@@ -157,13 +149,13 @@ export const DOC_COMPONENTS = [
 	DOC_TOOLTIP_COMPONENTS,
 	DOC_GUIDES,
 	DOC_MISC,
-	DOC_MISC_DOCS,
-	DOC_EXAMPLES
+	DOC_MISC_DOCS
 ]
 export const DOC_DIALOGS = [
 	PreferencesDialog,
 	AboutDialog,
-	DocsMiscMoreDialog
+	DocsMiscMoreDialog,
+	LicenseDialog
 ]
 
 @NgModule({

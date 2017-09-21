@@ -31,7 +31,7 @@ import 'hammerjs';
 		DocsMaterialModule,
         DocsModule,
         ExampleModule,
-        AppRouting,
+        AppRouting
     ],
     bootstrap: [AppComponent]
 })

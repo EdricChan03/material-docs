@@ -54,20 +54,33 @@ export class PizzaPartyAppModule &#123; &#125;</code-viewer>
 &#125;)
 export class PizzaPartyAppModule &#123; &#125;</code-viewer>
 	<p>Alternatively, you can create a separate <code class="docs-code">NgModule</code> that imports all of the Angular Material components that you will use in your application. You can then include this module wherever you'd like to use the components.</p>
-	<code-viewer language="typescript">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+	<code-viewer language="typescript" fileName="custom.material-module.ts">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
 
 @NgModule(&#123;
   imports: [MdButtonModule, MdCheckboxModule],
   exports: [MdButtonModule, MdCheckboxModule],
 &#125;)
 export class MyOwnCustomMaterialModule &#123; &#125;</code-viewer>
+	<br>
+	<code-viewer language="typescript" fileName="app.module.ts">import &#123; BrowserModule &#125; from '@angular/platform-browser';
+import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
+import &#123; MyOwnCustomMaterialModule &#125; from './custom.material-module';
+
+@NgModule(&#123;
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		MyOwnCustomMaterialModule
+	]
+&#125;)
+export class AppModule &#123;&#125;</code-viewer>
 	<p>Whichever approach you use, be sure to import the Angular Material modules after Angular's <code class="docs-code">BrowserModule</code>, as the import order matters for <code class="docs-code">NgModule</code>s.</p>
 <div id="step-4" class="docs-heading">
 	<h3>Step 4: Include a theme</h3>
 
 	<p>Including a theme is required to apply all of the core and theme styles to your application.</p>
 	<p>To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:</p>
-	<code-viewer language="css">@import "~@angular/material/prebuilt-themes/indigo-pink.css";</code-viewer>
+	<code-viewer language="css" fileName="styles.css">@import "~@angular/material/prebuilt-themes/indigo-pink.css";</code-viewer>
 	<p>If you are not using the Angular CLI, you can include a prebuilt theme via a <code class="docs-code">&lt;link&gt;</code> element in your index.html.</p>
 	<p>For more information on theming and instructions on how to create a custom theme, see the theming guide.</p>
 </div>
@@ -78,7 +91,7 @@ export class MyOwnCustomMaterialModule &#123; &#125;</code-viewer>
 	<p>To install via npm, use the following command:</p>
 	<code-viewer language="bash">npm install --save hammerjs</code-viewer>
 	<p>After installing, import it on your app's root module.</p>
-	<code-viewer language="typescript">import 'hammerjs';</code-viewer>
+	<code-viewer language="typescript" fileName="app.module.ts">import 'hammerjs';</code-viewer>
 </div>
 <div id="step-6" class="docs-heading">
 	<h3>Step 6 (Optional): Add Material Icons</h3>

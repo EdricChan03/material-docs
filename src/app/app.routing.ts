@@ -1,10 +1,7 @@
-import { DocsExampleShop } from './partials/docs/examples/shop/shop.docs';
-import { DocsExampleBlog } from './partials/docs/examples/blog/blog.docs';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
 import { DocsExampleButtonToggle } from './partials/docs/button-toggle/examplebuttontoggle.component';
-import { DocsExamples } from './partials/docs/examples/example.docs';
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
 import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
 import { DocsOverviewDatepicker } from './partials/docs/datepicker/overviewdatepicker.component';
@@ -140,7 +137,7 @@ export const AppRoutes: Routes = [
 				]
 			},
 			{
-				path: 'expansion', component: DocViewerComponent, children: [
+				path: 'expansion-panel', component: DocViewerComponent, children: [
 					{ path: 'overview', component: DocsOverviewExpansion },
 					{ path: '**', redirectTo: 'overview' }
 				]
@@ -152,12 +149,6 @@ export const AppRoutes: Routes = [
 	},
 	{ path: 'search', component: DocsSearch },
 	{ path: 'showcases', component: DocsShowcase },
-	{
-		path: 'examples', component: DocsExamples, children: [
-			{ path: 'blog', component: DocsExampleBlog },
-			{ path: 'shop', component: DocsExampleShop }
-		]
-	},
 	{ path: '**', redirectTo: 'home' }
 ]
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);
