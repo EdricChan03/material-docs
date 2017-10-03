@@ -1,4 +1,4 @@
-import { CheckboxConfigurableComponent } from './../../../../assets/examples/checkbox/configurable-checkbox';
+import { CheckboxConfigurableExample } from './../../../../assets/examples/checkbox/configurable-checkbox';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +21,8 @@ export class DocsExampleCheckbox implements OnInit {
                 'assets/highlighted/configurable-checkbox-ts.html',
                 'assets/highlighted/configurable-checkbox-css.html'
             ],
-            componentName: CheckboxConfigurableComponent
+			componentName: CheckboxConfigurableExample,
+			url: "checkbox/checkbox-configurable"
         }
     }
 }

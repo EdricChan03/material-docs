@@ -1,4 +1,4 @@
-import { SimpleTooltipComponent } from './../../../../assets/examples/tooltip/simple-tooltip';
+import { SimpleTooltipExample } from './../../../../assets/examples/tooltip/simple-tooltip';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +21,8 @@ export class DocsOverviewTooltip implements OnInit {
                 'assets/highlighted/simple-tooltip-html.html',
                 'assets/highlighted/simple-tooltip-ts.html'
             ],
-            componentName: SimpleTooltipComponent
+			componentName: SimpleTooltipExample,
+			url: "tooltip/tooltip-overview"
         }
     }
 }

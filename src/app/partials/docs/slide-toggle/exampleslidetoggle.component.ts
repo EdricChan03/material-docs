@@ -1,4 +1,4 @@
-import { ConfigurableSlideToggleComponent } from './../../../../assets/examples/slide-toggle/configurable-slide-toggle';
+import { ConfigurableSlideToggleExample } from './../../../../assets/examples/slide-toggle/configurable-slide-toggle';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,8 @@ export class DocsExampleSlideToggle implements OnInit {
                 'assets/examples/slide-toggle/configurable-slide-toggle.html',
                 'assets/examples/slide-toggle/configurable-slide-toggle.ts'
             ],
-            componentName: ConfigurableSlideToggleComponent
+			componentName: ConfigurableSlideToggleExample,
+			url: "slide-toggle/slide-toggle-configurable"
         }
     }
 }

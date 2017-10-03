@@ -1,5 +1,5 @@
-import { AdvancedListComponent } from './../../../../assets/examples/list/advanced-list';
-import { NavListComponent } from './../../../../assets/examples/list/nav-list';
+import { AdvancedListExample } from './../../../../assets/examples/list/advanced-list';
+import { NavListExample } from './../../../../assets/examples/list/nav-list';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
@@ -22,7 +22,8 @@ export class DocsExampleList implements OnInit {
                 'assets/highlighted/nav-list-html.html',
                 'assets/highlighted/nav-list-ts.html'
             ],
-            componentName: NavListComponent
+			componentName: NavListExample,
+			url: "list/list-nav"
         }
         this.advancedList = {
             filePath: [
@@ -35,7 +36,8 @@ export class DocsExampleList implements OnInit {
                 'assets/highlighted/advanced-list-ts.html',
                 'assets/highlighted/advanced-list-dialog-html.html'
             ],
-            componentName: AdvancedListComponent
+			componentName: AdvancedListExample,
+			url: "list/list-advanced"
         }
     }
 }

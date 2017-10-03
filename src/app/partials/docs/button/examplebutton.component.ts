@@ -1,6 +1,6 @@
 import { CodeFiles } from './../../../shared/example-viewer.docs';
-import { ButtonTypesComponent } from './../../../../assets/examples/button/button-types';
-import { ButtonNoRippleComponent } from './../../../../assets/examples/button/button-noripple';
+import { ButtonTypesExample } from './../../../../assets/examples/button/button-types';
+import { ButtonNoRippleExample } from './../../../../assets/examples/button/button-noripple';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
@@ -33,7 +33,8 @@ export class DocsExampleBtn implements OnInit {
                 'assets/highlighted/button-noripple-html.html',
                 'assets/highlighted/button-noripple-ts.html'
             ],
-            componentName: ButtonNoRippleComponent
+			componentName: ButtonNoRippleExample,
+			url: "button/button-noripple"
         }
         this.buttonTypes = {
             filePath: [
@@ -46,8 +47,8 @@ export class DocsExampleBtn implements OnInit {
                 'assets/highlighted/button-types-ts.html',
                 'assets/highlighted/button-types-css.html'
             ],
-            componentName: ButtonTypesComponent
-
+			componentName: ButtonTypesExample,
+			url: "button/button-types"
         }
     }
 }

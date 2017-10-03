@@ -1,9 +1,9 @@
-import { MinMaxDatepickerComponent } from './../../../../assets/examples/datepicker/min-max-validation-datepicker';
-import { FilterDatepickerComponent } from './../../../../assets/examples/datepicker/filter-validation-datepicker';
-import { TouchDatepickerComponent } from './../../../../assets/examples/datepicker/touch-ui-datepicker';
-import { ApiDatepickerComponent } from './../../../../assets/examples/datepicker/api-datepicker';
-import { StartViewDatepickerComponent } from './../../../../assets/examples/datepicker/startat-datepicker';
-import { SimpleDatepickerComponent } from './../../../../assets/examples/datepicker/simple-datepicker';
+import { MinMaxDatepickerExample } from './../../../../assets/examples/datepicker/min-max-validation-datepicker';
+import { FilterDatepickerExample } from './../../../../assets/examples/datepicker/filter-validation-datepicker';
+import { TouchDatepickerExample } from './../../../../assets/examples/datepicker/touch-ui-datepicker';
+import { ApiDatepickerExample } from './../../../../assets/examples/datepicker/api-datepicker';
+import { StartViewDatepickerExample } from './../../../../assets/examples/datepicker/startat-datepicker';
+import { SimpleDatepickerExample } from './../../../../assets/examples/datepicker/simple-datepicker';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from "@angular/core";
@@ -30,7 +30,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/simple-datepicker-html.html',
 				'assets/highlighted/simple-datepicker-ts.html'
 			],
-			componentName: SimpleDatepickerComponent
+			componentName: SimpleDatepickerExample,
+			url: "datepicker/datepicker-overview"
 		}
 		this.startViewDatepicker = {
 			filePath: [
@@ -41,7 +42,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/startat-datepicker-html.html',
 				'assets/highlighted/startat-datepicker-ts.html'
 			],
-			componentName: StartViewDatepickerComponent
+			componentName: StartViewDatepickerExample,
+			url: "datepicker/datepicker-startat"
 		}
 		this.minMaxDatepicker = {
 			filePath: [
@@ -52,7 +54,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/min-max-datepicker-html.html',
 				'assets/highlighted/min-max-datepicker-ts.html'
 			],
-			componentName: MinMaxDatepickerComponent
+			componentName: MinMaxDatepickerExample,
+			url: "datepicker/datepicker-min-max"
 		}
 		this.filterDatepicker = {
 			filePath: [
@@ -63,7 +66,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/filter-validation-datepicker-html.html',
 				'assets/highlighted/filter-validation-datepicker-ts.html'
 			],
-			componentName: FilterDatepickerComponent
+			componentName: FilterDatepickerExample,
+			url: "datepicker/datepicker-filter"
 		}
 		this.touchDatepicker = {
 			filePath: [
@@ -74,7 +78,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/touch-ui-datepicker-html.html',
 				'assets/highlighted/touch-ui-datepicker-ts.html'
 			],
-			componentName: TouchDatepickerComponent
+			componentName: TouchDatepickerExample,
+			url: "datepicker/datepicker-touchui"
 		}
 		this.apiDatepicker = {
 			filePath: [
@@ -85,7 +90,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/api-datepicker-html.html',
 				'assets/highlighted/api-datepicker-ts.html'
 			],
-			componentName: ApiDatepickerComponent
+			componentName: ApiDatepickerExample,
+			url: "datepicker/datepicker-api"
 		}
 		
     }

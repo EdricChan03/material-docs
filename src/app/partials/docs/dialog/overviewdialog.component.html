@@ -49,37 +49,37 @@ export class YourDialog &#123;
     </thead>
     <tbody>
         <tr>
-            <td class="docs-table-td"><code class="docs-code">any[md-dialog-title]</code></td>
+            <td class="docs-table-td"><code class="docs-code">any[matDialogTitle]</code></td>
             <td class="docs-table-td">[Attr] Dialog title, applied to a heading element (e.g., <code class="docs-code">&lt;h1&gt;, &lt;h2&gt;</code>)</td>
         </tr>
         <tr>
-            <td class="docs-table-td"><code class="docs-code">&lt;md-dialog-content&gt;</code> or <code class="docs-code">any[md-dialog-content]</code></td>
+            <td class="docs-table-td"><code class="docs-code">&lt;mat-dialog-content&gt;</code> or <code class="docs-code">any[mat-dialog-content]</code></td>
             <td class="docs-table-td">Primary scrollable content of the dialog. Can be an attribute (ideally <code class="docs-code">&lt;div&gt;</code>).</td>
         </tr>
         <tr>
-            <td class="docs-table-td"><code class="docs-code">&lt;md-dialog-actions&gt;</code> or <code class="docs-code">any[md-dialog-actions]</code></td>
+            <td class="docs-table-td"><code class="docs-code">&lt;mat-dialog-actions&gt;</code> or <code class="docs-code">any[mat-dialog-actions]</code></td>
             <td class="docs-table-td">Container for action buttons at the bottom of the dialog. Can be an attribute (ideally <code class="docs-code">&lt;div&gt;</code>).</td>
         </tr>
         <tr>
-            <td class="docs-table-td"><code class="docs-code">button[md-dialog-close]</code></td>
+            <td class="docs-table-td"><code class="docs-code">button[matDialogClose]</code></td>
             <td class="docs-table-td">[Attr] Makes the button close the dialog with an optional result from the bound value.</td>
         </tr>
     </tbody>
 </table>
 <p>For example:</p>
-<code-viewer language="html">&lt;h2 md-dialog-title&gt;Delete all&lt;/h2&gt;
-&lt;md-dialog-content&gt;Are you sure?&lt;/md-dialog-content&gt;
-&lt;md-dialog-actions&gt;
-  &lt;button md-button md-dialog-close&gt;No&lt;/button&gt;
+<code-viewer language="html">&lt;h2 matDialogTitle&gt;Delete all&lt;/h2&gt;
+&lt;mat-dialog-content&gt;Are you sure?&lt;/mat-dialog-content&gt;
+&lt;mat-dialog-actions&gt;
+  &lt;button mat-button matDialogClose&gt;No&lt;/button&gt;
   <!-- Can optionally provide a result for the closing dialog. -->
-  &lt;button md-button [md-dialog-close]="true"&gt;Yes&lt;/button&gt;
-&lt;/md-dialog-actions&gt;
+  &lt;button mat-button [matDialogClose]="true"&gt;Yes&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;
 </code-viewer>
 <p>Once a dialog opens, the dialog will automatically focus the first tabbable element.</p>
 
 <p>You can control which elements are tab stops with the <code class="docs-code">tabindex</code> attribute.</p>
 
-<code-viewer language="html">&lt;button md-button tabindex="-1"&gt;Not Tabbable&lt;/button&gt;</code-viewer>
+<code-viewer language="html">&lt;button mat-button tabindex="-1"&gt;Not Tabbable&lt;/button&gt;</code-viewer>
 <h3 id="aot-compilation">AOT Compilation</h3>
 
 <p>Due to the dynamic nature of the <code class="docs-code">MdDialog</code>, and its usage of <code class="docs-code">ViewContainerRef#createComponent()</code> to create the component on the fly, the AOT compiler will not know to create the proper <code class="docs-code">ComponentFactory</code> for your dialog component by default.</p>

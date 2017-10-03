@@ -1,8 +1,7 @@
 import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
 import { SharedComponent } from './../../../shared/shared.docs';
-import { ButtonOverviewComponent } from './../../../../assets/examples/button/button-overview';
-import { ButtonTypesComponent } from './../../../../assets/examples/button/button-types';
+import { ButtonOverviewExample } from './../../../../assets/examples/button/button-overview';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
@@ -25,7 +24,8 @@ export class DocsOverviewBtn implements OnInit {
                 'assets/highlighted/button-overview-html.html',
                 'assets/highlighted/button-overview-ts.html'
             ],
-            componentName: ButtonOverviewComponent
+			componentName: ButtonOverviewExample,
+			url: "button/button-overview"
         }
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {

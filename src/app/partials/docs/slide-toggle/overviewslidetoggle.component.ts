@@ -1,5 +1,5 @@
 import { SharedComponent } from './../../../shared/shared.docs';
-import { SimpleSlideToggleComponent } from './../../../../assets/examples/slide-toggle/simple-slide-toggle';
+import { SimpleSlideToggleExample } from './../../../../assets/examples/slide-toggle/simple-slide-toggle';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 @Component({
@@ -19,7 +19,8 @@ export class DocsOverviewSlideToggle implements OnInit {
                 'assets/examples/slide-toggle/simple-slide-toggle.html',
                 'assets/examples/slide-toggle/simple-slide-toggle.ts'
             ],
-            componentName: SimpleSlideToggleComponent
+			componentName: SimpleSlideToggleExample,
+			url: "slide-toggle/slide-toggle-overview"
         }
     }
 }

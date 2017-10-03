@@ -1,5 +1,5 @@
-import { IconMenuComponent } from './../../../../assets/examples/menu/icon-menu';
-import { NestedMenuComponent } from './../../../../assets/examples/menu/nested-menu';
+import { IconMenuExample } from './../../../../assets/examples/menu/icon-menu';
+import { NestedMenuExample } from './../../../../assets/examples/menu/nested-menu';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { CodeFiles, CodeExternalComponent } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
@@ -29,7 +29,8 @@ export class DocsExampleMenu implements OnInit {
 				'assets/highlighted/nested-menu-html.html',
 				'assets/highlighted/nested-menu-ts.html'
 			],
-			componentName: NestedMenuComponent
+			componentName: NestedMenuExample,
+			url: "menu/menu-nested"
 		}
 		this.iconMenu = {
 			filePath: [
@@ -40,7 +41,8 @@ export class DocsExampleMenu implements OnInit {
 				'assets/highlighted/icon-menu-html.html',
 				'assets/highlighted/icon-menu-ts.html'
 			],
-			componentName: IconMenuComponent
+			componentName: IconMenuExample,
+			url: "menu/menu-icon"
 		}
 	}
 }

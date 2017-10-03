@@ -106,7 +106,7 @@ export class DocsAPICheckbox implements OnInit {
             {
                 name: "source",
                 isHtml: true,
-                desc: "The source <code class=\"docs-code\">MdCheckbox</code> of the event."
+                desc: "The source <code class=\"docs-code\">MatCheckbox</code> of the event."
             },
             {
                 name: "checked",

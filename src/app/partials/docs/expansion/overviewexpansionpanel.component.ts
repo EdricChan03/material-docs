@@ -1,4 +1,4 @@
-import { SimpleExpansionComponent } from './../../../../assets/examples/expansion/simple-expansion';
+import { SimpleExpansionExample } from './../../../../assets/examples/expansion/simple-expansion';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
@@ -20,7 +20,8 @@ export class DocsOverviewExpansion implements OnInit {
 				'assets/highlighted/simple-expansion-html.html',
 				'assets/highlighted/simple-expansion-ts.html'
 			],
-			componentName: SimpleExpansionComponent
+			componentName: SimpleExpansionExample,
+			url: "expansion/expansion-overview"
 		}
 	}
 }

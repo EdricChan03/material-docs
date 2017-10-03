@@ -1,5 +1,5 @@
 <h3 id="description">Description</h3>
-<p><code class="docs-code">&lt;md-expansion-panel&gt;</code> provides an expandable details-summary view.</p>
+<p><code class="docs-code">&lt;mat-expansion-panel&gt;</code> provides an expandable details-summary view.</p>
 
 <example-viewer [exFiles]="simpleExpansion" docsTitle="Simple Expansion" docsId="simple-expansion"></example-viewer>
 
@@ -7,29 +7,29 @@
 <p>Each expansion-panel must include a header and may optionally include an action bar.</p>
 
 <h4 id="header">Header</h4>
-<p>The <code>&lt;md-expansion-panel-header&gt;</code> shows a summary of the panel content and acts as the control for expanding and collapsing. This header may optionally contain an <code>&lt;md-panel-title&gt;</code> and an <code>&lt;md-panel-description&gt;</code>, which format the content of the header to align with Material Design specifications.</p>
+<p>The <code>&lt;mat-expansion-panel-header&gt;</code> shows a summary of the panel content and acts as the control for expanding and collapsing. This header may optionally contain an <code>&lt;mat-panel-title&gt;</code> and an <code>&lt;mat-panel-description&gt;</code>, which format the content of the header to align with Material Design specifications.</p>
 <p>By default, the expansion-panel header includes a toggle icon at the end of the header to indicate the expansion state. This icon can be hidden via the hideToggle property.</p>
-<code-viewer language="html">&lt;md-expansion-panel&gt;
-	&lt;md-expansion-panel-header&gt;
-		&lt;md-panel-title&gt;
+<code-viewer language="html">&lt;mat-expansion-panel&gt;
+	&lt;mat-expansion-panel-header&gt;
+		&lt;mat-panel-title&gt;
 			This is the expansion title
-		&lt;/md-panel-title&gt;
-		&lt;md-panel-description&gt;
+		&lt;/mat-panel-title&gt;
+		&lt;mat-panel-description&gt;
 			This is a summary of the content
-		&lt;/md-panel-description&gt;
-	&lt;/md-expansion-panel-header&gt;
+		&lt;/mat-panel-description&gt;
+	&lt;/mat-expansion-panel-header&gt;
 	&lt;p&gt;This is the primary content of the panel.&lt;/p&gt;	
-&lt;/md-expansion-panel&gt;</code-viewer>
+&lt;/mat-expansion-panel&gt;</code-viewer>
 <h4 id="action-bar">Action bar</h4>
 <p>Actions may optionally be included at the bottom of the panel, visible only when the expansion is in its expanded state.</p>
-<code-viewer language="html">&lt;md-expansion-panel&gt;
-	&lt;md-expansion-panel-header&gt;
+<code-viewer language="html">&lt;mat-expansion-panel&gt;
+	&lt;mat-expansion-panel-header&gt;
     	This is the expansion title
-  	&lt;/md-expansion-panel-header&gt;
+  	&lt;/mat-expansion-panel-header&gt;
 
   	&lt;p&gt;This is the primary content of the panel.&lt;/p&gt;
 
-  	&lt;md-action-row&gt;
-		&lt;button md-button&gt;Click me&lt;/button&gt;
-	&lt;/md-action-row&gt;
-&lt;/md-expansion-panel&gt;</code-viewer>
+  	&lt;mat-action-row&gt;
+		&lt;button mat-button&gt;Click me&lt;/button&gt;
+	&lt;/mat-action-row&gt;
+&lt;/mat-expansion-panel&gt;</code-viewer>

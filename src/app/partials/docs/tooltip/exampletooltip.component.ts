@@ -1,6 +1,6 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { SharedComponent } from './../../../shared/shared.docs';
-import { ConfigurableTooltipComponent } from './../../../../assets/examples/tooltip/configurable-tooltip';
+import { ConfigurableTooltipExample } from './../../../../assets/examples/tooltip/configurable-tooltip';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
@@ -24,7 +24,8 @@ export class DocsExampleTooltip implements OnInit {
                 'assets/highlighted/configurable-tooltip-ts.html',
                 'assets/highlighted/configurable-tooltip-css.html'
             ],
-            componentName: ConfigurableTooltipComponent
+			componentName: ConfigurableTooltipExample,
+			url: "tooltip/tooltip-configurable"
         }
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {

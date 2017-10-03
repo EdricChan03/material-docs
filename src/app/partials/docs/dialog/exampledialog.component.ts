@@ -1,5 +1,5 @@
 import { SharedComponent } from './../../../shared/shared.docs';
-import { ConfigurableDialogComponent } from './../../../../assets/examples/dialog/configurable-dialog';
+import { ConfigurableDialogExample } from './../../../../assets/examples/dialog/configurable-dialog';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from "@angular/core";
 
@@ -24,7 +24,8 @@ export class DocsExampleDialog implements OnInit {
                 'assets/examples/dialog/configurable-dialog.css',
                 'assets/examples/dialog/configurable-dialog-content.html'
             ],
-            componentName: ConfigurableDialogComponent
+			componentName: ConfigurableDialogExample,
+			url: "dialog/dialog-configurable"
         }
     }
 }

@@ -1,6 +1,6 @@
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Router } from '@angular/router';
-import { DialogResultComponent } from './../../../../assets/examples/dialog/dialog-result';
+import { DialogResultExample } from './../../../../assets/examples/dialog/dialog-result';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
 
@@ -25,7 +25,8 @@ export class DocsOverviewDialog implements OnInit {
                 'assets/examples/dialog/dialog-result-content.html',
                 'assets/examples/dialog/dialog-result-content.css'
             ],
-            componentName: DialogResultComponent
+			componentName: DialogResultExample,
+			url: "dialog/dialog-result"
         }
     }
 }

@@ -1,20 +1,20 @@
-<p><code class="docs-code">&lt;md-menu&gt;</code> is a floating panel containing list of options.</p>
+<p><code class="docs-code">&lt;mat-menu&gt;</code> is a floating panel containing list of options.</p>
 
 <example-viewer [exFiles]="simpleMenu" docsTitle="Simple Menu" docsId="simple-menu"></example-viewer>
-<p>By itself, the &lt;md-menu&gt; element does not render anything. The menu is attached to and opened via application of the mdMenuTriggerFor directive:</p>
+<p>By itself, the &lt;mat-menu&gt; element does not render anything. The menu is attached to and opened via application of the matMenuTriggerFor directive:</p>
 
-<code-viewer language="html">&lt;md-menu #appMenu="mdMenu"&gt;
-    &lt;button md-menu-item&gt; Settings &lt;/button&gt;
-    &lt;button md-menu-item&gt; Help &lt;/button&gt;
-&lt;/md-menu&gt;
+<code-viewer language="html">&lt;mat-menu #appMenu="matMenu"&gt;
+    &lt;button mat-menu-item&gt; Settings &lt;/button&gt;
+    &lt;button mat-menu-item&gt; Help &lt;/button&gt;
+&lt;/mat-menu&gt;
 
-&lt;button md-icon-button [mdMenuTriggerFor]="appMenu"&gt;
-    &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
+&lt;button mat-icon-button [matMenuTriggerFor]="appMenu"&gt;
+    &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
 &lt;/button&gt;</code-viewer>
 
 <h3 id="toggling-the-menu-via-code">Toggling the menu programmatically</h3>
 
-<p>The menu exposes an API to open/close programmatically. Please note that in this case, an <code class="docs-code">mdMenuTriggerFor</code> directive is still necessary to attach the menu to a trigger element in the DOM.</p>
+<p>The menu exposes an API to open/close programmatically. Please note that in this case, an <code class="docs-code">matMenuTriggerFor</code> directive is still necessary to attach the menu to a trigger element in the DOM.</p>
 
 <code-viewer language="typescript">class MyComponent &#123;
     @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
@@ -26,36 +26,36 @@
 
 <h3 id="icons">Icons</h3>
 
-<p>Menus support displaying <code class="docs-code">md-icon</code> elements before the menu item text.</p>
+<p>Menus support displaying <code class="docs-code">mat-icon</code> elements before the menu item text.</p>
 
 <em>my-comp.html</em>
 
-<code-viewer language="html">&lt;md-menu #menu="mdMenu"&gt;
-    &lt;button md-menu-item&gt;
-        &lt;md-icon&gt; dialpad &lt;/md-icon&gt;
+<code-viewer language="html">&lt;mat-menu #menu="matMenu"&gt;
+    &lt;button mat-menu-item&gt;
+        &lt;mat-icon&gt; dialpad &lt;/mat-icon&gt;
         &lt;span&gt; Redial &lt;/span&gt;
     &lt;/button&gt;
-    &lt;button md-menu-item disabled&gt;
-        &lt;md-icon&gt; voicemail &lt;/md-icon&gt;
+    &lt;button mat-menu-item disabled&gt;
+        &lt;mat-icon&gt; voicemail &lt;/mat-icon&gt;
         &lt;span&gt; Check voicemail &lt;/span&gt;
     &lt;/button&gt;
-    &lt;button md-menu-item&gt;
-        &lt;md-icon&gt; notifications_off &lt;/md-icon&gt;
+    &lt;button mat-menu-item&gt;
+        &lt;mat-icon&gt; notifications_off &lt;/mat-icon&gt;
         &lt;span&gt; Disable alerts &lt;/span&gt;
     &lt;/button&gt;
-&lt;/md-menu&gt;</code-viewer>
+&lt;/mat-menu&gt;</code-viewer>
 
 <h3 id="customizing-menu-pos">Customizing menu position</h3>
 
 <p>By default, the menu will display below (y-axis), after (x-axis), and overlapping its trigger. The position can be changed using the <code class="docs-code">xPosition (before | after)</code> and yPosition <code class="docs-code">(above | below)</code> attributes. The menu can be be forced to not overlap the trigger using <code class="docs-code">[overlapTrigger]="false"</code> attribute.
 
-<code-viewer language="html">&lt;md-menu #appMenu="mdMenu" yPosition="above"&gt;
-    &lt;button md-menu-item&gt; Settings &lt;/button&gt;
-    &lt;button md-menu-item&gt; Help &lt;/button&gt;
-&lt;/md-menu&gt;
+<code-viewer language="html">&lt;mat-menu #appMenu="matMenu" yPosition="above"&gt;
+    &lt;button mat-menu-item&gt; Settings &lt;/button&gt;
+    &lt;button mat-menu-item&gt; Help &lt;/button&gt;
+&lt;/mat-menu&gt;
 
-&lt;button md-icon-button [mdMenuTriggerFor]="appMenu"&gt;
-    &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
+&lt;button mat-icon-button [matMenuTriggerFor]="appMenu"&gt;
+    &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
 &lt;/button&gt;</code-viewer>
 
 <h3 id="keyboard-interaction">Keyboard interaction</h3>

@@ -1,4 +1,4 @@
-import { SimpleCheckboxComponent } from './../../../../assets/examples/checkbox/simple-checkbox';
+import { SimpleCheckboxExample } from './../../../../assets/examples/checkbox/simple-checkbox';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,8 @@ export class DocsOverviewCheckbox implements OnInit {
                 'assets/highlighted/simple-checkbox-html.html',
                 'assets/highlighted/simple-checkbox-ts.html'
             ],
-            componentName: SimpleCheckboxComponent
+			componentName: SimpleCheckboxExample,
+			url: "checkbox/checkbox-overview"
         }
     }
 }
