@@ -1,7 +1,14 @@
 import { DocumentationItems } from './partials/documentation-items';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 // Doc guides
-import { DocsThemingComponentGuide, DocsGettingStartedGuide, DocsThemingGuide, DocsMiscOnboarding, DocsMiscSvgicons, DocsCustomizeComponentStyleGuide } from './partials/guides/guides.docs';
+import {
+	DocsThemingComponentGuide,
+	DocsGettingStartedGuide,
+	DocsThemingGuide,
+	DocsMiscOnboarding,
+	DocsMiscSvgicons,
+	DocsCustomizeComponentStyleGuide
+} from './partials/guides/guides.docs';
 // Other modules
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -68,48 +75,48 @@ export const DOC_BUTTON_COMPONENTS = [
 	DocsOverviewBtn,
 	DocsExampleBtn,
 	DocsAPIBtn
-]
+];
 export const DOC_BUTTON_TOGGLE_COMPONENTS = [
 	DocsOverviewButtonToggle,
 	DocsExampleButtonToggle
-]
+];
 export const DOC_CHECKBOX_COMPONENTS = [
 	DocsOverviewCheckbox,
 	DocsExampleCheckbox,
 	DocsAPICheckbox
-]
+];
 export const DOC_DATEPICKER_COMPONENTS = [
 	DocsOverviewDatepicker,
 	DocsAPIDatepicker
-]
+];
 export const DOC_DIALOG_COMPONENTS = [
 	DocsOverviewDialog,
 	DocsExampleDialog
-]
+];
 export const DOC_EXPANSION_COMPONENTS = [
 	DocsOverviewExpansion
-]
+];
 export const DOC_ICON_COMPONENTS = [
 	DocsOverviewIcon
-]
+];
 export const DOC_LIST_COMPONENTS = [
 	DocsOverviewList,
 	DocsExampleList,
 	DocsAPIList
-]
+];
 export const DOC_MENU_COMPONENTS = [
 	DocsOverviewMenu,
 	DocsExampleMenu
-]
+];
 export const DOC_SLIDE_TOGGLE_COMPONENTS = [
 	DocsOverviewSlideToggle,
 	DocsExampleSlideToggle,
 	DocsAPISlideToggle
-]
+];
 export const DOC_TOOLTIP_COMPONENTS = [
 	DocsOverviewTooltip,
 	DocsExampleTooltip,
-]
+];
 // Others
 export const DOC_GUIDES = [
 	DocsGettingStartedGuide,
@@ -117,7 +124,7 @@ export const DOC_GUIDES = [
 	DocsThemingComponentGuide,
 	DocsCustomizeComponentStyleGuide,
 	DocsGuideNav
-]
+];
 export const DOC_MISC = [
 	DocsHomePage,
 	DocsSearch,
@@ -130,11 +137,11 @@ export const DOC_MISC = [
 	APIMethodViewerComponent,
 	DocsTOC,
 	DocsHeader
-]
+];
 export const DOC_MISC_DOCS = [
 	DocsMiscOnboarding,
 	DocsMiscSvgicons
-]
+];
 export const DOC_COMPONENTS = [
 	DOC_BUTTON_COMPONENTS,
 	DOC_BUTTON_TOGGLE_COMPONENTS,
@@ -150,13 +157,13 @@ export const DOC_COMPONENTS = [
 	DOC_GUIDES,
 	DOC_MISC,
 	DOC_MISC_DOCS
-]
+];
 export const DOC_DIALOGS = [
 	PreferencesDialog,
 	AboutDialog,
 	DocsMiscMoreDialog,
 	LicenseDialog
-]
+];
 
 @NgModule({
 	imports: [
