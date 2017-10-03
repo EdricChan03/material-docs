@@ -1,3 +1,4 @@
+import { PseudoCheckboxExample } from './../assets/examples/checkbox/pseudo-checkbox';
 import { IconSVGExample } from './../assets/examples/icon/icon-svg';
 import { IconButtonExample } from './../assets/examples/icon/icon-button';
 import { SimpleIconExample } from './../assets/examples/icon/icon-overview';
@@ -48,7 +49,8 @@ const BUTTON_TOGGLE_COMPONENTS = [
 ];
 const CHECKBOX_COMPONENTS = [
     SimpleCheckboxExample,
-    CheckboxConfigurableExample
+	CheckboxConfigurableExample,
+	PseudoCheckboxExample
 ];
 const DATEPICKER_COMPONENTS = [
 	ApiDatepickerExample,

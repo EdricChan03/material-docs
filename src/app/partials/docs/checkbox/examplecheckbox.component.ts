@@ -1,3 +1,4 @@
+import { PseudoCheckboxExample } from './../../../../assets/examples/checkbox/pseudo-checkbox';
 import { CheckboxConfigurableExample } from './../../../../assets/examples/checkbox/configurable-checkbox';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { SharedComponent } from './../../../shared/shared.docs';
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './examplecheckbox.component.html'
 })
 export class DocsExampleCheckbox implements OnInit {
-    checkboxConfigurable: CodeFiles;
+	checkboxConfigurable: CodeFiles;
+	pseudoCheckbox: CodeFiles;
     constructor(private shared: SharedComponent){shared.setTitle('Docs > Checkbox > Examples');}
     ngOnInit() {
         this.checkboxConfigurable = {
@@ -24,6 +26,19 @@ export class DocsExampleCheckbox implements OnInit {
 			componentName: CheckboxConfigurableExample,
 			url: "checkbox/checkbox-configurable",
 			title: "Checkbox with configurable properties"
-        }
-    }
+		}
+		this.pseudoCheckbox = {
+			filePath: [
+				'assets/examples/checkbox/pseudo-checkbox.html',
+				'assets/examples/checkbox/pseudo-checkbox.ts'
+			],
+			highlightPath: [
+				'assets/highlighted/pseudo-checkbox-html.html',
+				'assets/highlighted/pseudo-checkbox-ts.html'
+			],
+			componentName: PseudoCheckboxExample,
+			url: "checkbox/pseudo-checkbox",
+			title: "Pseudo Checkboxes"
+		}
+	}
 }
