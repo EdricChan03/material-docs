@@ -25,7 +25,8 @@ export class DocsExampleTooltip implements OnInit {
                 'assets/highlighted/configurable-tooltip-css.html'
             ],
 			componentName: ConfigurableTooltipExample,
-			url: "tooltip/tooltip-configurable"
+			url: "tooltip/tooltip-configurable",
+			title: "Tooltip with configurable properties"
         }
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {

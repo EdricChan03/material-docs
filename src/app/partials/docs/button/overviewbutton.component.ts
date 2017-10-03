@@ -25,7 +25,8 @@ export class DocsOverviewBtn implements OnInit {
                 'assets/highlighted/button-overview-ts.html'
             ],
 			componentName: ButtonOverviewExample,
-			url: "button/button-overview"
+			url: "button/button-overview",
+			title: "Simple Button"
         }
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {

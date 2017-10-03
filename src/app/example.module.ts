@@ -1,3 +1,6 @@
+import { IconSVGExample } from './../assets/examples/icon/icon-svg';
+import { IconButtonExample } from './../assets/examples/icon/icon-button';
+import { SimpleIconExample } from './../assets/examples/icon/icon-overview';
 import { SelectionListExample } from './../assets/examples/list/selection-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocsMaterialModule } from './materialdocs.module';
@@ -34,61 +37,66 @@ import { SimpleCheckboxExample } from './../assets/examples/checkbox/simple-chec
 import { ButtonOverviewExample } from './../assets/examples/button/button-overview';
 import { ButtonTypesExample } from './../assets/examples/button/button-types';
 import { ButtonNoRippleExample } from './../assets/examples/button/button-noripple';
-export const BUTTON_COMPONENTS = [
+const BUTTON_COMPONENTS = [
     ButtonNoRippleExample,
     ButtonTypesExample,
     ButtonOverviewExample
-]
-export const BUTTON_TOGGLE_COMPONENTS = [
+];
+const BUTTON_TOGGLE_COMPONENTS = [
 	SimpleButtonToggleExample,
 	ExclusiveButtonToggleExample
-]
-export const CHECKBOX_COMPONENTS = [
+];
+const CHECKBOX_COMPONENTS = [
     SimpleCheckboxExample,
     CheckboxConfigurableExample
-]
-export const DATEPICKER_COMPONENTS = [
+];
+const DATEPICKER_COMPONENTS = [
 	ApiDatepickerExample,
 	FilterDatepickerExample,
 	MinMaxDatepickerExample,
 	SimpleDatepickerExample,
 	StartViewDatepickerExample,
 	TouchDatepickerExample
-]
-export const DIALOG_COMPONENTS = [
+];
+const DIALOG_COMPONENTS = [
     DialogResultExample,
     DialogResult,
     ConfigurableDialogExample,
     ConfigurableDialog
-]
-export const EXPANSION_COMPONENTS = [
+];
+const EXPANSION_COMPONENTS = [
 	SimpleExpansionExample
 ]
-export const LIST_COMPONENTS = [
+const ICON_COMPONENTS = [
+	SimpleIconExample,
+	IconButtonExample,
+	IconSVGExample
+];
+const LIST_COMPONENTS = [
     SimpleListExample,
     NavListExample,
     AdvancedListExample,
 	AdvancedListDialog,
 	SelectionListExample
-]
-export const MENU_COMPONENTS = [
+];
+const MENU_COMPONENTS = [
     SimpleMenuExample,
 	NestedMenuExample,
 	IconMenuExample,
 	IconMenuDialog
-]
-export const SLIDE_TOGGLE_COMPONENTS = [
+];
+const SLIDE_TOGGLE_COMPONENTS = [
     SimpleSlideToggleExample,
     ConfigurableSlideToggleExample
-]
-export const TOOLTIP_COMPONENTS = [
+];
+const TOOLTIP_COMPONENTS = [
     ConfigurableTooltipExample,
     SimpleTooltipExample
-]
-export const MISC_COMPONENTS = [
+];
+const MISC_COMPONENTS = [
 	MiscOnboardingExample,
 	MiscOnboardingExampleDialog
-]
+];
 export const EXAMPLE_COMPONENTS = [
     BUTTON_COMPONENTS,
     BUTTON_TOGGLE_COMPONENTS,
@@ -96,12 +104,13 @@ export const EXAMPLE_COMPONENTS = [
 	DATEPICKER_COMPONENTS,
 	DIALOG_COMPONENTS,
 	EXPANSION_COMPONENTS,
+	ICON_COMPONENTS,
     LIST_COMPONENTS,
     MENU_COMPONENTS,
     SLIDE_TOGGLE_COMPONENTS,
 	TOOLTIP_COMPONENTS,
 	MISC_COMPONENTS
-]
+];
 @NgModule({
     imports: [
 		BrowserModule,

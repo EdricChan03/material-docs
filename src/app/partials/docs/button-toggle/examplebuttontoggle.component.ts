@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './examplebuttontoggle.component.html'
 })
 export class DocsExampleButtonToggle implements OnInit {
-	buttonToggleGroup: CodeFiles;
+	exclusiveButtonToggle: CodeFiles;
 	constructor(private shared: SharedComponent){shared.setTitle('Docs > Button Toggle > Examples')}
 	ngOnInit() {
-		this.buttonToggleGroup = {
+		this.exclusiveButtonToggle = {
 			filePath: [
 				'assets/examples/button-toggle/exclusive-button-toggle.html',
 				'assets/examples/button-toggle/exclusive-button-toggle.ts'
@@ -21,7 +21,8 @@ export class DocsExampleButtonToggle implements OnInit {
 				'assets/highlighted/exclusive-button-toggle-ts.html'
 			],
 			componentName: ExclusiveButtonToggleExample,
-			url: "button-toggle/exclusive-button-toggle"
+			url: "button-toggle/exclusive-button-toggle",
+			title: "Exclusive button toggle"
 		}
 	}
 }

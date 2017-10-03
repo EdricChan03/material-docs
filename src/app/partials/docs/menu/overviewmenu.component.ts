@@ -21,7 +21,8 @@ export class DocsOverviewMenu implements OnInit {
 				'assets/highlighted/simple-menu-ts.html'
 			],
 			componentName: SimpleMenuExample,
-			url: "menu/menu-overview"
+			url: "menu/menu-overview",
+			title: "Simple menu"
 		}
 	}
 }

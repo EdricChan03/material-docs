@@ -20,7 +20,8 @@ export class DocsExampleSlideToggle implements OnInit {
                 'assets/examples/slide-toggle/configurable-slide-toggle.ts'
             ],
 			componentName: ConfigurableSlideToggleExample,
-			url: "slide-toggle/slide-toggle-configurable"
+			url: "slide-toggle/slide-toggle-configurable",
+			title: "Slide toggle with configurable properties"
         }
     }
 }

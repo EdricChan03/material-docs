@@ -1,22 +1,22 @@
 <h3 id="description">Description</h3>
-<p>The <code class="docs-code">MdDialog</code> service can be used to open modal dialogs with Material Design styling and animations.</p>
+<p>The <code class="docs-code">MatDialog</code> service can be used to open modal dialogs with Material Design styling and animations.</p>
 
 <!-- TODO: example -->
-<example-viewer [exFiles]="dialogResult" docsTitle="Dialog with a result" docsId="dialog-with-result"></example-viewer>
+<example-viewer [exFiles]="dialogResult"></example-viewer>
 
-<p>A dialog is opened by calling the <code class="docs-code">open</code> method with a component to be loaded and an optional config object. The <code class="docs-code">open</code> method will return an instance of <code class="docs-code">MdDialogRef</code></p>
+<p>A dialog is opened by calling the <code class="docs-code">open</code> method with a component to be loaded and an optional config object. The <code class="docs-code">open</code> method will return an instance of <code class="docs-code">MatDialogRef</code></p>
 
 <code-viewer language="typescript">let dialogRef = dialog.open(UserProfileComponent, &#123;
   height: '400px',
   width: '600px',
 &#125;);</code-viewer>
-The <code class="docs-code">MdDialogRef</code> provides a handle on the opened dialog. It can be used to close the dialog and to receive notification when the dialog has been closed.
+The <code class="docs-code">MatDialogRef</code> provides a handle on the opened dialog. It can be used to close the dialog and to receive notification when the dialog has been closed.
 
 <code-viewer language="typescript">dialogRef.afterClosed().subscribe(result => &#123;
   console.log(`Dialog result: $&#123;result&#125;`); // Pizza!
 &#125;);
 dialogRef.close('Pizza!');</code-viewer>
-Components created via <code class="docs-code">MdDialog</code> can inject <code class="docs-code">MdDialogRef</code> and use it to close the dialog in which they are contained. When closing, an optional result value can be provided. This result value is forwarded as the result of the <code class="docs-code">afterClosed</code> promise.
+Components created via <code class="docs-code">MatDialog</code> can inject <code class="docs-code">MatDialogRef</code> and use it to close the dialog in which they are contained. When closing, an optional result value can be provided. This result value is forwarded as the result of the <code class="docs-code">afterClosed</code> promise.
 
 <h3 id="sharing-data">Sharing data with the Dialog component</h3>
 
@@ -82,14 +82,14 @@ export class YourDialog &#123;
 <code-viewer language="html">&lt;button mat-button tabindex="-1"&gt;Not Tabbable&lt;/button&gt;</code-viewer>
 <h3 id="aot-compilation">AOT Compilation</h3>
 
-<p>Due to the dynamic nature of the <code class="docs-code">MdDialog</code>, and its usage of <code class="docs-code">ViewContainerRef#createComponent()</code> to create the component on the fly, the AOT compiler will not know to create the proper <code class="docs-code">ComponentFactory</code> for your dialog component by default.</p>
+<p>Due to the dynamic nature of the <code class="docs-code">MatDialog</code>, and its usage of <code class="docs-code">ViewContainerRef#createComponent()</code> to create the component on the fly, the AOT compiler will not know to create the proper <code class="docs-code">ComponentFactory</code> for your dialog component by default.</p>
 
 <p>You must include your dialog class in the list of <code class="docs-code">entryComponents</code> in your module definition so that the AOT compiler knows to create the <code class="docs-code">ComponentFactory</code> for it.</p>
 
 <code-viewer language="typescript">@NgModule(&#123;
   imports: [
     // ...
-    MdDialogModule
+    MatDialogModule
   ],
 
   declarations: [

@@ -20,7 +20,8 @@ export class DocsOverviewButtonToggle implements OnInit {
                 'assets/examples/button-toggle/simple-button-toggle.ts'
             ],
 			componentName: SimpleButtonToggleExample,
-			url: "button-toggle/button-toggle-overview"
+			url: "button-toggle/button-toggle-overview",
+			title: "Simple Button Toggle"
         }
     }
 }

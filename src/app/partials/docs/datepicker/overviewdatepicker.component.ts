@@ -31,7 +31,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/simple-datepicker-ts.html'
 			],
 			componentName: SimpleDatepickerExample,
-			url: "datepicker/datepicker-overview"
+			url: "datepicker/datepicker-overview",
+			title: "Simple datepicker"
 		}
 		this.startViewDatepicker = {
 			filePath: [
@@ -43,7 +44,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/startat-datepicker-ts.html'
 			],
 			componentName: StartViewDatepickerExample,
-			url: "datepicker/datepicker-startat"
+			url: "datepicker/datepicker-startat",
+			title: "Datepicker that starts at a date"
 		}
 		this.minMaxDatepicker = {
 			filePath: [
@@ -55,7 +57,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/min-max-datepicker-ts.html'
 			],
 			componentName: MinMaxDatepickerExample,
-			url: "datepicker/datepicker-min-max"
+			url: "datepicker/datepicker-min-max",
+			title: "Datepicker with min max validation"
 		}
 		this.filterDatepicker = {
 			filePath: [
@@ -67,7 +70,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/filter-validation-datepicker-ts.html'
 			],
 			componentName: FilterDatepickerExample,
-			url: "datepicker/datepicker-filter"
+			url: "datepicker/datepicker-filter",
+			title: "Datepicker with filter validation"
 		}
 		this.touchDatepicker = {
 			filePath: [
@@ -79,7 +83,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/touch-ui-datepicker-ts.html'
 			],
 			componentName: TouchDatepickerExample,
-			url: "datepicker/datepicker-touchui"
+			url: "datepicker/datepicker-touchui",
+			title: "Datepicker with touch UI"
 		}
 		this.apiDatepicker = {
 			filePath: [
@@ -91,7 +96,8 @@ export class DocsOverviewDatepicker implements OnInit {
 				'assets/highlighted/api-datepicker-ts.html'
 			],
 			componentName: ApiDatepickerExample,
-			url: "datepicker/datepicker-api"
+			url: "datepicker/datepicker-api",
+			title: "Datepicker with an API"
 		}
 		
     }

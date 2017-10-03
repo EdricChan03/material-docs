@@ -34,7 +34,8 @@ export class DocsExampleBtn implements OnInit {
                 'assets/highlighted/button-noripple-ts.html'
             ],
 			componentName: ButtonNoRippleExample,
-			url: "button/button-noripple"
+			url: "button/button-noripple",
+			title: "Button with a disabled ripple"
         }
         this.buttonTypes = {
             filePath: [
@@ -48,7 +49,8 @@ export class DocsExampleBtn implements OnInit {
                 'assets/highlighted/button-types-css.html'
             ],
 			componentName: ButtonTypesExample,
-			url: "button/button-types"
+			url: "button/button-types",
+			title: "Button types"
         }
     }
 }

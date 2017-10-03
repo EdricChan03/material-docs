@@ -45,20 +45,20 @@ export class PizzaPartyAppModule &#123; &#125;</code-viewer>
 	<h3>Step 3: Import the component modules</h3>
 
 	<p>Import the <code class="docs-code">NgModule</code> for each component you want to use:</p>
-	<code-viewer language="typescript">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+	<code-viewer language="typescript">import &#123;MatButtonModule, MatCheckboxModule&#125; from '@angular/material';
 
 @NgModule(&#123;
   ...
-  imports: [MdButtonModule, MdCheckboxModule],
+  imports: [MatButtonModule, MatCheckboxModule],
   ...
 &#125;)
 export class PizzaPartyAppModule &#123; &#125;</code-viewer>
 	<p>Alternatively, you can create a separate <code class="docs-code">NgModule</code> that imports all of the Angular Material components that you will use in your application. You can then include this module wherever you'd like to use the components.</p>
-	<code-viewer language="typescript" fileName="custom.material-module.ts">import &#123;MdButtonModule, MdCheckboxModule&#125; from '@angular/material';
+	<code-viewer language="typescript" fileName="custom.material-module.ts">import &#123;MatButtonModule, MatCheckboxModule&#125; from '@angular/material';
 
 @NgModule(&#123;
-  imports: [MdButtonModule, MdCheckboxModule],
-  exports: [MdButtonModule, MdCheckboxModule],
+  imports: [MatButtonModule, MatCheckboxModule],
+  exports: [MatButtonModule, MatCheckboxModule],
 &#125;)
 export class MyOwnCustomMaterialModule &#123; &#125;</code-viewer>
 	<br>

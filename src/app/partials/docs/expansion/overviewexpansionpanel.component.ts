@@ -21,7 +21,8 @@ export class DocsOverviewExpansion implements OnInit {
 				'assets/highlighted/simple-expansion-ts.html'
 			],
 			componentName: SimpleExpansionExample,
-			url: "expansion/expansion-overview"
+			url: "expansion/expansion-overview",
+			title: "Simple expansion panel"
 		}
 	}
 }

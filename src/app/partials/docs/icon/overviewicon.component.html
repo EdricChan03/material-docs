@@ -2,11 +2,11 @@
 <p><code class="docs-code">mat-icon</code> makes it easier to use <em>vector-based</em> icons in your app. This directive supports both icon fonts
     and SVG icons, but not bitmap-based formats (png, jpg, etc.).</p>
 
-<!-- example(icon-overview) -->
+<example-viewer [exFiles]="simpleIconExample"></example-viewer>
 
 <h3 id="register-icons">Registering icons</h3>
 
-<p><code class="docs-code">MdIconRegistry</code> is an injectable service that allows you to associate icon names with SVG URLs and define aliases
+<p><code class="docs-code">MatIconRegistry</code> is an injectable service that allows you to associate icon names with SVG URLs and define aliases
     for CSS font classes. Its methods are discussed below and listed in the API summary.</p>
 
 <h3 id="font-icons">Font icons with ligatures</h3>
@@ -21,7 +21,7 @@
     (You will still need to include the HTML to load the font and its CSS, as described in the link). You can specify a different
     font by setting the <code class="docs-code">fontSet</code> input to either the CSS class to apply to use the desired font, or to an alias
     previously registered with
-    <code class="docs-code">MdIconRegistry.registerFontClassAlias</code>.</p>
+    <code class="docs-code">MatIconRegistry.registerFontClassAlias</code>.</p>
 
 <h3 id="css-icons">Font icons with CSS</h3>
 
@@ -29,11 +29,11 @@
     <code class="docs-code">:before</code> selector to cause the icon to appear.
     <a href="https://fortawesome.github.io/Font-Awesome/examples" target="_blank" class="docs-link">FontAwesome</a> uses this approach to display
     its icons. To use such a font, set the <code class="docs-code">fontSet</code> input to the font's CSS class (either the class itself or
-    an alias registered with <code class="docs-code">MdIconRegistry.registerFontClassAlias</code>), and set the <code class="docs-code">fontIcon</code> input
+    an alias registered with <code class="docs-code">MatIconRegistry.registerFontClassAlias</code>), and set the <code class="docs-code">fontIcon</code> input
     to the class for the specific icon to show.</p>
 
 <p>For both types of font icons, you can specify the default font class to use when <code class="docs-code">fontSet</code> is not explicitly set
-    by calling <code class="docs-code">MdIconRegistry.setDefaultFontSetClass</code>.</p>
+    by calling <code class="docs-code">MatIconRegistry.setDefaultFontSetClass</code>.</p>
 
 <h3 id="svg-icons">SVG icons</h3>
 
@@ -43,7 +43,7 @@
     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword" target="_blank" class="docs-link">currentColor</a>    value. This makes SVG icons by default have the same color as surrounding text, and allows you to change the color by
     setting the "color" style on the <code class="docs-code">mat-icon</code> element.</p>
 
-<p>In order to prevent XSS vulnerabilities, any SVG URLs passed to the <code class="docs-code">MdIconRegistry</code> must be marked as trusted
+<p>In order to prevent XSS vulnerabilities, any SVG URLs passed to the <code class="docs-code">MatIconRegistry</code> must be marked as trusted
     resource URLs by using Angular's <code class="docs-code">DomSanitizer</code> service.</p>
 
 <p>Also note that all SVG icons are fetched via <code class="docs-code">XmlHttpRequest</code>, and due to the same-origin policy, their URLs must
@@ -51,7 +51,7 @@
 
 <h4 id="named-icons">Named icons</h4>
 
-<p>To associate a name with an icon URL, use the <code class="docs-code">addSvgIcon</code> or <code class="docs-code">addSvgIconInNamespace</code> methods of <code class="docs-code">MdIconRegistry</code>.
+<p>To associate a name with an icon URL, use the <code class="docs-code">addSvgIcon</code> or <code class="docs-code">addSvgIconInNamespace</code> methods of <code class="docs-code">MatIconRegistry</code>.
     After registering an icon, it can be displayed by setting the <code class="docs-code">svgIcon</code> input. For an icon in the default
     namespace, use the name directly. For a non-default namespace, use the format <code class="docs-code">[namespace]:[name]</code>.</p>
 
@@ -61,7 +61,7 @@
     nested tags is identified with an <code class="docs-code">id</code> attribute. This <code class="docs-code">id</code> is used as the name of the icon.
 </p>
 
-<p>Icon sets are registered using the <code class="docs-code">addSvgIconSet</code> or <code class="docs-code">addSvgIconSetInNamespace</code> methods of <code class="docs-code">MdIconRegistry</code>.
+<p>Icon sets are registered using the <code class="docs-code">addSvgIconSet</code> or <code class="docs-code">addSvgIconSetInNamespace</code> methods of <code class="docs-code">MatIconRegistry</code>.
     After an icon set is registered, each of its embedded icons can be accessed by their <code class="docs-code">id</code> attributes. To display
     an icon from an icon set, use the <code class="docs-code">svgIcon</code> input in the same way as for individually registered icons.</p>
 

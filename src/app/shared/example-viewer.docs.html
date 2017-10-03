@@ -1,11 +1,8 @@
-<div class="example-viewer mat-elevation-z4" fxLayout="column" [id]="docsId" style="border-radius: 0px 0px 5px 5px;">
-	<mat-toolbar class="docs-example-toolbar">{{docsTitle}}<span fxFlex></span>
-		<mat-chip-list>
-			<mat-chip *ngIf="masterBuild" color="accent" selected="true" matTooltip="This means that this example can be done if you're running on the latest master build.">
-				<mat-icon>warning</mat-icon> Master</mat-chip>
-			<span *ngIf="externalComponent">
-				<mat-chip color="warn" selected="true" matTooltip="This example contains a component not from here. Clicking this chip will navigate you to the docs for {{ext.name}}" [routerLink]="[ext.link]" *ngFor="let ext of externalComponent"><mat-icon>book</mat-icon> {{ext.name}} Docs</mat-chip>
-			</span>
+<div class="example-viewer mat-elevation-z4" fxLayout="column" style="border-radius: 0px 0px 5px 5px;">
+	<mat-toolbar class="docs-example-toolbar">{{exFiles.title}}<span fxFlex></span>
+		<mat-chip-list *ngIf="exFiles.notices">
+			<mat-chip *ngFor="let notice of exFiles.notices" [color]="notice.color ? notice.color : 'primary'" selected="true" [matTooltip]="notice.desc">
+				<mat-icon *ngIf="notice.icon">{{notice.icon}}</mat-icon> {{notice.name}}</mat-chip>
 		</mat-chip-list>
 		<button mat-icon-button (click)="toggleSource()" matTooltip="{{showCode ? 'Hide': 'Show'}} source code">
                 <mat-icon>

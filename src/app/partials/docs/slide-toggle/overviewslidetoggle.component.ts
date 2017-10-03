@@ -20,7 +20,8 @@ export class DocsOverviewSlideToggle implements OnInit {
                 'assets/examples/slide-toggle/simple-slide-toggle.ts'
             ],
 			componentName: SimpleSlideToggleExample,
-			url: "slide-toggle/slide-toggle-overview"
+			url: "slide-toggle/slide-toggle-overview",
+			title: "Simple slide toggle"
         }
     }
 }

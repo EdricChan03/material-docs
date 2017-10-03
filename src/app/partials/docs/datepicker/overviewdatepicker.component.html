@@ -2,7 +2,7 @@
 <p>The datepicker allows users to enter a date either through text input, or by choosing a date from
 the calendar. It is made up of several components and directives that work together:</p>
 
-<example-viewer [exFiles]="simpleDatepicker" docsTitle="Simple Datepicker" docsId="simple-datepicker"></example-viewer>
+<example-viewer [exFiles]="simpleDatepicker"></example-viewer>
 
 <h3 id="current-state">Current state</h3>
 <p>Currently the datepicker is in the beginning stages and supports basic date selection functionality.</p>
@@ -46,7 +46,7 @@ open to the month or year containing today's date. This behavior can be overridd
 <code class="docs-code">startAt</code> property of <code class="docs-code">mat-datepicker</code>. In this case the calendar will open to the month or year
 containing the <code class="docs-code">startAt</code> date.
 
-<example-viewer [exFiles]="startViewDatepicker" docsTitle="Start View" docsId="start-view"></example-viewer>
+<example-viewer [exFiles]="startViewDatepicker"></example-viewer>
 
 <h3 id="date-validation">Date validation</h3>
 <p>There are three properties that add date validation to the datepicker input. The first two are the
@@ -55,7 +55,7 @@ disable all dates on the calendar popup before or after the respective values an
 from advancing the calendar past the <code class="docs-code">month</code> or <code class="docs-code">year</code> (depending on current view) containing the
 <code class="docs-code">min</code> or <code class="docs-code">max</code> date.</p>
 
-<example-viewer [exFiles]="minMaxDatepicker" docsTitle="Min / Max Validation" docsId="min-max-validation"></example-viewer>
+<example-viewer [exFiles]="minMaxDatepicker"></example-viewer>
 
 <p>The second way to add date validation is using the <code class="docs-code">matDatepickerFilter</code> property of the datepicker
 input. This property accepts a function of <code class="docs-code">&lt;D&gt; => boolean</code> (where <code class="docs-code">&lt;D&gt;</code> is the date type used by
@@ -67,7 +67,7 @@ difference between using <code class="docs-code">matDatepickerFilter</code> vs u
 dates before or after a certain point, will not prevent the user from advancing the calendar past
 that point.</p>
 
-<example-viewer [exFiles]="filterDatepicker" docsTitle="Filter Validation" docsId="filter-validation"></example-viewer>
+<example-viewer [exFiles]="filterDatepicker"></example-viewer>
 
 <p>In this example the user can back past 2005, but all of the dates before then will be unselectable.
 They will not be able to go further back in the calendar than 2000. If they manually type in a date
@@ -94,13 +94,13 @@ devices that don't have as much screen real estate and need bigger click targets
 <code class="docs-code">mat-datepicker</code> has a <code class="docs-code">touchUi</code> property that can be set to <code class="docs-code">true</code> in order to enable a more touch
 friendly UI where the calendar opens in a large dialog.</p>
 
-<example-viewer [exFiles]="touchDatepicker" docsTitle="Touch UI" docsId="touch"></example-viewer>
+<example-viewer [exFiles]="touchDatepicker"></example-viewer>
 
 <h3 id="manually-opening-and-closing">Manually opening and closing the calendar</h3>
 <p>The calendar popup can be programmatically controlled using the <code class="docs-code">open</code> and <code class="docs-code">close</code> methods on the
 <code class="docs-code">mat-datepicker</code>. It also has an <code class="docs-code">opened</code> property that reflects the status of the popup.
 
-<example-viewer [exFiles]="apiDatepicker" docsTitle="API" docsId="example-api"></example-viewer>
+<example-viewer [exFiles]="apiDatepicker"></example-viewer>
 
 <h3 id="internalization">Internationalization</h3>
 <p>In order to support internationalization, the datepicker supports customization of the following
@@ -126,30 +126,30 @@ export class MyApp &#123;&#125;</code-viewer>
 with a variety of different date implementations. However it also means that developers need to make
 sure to provide the appropriate pieces for the datepicker to work with their chosen implementation.
 The easiest way to ensure this is just to import one of the pre-made modules (currently
-<code class="docs-code">MdNativeDateModule</code> is the only implementation that ships with material, but there are plans to add
+<code class="docs-code">MatNativeDateModule</code> is the only implementation that ships with material, but there are plans to add
 a module for Moment.js support):</p>
 <ul>
-	<li><code class="docs-code">MdNativeDateModule</code> - support for native JavaScript Date object</li>
+	<li><code class="docs-code">MatNativeDateModule</code> - support for native JavaScript Date object</li>
 </ul>
 <p>These modules include providers for <code class="docs-code">DateAdapter</code> and <code class="docs-code">MD_DATE_FORMATS</code></p>
 
 <code-viewer language="typescript">@NgModule(&#123;
- 	imports: [MdDatepickerModule, MdNativeDateModule],
+ 	imports: [MatDatepickerModule, MatNativeDateModule],
 &#125;)
 export class MyApp &#123;&#125;</code-viewer>
 
-<p>Because <code class="docs-code">DateAdapter</code> is a generic class, <code class="docs-code">MdDatepicker</code> and<code class="docs-code">MdDatepickerInput</code>also need to be
+<p>Because <code class="docs-code">DateAdapter</code> is a generic class, <code class="docs-code">MatDatepicker</code> and<code class="docs-code">MatDatepickerInput</code>also need to be
 made generic. When working with these classes (for example as a<code class="docs-code">ViewChild</code>) you should include the
 appropriate generic type that corresponds to the<code class="docs-code">DateAdapter</code>implementation you are using. For
 example:</p>
  
 <code-viewer language="typescript">@Component({{'{...}'}})
 export class MyComponent &#123;
-	@ViewChild(MdDatepicker) datepicker: MdDatepicker&lt;Date&gt;;
+	@ViewChild(MatDatepicker) datepicker: MatDatepicker&lt;Date&gt;;
 &#125;
 </code-viewer>
 
-*Please note: <code class="docs-code">MdNativeDateModule</code>is based off of the functionality available in JavaScript's
+*Please note: <code class="docs-code">MatNativeDateModule</code>is based off of the functionality available in JavaScript's
 native <code class="docs-code">Date</code>object, and is thus not suitable for many locales. One of the biggest shortcomings of
 the native <code class="docs-code">Date</code>object is the inability to set the parse format. We highly recommend using a
 custom <code class="docs-code">DateAdapter</code>that works with the formatting/parsing library of your choice.*
@@ -161,7 +161,7 @@ using your subclass as the provider. You will also want to make sure that the <c
 provided in your app are formats that can be understood by your date implementation.</p>
 
 <code-viewer language="typescript">@NgModule(&#123;
-	imports: [MdDatepickerModule],
+	imports: [MatDatepickerModule],
 	providers: [
     	&#123;provide: DateAdapter, useClass: MyDateAdapter&#125;,
     	&#123;provide: MD_DATE_FORMATS, useValue: MY_DATE_FORMATS&#125;,
@@ -177,7 +177,7 @@ This example shows how to use the native <code class="docs-code">Date</code> imp
 formats.</p>
 
 <code-viewer language="typescript">@NgModule(&#123;
-  	imports: [MdDatepickerModule],
+  	imports: [MatDatepickerModule],
   	providers: [
     	&#123;provide: DateAdapter, useClass: NativeDateAdapter&#125;,
     	&#123;provide: MD_DATE_FORMATS, useValue: MY_NATIVE_DATE_FORMATS&#125;,
@@ -186,15 +186,15 @@ formats.</p>
 export class MyApp &#123;&#125;</code-viewer>
 
 <h4 id="localizing-labels-and-messages">Localizing labels and messages</h4>
-<p>The various text strings used by the datepicker are provided through <code class="docs-code">MdDatepickerIntl</code>.
+<p>The various text strings used by the datepicker are provided through <code class="docs-code">MatDatepickerIntl</code>.
 Localization of these messages can be done by providing a subclass with translated values in your
 application root module.</p>
 
 <code-viewer language="typescript">
 @NgModule(&#123;
-  imports: [MdDatepickerModule, MdNativeDateModule],
+  imports: [MatDatepickerModule, MatNativeDateModule],
   providers: [
-    &#123;provide: MdDatepickerIntl, useClass: MyIntl&#125;,
+    &#123;provide: MatDatepickerIntl, useClass: MyIntl&#125;,
   ],
 &#125;)
 export class MyApp &#123;&#125;</code-viewer>

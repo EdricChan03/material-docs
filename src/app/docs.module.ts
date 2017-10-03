@@ -1,5 +1,3 @@
-import { DocumentationItems } from './partials/documentation-items';
-import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 // Doc guides
 import {
 	DocsThemingComponentGuide,
@@ -16,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocsMaterialModule } from './materialdocs.module';
+import { DocumentationItems } from './partials/documentation-items';
 
 // Docs misc
 import { DocsHeader } from './shared/header.docs';
@@ -55,8 +54,6 @@ import { DocsOverviewButtonToggle } from './partials/docs/button-toggle/overview
 // Menu
 import { DocsExampleMenu } from './partials/docs/menu/examplemenu.component';
 import { DocsOverviewMenu } from './partials/docs/menu/overviewmenu.component';
-// Icons
-import { DocsOverviewIcon } from './partials/docs/icon/overviewicon.component';
 // Checkbox
 import { DocsExampleCheckbox } from './partials/docs/checkbox/examplecheckbox.component';
 import { DocsOverviewCheckbox } from './partials/docs/checkbox/overviewcheckbox.component';
@@ -67,16 +64,19 @@ import { DocsOverviewTooltip } from './partials/docs/tooltip/overviewtooltip.com
 // Button
 import { DocsExampleBtn } from './partials/docs/button/examplebutton.component';
 import { DocsOverviewBtn } from './partials/docs/button/overviewbutton.component';
-
+import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
+// Icon
+import { DocsOverviewIcon } from './partials/docs/icon/overviewicon.component';
+import { DocsExampleIcon } from './partials/docs/icon/exampleicon.component';
 // NgModule import
 import { NgModule } from '@angular/core';
 
-export const DOC_BUTTON_COMPONENTS = [
+const DOC_BUTTON_COMPONENTS = [
 	DocsOverviewBtn,
 	DocsExampleBtn,
 	DocsAPIBtn
 ];
-export const DOC_BUTTON_TOGGLE_COMPONENTS = [
+const DOC_BUTTON_TOGGLE_COMPONENTS = [
 	DocsOverviewButtonToggle,
 	DocsExampleButtonToggle
 ];
@@ -85,47 +85,48 @@ export const DOC_CHECKBOX_COMPONENTS = [
 	DocsExampleCheckbox,
 	DocsAPICheckbox
 ];
-export const DOC_DATEPICKER_COMPONENTS = [
+const DOC_DATEPICKER_COMPONENTS = [
 	DocsOverviewDatepicker,
 	DocsAPIDatepicker
 ];
-export const DOC_DIALOG_COMPONENTS = [
+const DOC_DIALOG_COMPONENTS = [
 	DocsOverviewDialog,
 	DocsExampleDialog
 ];
-export const DOC_EXPANSION_COMPONENTS = [
+const DOC_EXPANSION_COMPONENTS = [
 	DocsOverviewExpansion
 ];
-export const DOC_ICON_COMPONENTS = [
-	DocsOverviewIcon
+const DOC_ICON_COMPONENTS = [
+	DocsOverviewIcon,
+	DocsExampleIcon
 ];
-export const DOC_LIST_COMPONENTS = [
+const DOC_LIST_COMPONENTS = [
 	DocsOverviewList,
 	DocsExampleList,
 	DocsAPIList
 ];
-export const DOC_MENU_COMPONENTS = [
+const DOC_MENU_COMPONENTS = [
 	DocsOverviewMenu,
 	DocsExampleMenu
 ];
-export const DOC_SLIDE_TOGGLE_COMPONENTS = [
+const DOC_SLIDE_TOGGLE_COMPONENTS = [
 	DocsOverviewSlideToggle,
 	DocsExampleSlideToggle,
 	DocsAPISlideToggle
 ];
-export const DOC_TOOLTIP_COMPONENTS = [
+const DOC_TOOLTIP_COMPONENTS = [
 	DocsOverviewTooltip,
 	DocsExampleTooltip,
 ];
 // Others
-export const DOC_GUIDES = [
+const DOC_GUIDES = [
 	DocsGettingStartedGuide,
 	DocsThemingGuide,
 	DocsThemingComponentGuide,
 	DocsCustomizeComponentStyleGuide,
 	DocsGuideNav
 ];
-export const DOC_MISC = [
+const DOC_MISC = [
 	DocsHomePage,
 	DocsSearch,
 	DocsShowcase,
@@ -138,7 +139,7 @@ export const DOC_MISC = [
 	DocsTOC,
 	DocsHeader
 ];
-export const DOC_MISC_DOCS = [
+const DOC_MISC_DOCS = [
 	DocsMiscOnboarding,
 	DocsMiscSvgicons
 ];

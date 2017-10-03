@@ -26,7 +26,8 @@ export class DocsOverviewDialog implements OnInit {
                 'assets/examples/dialog/dialog-result-content.css'
             ],
 			componentName: DialogResultExample,
-			url: "dialog/dialog-result"
+			url: "dialog/dialog-result",
+			title: "Dialog with a result"
         }
     }
 }

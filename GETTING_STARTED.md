@@ -24,9 +24,10 @@ Welcome to the getting started documentation for if you want to contribute. In t
 ```
 Input | Description | Value(s) | Required?
 ---|---|---|---
-`language` | The language of the code in the component | All accepted values by `highlight.js` | `true`
+`language` | The language of the code in the component | All accepted values by [`highlight.js`](https://github.com/isagalaev/highlight.js/tree/master/src/languages) | `true`
 `fileName` | When specified, it will show the file name at the bottom right. | `string` | `false`
 
+[Source code](https://github.com/Chan4077/material2-docs/blob/master/src/app/shared/code-viewer.docs.ts)
 #### Notes
 - Please follow the syntax as in the sample code snippets above since the `pre` element considers whitespaces
 
@@ -34,7 +35,7 @@ Input | Description | Value(s) | Required?
 
 `my-app-comp.html`:
 ```html
-<example-viewer [exFiles]="buttonTypes" docsId="button-types" docsTitle="Button Types"></example-viewer>
+<example-viewer [exFiles]="buttonTypes"></example-viewer>
 ```
 `my-app-comp.ts`:
 ```ts
@@ -63,7 +64,8 @@ export class MySampleComponent implements OnInit {
                 'assets/highlighted/button-types-ts.html',
                 'assets/highlighted/button-types-css.html'
             ],
-            componentName: ButtonTypesExample
+            componentName: ButtonTypesExample,
+			url: 'button/button-types'
 		}
 	}
 }
@@ -77,7 +79,37 @@ Input | Description | Value(s) | Required?
 `externalComponent` | Other components used in the example. | `CodeExternalComponent[]` | `false`
 `guideView` | Whether to change the viewer to a guide viewer (now deprecated, no change to UI) | `boolean` | `false`
 
+[Source code](https://github.com/Chan4077/material2-docs/blob/master/src/app/shared/example-viewer.docs.ts)
 ### `api-method-viewer`
 
 ## Interfaces
-### `CodeExternalComponent[]`
+### `CodeExternalComponent`
+Attribute | Description | Value(s) | 
+Required?
+---|---|---|---
+`link` | The link of the external component docs | `string` | `true`|
+`name` | The name of the external component docs | `string` | `true`|
+
+#### Notes
+- This interface is used in [`CodeFiles`](#codefiles) for any other components that an example uses
+
+### `CodeFiles`
+Attribute | Description | Value(s) | Required?
+---|---|---|---
+`filePath` | The paths to the example files for use with the source code tabs (Take note that order matters!) | `string[]` | `true`
+`highlightPath` | The paths to the syntax highlighted example files for use with the source code tabs (Take note that order matters!) | `string[]` | `true`
+`componentName` | The component for the example | `Type<any>` | `true`
+`url` | The id of the demo for use with Stackblitz | `string` | `true`
+`title` | The title of the example | `string` | `true`
+`notices` | Any notices about the example (such as needing a specific version, or using another component etc.) | [`CodeNotices[]`](#codenotices) | `false`
+#### Notes
+- This interface is used for examples and is specified into the [`example-viewer`](#example-viewer) `exFiles` attribute.
+
+### `CodeNotices`
+Attribute | Description | Value(s) | Required?
+---|---|---|---
+`name` | The notice name (such as ≥2.0.0-beta.10 etc.) | `string` | `true`
+`desc` | The description of the notice (to be used as a tooltip) | `string` | `true`
+`link` | The link of the chip to go to | `string` | `false`
+`icon` | The icon of the chip (such as `warning`; ensure that it's in [Material icons](https://material.io/icons)) | `string` | `false`
+`color` | The color of the chip | `"primary"|"accent"|"warn"` | `false`

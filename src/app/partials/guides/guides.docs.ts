@@ -74,7 +74,8 @@ export class DocsMiscOnboarding implements OnInit {
 				'assets/examples/misc/onboarding/onboarding-example.css'
 			],
 			componentName: MiscOnboardingExample,
-			url: "misc/onboarding/onboarding"
+			url: "misc/onboarding/onboarding",
+			title: "Simple onboarding"
 		}
 	}
 }

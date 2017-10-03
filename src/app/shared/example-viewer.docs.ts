@@ -15,21 +15,11 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	 */
 	@Input() exFiles: CodeFiles;
 	/**
-	 * Whether to change to guide viewer
-	 * @todo Start implementation
-	 * @deprecated
-	 */
-	@Input() guideView?: boolean;
-	/**
 	 * The title of the example
 	 * @note Using `docsTitle` instead of title as it will render as a `title` attribute
+	 * @deprecated
 	 */
-	@Input() docsTitle: string;
-	/**
-	 * The id of the example
-	 * @note This can be accessible through `document.getElementById`
-	 */
-	@Input() docsId: string;
+	@Input() docsTitle?: string;
 	/**
 	 * Whether the example is only available on `master` build
 	 */
@@ -38,24 +28,14 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	 * The external component
 	 */
 	@Input() externalComponent?: CodeExternalComponent[];
-	files = [] as CodeFiles[];
+	files = [];
 	/**
 	 * Whether to show the code
 	 */
-	showCode: boolean = false;
-	docsIdDefaultInt: number = 0;
-	sectionScroll = "";
-	isDark: boolean;
-	fileLabelReg = /[^/\\&\?]+\.\w{2,4}(?=([\?&].*$|$))/igm;
-	exampleHost: ComponentPortal<any>;
-	/**
-	 * For id attribute
-	 * @returns {string}
-	 */
-	docsIdDefault(): string {
-		this.docsIdDefaultInt++;
-		return 'example' + this.docsIdDefaultInt;
-	}
+	private showCode: boolean = false;
+	private isDark: boolean;
+	private fileLabelReg = /[^/\\&\?]+\.\w{2,4}(?=([\?&].*$|$))/igm;
+	private exampleHost: ComponentPortal<any>;
 	/**
 	 * Reads a text file
 	 * @param {string} file The file to read
@@ -80,15 +60,17 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	}
 	/**
 	 * Toggles the source code
+	 * @private
 	 */
-	toggleSource() {
+	private toggleSource() {
 		this.showCode = !this.showCode;
 	}
 	/**
 	 * Copies code to clipboard
 	 * @param {string} code The code to copy
+	 * @private
 	 */
-	copyToClipboard(code: string) {
+	private copyToClipboard(code: string) {
 		if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
 			let textarea = document.createElement("textarea");
 			textarea.textContent = code;
@@ -106,7 +88,11 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 			}
 		}
 	}
-	viewStackblitzDemo() {
+	/**
+	 * Views the stackblitz demo
+	 * @private
+	 */
+	private viewStackblitzDemo() {
 		window.open("https://material2-docs-all-examples.stackblitz.io/"+this.exFiles.url);
 	}
 	ngOnInit() {
@@ -130,26 +116,35 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 }
 export interface CodeFiles {
 	/**
-	 * The name of the file
+	 * The paths to the example files for use with the source code tabs
 	 * @note Order matters!
-	 * @type {string}
+	 * @type {string[]}
 	 */
 	filePath: string[];
 	/**
-	 * The path of the syntax highlighted file
+	 * The paths to the syntax highlighted example files for use with the source code tabs
 	 * @note Order matters!
 	 * @type {string[]}
 	 */
 	highlightPath: string[];
 	/**
-	 * The component name
+	 * The component for the example
 	 * @type {Type<any>}
 	 */
 	componentName: Type<any>;
 	/**
-	 * The id of the demo
+	 * The id of the demo for use with Stackblitz
+	 * @type {string}
 	 */
 	url: string;
+	/**
+	 * The title of the demo
+	 */
+	title: string;
+	/**
+	 * Notices about the example
+	 */
+	notices?: CodeNotices[];
 }
 export interface CodeExternalComponent {
 	/**
@@ -160,4 +155,26 @@ export interface CodeExternalComponent {
 	 * The name of the external component
 	 */
 	name: string;
+}
+export interface CodeNotices {
+	/**
+	 * The name of the chip
+	 */
+	name: string;
+	/**
+	 * The description of the chip
+	 */
+	desc: string;
+	/**
+	 * The link of the chip to go to
+	 */
+	link?: string;
+	/**
+	 * The icon of the chip
+	 */
+	icon?: string;
+	/**
+	 * The color of the chip
+	 */
+	color?: "primary"|"accent"|"warn";
 }

@@ -23,7 +23,8 @@ export class DocsExampleList implements OnInit {
                 'assets/highlighted/nav-list-ts.html'
             ],
 			componentName: NavListExample,
-			url: "list/list-nav"
+			url: "list/list-nav",
+			title: "Navigation list"
         }
         this.advancedList = {
             filePath: [
@@ -37,7 +38,8 @@ export class DocsExampleList implements OnInit {
                 'assets/highlighted/advanced-list-dialog-html.html'
             ],
 			componentName: AdvancedListExample,
-			url: "list/list-advanced"
+			url: "list/list-advanced",
+			title: "Advanced list"
         }
     }
 }

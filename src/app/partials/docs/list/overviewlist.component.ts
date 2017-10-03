@@ -23,7 +23,8 @@ export class DocsOverviewList implements OnInit {
                 'assets/highlighted/simple-list-ts.html'
             ],
 			componentName: SimpleListExample,
-			url: "list/list-overview"
+			url: "list/list-overview",
+			title: "Simple list"
 		}
 		this.selectionList = {
 			filePath: [
@@ -35,7 +36,8 @@ export class DocsOverviewList implements OnInit {
 				'assets/highlighted/selection-list-ts.html'
 			],
 			componentName: SelectionListExample,
-			url: "list/list-selection"
+			url: "list/list-selection",
+			title: "Selection list"
 		}
     }
 }

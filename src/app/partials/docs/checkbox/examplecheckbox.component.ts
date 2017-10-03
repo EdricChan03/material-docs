@@ -22,7 +22,8 @@ export class DocsExampleCheckbox implements OnInit {
                 'assets/highlighted/configurable-checkbox-css.html'
             ],
 			componentName: CheckboxConfigurableExample,
-			url: "checkbox/checkbox-configurable"
+			url: "checkbox/checkbox-configurable",
+			title: "Checkbox with configurable properties"
         }
     }
 }

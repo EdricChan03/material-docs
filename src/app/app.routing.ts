@@ -1,3 +1,4 @@
+import { DocsExampleIcon } from './partials/docs/icon/exampleicon.component';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
 import { DocsAPIDatepicker } from './partials/docs/datepicker/apidatepicker.component';
@@ -147,6 +148,13 @@ export const AppRoutes: Routes = [
 				path: 'expansion-panel', component: DocViewerComponent, children: [
 					{ path: 'overview', component: DocsOverviewExpansion },
 					{ path: '**', redirectTo: 'overview' }
+				]
+			},
+			{
+				path: 'icon', component: DocViewerComponent, children: [
+					{ path: 'overview', component: DocsOverviewIcon },
+					{ path: 'examples', component: DocsExampleIcon },
+					{ path: '**', redirectTo: 'overview'}
 				]
 			}
 		]

@@ -22,7 +22,8 @@ export class DocsOverviewTooltip implements OnInit {
                 'assets/highlighted/simple-tooltip-ts.html'
             ],
 			componentName: SimpleTooltipExample,
-			url: "tooltip/tooltip-overview"
+			url: "tooltip/tooltip-overview",
+			title: "Simple tooltip"
         }
     }
 }

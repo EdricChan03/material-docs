@@ -20,7 +20,8 @@ export class DocsOverviewCheckbox implements OnInit {
                 'assets/highlighted/simple-checkbox-ts.html'
             ],
 			componentName: SimpleCheckboxExample,
-			url: "checkbox/checkbox-overview"
+			url: "checkbox/checkbox-overview",
+			title: "Simple Checkbox"
         }
     }
 }

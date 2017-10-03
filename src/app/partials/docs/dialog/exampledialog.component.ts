@@ -25,7 +25,8 @@ export class DocsExampleDialog implements OnInit {
                 'assets/examples/dialog/configurable-dialog-content.html'
             ],
 			componentName: ConfigurableDialogExample,
-			url: "dialog/dialog-configurable"
+			url: "dialog/dialog-configurable",
+			title: "Dialog with configurable properties"
         }
     }
 }
