@@ -65,7 +65,8 @@ export class MySampleComponent implements OnInit {
                 'assets/highlighted/button-types-css.html'
             ],
             componentName: ButtonTypesExample,
-			url: 'button/button-types'
+			url: 'button/button-types',
+			title: 'Button Types'
 		}
 	}
 }
@@ -73,11 +74,6 @@ export class MySampleComponent implements OnInit {
 Input | Description | Value(s) | Required?
 ---|---|---|---
 `exFiles` | Used to retrieve stuff for the example. | `CodeFiles` | `true`
-`docsId` | The id of the example. Can be used for fragments. | `string` | `true`
-`docsTitle` | The title of the example. | `string` | `true`
-`masterBuild` | Whether the example can only run on the latest master build. | `boolean` | `false`
-`externalComponent` | Other components used in the example. | `CodeExternalComponent[]` | `false`
-`guideView` | Whether to change the viewer to a guide viewer (now deprecated, no change to UI) | `boolean` | `false`
 
 [Source code](https://github.com/Chan4077/material2-docs/blob/master/src/app/shared/example-viewer.docs.ts)
 ### `api-method-viewer`

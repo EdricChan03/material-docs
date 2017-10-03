@@ -14,20 +14,6 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	 * The list of files
 	 */
 	@Input() exFiles: CodeFiles;
-	/**
-	 * The title of the example
-	 * @note Using `docsTitle` instead of title as it will render as a `title` attribute
-	 * @deprecated
-	 */
-	@Input() docsTitle?: string;
-	/**
-	 * Whether the example is only available on `master` build
-	 */
-	@Input() masterBuild?: boolean;
-	/**
-	 * The external component
-	 */
-	@Input() externalComponent?: CodeExternalComponent[];
 	files = [];
 	/**
 	 * Whether to show the code
