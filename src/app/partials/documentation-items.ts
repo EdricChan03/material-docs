@@ -99,6 +99,14 @@ const DOCS = [
 			{ id: 'sort', name: 'Sort header' },
 			{ id: 'paginator', name: 'Paginator' }
 		]
+	},
+	{
+		id: 'other',
+		name: 'Other components',
+		items: [
+			{ id: 'ripple', name: 'Ripple' },
+			{ id: 'cdk', name: 'CDK (WIP)' }
+		]
 	}
 ];
 /**
