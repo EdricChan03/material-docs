@@ -1,7 +1,7 @@
 import { SharedComponent } from './shared.docs';
 import { Component, OnInit, Input, ElementRef, DoCheck, Type } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
-import { MdSnackBar } from "@angular/material";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { ComponentPortal } from '@angular/cdk/portal';
 @Component({
 	selector: 'example-viewer',
@@ -9,7 +9,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 })
 
 export class ExampleViewerComponent implements OnInit, DoCheck {
-	constructor(private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MdSnackBar) { }
+	constructor(private el: ElementRef, private router: Router, private shared: SharedComponent, private snackbar: MatSnackBar) { }
 	/**
 	 * The list of files
 	 */
@@ -17,6 +17,7 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	/**
 	 * Whether to change to guide viewer
 	 * @todo Start implementation
+	 * @deprecated
 	 */
 	@Input() guideView?: boolean;
 	/**
@@ -105,6 +106,9 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 			}
 		}
 	}
+	viewStackblitzDemo() {
+		window.open("https://material2-docs-all-examples.stackblitz.io/"+this.exFiles.url);
+	}
 	ngOnInit() {
 		// More info: https://stackoverflow.com/questions/14473180/regex-to-get-a-filename-from-a-url#26253039
 		for (var i = 0; i < this.exFiles.highlightPath.length; i++) {
@@ -142,8 +146,18 @@ export interface CodeFiles {
 	 * @type {Type<any>}
 	 */
 	componentName: Type<any>;
+	/**
+	 * The id of the demo
+	 */
+	url: string;
 }
 export interface CodeExternalComponent {
+	/**
+	 * The link of the external component docs
+	 */
 	link: string;
+	/**
+	 * The name of the external component
+	 */
 	name: string;
 }
