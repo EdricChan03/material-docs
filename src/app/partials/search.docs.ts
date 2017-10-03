@@ -1,3 +1,4 @@
+import { DocumentationItems } from './documentation-items';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedComponent } from './../shared/shared.docs';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DocsSearch {
-    constructor(private shared: SharedComponent, private route: ActivatedRoute, private router: Router) {
+    constructor(private shared: SharedComponent, private route: ActivatedRoute, private router: Router, private docItems: DocumentationItems) {
 		this.route.params.subscribe(params=> {
 			if (params['name']) {
 				this.searchDocs(params['name']);
@@ -25,6 +26,7 @@ export class DocsSearch {
 	searchDocs(search?: string) {
 		this.search = search;
 		if (search) console.log(search);
+		console.log(this.docItems.getCategoryById(this.search));
 	}
     submit(search?: string) {
         console.log(`Searching for ${this.search} with params ${this.searchOptType}`);
