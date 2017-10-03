@@ -6,6 +6,9 @@ import { Input, Component, OnInit } from "@angular/core";
     templateUrl: './api-method-viewer.docs.html'
 })
 export class APIMethodViewerComponent {
+	/**
+	 * The properties of a certain API methods
+	 */
     @Input() apiFiles: APIMethods[];
 }
 
@@ -14,5 +17,8 @@ export class APIMethodViewerComponent {
     templateUrl: './api-property-viewer.docs.html'
 })
 export class APIPropertyViewerComponent{
+	/**
+	 * The properties of a certain API properties
+	 */
     @Input() apiFiles: APIProperties[];
 }
