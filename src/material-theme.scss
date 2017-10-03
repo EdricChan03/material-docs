@@ -9,7 +9,6 @@
     $primary: map-get($theme, primary);
     $background: map-get($theme, background);
 	$foreground: map-get($theme, foreground);
-	// @error $foreground;
     .docs-table-th {
         background-color: mat-color($background, app-bar);
     }
@@ -35,7 +34,11 @@
                 color: mat-color($primary);
             }
         }
-    }
+	}
+	.active-link {
+		background-color: mat-color($background, status-bar) !important;
+		color: mat-color($primary) !important;
+	}
 }
 
 $docs-light-primary: mat-palette($mat-indigo);
@@ -54,9 +57,6 @@ $docs-light-accent);
     .docs-title {
         background-color: mat-color($docs-light-accent);
         color: white;
-    }
-    .active-link {
-        background-color: mat-color($docs-light-primary) !important;
     }
     a.docs-link {
         color: mat-color($docs-light-accent);
@@ -90,9 +90,6 @@ $docs-dark-warn);
     .docs-title {
         background-color: mat-color($docs-dark-accent);
         color: black;
-    }
-    .active-link {
-        background-color: mat-color($docs-dark-primary) !important;
     }
     a.docs-link {
         color: mat-color($docs-dark-accent);
@@ -247,10 +244,6 @@ body {
 .mat-icon svg {
     width: 24px;
     height: 24px;
-}
-
-.active-link {
-    color: white !important;
 }
 
 .docs-copy-btn {
