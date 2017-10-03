@@ -1,87 +1,89 @@
+import { SelectionListExample } from './../assets/examples/list/selection-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocsMaterialModule } from './materialdocs.module';
 
 import { MiscOnboardingExample, MiscOnboardingExampleDialog } from './../assets/examples/misc/onboarding/onboarding-example';
-import { SimpleExpansionComponent } from './../assets/examples/expansion/simple-expansion';
-import { TouchDatepickerComponent } from './../assets/examples/datepicker/touch-ui-datepicker';
-import { StartViewDatepickerComponent } from './../assets/examples/datepicker/startat-datepicker';
-import { MinMaxDatepickerComponent } from './../assets/examples/datepicker/min-max-validation-datepicker';
-import { FilterDatepickerComponent } from './../assets/examples/datepicker/filter-validation-datepicker';
-import { ApiDatepickerComponent } from './../assets/examples/datepicker/api-datepicker';
-import { SimpleDatepickerComponent } from './../assets/examples/datepicker/simple-datepicker';
-import { MultipleButtonToggleComponent } from './../assets/examples/button-toggle/multiple-button-toggle';
-import { IconMenuComponent, IconMenuDialog } from './../assets/examples/menu/icon-menu';
-import { NestedMenuComponent } from './../assets/examples/menu/nested-menu';
-import { SimpleMenuComponent } from './../assets/examples/menu/simple-menu';
-import { AdvancedListComponent, AdvancedListDialog } from './../assets/examples/list/advanced-list';
-import { SimpleButtonToggleComponent } from './../assets/examples/button-toggle/simple-button-toggle';
-import { ConfigurableSlideToggleComponent } from './../assets/examples/slide-toggle/configurable-slide-toggle';
-import { NavListComponent } from './../assets/examples/list/nav-list';
-import { SimpleListComponent } from './../assets/examples/list/simple-list';
-import { SimpleSlideToggleComponent } from './../assets/examples/slide-toggle/simple-slide-toggle';
-import { ConfigurableDialogComponent, ConfigurableDialog } from './../assets/examples/dialog/configurable-dialog';
-import { DialogResultComponent, DialogResult } from './../assets/examples/dialog/dialog-result';
-import { CheckboxConfigurableComponent } from './../assets/examples/checkbox/configurable-checkbox';
+import { SimpleExpansionExample } from './../assets/examples/expansion/simple-expansion';
+import { TouchDatepickerExample } from './../assets/examples/datepicker/touch-ui-datepicker';
+import { StartViewDatepickerExample } from './../assets/examples/datepicker/startat-datepicker';
+import { MinMaxDatepickerExample } from './../assets/examples/datepicker/min-max-validation-datepicker';
+import { FilterDatepickerExample } from './../assets/examples/datepicker/filter-validation-datepicker';
+import { ApiDatepickerExample } from './../assets/examples/datepicker/api-datepicker';
+import { SimpleDatepickerExample } from './../assets/examples/datepicker/simple-datepicker';
+import { ExclusiveButtonToggleExample } from './../assets/examples/button-toggle/exclusive-button-toggle';
+import { IconMenuExample, IconMenuDialog } from './../assets/examples/menu/icon-menu';
+import { NestedMenuExample } from './../assets/examples/menu/nested-menu';
+import { SimpleMenuExample } from './../assets/examples/menu/simple-menu';
+import { AdvancedListExample, AdvancedListDialog } from './../assets/examples/list/advanced-list';
+import { SimpleButtonToggleExample } from './../assets/examples/button-toggle/simple-button-toggle';
+import { ConfigurableSlideToggleExample } from './../assets/examples/slide-toggle/configurable-slide-toggle';
+import { NavListExample } from './../assets/examples/list/nav-list';
+import { SimpleListExample } from './../assets/examples/list/simple-list';
+import { SimpleSlideToggleExample } from './../assets/examples/slide-toggle/simple-slide-toggle';
+import { ConfigurableDialogExample, ConfigurableDialog } from './../assets/examples/dialog/configurable-dialog';
+import { DialogResultExample, DialogResult } from './../assets/examples/dialog/dialog-result';
+import { CheckboxConfigurableExample } from './../assets/examples/checkbox/configurable-checkbox';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
 
-import { SimpleTooltipComponent } from './../assets/examples/tooltip/simple-tooltip';
-import { ConfigurableTooltipComponent } from './../assets/examples/tooltip/configurable-tooltip';
-import { SimpleCheckboxComponent } from './../assets/examples/checkbox/simple-checkbox';
-import { ButtonOverviewComponent } from './../assets/examples/button/button-overview';
-import { ButtonTypesComponent } from './../assets/examples/button/button-types';
-import { ButtonNoRippleComponent } from './../assets/examples/button/button-noripple';
+import { SimpleTooltipExample } from './../assets/examples/tooltip/simple-tooltip';
+import { ConfigurableTooltipExample } from './../assets/examples/tooltip/configurable-tooltip';
+import { SimpleCheckboxExample } from './../assets/examples/checkbox/simple-checkbox';
+import { ButtonOverviewExample } from './../assets/examples/button/button-overview';
+import { ButtonTypesExample } from './../assets/examples/button/button-types';
+import { ButtonNoRippleExample } from './../assets/examples/button/button-noripple';
 export const BUTTON_COMPONENTS = [
-    ButtonNoRippleComponent,
-    ButtonTypesComponent,
-    ButtonOverviewComponent
+    ButtonNoRippleExample,
+    ButtonTypesExample,
+    ButtonOverviewExample
 ]
 export const BUTTON_TOGGLE_COMPONENTS = [
-	SimpleButtonToggleComponent,
-	MultipleButtonToggleComponent
+	SimpleButtonToggleExample,
+	ExclusiveButtonToggleExample
 ]
 export const CHECKBOX_COMPONENTS = [
-    SimpleCheckboxComponent,
-    CheckboxConfigurableComponent
+    SimpleCheckboxExample,
+    CheckboxConfigurableExample
 ]
 export const DATEPICKER_COMPONENTS = [
-	ApiDatepickerComponent,
-	FilterDatepickerComponent,
-	MinMaxDatepickerComponent,
-	SimpleDatepickerComponent,
-	StartViewDatepickerComponent,
-	TouchDatepickerComponent
+	ApiDatepickerExample,
+	FilterDatepickerExample,
+	MinMaxDatepickerExample,
+	SimpleDatepickerExample,
+	StartViewDatepickerExample,
+	TouchDatepickerExample
 ]
 export const DIALOG_COMPONENTS = [
-    DialogResultComponent,
+    DialogResultExample,
     DialogResult,
-    ConfigurableDialogComponent,
+    ConfigurableDialogExample,
     ConfigurableDialog
 ]
 export const EXPANSION_COMPONENTS = [
-	SimpleExpansionComponent
+	SimpleExpansionExample
 ]
 export const LIST_COMPONENTS = [
-    SimpleListComponent,
-    NavListComponent,
-    AdvancedListComponent,
-    AdvancedListDialog
+    SimpleListExample,
+    NavListExample,
+    AdvancedListExample,
+	AdvancedListDialog,
+	SelectionListExample
 ]
 export const MENU_COMPONENTS = [
-    SimpleMenuComponent,
-	NestedMenuComponent,
-	IconMenuComponent,
+    SimpleMenuExample,
+	NestedMenuExample,
+	IconMenuExample,
 	IconMenuDialog
 ]
 export const SLIDE_TOGGLE_COMPONENTS = [
-    SimpleSlideToggleComponent,
-    ConfigurableSlideToggleComponent
+    SimpleSlideToggleExample,
+    ConfigurableSlideToggleExample
 ]
 export const TOOLTIP_COMPONENTS = [
-    ConfigurableTooltipComponent,
-    SimpleTooltipComponent
+    ConfigurableTooltipExample,
+    SimpleTooltipExample
 ]
 export const MISC_COMPONENTS = [
 	MiscOnboardingExample,
