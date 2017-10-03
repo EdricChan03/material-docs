@@ -12,31 +12,35 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MdIconRegistry } from "@angular/material";
+import { MatIconRegistry } from '@angular/material/icon';
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 import { AppComponent } from './app.component';
-import { RouterModule } from "@angular/router";
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        HttpModule,
-        FlexLayoutModule,
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		HttpModule,
+		FlexLayoutModule,
 		DocsMaterialModule,
-        DocsModule,
-        ExampleModule,
-        AppRouting
-    ],
-    bootstrap: [AppComponent]
+		DocsModule,
+		ExampleModule,
+		AppRouting
+	],
+	bootstrap: [AppComponent],
+	providers: [
+		{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}
+	]
 })
 export class AppModule {
-    constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer) {
+	constructor(private mdIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
 		mdIconRegistry.addSvgIconSetInNamespace('icons', domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/icons.svg'));
-    }
+	}
 }
