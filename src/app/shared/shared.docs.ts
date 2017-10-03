@@ -12,6 +12,7 @@ export class SharedComponent {
     /**
      * Routing
      * @param {string} id The route fragment
+	 * @deprecated
      */
 	public fragRoute(id: string) {
 		this.sectionScroll = id;
@@ -19,9 +20,8 @@ export class SharedComponent {
 		this.doScroll();
 	}
     /**
-     * Does a scroll
-     * @todo Make this work
-     * @beta
+     * Scrolls to the fragment specified in the URL (now deprecated, will be removed soon)
+     * @deprecated
      */
 	public doScroll() {
 
@@ -75,7 +75,7 @@ export class SharedComponent {
     /**
      * Gets the `Settings` as an `Observable`.
      * @todo Figure out how this works
-     * @beta (Do not use yet!)
+     * @deprecated
      */
 	public getSettingsObservable(): Observable<Settings> {
 		return this.sharedLog.asObservable();
