@@ -1,4 +1,4 @@
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { Component, AfterViewInit } from '@angular/core';
 import * as hljs from 'highlight.js';
 
@@ -6,7 +6,7 @@ import * as hljs from 'highlight.js';
     selector: 'advanced-list-example',
     templateUrl: 'advanced-list.html'
 })
-export class AdvancedListComponent {
+export class AdvancedListExample {
 	// Note that these icons are custom and are provided through a custom iconset
     recentFiles: any = [
         {
@@ -42,7 +42,7 @@ export class AdvancedListComponent {
             name: "Kids"
         }
     ]
-    constructor(private dialog: MdDialog){}
+    constructor(private dialog: MatDialog){}
     openInfoDialog(file: any) {
         let dialogRef = this.dialog.open(AdvancedListDialog);
         dialogRef.componentInstance.file = file;
@@ -54,7 +54,7 @@ export class AdvancedListComponent {
     templateUrl: 'advanced-list-dialog.html'
 })
 export class AdvancedListDialog implements AfterViewInit{
-    constructor(public dialogRef: MdDialogRef<AdvancedListDialog>){}
+    constructor(public dialogRef: MatDialogRef<AdvancedListDialog>){}
 	file: any;
 	ngAfterViewInit() {
 		hljs.highlightBlock(document.getElementById('code'));

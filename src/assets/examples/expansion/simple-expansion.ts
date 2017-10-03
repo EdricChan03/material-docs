@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-	selector: 'simple-expansion',
+	selector: 'simple-expansion-example',
 	templateUrl: 'simple-expansion.html',
 })
-export class SimpleExpansionComponent { }
+export class SimpleExpansionExample { }

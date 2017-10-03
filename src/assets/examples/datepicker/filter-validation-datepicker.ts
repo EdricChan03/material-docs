@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'filter-validation-datepicker',
+	selector: 'filter-validation-datepicker-example',
 	templateUrl: 'filter-validation-datepicker.html'
 })
-export class FilterDatepickerComponent {
+export class FilterDatepickerExample {
 	myFilter = (d: Date): boolean => {
 		const day = d.getDay();
 		// Prevent Saturday and Sunday from being selected.

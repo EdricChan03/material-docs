@@ -6,7 +6,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
     styleUrls: ['configurable-tooltip.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class ConfigurableTooltipComponent {
+export class ConfigurableTooltipExample {
     positions = [
         { val: 'above', displayVal: 'Above' },
         { val: 'below', displayVal: 'Below' },

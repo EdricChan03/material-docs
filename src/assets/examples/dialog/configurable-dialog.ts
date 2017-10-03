@@ -1,14 +1,14 @@
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { Component } from '@angular/core';
 @Component({
     selector: 'configurable-dialog-example',
     templateUrl: 'configurable-dialog.html',
     styleUrls: ['configurable-dialog.css']
 })
-export class ConfigurableDialogComponent {
+export class ConfigurableDialogExample {
     data: string = "Jazzy jazzy jazz";
     disableClose: boolean = false;
-    constructor(public dialog: MdDialog) { }
+    constructor(public dialog: MatDialog) { }
 
     openDialog() {
         let dialogRef = this.dialog.open(ConfigurableDialog);
@@ -31,7 +31,7 @@ export class ConfigurableDialog {
     left: number;
     right: number;
     bottom: number;
-    constructor(public dialogRef: MdDialogRef<ConfigurableDialog>) { }
+    constructor(public dialogRef: MatDialogRef<ConfigurableDialog>) { }
 
     changeSize() {
         let stringWidth, stringHeight;

@@ -1,34 +1,34 @@
-<h3 md-dialog-title>Configurable dialog</h3>
-<md-dialog-content>
+<h3 matDialogTitle>Configurable dialog</h3>
+<mat-dialog-content>
     <p>{{data}}</p>
     
     <p>Update size:</p>
 
-    <md-form-field>
-        <input mdInput [(ngModel)]="width" placeholder="Width" type="number" max="1000">
-    </md-form-field>
-    <md-form-field>
-        <input mdInput [(ngModel)]="height" placeholder="Height" type="number" max="1000">
-    </md-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="width" placeholder="Width" type="number" max="1000">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="height" placeholder="Height" type="number" max="1000">
+    </mat-form-field>
 
-    <button md-button (click)="changeSize()">Update Size</button>
+    <button mat-button (click)="changeSize()">Update Size</button>
 
     <p>Update position:</p>
-    <md-form-field>
-        <input mdInput [(ngModel)]="top" placeholder="Top" type="number">
-    </md-form-field>
-    <md-form-field>
-        <input mdInput [(ngModel)]="bottom" placeholder="Bottom" type="number">
-    </md-form-field>
-    <md-form-field>
-        <input mdInput [(ngModel)]="left" placeholder="Left" type="number">
-    </md-form-field>
-    <md-form-field>
-        <input mdInput [(ngModel)]="right" placeholder="Right" type="number">
-    </md-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="top" placeholder="Top" type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="bottom" placeholder="Bottom" type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="left" placeholder="Left" type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="right" placeholder="Right" type="number">
+    </mat-form-field>
 
-    <button md-button (click)="changePos()">Update Position</button>
-</md-dialog-content>
-<md-dialog-actions align="end">
-    <button md-button color="primary" (click)="closeDialog()">Close</button>
-</md-dialog-actions>
+    <button mat-button (click)="changePos()">Update Position</button>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button color="primary" (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

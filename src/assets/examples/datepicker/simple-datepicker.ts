@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-	selector: 'simple-datepicker',
+	selector: 'simple-datepicker-example',
 	templateUrl: 'simple-datepicker.html'
 })
-export class SimpleDatepickerComponent {}
+export class SimpleDatepickerExample {}

@@ -1,14 +1,13 @@
-import { MdDialogRef } from '@angular/material';
-import { MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { Component } from '@angular/core';
 
 @Component({
     selector: 'dialog-result-example',
     templateUrl: 'dialog-result.html'
 })
-export class DialogResultComponent {
+export class DialogResultExample {
     chosenResult: string;
-    constructor(public dialog: MdDialog){}
+    constructor(public dialog: MatDialog){}
 
     openDialog() {
         let dialogRef = this.dialog.open(DialogResult);
@@ -24,5 +23,5 @@ export class DialogResultComponent {
     styleUrls: ['dialog-result-content.css']
 })
 export class DialogResult {
-    constructor(public dialogRef: MdDialogRef<DialogResult>){}
+    constructor(public dialogRef: MatDialogRef<DialogResult>){}
 }

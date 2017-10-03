@@ -4,4 +4,4 @@ import { Component } from "@angular/core";
     selector: 'nested-menu-example',
     templateUrl: 'nested-menu.html'
 })
-export class NestedMenuComponent {}
+export class NestedMenuExample {}

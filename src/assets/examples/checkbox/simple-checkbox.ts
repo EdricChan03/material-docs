@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     selector: 'simple-checkbox-example',
     templateUrl: 'simple-checkbox.html'
 })
-export class SimpleCheckboxComponent {}
+export class SimpleCheckboxExample {}

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
     selector: 'nav-list-example',
     templateUrl: 'nav-list.html'
 })
-export class NavListComponent {
+export class NavListExample {
     links: any = [
         {url: 'https://google.com', desc: 'Google'},
         {url: 'https://material.angular.io', desc: 'Material.Angular.io'},

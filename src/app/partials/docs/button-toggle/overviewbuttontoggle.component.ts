@@ -1,4 +1,4 @@
-import { SimpleButtonToggleComponent } from './../../../../assets/examples/button-toggle/simple-button-toggle';
+import { SimpleButtonToggleExample } from './../../../../assets/examples/button-toggle/simple-button-toggle';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,8 @@ export class DocsOverviewButtonToggle implements OnInit {
                 'assets/examples/button-toggle/simple-button-toggle.html',
                 'assets/examples/button-toggle/simple-button-toggle.ts'
             ],
-            componentName: SimpleButtonToggleComponent
+			componentName: SimpleButtonToggleExample,
+			url: "button-toggle/button-toggle-overview"
         }
     }
 }

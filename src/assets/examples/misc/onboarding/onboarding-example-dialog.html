@@ -1,4 +1,4 @@
-<md-dialog-content>
+<mat-dialog-content>
 	<div *ngIf="isSelected(1)">
 		<img src="https://angular.io/generated/images/marketing/home/responsive-framework.svg" class="docs-img">
 		<h2>DEVELOP ACROSS ALL PLATFORMS</h2>
@@ -26,16 +26,16 @@
 			largest applications.</p>
 	</div>
 
-</md-dialog-content>
-<md-dialog-actions>
-	<button md-icon-button [disabled]="isPrevDisabled" (click)="previous()" mdTooltip="Go back"><md-icon>arrow_back</md-icon></button>
-	<button md-icon-button [disabled]="isNextDisabled" (click)="next()" mdTooltip="Go forward"><md-icon>arrow_forward</md-icon></button>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-icon-button [disabled]="isPrevDisabled" (click)="previous()" matTooltip="Go back"><mat-icon>arrow_back</mat-icon></button>
+	<button mat-icon-button [disabled]="isNextDisabled" (click)="next()" matTooltip="Go forward"><mat-icon>arrow_forward</mat-icon></button>
 	<span style="flex: 1"></span>
 	<!-- Dots for progress -->
 	<svg height="8" width="8" class="onboarding-dot" viewBox="0 0 8 8" *ngFor="let dot of dots">
 		<circle r="4" fill="black" cx="4" cy="4" [attr.fill]="isSelected(dot) ? 'black' : 'white'" stroke="black"/>
 	</svg>
 	<span style="flex: 1"></span>
-	<button md-button color="primary" md-dialog-close="skip" class="docs-btn">Skip</button>
-	<button md-button color="primary" md-dialog-close="done" class="docs-btn" *ngIf="pageIndex == 4">Get Started</button>
-</md-dialog-actions>
+	<button mat-button color="primary" matDialogClose="skip" class="docs-btn">Skip</button>
+	<button mat-button color="primary" matDialogClose="done" class="docs-btn" *ngIf="pageIndex == 4">Get Started</button>
+</mat-dialog-actions>

@@ -3,4 +3,4 @@ import { Component } from '@angular/core';
     selector: 'simple-slide-toggle-example',
     templateUrl: 'simple-slide-toggle.html'
 })
-export class SimpleSlideToggleComponent {}
+export class SimpleSlideToggleExample {}

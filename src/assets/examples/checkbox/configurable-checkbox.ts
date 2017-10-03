@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     templateUrl: 'configurable-checkbox.html',
     styleUrls: ['configurable-checkbox.css']
 })
-export class CheckboxConfigurableComponent {
+export class CheckboxConfigurableExample {
     checked: boolean = false;
     indeterminate: boolean = false;
     disabled: boolean = false;

@@ -1,33 +1,33 @@
-<md-card>
-    <md-card-title>Tooltip configuration</md-card-title>
-    <md-card-content>
+<mat-card>
+    <mat-card-title>Tooltip configuration</mat-card-title>
+    <mat-card-content>
         <section class="example-section">
-        <md-select placeholder="Tooltip Position" [(ngModel)]="tooltipPosition" class="example-margin">
-            <md-option *ngFor="let pos of positions" [value]="pos.val">{{pos.displayVal}}</md-option>
-        </md-select>
+        <mat-select placeholder="Tooltip Position" [(ngModel)]="tooltipPosition" class="example-margin">
+            <mat-option *ngFor="let pos of positions" [value]="pos.val">{{pos.displayVal}}</mat-option>
+        </mat-select>
         </section>
         <section class="example-section">
             <label class="example-margin">Tooltip content</label>
-            <md-form-field class="example-margin">
-                <input mdInput [(ngModel)]="tooltipContent">
-            </md-form-field>
+            <mat-form-field class="example-margin">
+                <input matInput [(ngModel)]="tooltipContent">
+            </mat-form-field>
         </section>
         <section class="example-section">
-            <md-checkbox [(ngModel)]="tooltipDisabled" class="example-margin">Disable Tooltip</md-checkbox>
-            <md-checkbox [(ngModel)]="tooltipCustomClass" class="example-margin">Has Custom Class</md-checkbox>
+            <mat-checkbox [(ngModel)]="tooltipDisabled" class="example-margin">Disable Tooltip</mat-checkbox>
+            <mat-checkbox [(ngModel)]="tooltipCustomClass" class="example-margin">Has Custom Class</mat-checkbox>
         </section>
-    </md-card-content>
-</md-card>
-<md-card>
-    <md-card-content>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
         <section class="example-section example-result">
             <span
-                [mdTooltip]="tooltipContent"
-                [mdTooltipPosition]="tooltipPosition"
-                [mdTooltipDisabled]="tooltipDisabled"
-                [mdTooltipClass]="{'example-custom-tooltip': tooltipCustomClass}">
+                [matTooltip]="tooltipContent"
+                [matTooltipPosition]="tooltipPosition"
+                [matTooltipDisabled]="tooltipDisabled"
+                [matTooltipClass]="{'example-custom-tooltip': tooltipCustomClass}">
                 Content
             </span>
         </section>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

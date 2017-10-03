@@ -1,0 +1,13 @@
+<mat-selection-list #fruits>
+	<mat-list-option *ngFor="let fruit of typeOfFruits">
+		{{fruit}}
+	</mat-list-option>
+</mat-selection-list>
+
+<mat-card>
+	<mat-checkbox [(ngModel)]="stats">Show stats</mat-checkbox>
+	<div *ngIf="stats">
+		<p>Options selected: {{fruits.selectedOptions.selected.length}}</p>
+		<p>JSON data: {{fruits}}</p>
+	</div>
+</mat-card>

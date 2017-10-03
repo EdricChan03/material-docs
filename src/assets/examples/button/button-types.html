@@ -1,28 +1,28 @@
 Color:
-<md-radio-group [(ngModel)]="color">
-    <md-radio-button value="primary">Primary</md-radio-button>
-    <md-radio-button value="accent">Accent</md-radio-button>
-    <md-radio-button value="warn">Warn</md-radio-button>
-    <md-radio-button value="">None</md-radio-button>
-</md-radio-group>
-<md-checkbox [(ngModel)]="disabled">Disabled</md-checkbox>
+<mat-radio-group [(ngModel)]="color">
+    <mat-radio-button value="primary">Primary</mat-radio-button>
+    <mat-radio-button value="accent">Accent</mat-radio-button>
+    <mat-radio-button value="warn">Warn</mat-radio-button>
+    <mat-radio-button value="">None</mat-radio-button>
+</mat-radio-group>
+<mat-checkbox [(ngModel)]="disabled">Disabled</mat-checkbox>
 <hr>
 <h3>Normal Buttons</h3>
-<button md-button [color]="color" [disabled]="disabled">Button</button>
-<button md-raised-button [color]="color" [disabled]="disabled">Raised Button</button>
-<button md-button class="example-uppercase-btn" [color]="color" [disabled]="disabled">Custom Button</button>
-<button md-fab [color]="color" [disabled]="disabled"><md-icon>check</md-icon></button>
-<button md-mini-fab [color]="color" [disabled]="disabled"><md-icon>check</md-icon></button>
-<button md-icon-button [color]="color" [disabled]="disabled">
-    <md-icon>check</md-icon>
+<button mat-button [color]="color" [disabled]="disabled">Button</button>
+<button mat-raised-button [color]="color" [disabled]="disabled">Raised Button</button>
+<button mat-button class="example-uppercase-btn" [color]="color" [disabled]="disabled">Custom Button</button>
+<button mat-fab [color]="color" [disabled]="disabled"><mat-icon>check</mat-icon></button>
+<button mat-mini-fab [color]="color" [disabled]="disabled"><mat-icon>check</mat-icon></button>
+<button mat-icon-button [color]="color" [disabled]="disabled">
+    <mat-icon>check</mat-icon>
 </button>
 <br>
 <h3>Link Button</h3>
-<a md-button [color]="color" [disabled]="disabled" routerLink=".">Button</a>
-<a md-raised-button [color]="color" [disabled]="disabled" routerLink=".">Raised Button</a>
-<a md-button class="example-uppercase-btn" [disabled]="disabled" [color]="color" routerLink=".">Custom Button</a>
-<a md-fab [color]="color" [disabled]="disabled" routerLink="."><md-icon>check</md-icon></a>
-<a md-mini-fab [color]="color" [disabled]="disabled" routerLink="."><md-icon>check</md-icon></a>
-<a md-icon-button [color]="color" [disabled]="disabled" routerLink=".">
-    <md-icon>check</md-icon>
+<a mat-button [color]="color" [disabled]="disabled" routerLink=".">Button</a>
+<a mat-raised-button [color]="color" [disabled]="disabled" routerLink=".">Raised Button</a>
+<a mat-button class="example-uppercase-btn" [disabled]="disabled" [color]="color" routerLink=".">Custom Button</a>
+<a mat-fab [color]="color" [disabled]="disabled" routerLink="."><mat-icon>check</mat-icon></a>
+<a mat-mini-fab [color]="color" [disabled]="disabled" routerLink="."><mat-icon>check</mat-icon></a>
+<a mat-icon-button [color]="color" [disabled]="disabled" routerLink=".">
+    <mat-icon>check</mat-icon>
 </a>

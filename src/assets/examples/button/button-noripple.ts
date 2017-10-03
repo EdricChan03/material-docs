@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     selector: 'button-noripple-example',
     templateUrl: 'button-noripple.html'
 })
-export class ButtonNoRippleComponent {}
+export class ButtonNoRippleExample {}

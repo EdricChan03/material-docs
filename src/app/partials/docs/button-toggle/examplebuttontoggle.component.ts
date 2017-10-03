@@ -1,4 +1,4 @@
-import { MultipleButtonToggleComponent } from './../../../../assets/examples/button-toggle/multiple-button-toggle';
+import { ExclusiveButtonToggleExample } from './../../../../assets/examples/button-toggle/exclusive-button-toggle';
 import { SharedComponent } from './../../../shared/shared.docs';
 import { CodeFiles } from './../../../shared/example-viewer.docs';
 import { Component, OnInit } from '@angular/core';
@@ -13,14 +13,15 @@ export class DocsExampleButtonToggle implements OnInit {
 	ngOnInit() {
 		this.buttonToggleGroup = {
 			filePath: [
-				'assets/examples/button-toggle/multiple-button-toggle.html',
-				'assets/examples/button-toggle/multiple-button-toggle.ts'
+				'assets/examples/button-toggle/exclusive-button-toggle.html',
+				'assets/examples/button-toggle/exclusive-button-toggle.ts'
 			],
 			highlightPath: [
-				'assets/highlighted/multiple-button-toggle-html.html',
-				'assets/highlighted/multiple-button-toggle-ts.html'
+				'assets/highlighted/exclusive-button-toggle-html.html',
+				'assets/highlighted/exclusive-button-toggle-ts.html'
 			],
-			componentName: MultipleButtonToggleComponent
+			componentName: ExclusiveButtonToggleExample,
+			url: "button-toggle/exclusive-button-toggle"
 		}
 	}
 }

@@ -4,4 +4,4 @@ import { Component } from "@angular/core";
     selector: 'simple-menu-example',
     templateUrl: 'simple-menu.html'
 })
-export class SimpleMenuComponent {}
+export class SimpleMenuExample {}

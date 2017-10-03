@@ -1,4 +1,4 @@
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class MiscOnboardingExample {
 	result: string;
 	disableClose: boolean = false;
-	constructor(private dialog: MdDialog){}
+	constructor(private dialog: MatDialog){}
 	getStarted() {
 		let dialogRef = this.dialog.open(MiscOnboardingExampleDialog, {panelClass: 'onboarding-dialog-content', disableClose: this.disableClose});
 		dialogRef.afterClosed().subscribe(result=> {
@@ -36,7 +36,7 @@ export class MiscOnboardingExampleDialog {
 	isPrevDisabled: boolean = true;
 	isNextDisabled: boolean = false;
 	dots: number[] = [1, 2, 3, 4];
- 	constructor(private dialogRef: MdDialogRef<MiscOnboardingExampleDialog>){
+ 	constructor(private dialogRef: MatDialogRef<MiscOnboardingExampleDialog>){
 	}
 	/**
 	 * Goes to the previous step

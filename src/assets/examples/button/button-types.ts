@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     templateUrl: 'button-types.html',
     styleUrls: ['button-types.css']
 })
-export class ButtonTypesComponent {
+export class ButtonTypesExample {
     color: string = "";
     disabled: boolean;
 }

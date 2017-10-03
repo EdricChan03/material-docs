@@ -3,4 +3,4 @@ import { Component } from '@angular/core';
     selector: 'simple-list-example',
     templateUrl: 'simple-list.html'
 })
-export class SimpleListComponent {}
+export class SimpleListExample {}

@@ -3,4 +3,4 @@ import { Component } from '@angular/core';
     selector: 'simple-button-toggle-example',
     templateUrl: 'simple-button-toggle.html'
 })
-export class SimpleButtonToggleComponent {}
+export class SimpleButtonToggleExample {}
