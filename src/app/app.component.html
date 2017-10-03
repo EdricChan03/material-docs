@@ -1,135 +1,138 @@
-<md-sidenav-container fullscreen>
-	<md-toolbar color="accent" class="mat-elevation-z6 docs-toolbar" [hidden]="showToolbar">
-		<button md-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage">
-			<md-icon>
+<mat-sidenav-container fullscreen>
+	<mat-toolbar color="accent" class="mat-elevation-z6 docs-toolbar" [hidden]="showToolbar">
+		<button mat-icon-button (click)="componentSidenav.toggle()" *ngIf="isComponentsPage">
+			<mat-icon>
 				<svg width="24" height="24">
 					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
 				</svg>
-			</md-icon>
+			</mat-icon>
 		</button> Angular Material Docs
 		<span fxFlex></span>
-		<md-form-field style="font-size:initial" [@searchFieldState]="searchActive">
-			<input mdInput type="search" [(ngModel)]="searchDoc">
-		</md-form-field>
-		<button md-button (click)="searchDocs(searchDoc)" class="docs-btn" [@searchBtnState]="searchActive">Search</button>
-		<button md-icon-button (click)="toggleSearch()" [@searchState]="searchActive">
-			<md-icon>
+		<mat-form-field style="font-size:initial" [@searchFieldState]="searchActive">
+			<input matInput type="search" [(ngModel)]="searchDoc">
+		</mat-form-field>
+		<button mat-button (click)="searchDocs(searchDoc)" class="docs-btn" [@searchBtnState]="searchActive">Search</button>
+		<button mat-icon-button (click)="toggleSearch()" [@searchState]="searchActive">
+			<mat-icon>
 				<svg width="24" height="24">
 					<path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
 				</svg>
-			</md-icon>
+			</mat-icon>
 		</button>
-		<button md-icon-button [mdMenuTriggerFor]="moreMenu">
-			<md-icon>			
+		<button mat-icon-button [matMenuTriggerFor]="moreMenu">
+			<mat-icon>			
 				<svg width="24" height="24">
 					<path d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
 				</svg>
-			</md-icon>
+			</mat-icon>
 		</button>
-		<button md-icon-button (click)="docsSidenav.toggle()" mdTooltip="View Sitemap"><md-icon svgIcon="icons:sitemap"></md-icon></button>
-		<md-menu #moreMenu="mdMenu">
-			<a md-menu-item href="https://material.angular.io" target="_blank">
-				<md-icon svgIcon="icons:angular"></md-icon>
+		<button mat-icon-button (click)="docsSidenav.toggle()" matTooltip="View Sitemap"><mat-icon svgIcon="icons:sitemap"></mat-icon></button>
+		<mat-menu #moreMenu="matMenu">
+			<a mat-menu-item href="https://material.angular.io" target="_blank">
+				<mat-icon svgIcon="icons:angular"></mat-icon>
 				<span>Visit Original Docs</span>
 			</a>
-			<button md-menu-item (click)="viewOnGithub()">
-				<md-icon>code</md-icon>
+			<button mat-menu-item (click)="viewOnGithub()">
+				<mat-icon>code</mat-icon>
 				<span>View Source code</span>
 			</button>
-			<button md-menu-item (click)="openPrefs()">
-				<md-icon>settings</md-icon>
+			<button mat-menu-item (click)="openPrefs()">
+				<mat-icon>settings</mat-icon>
 				<span>Settings</span>
 			</button>
-			<button md-menu-item (click)="toggleTheme()">
+			<button mat-menu-item (click)="toggleTheme()">
 				<span>Toggle Theme</span>
 			</button>
-		</md-menu>
-	</md-toolbar>
-	<md-sidenav #componentSidenav [mode]="sidenavMode" class="component-sidenav mat-elevation-z4" align="start">
-		<md-toolbar color="primary" class="mat-elevation-z6 sidenav-toolbar-left">
+		</mat-menu>
+	</mat-toolbar>
+	<mat-sidenav #componentSidenav [mode]="sidenavMode" class="component-sidenav mat-elevation-z4" align="start">
+		<mat-toolbar color="primary" class="mat-elevation-z6 sidenav-toolbar-left">
 			Components
 			<span fxFlex></span>
-			<button md-icon-button (click)="componentSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-left"></md-icon></button>
-		</md-toolbar>
-		<md-nav-list *ngFor="let category of categories">
-			<h3 md-subheader class="sidenav-subheader">{{category.name}}</h3>
-			<a md-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link"
+			<button mat-icon-button (click)="componentSidenav.close()"><mat-icon svgIcon="icons:arrow-collapse-left"></mat-icon></button>
+		</mat-toolbar>
+		<mat-nav-list *ngFor="let category of categories">
+			<h3 matSubheader class="sidenav-subheader">{{category.name}}</h3>
+			<a mat-list-item [routerLink]="['/components', component.id]" *ngFor="let component of category.items" routerLinkActive="active-link"
 			 (click)="componentSidenav.close()">{{component.name}}</a>
-		</md-nav-list>
-	</md-sidenav>
-	<md-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
-		<md-toolbar color="primary" class="mat-elevation-z6">
-			<button md-icon-button (click)="docsSidenav.close()"><md-icon svgIcon="icons:arrow-collapse-right"></md-icon></button>			Navigation
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav #docsSidenav [mode]="sidenavMode" class="docs-sidenav mat-elevation-z4" align="end">
+		<mat-toolbar color="primary" class="mat-elevation-z6">
+			<button mat-icon-button (click)="docsSidenav.close()"><mat-icon svgIcon="icons:arrow-collapse-right"></mat-icon></button>Navigation
 			<span fxFlex></span>
-		</md-toolbar>
-		<md-nav-list>
-			<a md-list-item [routerLink]="['home']" (click)="docsSidenav.close()" routerLinkActive="active-link">
-				<md-icon md-list-icon>home</md-icon>
-				<p md-line>Home</p>
+		</mat-toolbar>
+		<mat-nav-list>
+			<a mat-list-item [routerLink]="['home']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<mat-icon mat-list-icon>home</mat-icon>
+				<p matLine>Home</p>
 			</a>
-			<a md-list-item [routerLink]="['components']" (click)="docsSidenav.close()" routerLinkActive="active-link">
-				<md-icon md-list-icon>extension</md-icon>
-				<p md-line>Components</p>
+			<a mat-list-item [routerLink]="['components']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<mat-icon mat-list-icon>extension</mat-icon>
+				<p matLine>Components</p>
 			</a>
-			<a md-list-item [routerLink]="['guides']" (click)="docsSidenav.close()" routerLinkActive="active-link">
-				<md-icon md-list-icon>book</md-icon>
-				<p md-line>Guides</a>
-			<a md-list-item [routerLink]="['showcases']" (click)="docsSidenav.close()" routerLinkActive="active-link">
-				<md-icon md-list-icon>view_carousel</md-icon>
-				<p md-line>Showcases</p>
+			<a mat-list-item [routerLink]="['guides']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<mat-icon mat-list-icon>book</mat-icon>
+				<p matLine>Guides</a>
+			<a mat-list-item [routerLink]="['showcases']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<mat-icon mat-list-icon>view_carousel</mat-icon>
+				<p matLine>Showcases</p>
 			</a>
-			<a md-list-item [routerLink]="['search']" (click)="docsSidenav.close()" routerLinkActive="active-link">
-				<md-icon md-list-icon>search</md-icon>
-				<p md-line>Search (experimental)</p>
+			<a mat-list-item [routerLink]="['search']" (click)="docsSidenav.close()" routerLinkActive="active-link">
+				<mat-icon mat-list-icon>search</mat-icon>
+				<p matLine>Search (experimental)</p>
 			</a>
-			<h3 md-subheader>Other</h3>
-			<md-list-item (click)="openLicense(); docsSidenav.close()">
-				<md-icon md-list-icon>copyright</md-icon>
-				<p md-line>License</p>
-			</md-list-item>
-			<md-list-item (click)="openAbout(); docsSidenav.close()">
-				<md-icon md-list-icon>info</md-icon>
-				<p md-line>About</p>
-			</md-list-item>
-		</md-nav-list>
-	</md-sidenav>
+			<a mat-list-item href="https://material2-docs-all-examples.stackblitz.io" target="_blank" (click)="docsSidenav.close()">
+				<mat-icon mat-list-icon>code</mat-icon>
+				<p matLine>Examples</p>
+			</a>
+			<h3 matSubheader>Other</h3>
+			<mat-list-item (click)="openLicense(); docsSidenav.close()">
+				<mat-icon mat-list-icon>copyright</mat-icon>
+				<p matLine>License</p>
+			</mat-list-item>
+			<mat-list-item (click)="openAbout(); docsSidenav.close()">
+				<mat-icon mat-list-icon>info</mat-icon>
+				<p matLine>About</p>
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-sidenav>
 	<div class="docs-title" fxLayout="row">
 		<h1>{{docTitle}}</h1>
 		<span fxFlex></span>
 	</div>
-	<div class="example-app" (window:scroll)="onScroll($event)">
+	<div class="example-app">
 		<span id="top"></span>
 		<div class="latest-commit-container">
-			<md-card *ngIf="showLatestCommit" id="latestCommit">
-				<md-card-title>Latest commit</md-card-title>
-				<md-card-content>
+			<mat-card *ngIf="showLatestCommit" id="latestCommit">
+				<mat-card-title>Latest commit</mat-card-title>
+				<mat-card-content>
 					<p><strong>Message:</strong>
 						<span [innerText]="latestCommitCommit?.message"></span></p>
 					<p><strong>Committer:</strong> {{latestCommitCommitAuthor?.name}}</p>
 					<p><strong>SHA:</strong> <code class="docs-code">{{latestCommit?.sha}}</code></p>
 					<p><strong>Date:</strong> {{latestCommitCommitAuthor?.date | date:'medium'}}</p>
-				</md-card-content>
-				<md-card-actions align="end">
-					<button md-button (click)="refresh()" class="docs-btn" [disabled]="isRefreshing">
-							<md-icon>refresh</md-icon>
+				</mat-card-content>
+				<mat-card-actions align="end">
+					<button mat-button (click)="refresh()" class="docs-btn" [disabled]="isRefreshing">
+							<mat-icon>refresh</mat-icon>
 							Refresh Commit
 						</button>
-					<a md-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">
-						<md-icon>open_in_new</md-icon>
+					<a mat-button [href]="latestCommit?.html_url" class="docs-btn" target="_blank" color="primary">
+						<mat-icon>open_in_new</mat-icon>
 						View commit
 					</a>
-				</md-card-actions>
-				<md-card-footer>
-					<md-progress-bar mode="indeterminate" class="latest-commit-progress" *ngIf="isRefreshing"></md-progress-bar>
-				</md-card-footer>
-			</md-card>
+				</mat-card-actions>
+				<mat-card-footer>
+					<mat-progress-bar mode="indeterminate" class="latest-commit-progress" *ngIf="isRefreshing"></mat-progress-bar>
+				</mat-card-footer>
+			</mat-card>
 		</div>
 		<router-outlet></router-outlet>
 	</div>
 	<footer class="docs-footer">
 		<p>The Angular logo is licensed as <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="docs-link">CC BY 4.0</a>.
-			To download angular icons, go <a href="https://angular.io/presskit" mdTooltip="Visit Angular.io" target="_blank" class="docs-link">Presskit</a>.</p>
-		<a href="https://angular.io" mdTooltip="Visit angular.io" target="_blank" class="docs-link" mdTooltipPosition="above">Learn Angular</a>
+			To download angular icons, go <a href="https://angular.io/presskit" matTooltip="Visit Angular.io" target="_blank" class="docs-link">Presskit</a>.</p>
+		<a href="https://angular.io" matTooltip="Visit angular.io" target="_blank" class="docs-link" matTooltipPosition="above">Learn Angular</a>
 	</footer>
-</md-sidenav-container>
-<button md-fab (click)="scrollToTop()" *ngIf="showScroll"><md-icon>arrow_upward</md-icon></button>
+</mat-sidenav-container>

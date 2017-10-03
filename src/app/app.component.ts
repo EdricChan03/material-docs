@@ -8,7 +8,9 @@ import 'hammerjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs/Subscription';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { MdSidenav, MdDialog, MdDialogRef, VERSION } from '@angular/material';
+import { VERSION } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Http } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
 import 'rxjs/add/operator/delay';
@@ -54,9 +56,9 @@ import { trigger, state, style, transition, animate } from "@angular/animations"
 export class AppComponent implements AfterContentChecked, OnInit {
 	/**
 	 * The component sidenav
-	 * @type {MdSidenav}
+	 * @type {MatSidenav}
 	 */
-	@ViewChild('componentSidenav') componentSidenav: MdSidenav;
+	@ViewChild('componentSidenav') componentSidenav: MatSidenav;
 	/**
 	 * Whether the theme is dark
 	 * @type {boolean}
@@ -110,18 +112,13 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 */
 	latestCommitCommitAuthor: any;
 	/**
-	 * Whether to show the scroll
-	 * @type {boolean}
-	 */
-	showScroll: boolean;
-	/**
 	 * Whether the commit is refreshing
 	 */
 	isRefreshing: boolean;
 	searchActive: string = "active";
 	showToolbar: boolean;
 	searchDoc: string;
-	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MdDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta, private docItems: DocumentationItems) {
+	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MatDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta, private docItems: DocumentationItems) {
 		/**
 		 * The watcher for the sidenav `mode`
 		 */
@@ -189,16 +186,23 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 */
 	toggleTheme() {
 		this.isDark = !this.isDark;
+		let overlayEl = this.overlay.getContainerElement();
 		let element = document.querySelector('material2-docs');
 		if (!this.checkIsDark()) {
+			if (overlayEl.classList.contains('docs-light')) {
+				overlayEl.classList.remove('docs-light');
+			}
+			overlayEl.classList.add('docs-dark');
 			if (element.classList.contains('docs-light')) {
 				element.classList.remove('docs-light');
 			}
 			element.classList.add('docs-dark');
-			this.overlay.getContainerElement().classList.add('docs-dark');
 			this.meta.addTag({ name: "theme-color", content: "" })
 		} else {
-			this.overlay.getContainerElement().classList.add('docs-light');
+			if (overlayEl.classList.contains('docs-dark')) {
+				overlayEl.classList.remove('docs-dark');
+			}
+			overlayEl.classList.add('docs-light');
 			if (element.classList.contains('docs-dark')) {
 				element.classList.remove('docs-dark');
 			}
@@ -227,13 +231,6 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	}
 	openLicense() {
 		this.dialog.open(LicenseDialog);
-	}
-	scrollFunc() {
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			this.showScroll = true;
-		} else {
-			this.showScroll = false;
-		}
 	}
 	ngOnInit() {
 		if (this.shared.getSettings().latestCommit) {
@@ -274,21 +271,21 @@ export class AppComponent implements AfterContentChecked, OnInit {
 
 @Component({
 	selector: 'docs-about',
-	template: `<h3 md-dialog-title>About</h3>
-				 <md-dialog-content fxLayout="column">
+	template: `<h3 matDialogTitle>About</h3>
+				 <mat-dialog-content fxLayout="column">
 				  	<p>Have you always wondered how to actually setup Angular Material? Find that the docs are not clear? Then read this documentation!</p>
 					<p>This docs was meant to help those who either don't understand about this or need more examples.</p>
 					<p><em>Note:</em> I'm now inviting contributors to contribute to this document. Simply click on view source code below and go to issues and ask! Alternatively, you may want to do a pull request with your changes.</p>
 					<small>This docs site is currently running version <code class="docs-code">{{version.full}}</code> (master)</small>
-				</md-dialog-content>
-				<md-dialog-actions align="end">
-					<a md-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material2-docs" target="_blank" md-dialog-close>View Source Code</a>
-					<button md-button md-dialog-close class="docs-btn" color="primary">Close</button>
-				</md-dialog-actions>
+				</mat-dialog-content>
+				<mat-dialog-actions align="end">
+					<a mat-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material2-docs" target="_blank" matDialogClose>View Source Code</a>
+					<button mat-button matDialogClose class="docs-btn" color="primary">Close</button>
+				</mat-dialog-actions>
 			  `
 })
 export class AboutDialog {
-	constructor(private dialogRef: MdDialogRef<AboutDialog>) { }
+	constructor(private dialogRef: MatDialogRef<AboutDialog>) { }
 	get version() {
 		return VERSION;
 	}
@@ -304,18 +301,18 @@ export class AboutDialog {
 
 @Component({
 	selector: 'docs-license',
-	template: `<h3 md-dialog-title>License</h3>
-				<md-dialog-content fxLayout="row">
+	template: `<h3 matDialogTitle>License</h3>
+				<mat-dialog-content fxLayout="row">
 					<code>{{license}}</code>
-				</md-dialog-content>
-				<md-dialog-actions align="end">
-				<button md-dialog-close md-button class="docs-btn" color="primary">Close</button>
-				</md-dialog-actions>
+				</mat-dialog-content>
+				<mat-dialog-actions align="end">
+				<button matDialogClose mat-button class="docs-btn" color="primary">Close</button>
+				</mat-dialog-actions>
 				`
 })
 export class LicenseDialog implements OnInit {
 	license: string;
-	constructor(private http: Http, private dialogRef: MdDialogRef<LicenseDialog>) { }
+	constructor(private http: Http, private dialogRef: MatDialogRef<LicenseDialog>) { }
 
 	ngOnInit() {
 		this.http.get('/assets/LICENSE').map(res => res.text()).subscribe(res => {
