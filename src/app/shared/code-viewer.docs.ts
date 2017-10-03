@@ -1,4 +1,4 @@
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, AfterViewInit, ElementRef, ViewChild, Input, DoCheck } from '@angular/core';
 import * as hljs from 'highlight.js';
 @Component({
@@ -12,7 +12,7 @@ export class CodeViewerComponent implements AfterViewInit, DoCheck {
 	@Input() fileName?: string;
     isDark: boolean;
     originalCode: string;
-    constructor(private snackbar: MdSnackBar) { }
+    constructor(private snackbar: MatSnackBar) { }
     copyToClipboard() {
         if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
             let textarea = document.createElement("textarea");
