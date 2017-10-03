@@ -18,10 +18,10 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	/**
 	 * Whether to show the code
 	 */
-	private showCode: boolean = false;
-	private isDark: boolean;
-	private fileLabelReg = /[^/\\&\?]+\.\w{2,4}(?=([\?&].*$|$))/igm;
-	private exampleHost: ComponentPortal<any>;
+	showCode: boolean = false;
+	isDark: boolean;
+	fileLabelReg = /[^/\\&\?]+\.\w{2,4}(?=([\?&].*$|$))/igm;
+	exampleHost: ComponentPortal<any>;
 	/**
 	 * Reads a text file
 	 * @param {string} file The file to read
@@ -46,17 +46,15 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	}
 	/**
 	 * Toggles the source code
-	 * @private
 	 */
-	private toggleSource() {
+	toggleSource() {
 		this.showCode = !this.showCode;
 	}
 	/**
 	 * Copies code to clipboard
 	 * @param {string} code The code to copy
-	 * @private
 	 */
-	private copyToClipboard(code: string) {
+	copyToClipboard(code: string) {
 		if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
 			let textarea = document.createElement("textarea");
 			textarea.textContent = code;
@@ -76,9 +74,8 @@ export class ExampleViewerComponent implements OnInit, DoCheck {
 	}
 	/**
 	 * Views the stackblitz demo
-	 * @private
 	 */
-	private viewStackblitzDemo() {
+	viewStackblitzDemo() {
 		window.open("https://material2-docs-all-examples.stackblitz.io/"+this.exFiles.url);
 	}
 	ngOnInit() {
