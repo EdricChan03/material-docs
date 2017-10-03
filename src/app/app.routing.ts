@@ -17,13 +17,20 @@ import { DocsExampleDialog } from './partials/docs/dialog/exampledialog.componen
 import { DocsOverviewDialog } from './partials/docs/dialog/overviewdialog.component';
 // Guides
 import { DocsGuideNav } from './partials/guides/guidenav.docs';
-import { DocsThemingComponentGuide, DocsThemingGuide, DocsGettingStartedGuide, DocsCustomizeComponentStyleGuide, DocsMiscOnboarding, DocsMiscSvgicons } from './partials/guides/guides.docs';
+import {
+	DocsThemingComponentGuide,
+	DocsThemingGuide,
+	DocsGettingStartedGuide,
+	DocsCustomizeComponentStyleGuide,
+	DocsMiscOnboarding,
+	DocsMiscSvgicons
+} from './partials/guides/guides.docs';
 // Examples
 // Autocomplete
 
 // Button
 import { DocsOverviewBtn } from './partials/docs/button/overviewbutton.component';
-import { DocsExampleBtn } from "./partials/docs/button/examplebutton.component";
+import { DocsExampleBtn } from './partials/docs/button/examplebutton.component';
 // Card
 
 // Checkbox
@@ -53,7 +60,7 @@ const DocsGuideRoutes: Route[] = [
 	{ path: 'customizing-component-styles', component: DocsCustomizeComponentStyleGuide },
 	{ path: 'onboarding', component: DocsMiscOnboarding },
 	{ path: 'svg-icons', component: DocsMiscSvgicons }
-]
+];
 /**
  * The routes for the application
  * @type {Routes}
@@ -150,5 +157,5 @@ export const AppRoutes: Routes = [
 	{ path: 'search', component: DocsSearch },
 	{ path: 'showcases', component: DocsShowcase },
 	{ path: '**', redirectTo: 'home' }
-]
+];
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);
