@@ -1,27 +1,27 @@
-<md-card>
-	<md-card-title>Search docs</md-card-title>
-	<md-card-content fxLayout="column">
-		<md-form-field fxFlex>
-			<input mdInput type="search" [(ngModel)]="search" placeholder="Search" name="search" required>
-			<md-hint>Type here to search</md-hint>
-			<md-error>This is required</md-error>
-		</md-form-field>
+<mat-card>
+	<mat-card-title>Search docs</mat-card-title>
+	<mat-card-content fxLayout="column">
+		<mat-form-field fxFlex>
+			<input matInput type="search" [(ngModel)]="search" placeholder="Search" name="search" required>
+			<mat-hint>Type here to search</mat-hint>
+			<mat-error>This is required</mat-error>
+		</mat-form-field>
 		<br>
-		<md-select [(ngModel)]="searchOptType" multiple placeholder="Type" required>
-			<md-option value="component">Component</md-option>
-			<md-option value="guides">Guides</md-option>
-			<md-option value="showcase">Showcase</md-option>
-			<md-option value="misc">Misc</md-option>
-			<md-option value="other">Other</md-option>
-		</md-select>
+		<mat-select [(ngModel)]="searchOptType" multiple placeholder="Type" required>
+			<mat-option value="component">Component</mat-option>
+			<mat-option value="guides">Guides</mat-option>
+			<mat-option value="showcase">Showcase</mat-option>
+			<mat-option value="misc">Misc</mat-option>
+			<mat-option value="other">Other</mat-option>
+		</mat-select>
 		<br>
-		<md-checkbox [(ngModel)]="isCaseSensitive">Case Sensitive</md-checkbox>
+		<mat-checkbox [(ngModel)]="isCaseSensitive">Case Sensitive</mat-checkbox>
 		<div class="docs-search-actions" fxLayout="row">
-			<button md-button (click)="reset()" class="docs-btn" color="warn" fxFlex="50">Reset</button>
-			<button md-button (click)="submit()" class="docs-btn" color="primary" fxFlex="50">Submit</button>
+			<button mat-button (click)="reset()" class="docs-btn" color="warn" fxFlex="50">Reset</button>
+			<button mat-button (click)="submit()" class="docs-btn" color="primary" fxFlex="50">Submit</button>
 		</div>
-	</md-card-content>
-</md-card>
+	</mat-card-content>
+</mat-card>
 
 <div class="docs-search-results">
 	<h3>Results:</h3>

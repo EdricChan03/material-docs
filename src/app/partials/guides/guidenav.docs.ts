@@ -1,4 +1,4 @@
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SharedComponent } from '../../shared/shared.docs';
 import { Component, AfterContentChecked } from '@angular/core';
@@ -48,7 +48,7 @@ export class DocsGuideNav implements AfterContentChecked{
 			link: "onboarding"
 		}
 	]
-    constructor(private shared: SharedComponent, private router: Router, private dialog: MdDialog){
+    constructor(private shared: SharedComponent, private router: Router, private dialog: MatDialog){
         shared.setTitle('Docs > Guides');
 	}
 	viewMore(doc: any) {
@@ -66,22 +66,22 @@ export class DocsGuideNav implements AfterContentChecked{
 @Component({
 	selector: 'docs-misc-more-dialog',
 	template: `
-		<h3 md-dialog-title>More info</h3>
-		<div md-dialog-content>
-			<md-nav-list>
-				<a md-list-item *ngFor="let more of data" [href]="more.url" target="_blank">
-					<p md-line>{{more.title}}</p>
+		<h3 matDialogTitle>More info</h3>
+		<div mat-dialog-content>
+			<mat-nav-list>
+				<a mat-list-item *ngFor="let more of data" [href]="more.url" target="_blank">
+					<p matLine>{{more.title}}</p>
 				</a>
-			</md-nav-list>
+			</mat-nav-list>
 		</div>
-		<div md-dialog-actions align="end">
-			<button md-button md-dialog-close class="docs-btn" color="primary">Close</button>
+		<div mat-dialog-actions align="end">
+			<button mat-button matDialogClose class="docs-btn" color="primary">Close</button>
 		</div>
 	`
 })
 export class DocsMiscMoreDialog {
 	public data: any;
-	constructor(private dialogRef: MdDialogRef<DocsMiscMoreDialog>){}
+	constructor(private dialogRef: MatDialogRef<DocsMiscMoreDialog>){}
 }
 export interface DocumentsListMisc {
 	/**

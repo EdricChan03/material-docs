@@ -1,21 +1,21 @@
-<md-nav-list *ngIf="isMain">
-	<a md-list-item [routerLink]="guide.link" *ngFor="let guide of guides">
-		<md-icon md-list-icon>{{guide.icon}}</md-icon>
-		<p md-line>{{guide.text}}</p>
+<mat-nav-list *ngIf="isMain">
+	<a mat-list-item [routerLink]="guide.link" *ngFor="let guide of guides">
+		<mat-icon mat-list-icon>{{guide.icon}}</mat-icon>
+		<p matLine>{{guide.text}}</p>
 	</a>
-	<h3 md-subheader>Miscallenous Docs</h3>
+	<h3 matSubheader>Miscallenous Docs</h3>
 
-	<md-list-item *ngFor="let misc of misc">
-		<a md-line [routerLink]="misc.link">{{misc.name}}</a>
-		<md-icon md-list-icon *ngIf="!misc.isSvgIcon">{{misc.icon}}</md-icon>
-		<md-icon md-list-icon svgIcon="{{misc.icon}}" *ngIf="misc.isSvgIcon"></md-icon>
-		<button md-icon-button (click)="viewMore(misc.moreinfo)" *ngIf="misc.moreinfo" class="docs-btn">
-			<md-icon>
+	<mat-list-item *ngFor="let misc of misc">
+		<a matLine [routerLink]="misc.link">{{misc.name}}</a>
+		<mat-icon mat-list-icon *ngIf="!misc.isSvgIcon">{{misc.icon}}</mat-icon>
+		<mat-icon mat-list-icon svgIcon="{{misc.icon}}" *ngIf="misc.isSvgIcon"></mat-icon>
+		<button mat-icon-button (click)="viewMore(misc.moreinfo)" *ngIf="misc.moreinfo" class="docs-btn">
+			<mat-icon>
 				<svg width="24" height="24">
 					<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
 				</svg>
-			</md-icon>
+			</mat-icon>
 		</button>
-	</md-list-item>
-</md-nav-list>
+	</mat-list-item>
+</mat-nav-list>
 <router-outlet></router-outlet>

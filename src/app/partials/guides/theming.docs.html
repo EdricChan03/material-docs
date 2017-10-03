@@ -3,7 +3,7 @@
 
 <div class="docs-heading" id="what-is-a-theme">
 	<h3>What is a theme?</h3>
-	<p>A <strong>theme</strong> is the set of colors that will be applied to the Angular Material components. The library's approach to theming is based on the guidance from the <a href="https://material.io/guidelines/style/color.html#color-color-palette" mdTooltip="Color specs" target="_blank" class="docs-link">Material Design spec</a>.</p>
+	<p>A <strong>theme</strong> is the set of colors that will be applied to the Angular Material components. The library's approach to theming is based on the guidance from the <a href="https://material.io/guidelines/style/color.html#color-color-palette" matTooltip="Color specs" target="_blank" class="docs-link">Material Design spec</a>.</p>
 	<p>In Angular Material, a theme is created by composing multiple palettes. In particular, a theme consists of:</p>
 	<ul>
    	 	<li>A primary palette: colors most widely used across all screens and components.</li>
@@ -33,7 +33,7 @@
 	<code-viewer language="html">&lt;link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"&gt;</code-viewer>
 	<p>The actual path will depend on your server setup.</p>
 	<p>You can also concatenate the file with the rest of your application's css.</p>
-	<p>Finally, if your app's content <strong>is not</strong> placed inside of a <code class="docs-code">md-sidenav-container</code> element, you need to add the <code class="docs-code">mat-app-background</code> class to your wrapper element (for example the <code class="docs-code">body</code>). This ensures that the proper theme background is applied to your page.</p>
+	<p>Finally, if your app's content <strong>is not</strong> placed inside of a <code class="docs-code">mat-sidenav-container</code> element, you need to add the <code class="docs-code">mat-app-background</code> class to your wrapper element (for example the <code class="docs-code">body</code>). This ensures that the proper theme background is applied to your page.</p>
 </div>
 <div class="docs-heading" id="define-a-custom-theme">
 	<h3>Defining a custom theme</h3>
@@ -137,7 +137,7 @@ export class UnicornCandyAppModule &#123;
 </div>
 <div class="docs-heading" id="theming-only-certain-components">
 	<h4>Theming only certain components</h4>
-	<p>The <code class="docs-code">angular-material-theme</code> mixin will output styles for <a href="https://github.com/angular/material2/blob/master/src/lib/core/theming/_all-theme.scss" class="docs-link" mdTooltip="View file">all components in the library</a>.</p>
+	<p>The <code class="docs-code">angular-material-theme</code> mixin will output styles for <a href="https://github.com/angular/material2/blob/master/src/lib/core/theming/_all-theme.scss" class="docs-link" matTooltip="View file">all components in the library</a>.</p>
     <p>If you are only using a subset of the components (or if you want to change the theme for specific components), you can include component-specific theme mixins. You also will need to include the <code class="docs-code">mat-core-theme</code> mixin as well, which contains theme-specific styles for common behaviors (such as ripples).</p>
 	<code-viewer language="scss">@import '~@angular/material/theming'; // Plus imports for other components in your app.
 // Include the common styles for Angular Material. We include this here so that you only // have to load a single css file

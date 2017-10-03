@@ -1,9 +1,9 @@
-<md-card *ngFor="let showcase of showcases" style="margin-top:4px">
-    <md-card-title>{{showcase.title}}</md-card-title>
-    <md-card-content>{{showcase.desc}}</md-card-content>
-    <img md-card-image *ngIf="showcase.imgSrc" [src]="showcase.imgSrc">
-    <md-card-actions>
-        <a md-button [href]="showcase.link" target="_blank" class="docs-btn" color="primary">View</a>
-        <a md-button *ngIf="showcase.relatedUrl" [href]="showcase.relatedUrl" target="_blank" class="docs-btn" color="primary">More on {{showcase.relatedType}}</a>
-    </md-card-actions>
-</md-card>
+<mat-card *ngFor="let showcase of showcases" style="margin-top:4px">
+    <mat-card-title>{{showcase.title}}</mat-card-title>
+    <mat-card-content>{{showcase.desc}}</mat-card-content>
+    <img mat-card-image *ngIf="showcase.imgSrc" [src]="showcase.imgSrc">
+    <mat-card-actions>
+        <a mat-button [href]="showcase.link" target="_blank" class="docs-btn" color="primary">View</a>
+        <a mat-button *ngIf="showcase.relatedUrl" [href]="showcase.relatedUrl" target="_blank" class="docs-btn" color="primary">More on {{showcase.relatedType}}</a>
+    </mat-card-actions>
+</mat-card>

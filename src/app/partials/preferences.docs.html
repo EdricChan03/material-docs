@@ -1,15 +1,15 @@
-<h3 md-dialog-title>Preferences</h3>
-<div fxLayout="column" md-dialog-content>
-	<md-checkbox [(ngModel)]="settings.latestCommit" color="primary">Show latest commit card</md-checkbox>
-    <md-checkbox [(ngModel)]="settings.enableTabIndent">Enable Tab Indenting (code)</md-checkbox>
-    <md-form-field *ngIf="!settings.enableTabIndent">
-        <input mdInput [(ngModel)]="settings.codeSpaceIndent" placeholder="Set Code Indent (Spaces)" type="number">
-    </md-form-field>
-    <md-form-field *ngIf="settings.enableTabIndent">
-        <input mdInput [(ngModel)]="settings.codeTabIndent" placeholder="Set Code Indent (Tabs)" type="number">
-    </md-form-field>
+<h3 matDialogTitle>Preferences</h3>
+<div fxLayout="column" mat-dialog-content>
+	<mat-checkbox [(ngModel)]="settings.latestCommit" color="primary">Show latest commit card</mat-checkbox>
+    <mat-checkbox [(ngModel)]="settings.enableTabIndent">Enable Tab Indenting (code)</mat-checkbox>
+    <mat-form-field *ngIf="!settings.enableTabIndent">
+        <input matInput [(ngModel)]="settings.codeSpaceIndent" placeholder="Set Code Indent (Spaces)" type="number">
+    </mat-form-field>
+    <mat-form-field *ngIf="settings.enableTabIndent">
+        <input matInput [(ngModel)]="settings.codeTabIndent" placeholder="Set Code Indent (Tabs)" type="number">
+    </mat-form-field>
 </div>
-<div md-dialog-actions align="end">
-    <button md-button (click)="cancel()" color="primary" class="docs-btn">Cancel</button>
-    <button md-button (click)="close()" color="primary" class="docs-btn">Save</button>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="cancel()" color="primary" class="docs-btn">Cancel</button>
+    <button mat-button (click)="close()" color="primary" class="docs-btn">Save</button>
 </div>

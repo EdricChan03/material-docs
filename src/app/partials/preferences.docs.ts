@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs/Observable';
 import { Settings, SharedComponent } from './../shared/shared.docs';
 import { Component, OnInit, OnChanges } from "@angular/core";
-import { MdDialogRef, MdSnackBar } from "@angular/material";
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
     selector: 'preferences-dialog',
@@ -9,7 +10,7 @@ import { MdDialogRef, MdSnackBar } from "@angular/material";
 })
 export class PreferencesDialog implements OnInit, OnChanges{
     settings: Settings;
-    constructor(private dialogRef: MdDialogRef<PreferencesDialog>, private snackbar: MdSnackBar, private shared: SharedComponent){}
+    constructor(private dialogRef: MatDialogRef<PreferencesDialog>, private snackbar: MatSnackBar, private shared: SharedComponent){}
     cancel() {
         this.snackbar.open('Preferences not saved', null, {duration: 6000});
         this.dialogRef.close();
