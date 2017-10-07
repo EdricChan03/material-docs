@@ -1,3 +1,4 @@
+import { IconColorExample } from './../assets/examples/icon/icon-color';
 import { PseudoCheckboxExample } from './../assets/examples/checkbox/pseudo-checkbox';
 import { IconSVGExample } from './../assets/examples/icon/icon-svg';
 import { IconButtonExample } from './../assets/examples/icon/icon-button';
@@ -71,6 +72,7 @@ const EXPANSION_COMPONENTS = [
 ]
 const ICON_COMPONENTS = [
 	SimpleIconExample,
+	IconColorExample,
 	IconButtonExample,
 	IconSVGExample
 ];

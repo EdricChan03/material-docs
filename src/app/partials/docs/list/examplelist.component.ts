@@ -39,7 +39,10 @@ export class DocsExampleList implements OnInit {
             ],
 			componentName: AdvancedListExample,
 			url: "list/list-advanced",
-			title: "Advanced list"
+			title: "Advanced list",
+			notices: [
+				{name: "External dependency", desc: "This means that this example requires an external dependency (highlight.js)."}
+			]
         }
     }
 }

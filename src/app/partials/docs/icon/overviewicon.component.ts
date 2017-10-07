@@ -1,3 +1,4 @@
+import { IconColorExample } from './../../../../assets/examples/icon/icon-color';
 import { SimpleIconExample } from './../../../../assets/examples/icon/icon-overview';
 import { Router } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
@@ -12,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class DocsOverviewIcon implements OnInit {
 	simpleIconExample: CodeFiles;
+	iconColor: CodeFiles;
     constructor(private router: Router, private shared: SharedComponent){shared.setTitle('Docs > Icon > Overview');}
     ngOnInit() {
 		this.simpleIconExample = {
@@ -26,6 +28,19 @@ export class DocsOverviewIcon implements OnInit {
 			componentName: SimpleIconExample,
 			title: "Simple icon",
 			url: "icon/icon-overview"
+		};
+		this.iconColor = {
+			filePath: [
+				'assets/examples/icon/icon-color.html',
+				'assets/examples/icon/icon-color.ts'
+			],
+			highlightPath: [
+				'assets/highlighted/icon-color-html.html',
+				'assets/highlighted/icon-color-ts.html'
+			],
+			componentName: IconColorExample,
+			title: "Icon with colors",
+			url: "icon/icon-color"
 		}
     }
 }

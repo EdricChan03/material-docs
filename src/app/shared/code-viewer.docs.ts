@@ -23,11 +23,11 @@ export class CodeViewerComponent implements AfterViewInit, DoCheck {
             try {
                 return document.execCommand("copy");  // Security exception may be thrown by some browsers.
             } catch (e) {
-                this.snackbar.open("Error: ", e);
+                this.snackbar.open(`Error: ${e}`, null, {horizontalPosition: "start", duration: 6000});
                 return false;
             } finally {
                 document.body.removeChild(textarea);
-                this.snackbar.open('Code copied to clipboard', null, { duration: 5000 });
+                this.snackbar.open('Code copied to clipboard', null, { duration: 5000, horizontalPosition: "start" });
             }
         }
     }
@@ -44,10 +44,14 @@ export class CodeViewerComponent implements AfterViewInit, DoCheck {
 			// Yes, the file input is stated
 			hljs.highlightBlock(this.content.nativeElement.childNodes[6]);
 			this.originalCode = this.content.nativeElement.childNodes[6].innerText;
-		} else {
+		} else if (this.content.nativeElement.childNodes.length >= 6){
 			// No, the file input is not stated or is invalid
+			// console.log(this.content.nativeElement.childNodes);
 			hljs.highlightBlock(this.content.nativeElement.childNodes[5]);
 			this.originalCode = this.content.nativeElement.childNodes[5].innerText;
+		} else {
+			hljs.highlightBlock(this.content.nativeElement.childNodes[3]);
+			this.originalCode = this.content.nativeElement.childNodes[3].innerText;
 		}
     }
 }

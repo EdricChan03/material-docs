@@ -81,9 +81,9 @@
 <p>To include an avatar image, add an image tag with an <code class="docs-code">mat-list-avatar</code> attribute.</p>
 
 <code-viewer language="html">&lt;mat-list&gt;
-    &lt;mat-list-item *ngFor="let message of messages"&gt;
+    &lt;mat-list-item <span ngNonBindable>*ngFor="let message of messages"</span>&gt;
         &lt;img mat-list-avatar src="..." alt="..."&gt;
-        &lt;h3 matLine&gt; &#123;&#123;message.from&#125;&#125; &lt;/h3&gt;
+        &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
         &lt;p matLine&gt;
             &lt;span&gt; &#123;&#123;message.subject&#125;&#125; &lt;/span&gt;
             &lt;span class="demo-2"&gt; -- &#123;&#123;message.content&#125;&#125; &lt;/span&gt;
@@ -96,9 +96,9 @@
 <p>Lists are also available in "dense layout" mode, which shrinks the font size and height of the list to suit UIs that may need to display more information. To enable this mode, add a <code class="docs-code">dense</code> attribute to the main <code class="docs-code">mat-list</code> tag.</p>
 
 <code-viewer language="html">&lt;mat-list dense&gt;
- &lt;mat-list-item&gt; Pepper &lt;/mat-list-item&gt;
- &lt;mat-list-item&gt; Salt &lt;/mat-list-item&gt;
- &lt;mat-list-item&gt; Paprika &lt;/mat-list-item&gt;
+ 	&lt;mat-list-item&gt; Pepper &lt;/mat-list-item&gt;
+ 	&lt;mat-list-item&gt; Salt &lt;/mat-list-item&gt;
+ 	&lt;mat-list-item&gt; Paprika &lt;/mat-list-item&gt;
 &lt;/mat-list&gt;</code-viewer>
 
 <h3 id="lists-with-multiple-sections">Lists with multiple sections</h3>
@@ -106,18 +106,17 @@
 <p>Subheader can be added to a list by annotating a heading tag with an <code class="docs-code">matSubheader</code> attribute. To add a divider, use <code class="docs-code">&lt;mat-divider&gt;</code>.</p>
 
 <code-viewer language="html">&lt;mat-list&gt;
-   &lt;h3 matSubheader&gt;Folders&lt;/h3&gt;
-   &lt;mat-list-item *ngFor="let folder of folders"&gt;
-      &lt;mat-icon mat-list-icon&gt;folder&lt;/mat-icon&gt;
-      &lt;h4 matLine&gt;&#123;&#123;folder.name&#125;&#125;&lt;/h4&gt;
-      &lt;p matLine class="demo-2"&gt; &#123;&#123;folder.updated&#125;&#125; &lt;/p&gt;
-   &lt;/mat-list-item&gt;
-   &lt;mat-divider&gt;&lt;/mat-divider&gt;
-   &lt;h3 matSubheader&gt;Notes&lt;/h3&gt;
-   &lt;mat-list-item *ngFor="let note of notes"&gt;
-      &lt;mat-icon mat-list-icon&gt;note&lt;/mat-icon&gt;
-       &lt;h4 matLine&gt;&#123;&#123;note.name&#125;&#125;&lt;/h4&gt; 
-      &lt;p matLine class="demo-2"&gt; &#123;&#123;note.updated&#125;&#125; &lt;/p&gt;
-   &lt;/mat-list-item&gt;
-&lt;/mat-list&gt;
-</code-viewer>
+   	&lt;h3 matSubheader&gt;Folders&lt;/h3&gt;
+   	&lt;mat-list-item *ngFor="let folder of folders"&gt;
+		&lt;mat-icon mat-list-icon&gt;folder&lt;/mat-icon&gt;
+		&lt;h4 matLine&gt;&#123;&#123;folder.name&#125;&#125;&lt;/h4&gt;
+    	&lt;p matLine class="demo-2"&gt; &#123;&#123;folder.updated&#125;&#125; &lt;/p&gt;
+   	&lt;/mat-list-item&gt;
+   	&lt;mat-divider&gt;&lt;/mat-divider&gt;
+   	&lt;h3 matSubheader&gt;Notes&lt;/h3&gt;
+   	&lt;mat-list-item *ngFor="let note of notes"&gt;
+      	&lt;mat-icon mat-list-icon&gt;note&lt;/mat-icon&gt;
+       	&lt;h4 matLine&gt;&#123;&#123;note.name&#125;&#125;&lt;/h4&gt; 
+      	&lt;p matLine class="demo-2"&gt; &#123;&#123;note.updated&#125;&#125; &lt;/p&gt;
+   	&lt;/mat-list-item&gt;
+&lt;/mat-list&gt;</code-viewer>

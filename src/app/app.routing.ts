@@ -154,7 +154,7 @@ export const AppRoutes: Routes = [
 				path: 'icon', component: DocViewerComponent, children: [
 					{ path: 'overview', component: DocsOverviewIcon },
 					{ path: 'examples', component: DocsExampleIcon },
-					{ path: '**', redirectTo: 'overview'}
+					{ path: '**', redirectTo: 'overview' }
 				]
 			}
 		]
