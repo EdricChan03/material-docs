@@ -6,8 +6,8 @@
 		"start": "npm run serve",
 		"serve": "npm run syntaxHighlight && ng serve",
 		"serveProd": "npm run syntaxHighlight && ng serve -prod",
-		"firebaseDeploy": "npm run syntaxHighlight && ng build -prod && firebase deploy && rm -rf dist/",
-		"firebaseDeploy2": "ng build -prod && firebase deploy && rm -rf dist/",
+		"githubPages2": "npm run syntaxHighlight && npm run githubPages",
+		"githubPages": "ng build --prod --base-href /angular-rss-reader/ --deploy-url /angular-rss-reader/ && ngh && rm -rf dist/",
 		"syntaxHighlight": "./tools/highlight-examples.sh"
 	},
 	"private": true,
