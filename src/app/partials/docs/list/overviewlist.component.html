@@ -17,13 +17,13 @@
 
 <p>Simple navigation lists can use the <code class="docs-code">mat-list-item</code> attribute on anchor tag elements directly:</p>
 <code-viewer language="html">&lt;mat-nav-list&gt;
-   &lt;a mat-list-item href="..." *ngFor="let link of links"&gt; &#123;&#123; link &#125;&#125; &lt;/a&gt;
+   &lt;a mat-list-item href="..." <span ngNonBindable>*ngFor="let link of links"</span>&gt; <span ngNonBindable>&#123;&#123; link &#125;&#125;</span> &lt;/a&gt;
 &lt;/mat-nav-list&gt;</code-viewer>
 <p>For more complex navigation lists (e.g. with more than one target per item), wrap the anchor element in an <code class="docs-code">&lt;mat-list-item&gt;</code>.
 
 <code-viewer language="html">&lt;mat-nav-list&gt;
-    &lt;mat-list-item *ngFor="let link of links"&gt;
-        &lt;a matLine href="..."&gt;&#123;&#123; link &#125;&#125;&lt;/a&gt;
+    &lt;mat-list-item <span ngNonBindable>*ngFor="let link of links"</span>&gt;
+        &lt;a matLine href="..."&gt;<span ngNonBindable>&#123;&#123; link &#125;&#125;</span>&lt;/a&gt;
         &lt;button mat-icon-button (click)="showInfo(link)"&gt;
             &lt;mat-icon&gt;info&lt;/mat-icon&gt;
         &lt;/button&gt;
@@ -33,7 +33,7 @@
 <h3 id="selection-lists">Selection lists</h3>
 <p>A selection list provides an interface for selecting values, where each list item is an option.</p>
 
-<!-- TODO: Example -->
+<example-viewer [exFiles]="selectionList"></example-viewer>
 
 <p>The options within a selection-list should not contain further interactive controls, such as buttons and anchors.</p>
 
@@ -43,21 +43,21 @@
 
 <code-viewer language="html">&lt;!-- two line list --&gt;
 &lt;mat-list&gt;
-    &lt;mat-list-item *ngFor="let message of messages"&gt;
-        &lt;h3 matLine&gt; &#123;&#123;message.from&#125;&#125; &lt;/h3&gt;
+    &lt;mat-list-item <span ngNonBindable>*ngFor="let message of messages"</span>&gt;
+        &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
         &lt;p matLine&gt;
             &lt;span&gt; &#123;&#123;message.subject&#125;&#125; &lt;/span&gt;
-            &lt;span class="demo-2"&gt; -- &#123;&#123;message.content&#125;&#125; &lt;/span&gt;
+            &lt;span class="demo-2"&gt; -- <span ngNonBindable>&#123;&#123;message.content&#125;&#125;</span> &lt;/span&gt;
     &lt;/p&gt;
   &lt;/mat-list-item&gt;
 &lt;/mat-list&gt;
 
 &lt;!-- three line list --&gt;
 &lt;mat-list&gt;
-    &lt;mat-list-item *ngFor="let message of messages"&gt;
-        &lt;h3 matLine&gt; &#123;&#123;message.from&#125;&#125; &lt;/h3&gt;
-        &lt;p matLine&gt; &#123;&#123;message.subject&#125;&#125; &lt;/p&gt;
-        &lt;p matLine class="demo-2"&gt; &#123;&#123;message.content&#125;&#125; &lt;/p&gt;
+    &lt;mat-list-item <span ngNonBindable>*ngFor="let message of messages"</span>&gt;
+        &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
+        &lt;p matLine&gt; <span ngNonBindable>&#123;&#123;message.subject&#125;&#125;</span> &lt;/p&gt;
+        &lt;p matLine class="demo-2"&gt; <span ngNonBindable>&#123;&#123;message.content&#125;&#125;</span> &lt;/p&gt;
     &lt;/mat-list-item&gt;
 &lt;/mat-list&gt;</code-viewer>
 
@@ -66,12 +66,12 @@
 <p>To add an icon to your list item, use the <code class="docs-code">mat-list-icon</code> attribute.</p>
 
 <code-viewer language="html">&lt;mat-list&gt;
-    &lt;mat-list-item *ngFor="let message of messages"&gt;
+    &lt;mat-list-item <span ngNonBindable>*ngFor="let message of messages"</span>&gt;
         &lt;mat-icon mat-list-icon&gt;folder&lt;/mat-icon&gt;
-        &lt;h3 matLine&gt; &#123;&#123;message.from&#125;&#125; &lt;/h3&gt;
+        &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
         &lt;p matLine&gt;
-            &lt;span&gt; &#123;&#123;message.subject&#125;&#125; &lt;/span&gt;
-            &lt;span class="demo-2"&gt; -- &#123;&#123;message.content&#125;&#125; &lt;/span&gt;
+            &lt;span&gt; <span ngNonBindable>&#123;&#123;message.subject&#125;&#125;</span> &lt;/span&gt;
+            &lt;span class="demo-2"&gt; -- <span ngNonBindable>&#123;&#123;message.content&#125;&#125;</span> &lt;/span&gt;
         &lt;/p&gt;
     &lt;/mat-list-item&gt;
 &lt;/mat-list&gt;</code-viewer>
@@ -85,8 +85,8 @@
         &lt;img mat-list-avatar src="..." alt="..."&gt;
         &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
         &lt;p matLine&gt;
-            &lt;span&gt; &#123;&#123;message.subject&#125;&#125; &lt;/span&gt;
-            &lt;span class="demo-2"&gt; -- &#123;&#123;message.content&#125;&#125; &lt;/span&gt;
+            &lt;span&gt; <span ngNonBindable>&#123;&#123;message.subject&#125;&#125;</span> &lt;/span&gt;
+            &lt;span class="demo-2"&gt; -- <span ngNonBindable>&#123;&#123;message.content&#125;&#125;</span> &lt;/span&gt;
         &lt;/p&gt;
     &lt;/mat-list-item&gt;
 &lt;/mat-list&gt;</code-viewer>
@@ -107,16 +107,16 @@
 
 <code-viewer language="html">&lt;mat-list&gt;
    	&lt;h3 matSubheader&gt;Folders&lt;/h3&gt;
-   	&lt;mat-list-item *ngFor="let folder of folders"&gt;
+   	&lt;mat-list-item <span ngNonBindable>*ngFor="let folder of folders"</span>&gt;
 		&lt;mat-icon mat-list-icon&gt;folder&lt;/mat-icon&gt;
-		&lt;h4 matLine&gt;&#123;&#123;folder.name&#125;&#125;&lt;/h4&gt;
-    	&lt;p matLine class="demo-2"&gt; &#123;&#123;folder.updated&#125;&#125; &lt;/p&gt;
+		&lt;h4 matLine&gt;<span ngNonBindable>&#123;&#123;folder.name&#125;&#125;</span>&lt;/h4&gt;
+    	&lt;p matLine class="demo-2"&gt; <span ngNonBindable>&#123;&#123;folder.updated&#125;&#125;</span> &lt;/p&gt;
    	&lt;/mat-list-item&gt;
    	&lt;mat-divider&gt;&lt;/mat-divider&gt;
    	&lt;h3 matSubheader&gt;Notes&lt;/h3&gt;
-   	&lt;mat-list-item *ngFor="let note of notes"&gt;
+   	&lt;mat-list-item <span ngNonBindable>*ngFor="let note of notes"</span>&gt;
       	&lt;mat-icon mat-list-icon&gt;note&lt;/mat-icon&gt;
-       	&lt;h4 matLine&gt;&#123;&#123;note.name&#125;&#125;&lt;/h4&gt; 
-      	&lt;p matLine class="demo-2"&gt; &#123;&#123;note.updated&#125;&#125; &lt;/p&gt;
+       	&lt;h4 matLine&gt;<span ngNonBindable>&#123;&#123;note.name&#125;&#125;</span>&lt;/h4&gt; 
+      	&lt;p matLine class="demo-2"&gt; <span ngNonBindable>&#123;&#123;note.updated&#125;&#125;</span> &lt;/p&gt;
    	&lt;/mat-list-item&gt;
 &lt;/mat-list&gt;</code-viewer>
