@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
     templateUrl: 'selection-list.html'
 })
 export class SelectionListExample {
-	typeOfFruits = ['Apples', 'Oranges', 'Grapefruit']
+	showStats: boolean = false;
+	typeOfFruits = ['Apples', 'Oranges', 'Grapefruit'];
 }

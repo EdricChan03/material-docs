@@ -5,8 +5,8 @@
 </mat-selection-list>
 
 <mat-card>
-	<mat-checkbox [(ngModel)]="stats">Show stats</mat-checkbox>
-	<div *ngIf="stats">
+	<mat-checkbox [(ngModel)]="showStats">Show stats</mat-checkbox>
+	<div *ngIf="showStats">
 		<p>Options selected: {{fruits.selectedOptions.selected.length}}</p>
 		<p>JSON data: {{fruits}}</p>
 	</div>
