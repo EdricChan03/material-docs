@@ -11,6 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const hljs = require('highlight.js');
+const chalk = require('chalk');
 const inputFile = process.argv[2];
 const outputPath = process.argv[3];
 
@@ -23,10 +24,10 @@ if (language == 'ts') {
 }
 fs.readFile(inputFile, 'utf8', (error, content) => {
 	if (error) {
-		console.error(`Could not read file ${inputFile}`);
+		console.error(chalk.red(`Could not read file ${inputFile}`));
 		process.exit(1);
 	}
-    console.log(`Highlighting file ${inputFile}`);
+    console.log(chalk.green(`Highlighting file ${inputFile}`));
 	let highlighted = hljs.highlight(language, content);
 
 	let filename = path.basename(inputFile);
@@ -35,8 +36,8 @@ fs.readFile(inputFile, 'utf8', (error, content) => {
 
 	fs.writeFile(outputFile, highlighted.value, (error) => {
         if (error) {
-            console.error(`Could not write file ${outputFile}`);
+            console.error(chalk.red(`Could not write file ${outputFile}`));
         }
-        console.log(`File highlighted at ${outputFile}`);
+        console.log(chalk.green(`File highlighted at ${outputFile}`));
     });
 });
