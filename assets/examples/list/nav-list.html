@@ -1,0 +1,9 @@
+<mat-nav-list>
+    <a
+        [href]="link.url"
+        mat-list-item
+        *ngFor="let link of links"
+        target="_blank">
+        {{link.desc}}
+    </a>
+</mat-nav-list>

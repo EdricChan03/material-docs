@@ -1,0 +1,17 @@
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.example-margin {
+    margin: 0 10px;
+}
+.example-uppercase-btn {
+    text-transform: uppercase;
+}
+.example-custom-tooltip {
+	background: rgb(255, 128, 128);
+    color: black;
+}

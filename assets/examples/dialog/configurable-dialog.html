@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>Dialog configuration</mat-card-title>
+    <mat-card-content>
+        <section class="example-section">
+            <label class="example-margin">Data for Dialog:</label>
+            <mat-form-field class="example-margin">
+                <input matInput [(ngModel)]="data" placeholder="Data">
+            </mat-form-field>
+        </section>
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="disableClose">Disable close</mat-checkbox>
+        </section>
+        <br>
+        <section class="example-section">
+            <button mat-button (click)="openDialog()" class="example-uppercase-btn example-margin">Open Dialog</button>
+        </section>
+    </mat-card-content>
+</mat-card>

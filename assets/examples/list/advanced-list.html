@@ -1,0 +1,15 @@
+<mat-nav-list>
+    <h3 matSubheader>Recent</h3>
+    <a mat-list-item *ngFor="let recent of recentFiles" routerLink=".">
+        <mat-icon mat-list-icon svgIcon="icons:{{recent.icon}}" [style.color]="recent.color"></mat-icon>
+        <h4 matLine>{{recent.name}}</h4>
+        <p matLine>{{recent.updated | date}}</p>
+        <button mat-icon-button (click)="openInfoDialog(recent)"><mat-icon>information</mat-icon></button>
+    </a>
+    <h3 matSubheader>Folders</h3>
+    <a mat-list-item *ngFor="let folder of folders" routerLink=".">
+        <mat-icon mat-list-icon [style.color]="folder.color">folder</mat-icon>
+        <h4 matLine>{{folder.name}}</h4>
+        <button mat-icon-button (click)="openInfoDialog(folder)"><mat-icon>information</mat-icon></button>
+    </a>
+</mat-nav-list>

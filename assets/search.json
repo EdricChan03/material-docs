@@ -1,0 +1,17 @@
+{
+	"$schema": "./search-schema.json",
+	"content": [
+		{
+			"type": [
+				
+			],
+			"id": 0,
+			"name": "Component"
+		},
+		{
+			"type": ["misc"],
+			"id": 1,
+			"name": "Misc"
+		}
+	]
+}

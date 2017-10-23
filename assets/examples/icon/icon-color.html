@@ -1,0 +1,18 @@
+<mat-card>
+	<mat-card-title>Icon with color property</mat-card-title>
+	<mat-card-content>
+		<mat-radio-group [(ngModel)]="color">
+			<mat-radio-button value>None</mat-radio-button>
+			<mat-radio-button value="primary">Primary</mat-radio-button>
+			<mat-radio-button value="accent">Accent</mat-radio-button>
+			<mat-radio-button value="warn">Warn</mat-radio-button>
+		</mat-radio-group>
+	</mat-card-content>
+</mat-card>
+
+<mat-card>
+	<mat-card-title>Result</mat-card-title>
+	<mat-card-content>
+		<mat-icon [color]="color">menu</mat-icon>
+	</mat-card-content>
+</mat-card>

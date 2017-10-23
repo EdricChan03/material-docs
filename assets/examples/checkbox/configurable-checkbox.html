@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-title>Checkbox Configuration</mat-card-title>
+    <mat-card-content>
+
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="disableRipple">Disable ripple</mat-checkbox>
+        </section>
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+        </section>
+        <section class="example-section">
+            <label class="example-margin">Color:</label>
+            <mat-radio-group [(ngModel)]="color">
+                <mat-radio-button class="example-margin" value="primary">Primary</mat-radio-button>
+                <mat-radio-button class="example-margin" value="accent">Accent</mat-radio-button>
+                <mat-radio-button class="example-margin" value="warn">Warn</mat-radio-button>
+            </mat-radio-group>
+        </section>
+        <section class="example-section">
+            <label class="example-margin">Label Position:</label>
+            <mat-radio-group [(ngModel)]="labelPos">
+                <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
+                <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="result">
+    <mat-card-content>
+        <mat-card-title>Result</mat-card-title>
+
+        <section class="example-section">
+            <mat-checkbox
+                class="example-margin"
+                [(ngModel)]="checked"
+                [(indeterminate)]="indeterminate"
+                [disableRipple]="disableRipple"
+                [disabled]="disabled"
+                [color]="color"
+                [labelPosition]="labelPos">
+                I'm a checkbox
+            </mat-checkbox>
+        </section>
+    </mat-card-content>
+</mat-card>

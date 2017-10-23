@@ -1,0 +1,17 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="redial()">
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voicemail</span>
+  </button>
+  <button mat-menu-item (click)="setAlerts()">
+    <mat-icon>{{alert ? 'notifications_off' : 'notifications'}}</mat-icon>
+    <span>{{alert ? 'Disable' : 'Enable'}} alerts</span>
+  </button>
+</mat-menu>
