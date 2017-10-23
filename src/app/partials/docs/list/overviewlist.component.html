@@ -46,7 +46,7 @@
     &lt;mat-list-item <span ngNonBindable>*ngFor="let message of messages"</span>&gt;
         &lt;h3 matLine&gt; <span ngNonBindable>&#123;&#123;message.from&#125;&#125;</span> &lt;/h3&gt;
         &lt;p matLine&gt;
-            &lt;span&gt; &#123;&#123;message.subject&#125;&#125; &lt;/span&gt;
+            &lt;span&gt; <span ngNonBindable>&#123;&#123;message.subject&#125;&#125;</span> &lt;/span&gt;
             &lt;span class="demo-2"&gt; -- <span ngNonBindable>&#123;&#123;message.content&#125;&#125;</span> &lt;/span&gt;
     &lt;/p&gt;
   &lt;/mat-list-item&gt;
