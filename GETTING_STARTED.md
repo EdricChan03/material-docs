@@ -108,4 +108,4 @@ Attribute | Description | Value(s) | Required?
 `desc` | The description of the notice (to be used as a tooltip) | `string` | `true`
 `link` | The link of the chip to go to | `string` | `false`
 `icon` | The icon of the chip (such as `warning`; ensure that it's in [Material icons](https://material.io/icons)) | `string` | `false`
-`color` | The color of the chip | `"primary"|"accent"|"warn"` | `false`
+`color` | The color of the chip | `"primary"&#124;"accent"&#124;"warn"` | `false`
