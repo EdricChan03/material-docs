@@ -7,7 +7,7 @@
 		"serve": "npm run syntaxHighlight && ng serve",
 		"serveProd": "npm run syntaxHighlight && ng serve -prod",
 		"githubPages2": "npm run syntaxHighlight && npm run githubPages",
-		"githubPages": "ng build --prod --base-href /angular-rss-reader/ --deploy-url /angular-rss-reader/ && ngh && rm -rf dist/",
+		"githubPages": "ng build --prod --base-href /material-docs/ --deploy-url /material-docs/ && ngh && rm -rf dist/",
 		"syntaxHighlight": "./tools/highlight-examples.sh"
 	},
 	"private": true,
