@@ -1,0 +1,27 @@
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'exclusive-button-toggle-example'</span>,
+    templateUrl: <span class="hljs-string">'exclusive-button-toggle.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ExclusiveButtonToggleExample {
+	multipleOpt: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+	toggles = [
+		{
+			value: <span class="hljs-string">"left"</span>,
+			icon: <span class="hljs-string">"format_align_left"</span>
+		},
+		{
+			value: <span class="hljs-string">"right"</span>,
+			icon: <span class="hljs-string">"format_align_right"</span>
+		},
+		{
+			value: <span class="hljs-string">"center"</span>,
+			icon: <span class="hljs-string">"format_align_center"</span>
+		},
+		{
+			value: <span class="hljs-string">"justify"</span>,
+			icon: <span class="hljs-string">"format_align_justify"</span>
+		}
+	]
+}

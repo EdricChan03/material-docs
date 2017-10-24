@@ -1,0 +1,82 @@
+<span class="hljs-keyword">import</span> { MatDialogRef, MatDialog } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/dialog'</span>;
+<span class="hljs-keyword">import</span> { Component, ViewEncapsulation } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-meta">@Component</span>({
+	selector: <span class="hljs-string">'misc-onboarding-example'</span>,
+	templateUrl: <span class="hljs-string">'onboarding-example.html'</span>,
+	styleUrls: [<span class="hljs-string">'onboarding-example.css'</span>],
+	encapsulation: ViewEncapsulation.None
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MiscOnboardingExample {
+	result: <span class="hljs-built_in">string</span>;
+	disableClose: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> dialog: MatDialog</span>){}
+	getStarted() {
+		<span class="hljs-keyword">let</span> dialogRef = <span class="hljs-keyword">this</span>.dialog.open(MiscOnboardingExampleDialog, {panelClass: <span class="hljs-string">'onboarding-dialog-content'</span>, disableClose: <span class="hljs-keyword">this</span>.disableClose});
+		dialogRef.afterClosed().subscribe(<span class="hljs-function"><span class="hljs-params">result</span>=&gt;</span> {
+			<span class="hljs-keyword">if</span> (result == <span class="hljs-string">'skip'</span>) {
+				<span class="hljs-keyword">this</span>.result = <span class="hljs-string">"User clicked the skip button."</span>;
+			} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (result == <span class="hljs-string">'done'</span>) {
+				<span class="hljs-keyword">this</span>.result = <span class="hljs-string">"User clicked the getting started button."</span>;
+			} <span class="hljs-keyword">else</span> {
+				<span class="hljs-keyword">this</span>.result = <span class="hljs-string">"User clicked outside the dialog or pressed the escape key"</span>;
+			}
+		})
+	}
+}
+
+<span class="hljs-meta">@Component</span>({
+	selector: <span class="hljs-string">'misc-onboarding-example-dialog'</span>,
+	templateUrl: <span class="hljs-string">'onboarding-example-dialog.html'</span>,
+	styleUrls: [<span class="hljs-string">'onboarding-example.css'</span>],
+	encapsulation: ViewEncapsulation.None
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MiscOnboardingExampleDialog {
+	pageIndex: <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>;
+	isPrevDisabled: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">true</span>;
+	isNextDisabled: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+	dots: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+ 	<span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> dialogRef: MatDialogRef&lt;MiscOnboardingExampleDialog&gt;</span>){
+	}
+	<span class="hljs-comment">/**
+	 * Goes to the previous step
+	 */</span>
+	previous() {
+		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.pageIndex == <span class="hljs-number">1</span>) {
+			<span class="hljs-comment">// Can't navigate</span>
+			<span class="hljs-keyword">this</span>.isPrevDisabled = <span class="hljs-literal">true</span>;
+			<span class="hljs-keyword">this</span>.isNextDisabled = <span class="hljs-literal">false</span>;
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.pageIndex &lt; <span class="hljs-number">5</span>) {
+			<span class="hljs-keyword">this</span>.isNextDisabled = <span class="hljs-literal">false</span>;
+			<span class="hljs-comment">// Can navigate</span>
+			<span class="hljs-keyword">this</span>.pageIndex -= <span class="hljs-number">1</span>;
+			<span class="hljs-keyword">this</span>.isPrevDisabled = <span class="hljs-literal">false</span>;
+		}
+	}
+	<span class="hljs-comment">/**
+	 * Goes to the next step
+	 */</span>
+	next() {
+		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.pageIndex == <span class="hljs-number">4</span>) {
+			<span class="hljs-comment">// Can't navigate</span>
+			<span class="hljs-keyword">this</span>.isNextDisabled = <span class="hljs-literal">true</span>;
+			<span class="hljs-keyword">this</span>.isPrevDisabled = <span class="hljs-literal">false</span>;
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.pageIndex &gt; <span class="hljs-number">0</span>) {
+			<span class="hljs-comment">// Can navigate</span>
+			<span class="hljs-keyword">this</span>.isPrevDisabled = <span class="hljs-literal">false</span>;
+			<span class="hljs-keyword">this</span>.isNextDisabled = <span class="hljs-literal">false</span>;
+			<span class="hljs-keyword">this</span>.pageIndex += <span class="hljs-number">1</span>;
+		}
+	}
+	<span class="hljs-comment">/**
+	 * Whether the step is selected
+	 * @param {number} index The index of the div
+	 */</span>
+	isSelected(index: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">boolean</span> {
+		<span class="hljs-keyword">if</span> (index == <span class="hljs-keyword">this</span>.pageIndex) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		} <span class="hljs-keyword">else</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+	}
+}

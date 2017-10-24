@@ -1,0 +1,34 @@
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">matDialogTitle</span>&gt;</span>Configurable dialog<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-dialog-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{data}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Update size:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Width"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"1000"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"height"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Height"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"1000"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"changeSize()"</span>&gt;</span>Update Size<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Update position:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"top"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Top"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"bottom"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Bottom"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"left"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Left"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"right"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Right"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"changePos()"</span>&gt;</span>Update Position<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-dialog-content</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-dialog-actions</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"closeDialog()"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-dialog-actions</span>&gt;</span>

@@ -1,0 +1,69 @@
+<span class="hljs-keyword">import</span> { MatDialog, MatDialogRef } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material'</span>;
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'configurable-dialog-example'</span>,
+    templateUrl: <span class="hljs-string">'configurable-dialog.html'</span>,
+    styleUrls: [<span class="hljs-string">'configurable-dialog.css'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ConfigurableDialogExample {
+    data: <span class="hljs-built_in">string</span> = <span class="hljs-string">"Jazzy jazzy jazz"</span>;
+    disableClose: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> dialog: MatDialog</span>) { }
+
+    openDialog() {
+        <span class="hljs-keyword">let</span> dialogRef = <span class="hljs-keyword">this</span>.dialog.open(ConfigurableDialog);
+        dialogRef.componentInstance.data = <span class="hljs-keyword">this</span>.data;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.disableClose) {
+            dialogRef.disableClose = <span class="hljs-literal">true</span>;
+        }
+    }
+}
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'configurable-dialog'</span>,
+    templateUrl: <span class="hljs-string">'configurable-dialog-content.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ConfigurableDialog {
+    width: <span class="hljs-built_in">number</span>;
+    height: <span class="hljs-built_in">number</span>;
+    data: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">any</span>;
+    top: <span class="hljs-built_in">number</span>;
+    left: <span class="hljs-built_in">number</span>;
+    right: <span class="hljs-built_in">number</span>;
+    bottom: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> dialogRef: MatDialogRef&lt;ConfigurableDialog&gt;</span>) { }
+
+    changeSize() {
+        <span class="hljs-keyword">let</span> stringWidth, stringHeight;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.width) {
+            stringWidth = <span class="hljs-keyword">this</span>.width.toString();
+            stringWidth += <span class="hljs-string">'px'</span>;
+        } <span class="hljs-keyword">else</span> {
+            stringWidth = <span class="hljs-string">"600px"</span>;
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.height) {
+            stringHeight = <span class="hljs-keyword">this</span>.height.toString();
+            stringHeight += <span class="hljs-string">'px'</span>;
+        } <span class="hljs-keyword">else</span> {
+            stringHeight = <span class="hljs-string">"500px"</span>;
+        }
+        <span class="hljs-keyword">this</span>.dialogRef.updateSize(stringWidth, stringHeight);
+    }
+    changePos() {
+        <span class="hljs-keyword">let</span> stringLeft, stringRight, stringTop, stringBottom;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.top &amp;&amp; <span class="hljs-keyword">this</span>.bottom &amp;&amp; <span class="hljs-keyword">this</span>.left &amp;&amp; <span class="hljs-keyword">this</span>.right) {
+            stringTop = <span class="hljs-keyword">this</span>.top.toString();
+            stringTop += <span class="hljs-string">'px'</span>;
+            stringBottom = <span class="hljs-keyword">this</span>.bottom.toString();
+            stringBottom += <span class="hljs-string">'px'</span>;
+            stringLeft = <span class="hljs-keyword">this</span>.left.toString();
+            stringLeft += <span class="hljs-string">'px'</span>;
+            stringRight = <span class="hljs-keyword">this</span>.right.toString();
+            stringRight += <span class="hljs-string">'px'</span>;
+            <span class="hljs-keyword">this</span>.dialogRef.updatePosition({ top: stringTop, bottom: stringBottom, left: stringLeft, right: stringRight });
+        }
+    }
+    closeDialog() {
+        <span class="hljs-keyword">this</span>.dialogRef.close();
+    }
+}

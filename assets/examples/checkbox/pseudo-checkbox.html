@@ -10,11 +10,13 @@
 <mat-card>
 	<mat-card-title>Pseudo checkbox configuration</mat-card-title>
 	<mat-card-content>
-		<mat-select [(ngModel)]="state" style="width:200px">
-			<mat-option value="checked">Checked</mat-option>
-			<mat-option value="unchecked">Unchecked</mat-option>
-			<mat-option value="indeterminate">Indeterminate</mat-option>
-		</mat-select>
+		<mat-form-field style="width:200px">
+			<mat-select [(ngModel)]="state" placeholder="State of checkbox">
+				<mat-option value="checked">Checked</mat-option>
+				<mat-option value="unchecked">Unchecked</mat-option>
+				<mat-option value="indeterminate">Indeterminate</mat-option>
+			</mat-select>
+		</mat-form-field>
 	</mat-card-content>
 </mat-card>
 <mat-card>

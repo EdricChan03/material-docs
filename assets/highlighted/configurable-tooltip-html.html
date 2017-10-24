@@ -1,0 +1,33 @@
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-card</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-card-title</span>&gt;</span>Tooltip configuration<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card-title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-card-content</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Tooltip Position"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"tooltipPosition"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mat-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let pos of positions"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"pos.val"</span>&gt;</span>{{pos.displayVal}}<span class="hljs-tag">&lt;/<span class="hljs-name">mat-option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Tooltip content<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"tooltipContent"</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"tooltipDisabled"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Disable Tooltip<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"tooltipCustomClass"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Has Custom Class<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-card-content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-card</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-card-content</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section example-result"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>
+                [<span class="hljs-attr">matTooltip</span>]=<span class="hljs-string">"tooltipContent"</span>
+                [<span class="hljs-attr">matTooltipPosition</span>]=<span class="hljs-string">"tooltipPosition"</span>
+                [<span class="hljs-attr">matTooltipDisabled</span>]=<span class="hljs-string">"tooltipDisabled"</span>
+                [<span class="hljs-attr">matTooltipClass</span>]=<span class="hljs-string">"{'example-custom-tooltip': tooltipCustomClass}"</span>&gt;</span>
+                Content
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-card-content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card</span>&gt;</span>

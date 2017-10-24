@@ -1,0 +1,12 @@
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'nav-list-example'</span>,
+    templateUrl: <span class="hljs-string">'nav-list.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NavListExample {
+    links: <span class="hljs-built_in">any</span> = [
+        {url: <span class="hljs-string">'https://google.com'</span>, desc: <span class="hljs-string">'Google'</span>},
+        {url: <span class="hljs-string">'https://material.angular.io'</span>, desc: <span class="hljs-string">'Material.Angular.io'</span>},
+        {url: <span class="hljs-string">'https://github.com'</span>, desc: <span class="hljs-string">'Github'</span>}
+    ]
+}

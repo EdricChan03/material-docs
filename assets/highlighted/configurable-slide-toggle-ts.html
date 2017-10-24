@@ -1,0 +1,13 @@
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'configurable-slide-toggle-example'</span>,
+    templateUrl: <span class="hljs-string">'configurable-slide-toggle.html'</span>,
+    styleUrls: [<span class="hljs-string">'configurable-slide-toggle.css'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ConfigurableSlideToggleExample {
+    checked: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+    disabled: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+    color: <span class="hljs-built_in">string</span> = <span class="hljs-string">""</span>;
+    disableRipple: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+    labelPos: <span class="hljs-built_in">string</span> = <span class="hljs-string">"after"</span>;
+}

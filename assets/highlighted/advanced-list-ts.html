@@ -1,0 +1,62 @@
+<span class="hljs-keyword">import</span> { MatDialogRef, MatDialog } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material'</span>;
+<span class="hljs-keyword">import</span> { Component, AfterViewInit } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> hljs <span class="hljs-keyword">from</span> <span class="hljs-string">'highlight.js'</span>;
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'advanced-list-example'</span>,
+    templateUrl: <span class="hljs-string">'advanced-list.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AdvancedListExample {
+	<span class="hljs-comment">// Note that these icons are custom and are provided through a custom iconset</span>
+    recentFiles: <span class="hljs-built_in">any</span> = [
+        {
+            icon: <span class="hljs-string">"file-word-box"</span>,
+            name: <span class="hljs-string">"Private.docx"</span>,
+			updated: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2017</span>, <span class="hljs-number">3</span>, <span class="hljs-number">14</span>),
+			color: <span class="hljs-string">"#2a5699"</span>
+        },
+        {
+            icon: <span class="hljs-string">"file-powerpoint-box"</span>,
+            name: <span class="hljs-string">"Work.pptx"</span>,
+			updated: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2017</span>, <span class="hljs-number">4</span>, <span class="hljs-number">21</span>),
+			color: <span class="hljs-string">"#d24625"</span>
+		},
+		{
+			icon: <span class="hljs-string">'file-excel-box'</span>,
+			name: <span class="hljs-string">"Taxes.xlsx"</span>,
+			updated: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2017</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>),
+			color: <span class="hljs-string">"#207347"</span>
+		}
+    ]
+    folders: <span class="hljs-built_in">any</span> = [
+        {
+            color: <span class="hljs-string">"red"</span>,
+            name: <span class="hljs-string">"Work"</span>
+        },
+        {
+            color: <span class="hljs-string">"yellow"</span>,
+            name: <span class="hljs-string">"Fun"</span>
+        },
+        {
+            color: <span class="hljs-string">"lightblue"</span>,
+            name: <span class="hljs-string">"Kids"</span>
+        }
+    ]
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> dialog: MatDialog</span>){}
+    openInfoDialog(file: <span class="hljs-built_in">any</span>) {
+        <span class="hljs-keyword">let</span> dialogRef = <span class="hljs-keyword">this</span>.dialog.open(AdvancedListDialog);
+        dialogRef.componentInstance.file = file;
+    }
+}
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'advanced-list-dialog'</span>,
+    templateUrl: <span class="hljs-string">'advanced-list-dialog.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AdvancedListDialog <span class="hljs-keyword">implements</span> AfterViewInit{
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> dialogRef: MatDialogRef&lt;AdvancedListDialog&gt;</span>){}
+	file: <span class="hljs-built_in">any</span>;
+	ngAfterViewInit() {
+		hljs.highlightBlock(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'code'</span>));
+	}
+}

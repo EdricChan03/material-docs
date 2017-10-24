@@ -1,0 +1,26 @@
+<span class="hljs-keyword">import</span> { MatDialog } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/material"</span>;
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;
+
+<span class="hljs-meta">@Component</span>({
+	selector: <span class="hljs-string">'icon-menu-example'</span>,
+	templateUrl: <span class="hljs-string">'icon-menu.html'</span>
+})
+<span class="hljs-comment">/**
+ * Based on the original AngularJS Material example
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> IconMenuExample {
+	alert: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> dialog: MatDialog</span>){}
+	redial() {
+		<span class="hljs-keyword">this</span>.dialog.open(IconMenuDialog);
+	}
+	setAlerts() {
+		<span class="hljs-keyword">this</span>.alert = !<span class="hljs-keyword">this</span>.alert;
+	}
+}
+
+<span class="hljs-meta">@Component</span>({
+	selector: <span class="hljs-string">'icon-menu-dialog'</span>,
+	templateUrl: <span class="hljs-string">'icon-menu-dialog.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> IconMenuDialog {}

@@ -1,0 +1,27 @@
+<span class="hljs-keyword">import</span> { MatDialogRef, MatDialog } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material'</span>;
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'dialog-result-example'</span>,
+    templateUrl: <span class="hljs-string">'dialog-result.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> DialogResultExample {
+    chosenResult: <span class="hljs-built_in">string</span>;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> dialog: MatDialog</span>){}
+
+    openDialog() {
+        <span class="hljs-keyword">let</span> dialogRef = <span class="hljs-keyword">this</span>.dialog.open(DialogResult);
+        dialogRef.afterClosed().subscribe(<span class="hljs-function"><span class="hljs-params">result</span>=&gt;</span> {
+            <span class="hljs-keyword">this</span>.chosenResult = result;
+        })
+    }
+}
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'dialog-result'</span>,
+    templateUrl: <span class="hljs-string">'dialog-result-content.html'</span>,
+    styleUrls: [<span class="hljs-string">'dialog-result-content.css'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> DialogResult {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> dialogRef: MatDialogRef&lt;DialogResult&gt;</span>){}
+}

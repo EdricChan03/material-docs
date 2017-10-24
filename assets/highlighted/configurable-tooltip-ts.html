@@ -1,0 +1,22 @@
+<span class="hljs-keyword">import</span> { Component, ViewEncapsulation } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-meta">@Component</span>({
+    selector: <span class="hljs-string">'configurable-tooltip-example'</span>,
+    templateUrl: <span class="hljs-string">'configurable-tooltip.html'</span>,
+    styleUrls: [<span class="hljs-string">'configurable-tooltip.css'</span>],
+    encapsulation: ViewEncapsulation.None
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ConfigurableTooltipExample {
+    positions = [
+        { val: <span class="hljs-string">'above'</span>, displayVal: <span class="hljs-string">'Above'</span> },
+        { val: <span class="hljs-string">'below'</span>, displayVal: <span class="hljs-string">'Below'</span> },
+        { val: <span class="hljs-string">'left'</span>, displayVal: <span class="hljs-string">'Left'</span> },
+        { val: <span class="hljs-string">'right'</span>, displayVal: <span class="hljs-string">'Right'</span> },
+        { val: <span class="hljs-string">'before'</span>, displayVal: <span class="hljs-string">'Before'</span> },
+        { val: <span class="hljs-string">'after'</span>, displayVal: <span class="hljs-string">'After'</span> }
+    ]
+    tooltipPosition: <span class="hljs-built_in">string</span> = <span class="hljs-string">"above"</span>;
+    tooltipContent: <span class="hljs-built_in">string</span> = <span class="hljs-string">"tooltip"</span>;
+    tooltipDisabled: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+    tooltipCustomClass: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+}
