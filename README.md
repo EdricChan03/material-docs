@@ -1,5 +1,7 @@
 # Material Docs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Chan4077/material-docs.svg)](https://greenkeeper.io/)
+
 Welcome to `material-docs` (unofficial)! This is basically the same as Angular's <https://material.angular.io>, but with more examples along with app showcases (currently work in progress).
 
 ## Development server
