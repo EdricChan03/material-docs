@@ -24,7 +24,7 @@ if (language == 'ts') {
 }
 fs.readFile(inputFile, 'utf8', (error, content) => {
 	if (error) {
-		console.error(chalk.red(`Could not read file ${inputFile}`));
+		console.error(chalk.red.bold(`Could not read file ${inputFile}`));
 		process.exit(1);
 	}
     console.log(chalk.green(`Highlighting file ${inputFile}`));
@@ -36,7 +36,7 @@ fs.readFile(inputFile, 'utf8', (error, content) => {
 
 	fs.writeFile(outputFile, highlighted.value, (error) => {
         if (error) {
-            console.error(chalk.red(`Could not write file ${outputFile}`));
+            console.error(chalk.red.bold(`Could not write file ${outputFile}`));
         }
         console.log(chalk.green(`File highlighted at ${outputFile}`));
     });
