@@ -23,11 +23,11 @@ export class CodeViewerComponent implements AfterViewInit, DoCheck {
             try {
                 return document.execCommand("copy");  // Security exception may be thrown by some browsers.
             } catch (e) {
-                this.snackbar.open(`Error: ${e}`, null, {horizontalPosition: "start", duration: 6000});
+                this.snackbar.open(`Error: ${e}`, null, {horizontalPosition: "start", duration: 6000, extraClasses: ['mat-elevation-z2']});
                 return false;
             } finally {
                 document.body.removeChild(textarea);
-                this.snackbar.open('Code copied to clipboard', null, { duration: 5000, horizontalPosition: "start" });
+                this.snackbar.open('Code copied to clipboard', null, { duration: 5000, horizontalPosition: "start", extraClasses: ['mat-elevation-z2'] });
             }
         }
     }
