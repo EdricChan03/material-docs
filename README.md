@@ -1,3 +1,5 @@
+> This repo is now **deprecated**. Please use the official docs by the Angular Material team available at <https://material.angular.io> instead.
+
 # Material Docs
 
 Welcome to `material-docs` (unofficial)! This is basically the same as Angular's <https://material.angular.io>, but with more examples along with app showcases (currently work in progress).
