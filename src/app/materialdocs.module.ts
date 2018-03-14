@@ -73,6 +73,8 @@ const MATERIAL_MODULES = [
 	MatTabsModule,
 	MatToolbarModule,
 	MatTooltipModule,
+]
+const CDK_MODULES = [
 	A11yModule,
 	BidiModule,
 	CdkTableModule,
@@ -82,7 +84,6 @@ const MATERIAL_MODULES = [
 	PortalModule
 ]
 @NgModule({
-	imports: MATERIAL_MODULES,
-	exports: MATERIAL_MODULES
+	exports: [MATERIAL_MODULES, CDK_MODULES]
 })
-export class DocsMaterialModule {}
+export class DocsMaterialModule { }
