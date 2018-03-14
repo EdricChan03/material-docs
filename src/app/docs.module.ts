@@ -12,10 +12,9 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocsMaterialModule } from './materialdocs.module';
 import { DocumentationItems } from './partials/documentation-items';
+import { CommonModule } from '@angular/common';
 
 // Docs misc
 import { DocsHeader } from './shared/header.docs';
@@ -170,8 +169,7 @@ export const DOC_DIALOGS = [
 
 @NgModule({
 	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
+		CommonModule,
 		RouterModule,
 		FormsModule,
 		FlexLayoutModule,

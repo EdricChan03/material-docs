@@ -72,8 +72,8 @@ const MATERIAL_MODULES = [
 	MatTableModule,
 	MatTabsModule,
 	MatToolbarModule,
-	MatTooltipModule,
-]
+	MatTooltipModule
+];
 const CDK_MODULES = [
 	A11yModule,
 	BidiModule,
@@ -82,8 +82,13 @@ const CDK_MODULES = [
 	OverlayModule,
 	PlatformModule,
 	PortalModule
+];
+const MODULES = [
+	MATERIAL_MODULES,
+	CDK_MODULES
 ]
 @NgModule({
-	exports: [MATERIAL_MODULES, CDK_MODULES]
+	exports: MODULES,
+	imports: MODULES
 })
 export class DocsMaterialModule { }

@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import 'hammerjs';
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		CommonModule,
 		FormsModule,
 		HttpClientModule,
 		FlexLayoutModule,
