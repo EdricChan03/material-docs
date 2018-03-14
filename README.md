@@ -54,18 +54,12 @@ This section is for all commands listed in the `package.json` and what they do.
 ### Commands
 Command | Description
 ---|---
-`serve` | Highlights all example files, then serves the app.
-`serveProd` | Similar to the `serve` command, but the environment is set to `production` mode.
-`firebaseDeploy` | Deploys the app to firebase. **(PRIVATE)**
-`firebaseDeploy2` | Similar to the `firebaseDeploy` command, but without highlighting all example files. **(PRIVATE)**
-`syntaxHighlight` | Does a highlight of all example files and will take ~1 minute to highlight.
-
-#### Usage
-
-```bash
-npm run *
-```
-Where you have to replace `*` with one of the [commands](#commands)
+`npm start` | An alias of `npm run serve`.
+`npm run serve` | Highlights all example files, then serves the app.
+`npm run serveProd` | Similar to the `serve` command, but the environment is set to `production` mode.
+`npm run githubPages` | Deploys the app to Github Pages. **(INTERNAL)**
+`npm run githubPages2` | Similar to the `githubPages` command, but highlights all example files. **(INTERNAL)**
+`npm run syntaxHighlight` | Does a highlight of all example files and will take ~1 minute to highlight.
 
 ### Screenshots
 
