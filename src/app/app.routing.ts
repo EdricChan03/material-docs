@@ -1,3 +1,4 @@
+import { DocsStylesBtn } from './partials/docs/button/stylesbutton.component';
 import { DocsExampleIcon } from './partials/docs/icon/exampleicon.component';
 import { DocsAPIBtn } from './partials/docs/button/apibutton.component';
 import { DocsOverviewExpansion } from './partials/docs/expansion/overviewexpansionpanel.component';
@@ -75,6 +76,7 @@ export const AppRoutes: Routes = [
 					{ path: 'overview', component: DocsOverviewBtn },
 					{ path: 'examples', component: DocsExampleBtn },
 					{ path: 'api', component: DocsAPIBtn },
+					{ path: 'styles', component: DocsStylesBtn },
 					{ path: '**', redirectTo: 'overview' }
 				]
 			},

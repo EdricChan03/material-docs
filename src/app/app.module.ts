@@ -11,7 +11,7 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -26,7 +26,7 @@ import 'hammerjs';
 		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
-		HttpModule,
+		HttpClientModule,
 		FlexLayoutModule,
 		DocsMaterialModule,
 		DocsModule,

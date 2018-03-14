@@ -11,13 +11,13 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { VERSION } from '@angular/material';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Http } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 import { trigger, state, style, transition, animate } from "@angular/animations";
+import { HttpClient } from '@angular/common/http';
 @Component({
-	selector: 'material2-docs',
+	selector: 'material-docs',
 	templateUrl: './app.component.html',
 	animations: [
 		trigger('searchState', [
@@ -118,7 +118,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	searchActive: string = "active";
 	showToolbar: boolean;
 	searchDoc: string;
-	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MatDialog, private overlay: OverlayContainer, private http: Http, private meta: Meta, private docItems: DocumentationItems) {
+	constructor(media: ObservableMedia, private router: Router, private shared: SharedComponent, private dialog: MatDialog, private overlay: OverlayContainer, private http: HttpClient, private meta: Meta, private docItems: DocumentationItems) {
 		/**
 		 * The watcher for the sidenav `mode`
 		 */
@@ -155,9 +155,8 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 */
 	refresh() {
 		this.isRefreshing = true;
-		this.http.get("https://api.github.com/repos/Chan4077/material2-docs/commits")
+		this.http.get("https://api.github.com/repos/Chan4077/material-docs/commits")
 			.delay(1000)
-			.map(res => res.json())
 			.subscribe(res => {
 				this.latestCommit = res[0];
 				this.latestCommitCommit = res[0].commit;
@@ -170,7 +169,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	 */
 	viewOnGithub() {
 		if (confirm("Are you sure you want to go to the source code?")) {
-			window.open('https://github.com/Chan4077/material2-docs');
+			window.open('https://github.com/Chan4077/material-docs');
 		} else {
 			console.error('User clicked cancel.');
 		}
@@ -187,7 +186,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 	toggleTheme() {
 		this.isDark = !this.isDark;
 		let overlayEl = this.overlay.getContainerElement();
-		let element = document.querySelector('material2-docs');
+		let element = document.querySelector('material-docs');
 		if (!this.checkIsDark()) {
 			if (overlayEl.classList.contains('docs-light')) {
 				overlayEl.classList.remove('docs-light');
@@ -251,7 +250,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 		}
 	}
 	ngAfterContentChecked() {
-		let element = document.querySelector('material2-docs');
+		let element = document.querySelector('material-docs');
 		element.classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
 		this.overlay.getContainerElement().classList.add(this.checkIsDark() ? 'docs-dark' : 'docs-light');
 		this.docTitle = this.shared.getTitle();
@@ -279,7 +278,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
 					<small>This docs site is currently running version <code class="docs-code">{{version.full}}</code> (master)</small>
 				</mat-dialog-content>
 				<mat-dialog-actions align="end">
-					<a mat-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material2-docs" target="_blank" matDialogClose>View Source Code</a>
+					<a mat-button color="accent" class="docs-btn" href="https://github.com/Chan4077/material-docs" target="_blank" matDialogClose>View Source Code</a>
 					<button mat-button matDialogClose class="docs-btn" color="primary">Close</button>
 				</mat-dialog-actions>
 			  `
@@ -288,14 +287,6 @@ export class AboutDialog {
 	constructor(private dialogRef: MatDialogRef<AboutDialog>) { }
 	get version() {
 		return VERSION;
-	}
-	viewSourceCode() {
-		if (confirm("Are you sure you want to go to the source code?")) {
-			window.open('');
-			this.dialogRef.close();
-		} else {
-			console.error('User clicked cancel.');
-		}
 	}
 }
 
@@ -312,10 +303,10 @@ export class AboutDialog {
 })
 export class LicenseDialog implements OnInit {
 	license: string;
-	constructor(private http: Http, private dialogRef: MatDialogRef<LicenseDialog>) { }
+	constructor(private http: HttpClient, private dialogRef: MatDialogRef<LicenseDialog>) { }
 
 	ngOnInit() {
-		this.http.get('/assets/LICENSE').map(res => res.text()).subscribe(res => {
+		this.http.get('/assets/LICENSE', {responseType: 'text'}).subscribe(res => {
 			this.license = res;
 		})
 	}

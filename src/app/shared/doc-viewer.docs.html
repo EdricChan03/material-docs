@@ -1,6 +1,6 @@
 <nav mat-tab-nav-bar color="accent">
     <a mat-tab-link
-       *ngFor="let tabLink of [{'label': 'Overview', 'link': 'overview'}, {'label': 'API', 'link': 'api'}, {'label': 'Examples', 'link': 'examples'}]"
+       *ngFor="let tabLink of [{'label': 'Overview', 'link': 'overview'}, {'label': 'API', 'link': 'api'}, {'label': 'Examples', 'link': 'examples'}, {'label': 'Styles', 'link': 'styles'}]"
        [routerLink]="tabLink.link"
        routerLinkActive #rla="routerLinkActive"
        [active]="rla.isActive"

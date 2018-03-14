@@ -29,9 +29,9 @@ export class DocsTOC implements OnInit {
 		for (var i = 0; i < this.headerLinks.length; i++) {
 			if (this.headerLinks[i].id) {
 				let tempVar = {} as TOCLink;
-				tempVar["link"] = this.headerLinks[i].id;
-				tempVar["name"] = this.domSanitizer.bypassSecurityTrustHtml(this.headerLinks[i].children[0].innerHTML);
-				tempVar["type"] = this.headerLinks[i].children[0].localName;
+				tempVar['link'] = this.headerLinks[i].id;
+				tempVar['name'] = this.domSanitizer.bypassSecurityTrustHtml(this.headerLinks[i].children[0].innerHTML);
+				tempVar['type'] = this.headerLinks[i].children[0].localName;
 				this.links.push(tempVar);
 			}
 		}
@@ -42,7 +42,7 @@ export interface TOCLink {
 	 * The type of header
 	 * @type {string}
 	 */
-	type: "h3" | "h4" | string;
+	type: 'h3' | 'h4' | string;
 	/**
 	 * The link to go to.
 	 * @type {string}

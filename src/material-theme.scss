@@ -1,9 +1,6 @@
-/* Roboto font weights 300, 400, 500 */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons');
+@import 'assets/md-font/material-icons.css';
 @import '~@angular/material/theming';
-/* Firacode font. TODO: Revert back to Roboto Mono or add a setting to enable this font */
-@import '~firacode/fira_code.css';
+
 @include mat-core();
 @mixin material-docs-theme($theme) {
     $primary: map-get($theme, primary);
@@ -42,7 +39,7 @@
 }
 
 $docs-light-primary: mat-palette($mat-indigo);
-$docs-light-accent: mat-palette($mat-pink);
+$docs-light-accent: mat-palette($mat-pink, A200, A100, A400);
 $docs-light-theme: mat-light-theme($docs-light-primary,
 $docs-light-accent);
 .docs-light,
@@ -55,7 +52,7 @@ $docs-light-accent);
     	color: #fff !important;
     }
     .docs-title {
-        background-color: mat-color($docs-light-accent);
+        background-color: mat-color($docs-light-primary);
         color: white;
     }
     a.docs-link {
@@ -70,10 +67,7 @@ $docs-light-accent);
 }
 
 $docs-dark-primary: mat-palette($mat-blue-grey);
-$docs-dark-accent: mat-palette($mat-amber,
-A200,
-A100,
-A400);
+$docs-dark-accent: mat-palette($mat-amber, A200, A100, A400);
 $docs-dark-warn: mat-palette($mat-deep-orange);
 $docs-dark-theme: mat-dark-theme($docs-dark-primary,
 $docs-dark-accent,
@@ -88,8 +82,8 @@ $docs-dark-warn);
         color: black !important;
     }
     .docs-title {
-        background-color: mat-color($docs-dark-accent);
-        color: black;
+        background-color: mat-color($docs-dark-primary);
+        color: white;
     }
     a.docs-link {
         color: mat-color($docs-dark-accent);
@@ -115,7 +109,7 @@ TODO: Customize of themes.
 .docs-example-code,
 code,
 .hljs {
-    font-family: "Fira Code", monospace;
+    font-family: "Roboto Mono", monospace;
     white-space: pre-wrap;
     font-size: 14px;
     tab-size: 4;
@@ -199,10 +193,10 @@ body {
 }
 
 .docs-title h1 {
-    font-weight: 300;
-    font-size: 30px;
-    margin: 0;
-    padding: 50px;
+	font-weight: 300;
+	margin: 0;
+	padding: 28px 8px;
+	font-size: 20px;
 }
 
 .docs-title {

@@ -1,3 +1,4 @@
+import { DocsStylesBtn } from './partials/docs/button/stylesbutton.component';
 // Doc guides
 import {
 	DocsThemingComponentGuide,
@@ -74,7 +75,8 @@ import { NgModule } from '@angular/core';
 const DOC_BUTTON_COMPONENTS = [
 	DocsOverviewBtn,
 	DocsExampleBtn,
-	DocsAPIBtn
+	DocsAPIBtn,
+	DocsStylesBtn
 ];
 const DOC_BUTTON_TOGGLE_COMPONENTS = [
 	DocsOverviewButtonToggle,
